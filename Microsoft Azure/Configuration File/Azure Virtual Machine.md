@@ -65,3 +65,61 @@
   }
 }
 ```
+
+> **Title** : Get network interface
+
+> **API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/network-interfaces/get
+
+> **Version** : 2021-08-01
+
+> **API Response** : 
+```json
+{
+  "name": "test-nic",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic",
+  "location": "eastus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic/ipConfigurations/ipconfig1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "privateIPAddress": "172.20.2.4",
+          "privateIPAllocationMethod": "Dynamic",
+          "publicIPAddress": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip"
+          },
+          "subnet": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default"
+          },
+          "primary": true,
+          "privateIPAddressVersion": "IPv4"
+        }
+      }
+    ],
+    "dnsSettings": {
+      "dnsServers": [],
+      "appliedDnsServers": [],
+      "internalDomainNameSuffix": "test.bx.internal.cloudapp.net"
+    },
+    "macAddress": "00-0D-3A-1B-C7-21",
+    "enableAcceleratedNetworking": true,
+    "disableTcpStateTracking": true,
+    "enableIPForwarding": false,
+    "networkSecurityGroup": {
+      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/nsg"
+    },
+    "primary": true,
+    "virtualMachine": {
+      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1"
+    },
+    "dscpConfiguration": {
+      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/dscpConfiguration/mydscpconfiguration"
+    },
+    "vnetEncryptionSupported": false
+  },
+  "type": "Microsoft.Network/networkInterfaces"
+}
+```
