@@ -1,6 +1,6 @@
 # Azure Virtual Network Distributed Router Configuration File Structure
 
-## Azure API document
+
 > **Title** : Get virtual network
 
 > **API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP#code-try-0
