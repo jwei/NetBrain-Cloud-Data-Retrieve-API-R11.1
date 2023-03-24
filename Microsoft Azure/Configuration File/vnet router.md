@@ -1,4 +1,4 @@
-# Azure virtual network distributed router configuration file structure
+# Azure Virtual Network Distributed Router Configuration File Structure
 
 ## Azure API document
 > **Title** : Get virtual network
