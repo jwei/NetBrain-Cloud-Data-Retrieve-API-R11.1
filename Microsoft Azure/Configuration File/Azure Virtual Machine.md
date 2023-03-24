@@ -1,40 +1,67 @@
-# Azure Virtual Network Distributed Router Configuration File Structure
+# Azure Virtual Machine Configuration File Structure
 
 
-> **Title** : Get virtual network
+> **Title** : Get virtual machine
 
-> **API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP#code-try-0
+> **API documentation** : https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/get
+
+> **Version** : 2022-03-01
 
 > **API Response** : 
 ```json
 {
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
+  "name": "myVM",
+  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "type": "Microsoft.Compute/virtualMachines",
+  "location": "West US",
+  "tags": {
+    "myTag1": "tagValue1"
+  },
   "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
+    "vmId": "0f47b100-583c-48e3-a4c0-aefc2c9bbcc1",
+    "hostGroup": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup"
+    },
+    "hardwareProfile": {
+      "vmSize": "Standard_D2s_v3"
+    },
+    "storageProfile": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "offer": "WindowsServer",
+        "sku": "2016-Datacenter",
+        "version": "latest"
+      },
+      "osDisk": {
+        "osType": "Windows",
+        "name": "myOsDisk",
+        "createOption": "FromImage",
+        "caching": "ReadWrite",
+        "managedDisk": {
+          "storageAccountType": "Premium_LRS",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myOsDisk"
+        },
+        "diskSizeGB": 30
+      },
+      "dataDisks": []
+    },
+    "osProfile": {
+      "computerName": "myVM",
+      "adminUsername": "admin",
+      "windowsConfiguration": {
+        "provisionVMAgent": true,
+        "enableAutomaticUpdates": false
+      },
+      "secrets": []
+    },
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{myNIC}"
+        }
       ]
     },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
-            }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": []
+    "provisioningState": "Succeeded"
   }
 }
 ```
