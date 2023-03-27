@@ -11,13 +11,13 @@ The get_azure_monitor_metrics function is a Python function used to retrieve Azu
  - `url_params` - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. This is a dictionary with string keys and values.
 
 ### Output:
-> resp_body_json - The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
+> resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
 
 ### Raises:
 > This function does not raise any exceptions.
 
 ### Example:
-```
+```python
 url_params = {'metricnames': 'TunnelIngressBytes,TunnelEgressBytes'}
 resp_body_json = get_azure_monitor_metrics(api_server_id, resource_arn, api_version, url_params)
 print(resp_body_json)
