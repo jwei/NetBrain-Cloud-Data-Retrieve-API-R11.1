@@ -36,7 +36,7 @@ def RetrieveData(rtn_params):
     front_end_ip_conf_res_list = get_azure_api_data(api_server_id, url)
  ```
 
-### Parameters
+#### Parameters
 
 - `rtn_params`: A dictionary or JSON string containing the parameters for the API call. The dictionary must contain the following keys:
   - `'id'`: The ID of the resource.
