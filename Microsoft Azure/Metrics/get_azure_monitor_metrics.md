@@ -22,3 +22,24 @@ url_params = {'metricnames': 'TunnelIngressBytes,TunnelEgressBytes'}
 resp_body_json = get_azure_monitor_metrics(api_server_id, resource_arn, api_version, url_params)
 print(resp_body_json)
 ```
+
+### Usages through `RetrieveData(rtn_params)`
+
+This function retrieves data from the Azure API using the provided parameters.
+
+### Example
+
+```python
+def RetrieveData(rtn_params):
+    if isinstance(rtn_params, str):
+        rtn_params = json.loads(rtn_params)
+    param = rtn_params
+ 
+    api_server_id = param['apiServerId']
+    resourceUri = param['arn']
+    api_version = '2018-01-01'
+    url_params = {'metricnames': 'AvgRequestCountPerHealthyHost'}   
+    rtn_res = get_azure_monitor_metrics(api_server_id, resourceUri, api_version, url_params) 
+    return rtn_res
+ ```
+
