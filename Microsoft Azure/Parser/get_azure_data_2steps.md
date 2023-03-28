@@ -46,6 +46,3 @@ def RetrieveData(rtn_params):
   - `'id'`: The ID of the resource.
   - `'apiServerId'`: The ID of the API server.
 
-In the `RetrieveData` function, the `url` variable is constructed using the `base_url`, `resource_id`, and `version` variables. The `base_url` is set to `'https://management.azure.com/'`, which is the base URL for the Azure Management API. The `resource_id` is obtained from the `rtn_params` dictionary passed to the function. The `version` is set to `'2021-05-01'`, which specifies the version of the Azure API to use.
-
-The `url` variable is then constructed using Python's string formatting method `.format()`. The resulting URL is a combination of the `base_url`, the `resource_id`, and the `version`, and it specifies the function `get_azure_api_data` to call.
