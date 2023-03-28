@@ -1,3 +1,14 @@
+## Description
+
+The get_azure_data_2steps function supports two steps (i.e., POST + GET) methods to get data tables of Azure resources. This function performs the following two steps to retrieve the data:
+
+1. It sends a POST request which returns a table URL in the HTTP response location header.
+2. It sends a subsequent GET request to get the table data from the returned URL.
+
+
+Note that it takes time for the Azure REST server to generate the table resource. The function will retry if the resource is not ready, with a maximum timeout of 30 seconds.
+
+Please refer to the Microsoft API documentation for URL format and parameters. For example, please refer to https://docs.microsoft.com/en-us/rest/api/network-gateway/virtualnetworkgateways/getlearnedroutes#code-try-0
 
 ## Usage
 
