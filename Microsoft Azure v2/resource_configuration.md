@@ -1,5 +1,5 @@
-* [Azure Virtual Network Distributed Router](#Azure Virtual Network Distributed Router)
-* [Azure Virtual Machine](#Azure Virtual Machine)
+* [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
+* [Azure Virtual Machine](#azure-virtual-machine)
 
 
 # Azure Virtual Network Distributed Router
