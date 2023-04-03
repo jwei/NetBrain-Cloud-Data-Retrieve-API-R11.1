@@ -118,7 +118,7 @@ Please retrieve the resource configuration data through NetBrain's built-in conf
       "secrets": []
     },
     "networkProfile": {
-      "networkInterfaces": [
+      "networkInterfaces": [  // The full data structure of Network Interface resource is enriched by NetBrain.
         {
           "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{myNIC}"
         }
