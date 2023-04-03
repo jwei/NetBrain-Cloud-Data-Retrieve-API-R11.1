@@ -9,10 +9,12 @@ Please retrieve the resource configuration data through NetBrain's built-in conf
 
 ## Azure Virtual Network Distributed Router
 
-> **Title**: Get virtual network
-
 > **Content**: The Azure API Response of Virtual Network.  
-:exclamation:**Todo**:exclamation: @Xun: vnet比较简单。这里重点想解释，有些config是由多个API拼接而成。比如vng的描述可能类似于 The Azure API Response of Azure Virtual Network Gateway, with the full API response data details of associated resources of "self.properties.ipConfigurations.publicIPAddress", "self.properties.ipConfigurations.subnet", and "self.properties.remoteVirtualNetworkPeerings". 这种多个API conbination的情况，需要再下面的Azure API Doc & Azure API Version部分，分别罗列清楚.
+:exclamation:**Todo**:exclamation: @Xun: vnet比较简单。这里重点想解释，有些config是由多个API拼接而成。比如vng的描述可能类似于 The Azure API Response of Azure Virtual Network Gateway, with the full API response data of associated resources: 
+* "self.properties.ipConfigurations.publicIPAddress"
+* "self.properties.ipConfigurations.subnet"
+* "self.properties.remoteVirtualNetworkPeerings". 
+@Xun 这种多个API conbination的情况，需要再下面的Azure API Doc & Azure API Version部分，做成3 columns tbl "Resource" (Virtual Networks - Get), "API Doc" (xx), "API Version Used" (xx).
 
 > **Azure API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP
 
@@ -25,7 +27,7 @@ Please retrieve the resource configuration data through NetBrain's built-in conf
 ```json
 {
   "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "{vnetRouterNetBrainHostname}",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
   "name": "{virtualNetworkAzureName}",
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
   "type": "Microsoft.Network/virtualNetworks",
