@@ -1,18 +1,33 @@
+# Usage
+Please retrieve the resource configuration data through NetBrain's built-in config file function. NO API is needed.
+
+
+# Table of Contents
 * [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
 * [Azure Virtual Machine](#azure-virtual-machine)
 
 
-# Azure Virtual Network Distributed Router
+## Azure Virtual Network Distributed Router
 
-> **Title** : Get virtual network
+> **Title**: Get virtual network
 
-> **API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP#code-try-0
+> **Content**: The Azure API Response of Virtual Network.  
+:exclamation:**Todo**:exclamation: @Xun: vnet比较简单。这里重点想解释，有些config是由多个API拼接而成。比如vng的描述可能类似于 The Azure API Response of Azure Virtual Network Gateway, with the full API response data details of associated resources of "self.properties.ipConfigurations.publicIPAddress", "self.properties.ipConfigurations.subnet", and "self.properties.remoteVirtualNetworkPeerings". 这种多个API conbination的情况，需要再下面的Azure API Doc & Azure API Version部分，分别罗列清楚.
 
-> **API Response** : 
+> **Azure API documentation** : https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP
+
+> **Azure API Version**: 2021-08-01
+
+> **Sample** : 
+:exclamation:**Todo**:exclamation: @Xun: 
+1. try to use placehodler to display some variable (as in Azure doc) like id field below. But some variable can be real samples, e.g. private IP (range), region, etc. Maybe you can just copy paste from Azure doc.
+2. put some content in each of the key part, e.g. for vnet: subnet, peering, etc.
 ```json
 {
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "{vnetRouterNetBrainHostname}",
+  "name": "{virtualNetworkAzureName}",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
   "type": "Microsoft.Network/virtualNetworks",
   "location": "westus",
   "properties": {
