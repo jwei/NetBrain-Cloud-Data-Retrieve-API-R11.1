@@ -20,20 +20,12 @@ class NBAzureAPILibrary:
 
 # Input Parameters:
 The function takes in several arguments, including:
-
-
  - `api_server_id` (str) The external API Server ID of this technology instance. User should be able to get it in API Script context. Check Sample Azure API Parser in NetBrain Parser Library for usage reference.
-
  - `azure_resource_uri` (str) e.g. The resource identifier, e.g. /{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
-
  - `action[optional]` (str) in case that you want to download some specific data from the resource. e.g. pass in "getLearnedRoutes" when you want to download vnet gateway learned routes. Ref: https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP
-
  - `api_method[optional]` (str) GET or POST. Note that async methods like downloading large data set would need a POST method. (e.g. download vnet gateway learned routes, vnic effective routes, etc.) please check Microsoft Azure API document for reference.
-
  - `api_version[optional]` (str) API Version of the Azure Rest API. e.g. '2022-09-01'
-
  - `json_body[optional]` (object) API request body
-
  - `is_async_method[optional]` (bool) True if it is async API to download large data set from Azure.
 
 # Output:
