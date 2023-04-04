@@ -94,6 +94,7 @@ Please find below the detailed information regarding the Azure API used for conf
                 "properties": {
                     "provisioningState": "Succeeded",
                     "privateIPAllocationMethod": "Dynamic",
+                    // Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP
                     "publicIPAddress": {
                         "name": "East-VNET1-VNG-IP",
                         "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/publicIPAddresses/East-VNET1-VNG-IP",
@@ -117,6 +118,7 @@ Please find below the detailed information regarding the Azure API used for conf
                             "tier": "Regional"
                         }
                     },
+                    // Subnet: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get?tabs=HTTP
                     "subnet": {
                         "name": "GatewaySubnet",
                         "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-VNET1/subnets/GatewaySubnet",
@@ -175,6 +177,7 @@ Please find below the detailed information regarding the Azure API used for conf
                 }
             ]
         },
+        // Virtual Network Peerings: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations&tabs=HTTP
         "remoteVirtualNetworkPeerings": [
             {
                 "name": "Spoke-VNET1-To-Hub-VNET",
