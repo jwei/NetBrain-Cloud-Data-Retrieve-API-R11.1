@@ -56,7 +56,7 @@ class NBAzureAPILibrary:
 | 	| bgp_peerings	|- 	||
 
 # Output:
-> resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
+> The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
 
 # Raises:
 > This function does not raise any exceptions.
