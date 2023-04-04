@@ -1,47 +1,57 @@
-## `get_azure_api_data(api_server_id, url, method="GET", json_body=None)`
+# Introduction
 
-This function retrieves data from the Azure API using the provided URL.
+The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
 
-### Parameters
+# API Definition
+```python
+class NBAzureAPILibrary:
+    @staticmethod
+    def GetResourceData(api_server_id: str, b_resource_data: object, data_type: str, sub_resource_uri: str) -> object:
+    # implementation
+        # ...
+```
 
-- `api_server_id`: The ID of the API server.
-- `url`: The URL of the API endpoint to call.
-- `method`: The HTTP method to use for the API call (default: `"GET"`).
-- `json_body`: The JSON body to send with the API call (default: `None`).
+# Input Parameters:
+ - `api_server_id`(str) - The external API Server ID of this technology instance. It is used to identify the target Azure API server. The user should be able to get it in the API script context. The usage reference can be found in the Sample Azure API Parser in NetBrain Parser Library.
+ - `nb_resource_data`(object) - The entire resource data structure in NetBrain. It is retrieved by calling the `GetDeviceProperties` API method, passing in the device name and some parameters.
+ - `data_type`(str) - The available data type for the current resource. This can be found in the Azure API documentation.
+ - `sub_resource_uri`(str) - An optional parameter in case the customer just wants to fetch one sub-table of data. For example, if an Azure Load Balancer has multiple Backend Address Pools, the user can specify which one they want to fetch.
 
-### Returns
+# Output:
+> resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
 
-The data returned by the Azure API.
+# Raises:
+> This function does not raise any exceptions.
 
-### Usages through `RetrieveData(rtn_params)`
-
-This function retrieves data from the Azure API using the provided parameters.
-
-### Example
+# Example
 
 ```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+  
+def BuildParameters(context, device_name, params):
+    node_props = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['id', 'vNetId']})
+    arn =  node_props['params']['id']
+  
+    rtn_params = [{ 'devName' : device_name, 'arn': arn}]
+    return rtn_params
+      
 def RetrieveData(rtn_params):
     if isinstance(rtn_params, str):
         rtn_params = json.loads(rtn_params)
-
-    resource_id = rtn_params['id']
-    api_server_id = rtn_params['apiServerId']
-    base_url = 'https://management.azure.com/'
-
-    url = '{base_url}{resource_url_path}?api-version={version}'.format(
-        base_url=base_url,
-        resource_url_path=resource_id,
-        version='2021-05-01'
-    )
-    front_end_ip_conf_res_list = get_azure_api_data(api_server_id, url)
+    param = rtn_params
+  
+    api_server_id = param['apiServerId']
+    # refer to link below for supported metrics and url parameters
+    # https://docs.microsoft.com/en-us/rest/api/network-gateway/virtualnetworkgateways/get#code-try-0
+    resourceUri = param['arn']
+    url_params = {'metricnames': 'ComputeUnits'}
+    
+    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  # call Azure Insight Monitoring Service to get Metrics data
+  
+    return json.dumps(rtn_res, indent=4)
  ```
-
-#### Parameters
-
-- `rtn_params`: A dictionary or JSON string containing the parameters for the API call. The dictionary must contain the following keys:
-  - `'id'`: The ID of the resource.
-  - `'apiServerId'`: The ID of the API server.
-
-In the `RetrieveData` function, the `url` variable is constructed using the `base_url`, `resource_id`, and `version` variables. The `base_url` is set to `'https://management.azure.com/'`, which is the base URL for the Azure Management API. The `resource_id` is obtained from the `rtn_params` dictionary passed to the function. The `version` is set to `'2021-05-01'`, which specifies the version of the Azure API to use.
-
-The `url` variable is then constructed using Python's string formatting method `.format()`. The resulting URL is a combination of the `base_url`, the `resource_id`, and the `version`, and it specifies the function `get_azure_api_data` to call.
