@@ -21,6 +21,40 @@ class NBAzureAPILibrary:
  - `data_type`(str) - The available data type for the current resource. This can be found in the Azure API documentation.
  - `sub_resource_uri`(str) - An optional parameter in case the customer just wants to fetch one sub-table of data. For example, if an Azure Load Balancer has multiple Backend Address Pools, the user can specify which one they want to fetch.
 
+| Resource Type | data_type | sub_resource_uri | Notes |
+| --- | --- | --- | --- |
+| Virtual Network (Distributed Router) | vnet_route_tables | route_table_azure_uri | |
+| | vnet_peerings | - | |
+| | private_endpoints | - | |
+| | network_security_groups | subnet_id or vnic_id | |
+| | vnic_effective_routes | vnic_id | |
+| Virtual Machine | vnics | - | |
+| | vnic_nsg | - | |
+| Load Balancer | load_balancing_rules | - | |
+| | inbound_nat_rules | - | |
+| | outbound_rules | - | |
+| | backend_pools | backend_address_pool_uri | |
+| Firewall 	| dnat_rule_collections	| -	| |
+| 	| network_rule_collections | -	| |
+| 	| application_rule_collections	| -	| |
+| Application Gateway | app_gw_rules | -	| |
+| 	| http_settings	| -	| |
+| 	| translation_tables	|- 	||
+| 	| listeners	|- 	||
+| 	| backend_pools	| backend_address_pool_uri ||
+| ExpressRoute Circuit | arp_table	| -	| |
+| 	| route_table | -	| |
+| 	| route_summary_table |- 	||
+| Virtual Hub | route_tables	| -	| |
+| 	| effective_routes	| -	| |
+| NAT Gateway | nat_table | -	| |
+| Virtual Network Gateway | bgp_learned_routes	| -	| |
+| 	| bgp_advertised_routes	| -	| |
+| 	| bgp_peerings	|- 	||
+| VPN Gateway | bgp_learned_routes	| -	| |
+| 	| bgp_advertised_routes	| -	| |
+| 	| bgp_peerings	|- 	||
+
 # Output:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
 
