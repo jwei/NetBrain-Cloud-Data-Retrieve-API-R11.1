@@ -94,7 +94,7 @@ Please find below the detailed information regarding the Azure API used for conf
                 "properties": {
                     "provisioningState": "Succeeded",
                     "privateIPAllocationMethod": "Dynamic",
-                    `Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP`
+                    // Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP
                     "publicIPAddress": {
                         "name": "East-VNET1-VNG-IP",
                         "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/publicIPAddresses/East-VNET1-VNG-IP",
