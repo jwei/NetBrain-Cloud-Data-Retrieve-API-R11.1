@@ -1,5 +1,5 @@
 # Usage
-Please retrieve the resource configuration data through NetBrain's built-in config file function. NO API is needed.
+To retrieve the configuration data for a resource, you can utilize NetBrain's built-in configuration file function, which does not require the use of an API. This function enables you to quickly obtain the necessary configuration information for your resources.
 
 
 # Table of Contents
