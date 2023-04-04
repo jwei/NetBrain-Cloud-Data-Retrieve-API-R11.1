@@ -34,14 +34,12 @@ The function takes in several arguments, including:
 # Raises:
 > This function does not raise any exceptions.
 
-# Example
-
+# Synchronized Example
 ```python
 '''
 Begin Declare Input Parameters
- [
-    {"name": "$backend_pool_id"}
- ]
+[
+]
 End Declare
 
 For sample
@@ -52,25 +50,56 @@ For sample
 '''
 
 def BuildParameters(context, device_name, params):
-    backend_pool_id = params['backend_pool_id']
-    # backend_pool_id = '/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/AzurePathTest'
-    self_node = GetDeviceProperties(context, device_name,
-                                    {'techName': 'Microsoft Azure', 'paramType': 'SDN',
-                                     'params': ['*']})  # query DB, get required property of the node data model
+    self_node = GetDeviceProperties(context, device_name, 
+    {'techName': 'Microsoft Azure', 'paramType': 'SDN', 
+    'params': ['vNetId']})  # query DB, get required property of the node data model
     return [{
-        'nbNode': self_node['params'],
-        'backend_pool_id': backend_pool_id
+        'vNetId': self_node['params']['vNetId']
     }]
-
-
+	
 def RetrieveData(rtn_params):
     if isinstance(rtn_params, str):
         rtn_params = json.loads(rtn_params)
-
-    nb_node = rtn_params['nbNode']
-    backend_pool_id = rtn_params['backend_pool_id']
+    
+    vNetId = rtn_params['vNetId']
     api_server_id = rtn_params['apiServerId']
-
-    res = NBAzureAPILibrary.GetResourceData(api_server_id, nb_resource_data=nb_node, data_type='backend_pools', sub_resource_uri=backend_pool_id)
-    return res
+    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, vNetId)
+    
+    return json.dumps(vnet_res, indent=4)
  ```
+ 
+ 
+# Asynchronized Example
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+def BuildParameters(context, device_name, params):
+    self_node = GetDeviceProperties(context, device_name, 
+    {'techName': 'Microsoft Azure', 'paramType': 'SDN', 
+    'params': ['id']})  # query DB, get required property of the node data model
+    return [{
+        'id': self_node['params']['id']
+    }]
+	
+def RetrieveData(rtn_params):
+    if isinstance(rtn_params, str):
+        rtn_params = json.loads(rtn_params)
+    
+    vNetId = rtn_params['id']
+    api_server_id = rtn_params['apiServerId']
+    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, vNetId, action="getLearnedRoutes", is_async_method=True)
+    
+    return json.dumps(vnet_res, indent=4)
+ ```
+
