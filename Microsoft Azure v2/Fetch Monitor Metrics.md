@@ -6,7 +6,11 @@ The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILi
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetMonitorMetrics(api_server_id: str, azure_resource_uri: str, api_version: str, url_params: Dict[str, str]) -> Dict[str, Any]:
+    def GetMonitorMetrics(api_server_id: str,
+                          azure_resource_uri: str,
+                          api_version: str, 
+                          url_params: Dict[str, str]
+                         ) -> Dict[str, Any]:
         # implementation
         # ...
 ```
