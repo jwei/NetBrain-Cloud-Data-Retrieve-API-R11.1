@@ -1,6 +1,5 @@
 # Introduction
-
-The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
+The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It is used to retrieve data (tables) of Azure resources.
 
 # API Definition
 ```python
