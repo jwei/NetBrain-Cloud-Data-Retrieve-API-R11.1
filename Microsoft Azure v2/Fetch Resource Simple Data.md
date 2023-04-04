@@ -1,58 +1,40 @@
 # Introduction
-The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It is used to retrieve data (tables) of Azure resources.
+The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary` class that retrieves Azure resource data via the Azure Management REST API. It supports both GET and POST methods to download resource data, where GET is used to download the resource data, and POST is used to download large or complex data sets asynchronously.
 
 # API Definition
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetResourceData(api_server_id: str,
-                        nb_resource_data: object,
-                        data_type: str, 
-                        sub_resource_uri: str
-                        ) -> object:
+    def GetResourceDataByAPI(
+            api_server_id: str,
+            azure_resource_uri: str,
+            action: str = None,
+            is_async_method: bool = False,
+            api_method: str = "GET",
+            api_version: str = '2022-09-01',
+            json_body: object = None
+    ) -> object:
     # implementation
         # ...
 ```
 
 # Input Parameters:
- - `api_server_id`(str) - The external API Server ID of this technology instance. It is used to identify the target Azure API server. The user should be able to get it in the API script context. The usage reference can be found in the Sample Azure API Parser in NetBrain Parser Library.
- - `nb_resource_data`(object) - The entire resource data structure in NetBrain. It is retrieved by calling the `GetDeviceProperties` API method, passing in the device name and some parameters.
- - `data_type`(str) - The available data type for the current resource. This can be found in the Azure API documentation.
- - `sub_resource_uri`(str) - An optional parameter in case the customer just wants to fetch one sub-table of data. For example, if an Azure Load Balancer has multiple Backend Address Pools, the user can specify which one they want to fetch.
+The function takes in several arguments, including:
 
-| Resource Type | data_type | sub_resource_uri | Notes |
-| --- | --- | --- | --- |
-| Virtual Network (Distributed Router) | vnet_route_tables | route_table_azure_uri | |
-| | vnet_peerings | - | |
-| | private_endpoints | - | |
-| | network_security_groups | subnet_id or vnic_id | |
-| | vnic_effective_routes | vnic_id | |
-| Virtual Machine | vnics | - | |
-| | vnic_nsg | - | |
-| Load Balancer | load_balancing_rules | - | |
-| | inbound_nat_rules | - | |
-| | outbound_rules | - | |
-| | backend_pools | backend_address_pool_uri | |
-| Firewall 	| dnat_rule_collections	| -	| |
-| 	| network_rule_collections | -	| |
-| 	| application_rule_collections	| -	| |
-| Application Gateway | app_gw_rules | -	| |
-| 	| http_settings	| -	| |
-| 	| translation_tables	|- 	||
-| 	| listeners	|- 	||
-| 	| backend_pools	| backend_address_pool_uri ||
-| ExpressRoute Circuit | arp_table	| -	| |
-| 	| route_table | -	| |
-| 	| route_summary_table |- 	||
-| Virtual Hub | route_tables	| -	| |
-| 	| effective_routes	| -	| |
-| NAT Gateway | nat_table | -	| |
-| Virtual Network Gateway | bgp_learned_routes	| -	| |
-| 	| bgp_advertised_routes	| -	| |
-| 	| bgp_peerings	|- 	||
-| VPN Gateway | bgp_learned_routes	| -	| |
-| 	| bgp_advertised_routes	| -	| |
-| 	| bgp_peerings	|- 	||
+
+ - `api_server_id` (str) The external API Server ID of this technology instance. User should be able to get it in API Script context. Check Sample Azure API Parser in NetBrain Parser Library for usage reference.
+
+ - `azure_resource_uri` (str) e.g. The resource identifier, e.g. /{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
+
+ - `action[optional]` (str) in case that you want to download some specific data from the resource. e.g. pass in "getLearnedRoutes" when you want to download vnet gateway learned routes. Ref: https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP
+
+ - `api_method[optional]` (str) GET or POST. Note that async methods like downloading large data set would need a POST method. (e.g. download vnet gateway learned routes, vnic effective routes, etc.) please check Microsoft Azure API document for reference.
+
+ - `api_version[optional]` (str) API Version of the Azure Rest API. e.g. '2022-09-01'
+
+ - `json_body[optional]` (object) API request body
+
+ - `is_async_method[optional]` (bool) True if it is async API to download large data set from Azure.
 
 # Output:
 > The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
