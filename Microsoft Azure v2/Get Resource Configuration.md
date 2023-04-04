@@ -21,6 +21,8 @@ Please find below the detailed information regarding the Azure API used for conf
 > **Sample** :
 ```json
 {
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
   "name": "test-vnet",
   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
   "type": "Microsoft.Network/virtualNetworks",
