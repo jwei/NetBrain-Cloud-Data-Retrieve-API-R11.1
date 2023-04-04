@@ -56,17 +56,14 @@ Please find below the detailed information regarding the Azure API used for conf
 
 ## Azure Virtual Network Gateway
 
-> **Content**: The Azure API Response of Virtual Network.  
-:exclamation:**Todo**:exclamation: @Xun: vnet比较简单。这里重点想解释，有些config是由多个API拼接而成。比如vng的描述可能类似于 The Azure API Response of Azure Virtual Network Gateway, with the full API response data of associated resources: 
-* "self.properties.ipConfigurations.publicIPAddress"
-* "self.properties.ipConfigurations.subnet"
-* "self.properties.remoteVirtualNetworkPeerings". 
-@Xun 这种多个API conbination的情况，需要再下面的Azure API Doc & Azure API Version部分，做成3 columns tbl "Resource" (Virtual Networks - Get), "API Doc" (xx), "API Version Used" (xx).
+> **Content**: The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full API response data of associated resources, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`, is required for the configuration process.
 
 |**Type**|**Associated Resource**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Virtual Networks - Get | | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP | 
-| Network Security Groups – Get （Optional）| test | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP |
+| Virtual Network Gateways - Get | | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get?tabs=HTTP | 
+| Public IP Addresses - Get | self.properties.ipConfigurations.publicIPAddress | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP |
+| Subnets - Get | self.properties.ipConfigurations.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get?tabs=HTTP |
+| Virtual Network Peerings - Get | self.properties.remoteVirtualNetworkPeerings | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations&tabs=HTTP |
 
 > **Sample** : 
 :exclamation:**Todo**:exclamation: @Xun: 
