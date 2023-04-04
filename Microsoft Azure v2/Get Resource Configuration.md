@@ -14,7 +14,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 
 Please find below the detailed information regarding the Azure API used for configuring the virtual network distributed router.
 
-|**Type**|**Associated Resource**|**Azure API Version**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
 | Virtual Networks - Get |  | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP | 
 
