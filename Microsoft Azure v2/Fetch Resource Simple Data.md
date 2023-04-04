@@ -66,30 +66,38 @@ class NBAzureAPILibrary:
 ```python
 '''
 Begin Declare Input Parameters
-[
-]
+ [
+    {"name": "$backend_pool_id"}
+ ]
 End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
 '''
-  
+
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['id', 'vNetId']})
-    arn =  node_props['params']['id']
-  
-    rtn_params = [{ 'devName' : device_name, 'arn': arn}]
-    return rtn_params
-      
+    backend_pool_id = params['backend_pool_id']
+    # backend_pool_id = '/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/AzurePathTest'
+    self_node = GetDeviceProperties(context, device_name,
+                                    {'techName': 'Microsoft Azure', 'paramType': 'SDN',
+                                     'params': ['*']})  # query DB, get required property of the node data model
+    return [{
+        'nbNode': self_node['params'],
+        'backend_pool_id': backend_pool_id
+    }]
+
+
 def RetrieveData(rtn_params):
     if isinstance(rtn_params, str):
         rtn_params = json.loads(rtn_params)
-    param = rtn_params
-  
-    api_server_id = param['apiServerId']
-    # refer to link below for supported metrics and url parameters
-    # https://docs.microsoft.com/en-us/rest/api/network-gateway/virtualnetworkgateways/get#code-try-0
-    resourceUri = param['arn']
-    url_params = {'metricnames': 'ComputeUnits'}
-    
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  # call Azure Insight Monitoring Service to get Metrics data
-  
-    return json.dumps(rtn_res, indent=4)
+
+    nb_node = rtn_params['nbNode']
+    backend_pool_id = rtn_params['backend_pool_id']
+    api_server_id = rtn_params['apiServerId']
+
+    res = NBAzureAPILibrary.GetResourceData(api_server_id, nb_resource_data=nb_node, data_type='backend_pools', sub_resource_uri=backend_pool_id)
+    return res
  ```
