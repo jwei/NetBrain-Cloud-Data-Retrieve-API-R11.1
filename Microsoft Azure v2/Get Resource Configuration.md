@@ -62,12 +62,12 @@ Please find below the detailed information regarding the Azure API used for conf
 > **Content**: 
 > The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
 
-|**Type**|**Associated Resource**|**Azure API Version**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Virtual Network Gateways - Get | | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get?tabs=HTTP | 
-| Public IP Addresses - Get | self.properties.ipConfigurations.publicIPAddress | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP |
-| Subnets - Get | self.properties.ipConfigurations.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get?tabs=HTTP |
-| Virtual Network Peerings - Get | self.properties.remoteVirtualNetworkPeerings | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations&tabs=HTTP |
+| Virtual Network Gateways - Get | vnetGateway | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get?tabs=HTTP | 
+| Public IP Addresses - Get | vnetGateway.properties.ipConfigurations.publicIPAddress | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get?tabs=HTTP |
+| Subnets - Get | vnetGateway.properties.ipConfigurations.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get?tabs=HTTP |
+| Virtual Network Peerings - Get | vnetGateway.properties.remoteVirtualNetworkPeerings | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations&tabs=HTTP |
 
 > **Sample** :
 ```json
