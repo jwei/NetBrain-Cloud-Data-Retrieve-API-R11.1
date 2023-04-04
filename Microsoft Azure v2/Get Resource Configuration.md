@@ -60,7 +60,7 @@ Please find below the detailed information regarding the Azure API used for conf
 ## Azure Virtual Network Gateway
 
 > **Content**: 
-> The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full API response data of associated resources, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`, is required for the configuration process.
+> The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
 
 |**Type**|**Associated Resource**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
