@@ -1,14 +1,14 @@
-The get_azure_monitor_metrics function is a Python function used to retrieve Azure monitor metrics. It is executed in the FrontServer and takes the Azure Tenant API Server Instance ID, resource ARN, API version, and URL parameters as input. The function returns the JSON response body of the HTTP request to the Azure monitor metrics API.
+The `GetMonitorMetrics` function is a static method in the `NBAzureAPILibrary` class that fetches Azure resource metrics from the Azure Insights module using the Azure Monitor REST API. The function takes four parameters:
 
 # Function Signature
 
-> def get_azure_monitor_metrics(api_server_id: str, resource_arn: str, api_version: str, url_params: Dict[str, str]) -> Dict[str, Any]:
+> def GetMonitorMetrics(api_server_id: str, azure_resource_uri: str, api_version: str, url_params: Dict[str, str]) -> Dict[str, Any]:
 
 ### Input Parameters:
- - `api_server_id` - The Azure Tenant API Server Instance ID saved in Device. This is a string value.
- - `resource_arn` - The resource ARN of the Azure resource whose metrics you want to retrieve. This is a string value.
- - `api_version` - The API version to use for the Azure monitor metrics API. This is a string value.
- - `url_params` - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. This is a dictionary with string keys and values.
+ - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
+ - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
+ - `api_version`(str)(optional) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None.
+ - `url_params`(dic)(optional) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. This parameter is optional and defaults to '2018-01-01'.
 
 ### Output:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
@@ -16,30 +16,36 @@ The get_azure_monitor_metrics function is a Python function used to retrieve Azu
 ### Raises:
 > This function does not raise any exceptions.
 
-### Example:
-```python
-url_params = {'metricnames': 'TunnelIngressBytes,TunnelEgressBytes'}
-resp_body_json = get_azure_monitor_metrics(api_server_id, resource_arn, api_version, url_params)
-print(resp_body_json)
-```
-
-### Usages through `RetrieveData(rtn_params)`
-
-This function retrieves data from the Azure API using the provided parameters.
-
 ### Example
 
 ```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+  
+def BuildParameters(context, device_name, params):
+    node_props = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['id', 'vNetId']})
+    arn =  node_props['params']['id']
+  
+    rtn_params = [{ 'devName' : device_name, 'arn': arn}]
+    return rtn_params
+      
 def RetrieveData(rtn_params):
     if isinstance(rtn_params, str):
         rtn_params = json.loads(rtn_params)
     param = rtn_params
- 
+  
     api_server_id = param['apiServerId']
+    # refer to link below for supported metrics and url parameters
+    # https://docs.microsoft.com/en-us/rest/api/network-gateway/virtualnetworkgateways/get#code-try-0
     resourceUri = param['arn']
-    api_version = '2018-01-01'
-    url_params = {'metricnames': 'AvgRequestCountPerHealthyHost'}   
-    rtn_res = get_azure_monitor_metrics(api_server_id, resourceUri, api_version, url_params) 
-    return rtn_res
+    url_params = {'metricnames': 'ComputeUnits'}
+    
+    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  # call Azure Insight Monitoring Service to get Metrics data
+  
+    return json.dumps(rtn_res, indent=4)
  ```
 
