@@ -1,6 +1,8 @@
-The `GetMonitorMetrics` function is a static method in the `NBAzureAPILibrary` class that fetches Azure resource metrics from the Azure Insights module using the Azure Monitor REST API. The function takes four parameters:
+# Introduction
 
-# Function Signature
+The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class that leverages Azure Monitor solution that fetches metrics of Azure resources via Azure RESTful API. The function takes four parameters:
+
+# API Definition
 
 > def GetMonitorMetrics(api_server_id: str, azure_resource_uri: str, api_version: str, url_params: Dict[str, str]) -> Dict[str, Any]:
 
