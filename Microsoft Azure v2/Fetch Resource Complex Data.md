@@ -6,7 +6,11 @@ The `GetResourceData` function is a static method defined in the `NBAzureAPILibr
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetResourceData(api_server_id: str, b_resource_data: object, data_type: str, sub_resource_uri: str) -> object:
+    def GetResourceData(api_server_id: str,
+                        b_resource_data: object, 
+                        data_type: str, 
+                        sub_resource_uri: str
+                        ) -> object:
     # implementation
         # ...
 ```
