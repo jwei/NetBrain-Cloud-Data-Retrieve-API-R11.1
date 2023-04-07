@@ -28,7 +28,6 @@ class NBAzureAPILibrary:
 | | network_security_groups | subnet_id or vnic_id | |
 | | vnic_effective_routes | vnic_id | |
 | Virtual Machine | vnics | - | |
-| | vnic_nsg | - | |
 | Load Balancer | load_balancing_rules | - | |
 | | inbound_nat_rules | - | |
 | | outbound_rules | - | |
@@ -65,38 +64,26 @@ class NBAzureAPILibrary:
 ```python
 '''
 Begin Declare Input Parameters
- [
-    {"name": "$backend_pool_id"}
- ]
-End Declare
-
-For sample
 [
-    {"name": "$param1"},
-    {"name": "$param2"}
 ]
+End Declare
 '''
-
+  
 def BuildParameters(context, device_name, params):
-    backend_pool_id = params['backend_pool_id']
-    # backend_pool_id = '/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/AzurePathTest'
-    self_node = GetDeviceProperties(context, device_name,
-                                    {'techName': 'Microsoft Azure', 'paramType': 'SDN',
-                                     'params': ['*']})  # query DB, get required property of the node data model
-    return [{
-        'nbNode': self_node['params'],
-        'backend_pool_id': backend_pool_id
-    }]
-
-
-def RetrieveData(rtn_params):
-    if isinstance(rtn_params, str):
-        rtn_params = json.loads(rtn_params)
-
-    nb_node = rtn_params['nbNode']
-    backend_pool_id = rtn_params['backend_pool_id']
-    api_server_id = rtn_params['apiServerId']
-
-    res = NBAzureAPILibrary.GetResourceData(api_server_id, nb_resource_data=nb_node, data_type='backend_pools', sub_resource_uri=backend_pool_id)
-    return res
+    node_props = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*'] }
+    )
+    return node_props
+      
+def RetrieveData(param):   
+    nb_node = param['params']
+    data = NBAzureAPILibrary.GetResourceData(
+        api_server_id=param['apiServerId'],
+        nb_resource_data=nb_node,
+        data_type='load_balancing_rules'
+    )
+      
+    return data
  ```
