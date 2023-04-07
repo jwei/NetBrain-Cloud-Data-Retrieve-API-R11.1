@@ -10,7 +10,7 @@ class NBAzureAPILibrary:
                           azure_resource_uri: str,
                           api_version: str, 
                           url_params: Dict[str, str]
-                         ) -> Dict[str, Any]:
+                          ) -> Dict[str, Any]:
         # implementation
         # ...
 ```
@@ -39,24 +39,19 @@ End Declare
   
 def BuildParameters(context, device_name, params):
     node_props = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['id', 'vNetId']})
-    arn =  node_props['params']['id']
-  
+    arn =  node_props['params']['id']  
     rtn_params = [{ 'devName' : device_name, 'arn': arn}]
     return rtn_params
       
 def RetrieveData(rtn_params):
     if isinstance(rtn_params, str):
         rtn_params = json.loads(rtn_params)
-    param = rtn_params
-  
+    param = rtn_params  
     api_server_id = param['apiServerId']
-    # refer to link below for supported metrics and url parameters
-    # https://docs.microsoft.com/en-us/rest/api/network-gateway/virtualnetworkgateways/get#code-try-0
     resourceUri = param['arn']
     url_params = {'metricnames': 'ComputeUnits'}
-    
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  # call Azure Insight Monitoring Service to get Metrics data
-  
+    # call Azure Insight Monitoring Service to get Metrics data    
+    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  
     return json.dumps(rtn_res, indent=4)
  ```
 
