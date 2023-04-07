@@ -5,15 +5,13 @@ The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetResourceDataByAPI(
-            api_server_id: str,
-            azure_resource_uri: str,
-            action: str = None,
-            is_async_method: bool = False,
-            api_method: str = "GET",
-            api_version: str = '2022-09-01',
-            json_body: object = None
-    ) -> object:
+    def GetResourceDataByAPI(api_server_id: str,
+                             azure_resource_uri: str,
+                             resource_action: str = None,
+                             async_request: bool = False,
+                             api_method: str = "GET",
+                             api_version: str = '2022-09-01',
+                             json_body: object = None) -> object:
     # implementation
         # ...
 ```
