@@ -48,21 +48,14 @@ For sample
 '''
 
 def BuildParameters(context, device_name, params):
-    self_node = GetDeviceProperties(context, device_name, 
-    {'techName': 'Microsoft Azure', 'paramType': 'SDN', 
-    'params': ['vNetId']})  # query DB, get required property of the node data model
-    return [{
-        'vNetId': self_node['params']['vNetId']
-    }]
+    # query DB, get required property of the node data model
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
+    return self_node
 	
 def RetrieveData(rtn_params):
-    if isinstance(rtn_params, str):
-        rtn_params = json.loads(rtn_params)
-    
-    vNetId = rtn_params['vNetId']
+    nb_node = self_node['params']
     api_server_id = rtn_params['apiServerId']
-    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, vNetId)
-    
+    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['vNetId'])    
     return json.dumps(vnet_res, indent=4)
  ```
  
@@ -83,15 +76,14 @@ For sample
 '''
 
 def BuildParameters(context, device_name, params):
-    self_node = GetDeviceProperties(context, device_name, 
-    {'techName': 'Microsoft Azure', 'paramType': 'SDN', 
-    'params': ['*']})  # query DB, get required property of the node data model
+    # query DB, get required property of the node data model
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
     return self_node
 	
 def RetrieveData(rtn_params):    
     nb_node = self_node['params']
     api_server_id = rtn_params['apiServerId']
-    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['vNetId'], action="getLearnedRoutes", is_async_method=True)    
+    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['vNetId'], action="getLearnedRoutes", is_async_method=True)
     return json.dumps(vnet_res, indent=4)
  ```
 
