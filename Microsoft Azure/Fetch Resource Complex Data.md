@@ -27,8 +27,8 @@ class NBAzureAPILibrary:
 | | private_endpoints | - | |
 | | network_security_groups | subnet_id or vnic_id | |
 | | vnic_effective_routes | vnic_id | |
-| Virtual Machine | vnics | - | |
-| Load Balancer | load_balancing_rules | - | |
+| Virtual Machine | vnics | - | Returns a list of this VM's network interfaces with full api data, including "ipConfigurations", "networkSecurityGroups", etc. |
+| Load Balancer | load_balancing_rules | - | Retruns a list of load balancing rules of this load balancer. |
 | | inbound_nat_rules | - | |
 | | outbound_rules | - | |
 | | backend_pools | backend_address_pool_uri | |
