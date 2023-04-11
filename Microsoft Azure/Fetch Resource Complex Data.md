@@ -85,5 +85,5 @@ def RetrieveData(param):
         data_type='load_balancing_rules'
     )
       
-    return data
+    return json.dumps(data, indent=4)
  ```
