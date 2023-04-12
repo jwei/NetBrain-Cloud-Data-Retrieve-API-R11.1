@@ -55,12 +55,12 @@ def BuildParameters(context, device_name, params):
 def RetrieveData(rtn_params):
     nb_node = self_node['params']
     api_server_id = rtn_params['apiServerId']
-    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['vNetId'])    
-    return json.dumps(vnet_res, indent=4)
+    resource = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['id'])    
+    return json.dumps(resource, indent=4)
  ```
  
  
-# Asynchronized Example
+# Asynchronized Example -- Get Virtual Network Gateway BGP Learned Routes
 ```python
 '''
 Begin Declare Input Parameters
@@ -76,14 +76,18 @@ For sample
 '''
 
 def BuildParameters(context, device_name, params):
-    # query DB, get required property of the node data model
-    self_node = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
-    return self_node
+    self_node = GetDeviceProperties(context, device_name, 
+			{'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
+    return {
+        'nbNode': self_node['params']
+    }
 	
-def RetrieveData(rtn_params):    
-    nb_node = self_node['params']
+def RetrieveData(rtn_params):
+    id = rtn_params['nbNode']['id']
     api_server_id = rtn_params['apiServerId']
-    vnet_res = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['vNetId'], action="getLearnedRoutes", is_async_method=True)
-    return json.dumps(vnet_res, indent=4)
+    
+    data = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, id, "getBgpPeerStatus", is_async_method=True)
+    
+    return json.dumps(data, indent=4)
  ```
 
