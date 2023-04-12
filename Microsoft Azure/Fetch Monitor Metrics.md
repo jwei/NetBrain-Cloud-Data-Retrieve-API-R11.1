@@ -36,22 +36,19 @@ Begin Declare Input Parameters
 ]
 End Declare
 '''
-  
+ 
+metric_name = 'ExpressRouteGatewayCpuUtilization'
+ 
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['id', 'vNetId']})
-    arn =  node_props['params']['id']  
-    rtn_params = [{ 'devName' : device_name, 'arn': arn}]
-    return rtn_params
-      
-def RetrieveData(rtn_params):
-    if isinstance(rtn_params, str):
-        rtn_params = json.loads(rtn_params)
-    param = rtn_params  
-    api_server_id = param['apiServerId']
-    resourceUri = param['arn']
-    url_params = {'metricnames': 'ComputeUnits'}
-    # call Azure Insight Monitoring Service to get Metrics data    
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(api_server_id, resourceUri, url_params)  
+    node_props = GetDeviceProperties(context, device_name, 
+            {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']})
+    return node_props
+     
+def RetrieveData(param):
+    resourceUri = param['params']['id']
+    url_params = {'metricnames': metric_name}
+    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(param['apiServerId'], resourceUri, url_params)
     return json.dumps(rtn_res, indent=4)
+    
  ```
 
