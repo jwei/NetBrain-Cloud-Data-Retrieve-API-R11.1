@@ -5,6 +5,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 # Table of Contents
 * [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
 * [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
+* [Azure Virtual Machine](#azure-virtual-machine)
 
 
 ## Azure Virtual Network Distributed Router
@@ -301,3 +302,9 @@ Please find below the detailed information regarding the Azure API used for conf
     }
 }
 ```
+
+## Azure Virtual Machine
+
+> **Content**: 
+> Configuration feature is not supported for Azure Virtual Machine yet. Please send API to get the resource data instead. Reference: https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md
+
