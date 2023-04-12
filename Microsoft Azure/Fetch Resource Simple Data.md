@@ -32,7 +32,7 @@ The function takes in several arguments, including:
 # Raises:
 > This function does not raise any exceptions.
 
-# Synchronized Example
+# Synchronized Example -- Get Resource API Data
 ```python
 '''
 Begin Declare Input Parameters
