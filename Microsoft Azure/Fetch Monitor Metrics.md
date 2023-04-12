@@ -19,7 +19,7 @@ class NBAzureAPILibrary:
  - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
  - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
  - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None.
- - `url_params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. This parameter is optional and defaults to '2018-01-01'.
+ - `url_params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
 
 # Output:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
