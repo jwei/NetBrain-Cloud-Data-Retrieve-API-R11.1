@@ -53,7 +53,7 @@ def BuildParameters(context, device_name, params):
     return self_node
 	
 def RetrieveData(rtn_params):
-    nb_node = self_node['params']
+    nb_node = rtn_params['params']
     api_server_id = rtn_params['apiServerId']
     resource = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['id'])    
     return json.dumps(resource, indent=4)
