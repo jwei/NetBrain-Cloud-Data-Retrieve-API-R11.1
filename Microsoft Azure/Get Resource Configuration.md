@@ -7,6 +7,15 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
 * [Azure Virtual Machine](#azure-virtual-machine)
 
+# TODO
+VPN Gateway
+ExpressRoute Gateway
+MSEE
+NAT Gateway
+Azure Firewall
+Virtual Hub
+Azure Load Balancer
+Application Gateway
 
 ## Azure Virtual Network Distributed Router
 
