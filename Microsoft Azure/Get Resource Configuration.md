@@ -10,17 +10,17 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 
 ## Azure Virtual Network Distributed Router
 
-> **Content**: 
-> The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API for its virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, and other relevant parameters.
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
 
-Please find below the detailed information regarding the Azure API used for configuring the virtual network distributed router.
-
+### Content
+Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Virtual Networks - Get |  | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP | 
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP | 
 
 
-> **Sample** :
+### Sample
 ```json
 {
   "netbrainNotes": "This config file is generated via API",
@@ -60,9 +60,11 @@ Please find below the detailed information regarding the Azure API used for conf
 
 ## Azure Virtual Network Gateway
 
-> **Content**: 
-> The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
+### Introduction
+The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
 
+### Content
+Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
 | Virtual Network Gateways - Get | vnetGateway | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get?tabs=HTTP | 
@@ -70,7 +72,7 @@ Please find below the detailed information regarding the Azure API used for conf
 | Subnets - Get | vnetGateway.properties.ipConfigurations.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get?tabs=HTTP |
 | Virtual Network Peerings - Get | vnetGateway.properties.remoteVirtualNetworkPeerings | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations&tabs=HTTP |
 
-> **Sample** :
+### Sample
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
@@ -305,6 +307,6 @@ Please find below the detailed information regarding the Azure API used for conf
 
 ## Azure Virtual Machine
 
-> **Content**: 
-> Configuration feature is not supported for Azure Virtual Machine yet. Please send API to get the resource data instead. Reference: https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md
+### Introduction
+Configuration feature is not supported for Azure Virtual Machine yet. Please send API to get the resource data instead. Reference: https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md
 
