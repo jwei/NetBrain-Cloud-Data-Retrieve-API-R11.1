@@ -21,6 +21,7 @@ Below are the Azure APIs used to generate this configuration.
 
 
 ### Sample
+@Xun -- collapse json
 ```json
 {
   "netbrainNotes": "This config file is generated via API",
@@ -51,7 +52,38 @@ Below are the Azure APIs used to generate this configuration.
         }
       }
     ],
-    "virtualNetworkPeerings": []
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
   }
 }
 ```
