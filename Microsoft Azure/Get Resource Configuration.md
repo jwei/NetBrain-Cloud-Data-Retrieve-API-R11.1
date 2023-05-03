@@ -1057,7 +1057,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Application Gateways - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/application-gateway/application-gateways/get | 
+| Private Endpoints - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/private-endpoints/get | 
 
 
 ### Sample
@@ -1141,7 +1141,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Application Gateways - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/application-gateway/application-gateways/get | 
+| Private Link Services - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/private-link-services/get | 
 
 
 ### Sample
@@ -1226,7 +1226,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Application Gateways - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/application-gateway/application-gateways/get | 
+| Subnets - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get | 
 
 
 ### Sample
