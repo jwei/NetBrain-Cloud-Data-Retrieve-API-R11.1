@@ -2,20 +2,18 @@
 To retrieve the configuration data for a resource, you can utilize NetBrain's built-in configuration file function, which does not require coding. This function enables you to quickly obtain the resource configuration.
 
 
-# TODO
-Azure VPN Gateway
-Azure ExpressRoute Gateway
-Azure MSEE
-Azure NAT Gateway
-Azure Firewall
-Azure Virtual Hub
-Azure Load Balancer
-Azure Application Gateway
-
 # Table of Contents
 * [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
 * [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
 * [Azure Virtual Machine](#azure-virtual-machine)
+* [Azure VPN Gateway](#azure-vpn-gateway)
+* [Azure ExpressRoute Gateway](#azure-expressroute-gateway)
+* [Azure MSEE](#azure-msee)
+* [Azure NAT Gateway](#azure-nat-gateway)
+* [Azure Firewall](#azure-firewall)
+* [Azure Virtual Hub](#azure-virtual-hub)
+* [Azure Load Balancer](#azure-load-balancer)
+* [Azure Application Gateway](#azure-application-gateway)
 
 
 ## Azure Virtual Network Distributed Router
@@ -362,7 +360,7 @@ Below are the Azure APIs used to generate this configuration.
 Configuration feature is not supported for Azure Virtual Machine yet. Please send API to get the resource data instead. Reference: https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md
 
 
-## Azure Virtual Network Distributed Router
+## Azure VPN Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -446,7 +444,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure ExpressRoute Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -530,7 +528,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure MSEE
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -614,7 +612,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure NAT Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -698,7 +696,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure Firewall
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -782,7 +780,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure Virtual Hub
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -866,7 +864,92 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Virtual Network Distributed Router
+## Azure Load Balancer
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?tabs=HTTP | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+
+</details>
+<br />
+
+
+## Azure Application Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
