@@ -14,7 +14,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [Azure Virtual Hub](#azure-virtual-hub)
 * [Azure Load Balancer](#azure-load-balancer)
 * [Azure Application Gateway](#azure-application-gateway)
-
+<br />
 
 ## Azure Virtual Network Distributed Router
 
