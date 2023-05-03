@@ -2,6 +2,7 @@
 
 The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
 
+@Jia -- Finalize API Def
 # API Definition
 ```python
 class NBAzureAPILibrary:
