@@ -36,7 +36,8 @@ The function takes in several arguments, including:
  - `is_async_method[optional]` (bool) True if it is async API to download large data set from Azure.
 
 ## Output <a name="output"></a>
-> The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
+> The JSON response body of the HTTP request to the Azure RESTful API, which can be found in Azure API Document (e.g. https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP)
+> This is a dictionary with string keys and values.
 
 ## Raises <a name="exception"></a>
 > This function does not raise any exceptions.
