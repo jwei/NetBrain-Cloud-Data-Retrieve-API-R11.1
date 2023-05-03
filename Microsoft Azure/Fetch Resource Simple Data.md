@@ -8,9 +8,9 @@ class NBAzureAPILibrary:
     def GetResourceDataByAPI(api_server_id: str,
                              azure_resource_uri: str,
                              resource_action: str = None,
-                             async_request: bool = False,
-                             api_method: str = "GET",
-                             api_version: str = '2022-09-01',
+                             async_request: bool = False,  # Todo @Jia -- remove
+                             api_method: str = "GET",  # Todo @Jia -- rename: http_method
+                             api_version: str = '',
                              json_body: object = None) -> object:
     # implementation
         # ...
