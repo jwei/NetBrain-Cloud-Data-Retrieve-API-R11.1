@@ -366,7 +366,7 @@ Configuration feature is not supported for Azure Virtual Machine yet. Please sen
 ## Azure VPN Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure VPN gateway is dependent on the Azure API response of the Azure VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `remoteVpnSite`, `vpnSiteLink`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -449,10 +449,10 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure ExpressRoute Gateway
+## Azure Express Route Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure express route gateway is dependent on the Azure API response of the Azure express route gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `expressRouteCircuitPeering`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -537,7 +537,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure MSEE
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure MSEE relies solely on the corresponding Azure API response of the Azure express route circuit.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -621,7 +621,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure NAT Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure NAT gateway is dependent on the Azure API response of the Azure NAT gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `expressRouteCircuitPeering`, `publicIpAddresses` and `subnets`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -707,7 +707,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Firewall
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure firewall is dependent on the Azure API response of the Azure firewall as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -793,7 +793,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Virtual Hub
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure virtual hub is dependent on the Azure API response of the Azure virtual hub as the primary response. The full resource configuration consists of some associated resources' API data, including `virtualWan`, `vpnSites`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -879,15 +879,16 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Load Balancer
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure load balancer is dependent on the Azure API response of the Azure load balancer as the primary response. The full resource configuration consists of some associated resources' API data, including `virtualWan`, `vpnSites`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
 | Load Balancers - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/load-balancer/load-balancers/get | 
-| Public IP Addresses - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get | 
-| Network Interface IP Configurations - Get | self | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get | 
+| Public IP Addresses - Get | properties.frontendIPConfigurations.properties.publicIPAddress | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get | 
+| Network Interface IP Configurations - Get | properties.backendAddressPools.properties.backendIPConfigurations | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get | 
+| Network Interface IP Configurations - Get | properties.backendAddressPools.properties.loadBalancerBackendAddresses.properties.networkInterfaceIPConfiguration | 2021-08-01 | https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get | 
 
 
 ### Sample
@@ -966,7 +967,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Application Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure application gateway relies solely on the corresponding Azure API of the azure application gateway. The Azure API provides detailed information regarding the configuration of the application gateway, including its connectivity, configuration, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -1051,7 +1052,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Private Endpoint
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure private endpoint relies solely on the corresponding Azure API of the private endpoint. The Azure API provides detailed information regarding the configuration of this private endpoint, including its connectivity, status, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -1135,7 +1136,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Private Link Service
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure private link service relies solely on the corresponding Azure API of the private link service. The Azure API provides detailed information regarding the configuration of the azure private link service, including its connectivity, status, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -1220,7 +1221,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Service Endpoint
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure service endpoint relies solely on the corresponding Azure API of the subnet. The Azure API provides detailed information regarding the configuration of the subnet, including its connectivity, accessibility, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
