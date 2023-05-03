@@ -38,6 +38,7 @@ The function takes in several arguments, including:
 ## Output <a name="output"></a>
 > The JSON response body of the HTTP request to the Azure RESTful API, which can be found in Azure API Document (e.g. https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP)
 > This is a dictionary with string keys and values.
+> Todo @Jia -- add a random sample JSON response.
 
 ## Raises <a name="exception"></a>
 > This function does not raise any exceptions.
