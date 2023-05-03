@@ -1,6 +1,7 @@
 # Introduction
 
 The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
+@Jia -- add merics doc ref
 
 @Jia -- Finalize API Def
 # API Definition
@@ -37,10 +38,8 @@ Begin Declare Input Parameters
 ]
 End Declare
 '''
- 
-# please reference to Azure Document for available metrics of each resource: 
-# https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
-metric_name = 'ExpressRouteGatewayCpuUtilization'
+
+metric_name = 'ExpressRouteGatewayCpuUtilization'  # metric name
  
 def BuildParameters(context, device_name, params):
     node_props = GetDeviceProperties(context, device_name, 
