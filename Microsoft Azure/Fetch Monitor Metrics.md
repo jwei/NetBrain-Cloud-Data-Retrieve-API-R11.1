@@ -38,6 +38,8 @@ Begin Declare Input Parameters
 End Declare
 '''
  
+# please reference to Azure Document for available metrics of each resource: 
+# https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
 metric_name = 'ExpressRouteGatewayCpuUtilization'
  
 def BuildParameters(context, device_name, params):
