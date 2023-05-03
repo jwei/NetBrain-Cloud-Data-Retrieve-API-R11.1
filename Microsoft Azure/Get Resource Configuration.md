@@ -2,6 +2,16 @@
 To retrieve the configuration data for a resource, you can utilize NetBrain's built-in configuration file function, which does not require coding. This function enables you to quickly obtain the resource configuration.
 
 
+# TODO
+Azure VPN Gateway
+Azure ExpressRoute Gateway
+Azure MSEE
+Azure NAT Gateway
+Azure Firewall
+Azure Virtual Hub
+Azure Load Balancer
+Azure Application Gateway
+
 # Table of Contents
 * [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
 * [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
