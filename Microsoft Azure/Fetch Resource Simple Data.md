@@ -1,7 +1,16 @@
-# Introduction
+# Table of Contents
+1. [Introduction](#introduction)
+2. [API Definition](#api_def)
+- [Input Parameters](#input)
+- [Output](#output)
+- [Raises](#exception)
+3. [Sample](#sample)
+4. [Default Azure API Versions](#default_api_version)
+
+# Introduction <a name="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary` class that retrieves Azure resource data via the Azure Management REST API. It supports both GET and POST methods to download resource data, where GET is used to download the resource data, and POST is used to download large or complex data sets asynchronously.
 
-# API Definition
+# API Definition  <a name="api_def"></a>
 ```python
 class NBAzureAPILibrary:
     @staticmethod
@@ -16,7 +25,7 @@ class NBAzureAPILibrary:
         # ...
 ```
 
-# Input Parameters:
+## Input Parameters <a name="input"></a>
 The function takes in several arguments, including:
  - `api_server_id` (str) The external API Server ID of this technology instance. User should be able to get it in API Script context. Check Sample Azure API Parser in NetBrain Parser Library for usage reference.
  - `azure_resource_uri` (str) e.g. The resource identifier, e.g. /{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
@@ -26,13 +35,13 @@ The function takes in several arguments, including:
  - `json_body[optional]` (object) API request body
  - `is_async_method[optional]` (bool) True if it is async API to download large data set from Azure.
 
-# Output:
+## Output <a name="output"></a>
 > The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
 
-# Raises:
+## Raises <a name="exception"></a>
 > This function does not raise any exceptions.
 
-# Sample:
+# Sample <a name="sample"></a>
 ## Synchronized Example -- Get Resource API Data
 ```python
 '''
@@ -92,7 +101,8 @@ def RetrieveData(rtn_params):
     return json.dumps(data, indent=4)
  ```
 
-# Default Azure API Version for Each Azure Provider
+# Default Azure API Versions <a name="default_api_version"></a>
+Below are the default API versions for different Azure provider.
 |**Azure Provider**|**Default API Version**|
 |------|------|
 | Microsoft.Network | 2022-09-01 |
