@@ -382,67 +382,216 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "e53bd582834840239c034dae44bfacc1-westus-gw(East-RG1)(073e6f45)(VpnGateway)",
+    "name": "e53bd582834840239c034dae44bfacc1-westus-gw",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw",
+    "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+    "type": "Microsoft.Network/vpnGateways",
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "connections": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "Connection-VPNSite-NoBGP-Test",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test",
+                "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                "type": "Microsoft.Network/vpnGateways/vpnConnections",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "routingConfiguration": {
+                        "associatedRouteTable": {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/West-VHUB/hubRouteTables/defaultRouteTable"
+                        },
+                        "propagatedRouteTables": {
+                            "labels": [
+                                "none"
+                            ],
+                            "ids": [
+                                {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/West-VHUB/hubRouteTables/noneRouteTable"
+                                }
+                            ]
+                        },
+                        "vnetRoutes": {
+                            "staticRoutes": []
+                        }
+                    },
+                    "enableInternetSecurity": false,
+                    # Vpn Sites: https://learn.microsoft.com/en-us/rest/api/virtualwan/vpn-sites/get
+                    "remoteVpnSite": {
+                        "name": "VPNSite-NoBGP-Test",
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test",
+                        "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                        "type": "Microsoft.Network/vpnSites",
+                        "location": "westus",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressSpace": {
+                                "addressPrefixes": [
+                                    "172.17.37.0/24"
+                                ]
+                            },
+                            "deviceProperties": {
+                                "deviceVendor": "NetBrain",
+                                "linkSpeedInMbps": 0
+                            },
+                            "virtualWan": {
+                                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualWans/VWAN-TO-BUR"
+                            },
+                            "isSecuritySite": false,
+                            "o365Policy": {
+                                "breakOutCategories": {
+                                    "optimize": false,
+                                    "allow": false,
+                                    "default": false
+                                }
+                            },
+                            # VPN Site Links: https://learn.microsoft.com/en-us/rest/api/virtualwan/vpn-site-links/get  
+                            "vpnSiteLinks": [
+                                {
+                                    "name": "Burlington-Fortigate",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-Fortigate",
+                                    "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "ipAddress": "104.207.208.80",
+                                        "linkProperties": {
+                                            "linkProviderName": "NetBrain",
+                                            "linkSpeedInMbps": 50
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/vpnSites/vpnSiteLinks"
+                                },
+                                {
+                                    "name": "Burlington-ASA",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-ASA",
+                                    "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "ipAddress": "104.207.208.106",
+                                        "linkProperties": {
+                                            "linkProviderName": "NetBrain",
+                                            "linkSpeedInMbps": 50
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/vpnSites/vpnSiteLinks"
+                                }
+                            ]
+                        }
+                    },
+                    "vpnLinkConnections": [
+                        {
+                            "name": "Burlington-Fortigate",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test/vpnLinkConnections/Burlington-Fortigate",
+                            "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "vpnSiteLink": {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-Fortigate"
+                                },
+                                "connectionBandwidth": 10,
+                                "ipsecPolicies": [],
+                                "vpnConnectionProtocolType": "IKEv2",
+                                "sharedKey": "Netbrain123!",
+                                "ingressBytesTransferred": 0,
+                                "egressBytesTransferred": 0,
+                                "packetCaptureDiagnosticState": "None",
+                                "connectionStatusDetails": [],
+                                "enableBgp": false,
+                                "enableRateLimiting": false,
+                                "useLocalAzureIpAddress": false,
+                                "usePolicyBasedTrafficSelectors": false,
+                                "routingWeight": 0,
+                                "dpdTimeoutSeconds": 0,
+                                "vpnLinkConnectionMode": "Default",
+                                "vpnGatewayCustomBgpAddresses": []
+                            },
+                            "type": "Microsoft.Network/vpnGateways/vpnConnections/vpnLinkConnections"
+                        },
+                        {
+                            "name": "Burlington-ASA",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test/vpnLinkConnections/Burlington-ASA",
+                            "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "vpnSiteLink": {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-ASA"
+                                },
+                                "connectionBandwidth": 10,
+                                "ipsecPolicies": [],
+                                "vpnConnectionProtocolType": "IKEv2",
+                                "sharedKey": "Netbrain123!",
+                                "ingressBytesTransferred": 0,
+                                "egressBytesTransferred": 0,
+                                "packetCaptureDiagnosticState": "None",
+                                "connectionStatusDetails": [],
+                                "enableBgp": false,
+                                "enableRateLimiting": false,
+                                "useLocalAzureIpAddress": false,
+                                "usePolicyBasedTrafficSelectors": false,
+                                "routingWeight": 0,
+                                "dpdTimeoutSeconds": 0,
+                                "vpnLinkConnectionMode": "Default",
+                                "vpnGatewayCustomBgpAddresses": []
+                            },
+                            "type": "Microsoft.Network/vpnGateways/vpnConnections/vpnLinkConnections"
+                        }
+                    ],
+                    "ingressBytesTransferred": 0,
+                    "egressBytesTransferred": 0
+                }
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
+        ],
+        "virtualHub": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/West-VHUB"
+        },
+        "bgpSettings": {
+            "asn": 65515,
+            "peerWeight": 0,
+            "bgpPeeringAddresses": [
+                {
+                    "ipconfigurationId": "Instance0",
+                    "defaultBgpIpAddresses": [
+                        "172.17.25.14"
+                    ],
+                    "customBgpIpAddresses": [],
+                    "tunnelIpAddresses": [
+                        "20.157.87.52",
+                        "172.17.25.6"
+                    ]
+                },
+                {
+                    "ipconfigurationId": "Instance1",
+                    "defaultBgpIpAddresses": [
+                        "172.17.25.15"
+                    ],
+                    "customBgpIpAddresses": [],
+                    "tunnelIpAddresses": [
+                        "20.157.87.54",
+                        "172.17.25.7"
+                    ]
+                }
             ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        },
+        "vpnGatewayScaleUnit": 1,
+        "packetCaptureDiagnosticState": "Failed",
+        "ipConfigurations": [
+            {
+                "id": "Instance0",
+                "publicIpAddress": "20.157.87.52",
+                "privateIpAddress": "172.17.25.6"
+            },
+            {
+                "id": "Instance1",
+                "publicIpAddress": "20.157.87.54",
+                "privateIpAddress": "172.17.25.7"
+            }
+        ],
+        "natRules": [],
+        "enableBgpRouteTranslationForNat": false,
+        "isRoutingPreferenceInternet": true
+    }
 }
 ```
 
@@ -467,67 +616,91 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "947de39baaf54512b65930c2300c7ded-eastus-er-gw(East-RG1)(073e6f45)(ExpressRouteGateway)",
+    "name": "947de39baaf54512b65930c2300c7ded-eastus-er-gw",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw",
+    "etag": "W/\"ea450342-3433-4929-a9b0-c6041a799704\"",
+    "type": "Microsoft.Network/expressRouteGateways",
+    "location": "eastus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "211f05d4-17c0-4eab-953f-5ffe3ec13db3",
+        "virtualHub": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB"
+        },
+        "expressRouteConnections": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "ExRConnection-eastus-1596986809931",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw/expressRouteConnections/ExRConnection-eastus-1596986809931",
+                "etag": "W/\"ea450342-3433-4929-a9b0-c6041a799704\"",
+                "type": "Microsoft.Network/expressRouteGateways/expressRouteConnections",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "225f6ef1-4c33-425c-a038-06ae813678ae",
+                    "routingConfiguration": {
+                        "associatedRouteTable": {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB/hubRouteTables/defaultRouteTable"
+                        },
+                        "propagatedRouteTables": {
+                            "labels": [
+                                "default"
+                            ],
+                            "ids": [
+                                {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB/hubRouteTables/defaultRouteTable"
+                                },
+                                {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB/hubRouteTables/DefaultRouteTable"
+                                }
+                            ]
+                        },
+                        "vnetRoutes": {
+                            "staticRoutes": []
+                        }
+                    },
+                    # Express Route Circuits: https://learn.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/get
+                    "expressRouteCircuitPeering": {
+                        "name": "AzurePrivatePeering",
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/peerings/AzurePrivatePeering",
+                        "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "peeringType": "AzurePrivatePeering",
+                            "azureASN": 12076,
+                            "peerASN": 8030,
+                            "primaryPeerAddressPrefix": "172.17.254.8/30",
+                            "secondaryPeerAddressPrefix": "172.17.254.12/30",
+                            "primaryAzurePort": "ATT-CHG-09XGMR-CIS-1-PRI-A",
+                            "secondaryAzurePort": "ATT-CHG-09XGMR-CIS-2-SEC-A",
+                            "state": "Enabled",
+                            "vlanId": 1,
+                            "gatewayManagerEtag": "7",
+                            "lastModifiedBy": "Customer",
+                            "microsoftPeeringConfig": {
+                                "advertisedPublicPrefixes": [],
+                                "advertisedCommunities": [],
+                                "advertisedPublicPrefixesState": "NotConfigured",
+                                "customerASN": 0,
+                                "legacyMode": 0,
+                                "routingRegistryName": "NONE"
+                            },
+                            "connections": [],
+                            "peeredConnections": []
+                        },
+                        "type": "Microsoft.Network/expressRouteCircuits/peerings"
+                    },
+                    "routingWeight": 0,
+                    "enableInternetSecurity": false
+                }
             }
-          ]
+        ],
+        "autoScaleConfiguration": {
+            "bounds": {
+                "min": 1
+            }
         }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+    }
 }
 ```
 
@@ -551,67 +724,157 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "Bur-Netbond(Primary)(East-RG1)(073e6f45)(MSEE)",
+    "name": "Bur-Netbond",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond",
+    "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+    "type": "Microsoft.Network/expressRouteCircuits",
+    "location": "eastus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "4bdbc638-ac36-49c9-a053-66a2a385a5c7",
+        "peerings": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "AzurePrivatePeering",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/peerings/AzurePrivatePeering",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "peeringType": "AzurePrivatePeering",
+                    "azureASN": 12076,
+                    "peerASN": 8030,
+                    "primaryPeerAddressPrefix": "172.17.254.8/30",
+                    "secondaryPeerAddressPrefix": "172.17.254.12/30",
+                    "primaryAzurePort": "",
+                    "secondaryAzurePort": "",
+                    "state": "Enabled",
+                    "vlanId": 1,
+                    "gatewayManagerEtag": "7",
+                    "lastModifiedBy": "Customer",
+                    "microsoftPeeringConfig": {
+                        "advertisedPublicPrefixes": [],
+                        "advertisedCommunities": [],
+                        "advertisedPublicPrefixesState": "NotConfigured",
+                        "customerASN": 0,
+                        "legacyMode": 0,
+                        "routingRegistryName": "NONE"
+                    },
+                    "connections": [],
+                    "peeredConnections": []
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/peerings"
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        ],
+        "authorizations": [
+            {
+                "name": "MyAuthorization2",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization2",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "58ad0e96-938d-48d1-9f74-8087f5b7f19b",
+                    "authorizationUseStatus": "Available"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "MyAuthorization3",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization3",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "28ea8385-ad29-4413-810f-4d1709c5df7d",
+                    "authorizationUseStatus": "Used"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "MyAuthorization4",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization4",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "5fe58c3e-72c0-4310-8993-9b8168b7636b",
+                    "authorizationUseStatus": "Used"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "2ed-AD-Auth",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-Auth",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "f84ace51-d05d-4bdd-a053-8b659cc8dcc3",
+                    "authorizationUseStatus": "Available"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "publi",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/publi",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "29c5ae03-af13-4a1a-925d-db29f759499a",
+                    "authorizationUseStatus": "Available"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "2ed-AD-Auth-Canada-Central",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-Auth-Canada-Central",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "eb4c073f-df57-4e20-ba8d-2dd2045aa873",
+                    "authorizationUseStatus": "Available"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "2ed-AD-VWAN",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-VWAN",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "dec6f56c-9223-4456-8c6d-3977b329bff6",
+                    "authorizationUseStatus": "Used"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            },
+            {
+                "name": "to-West-VHUB",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/to-West-VHUB",
+                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "authorizationKey": "2821adf4-0cd9-4a62-95d5-ccee110d7daf",
+                    "authorizationUseStatus": "Available"
+                },
+                "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+            }
+        ],
+        "serviceProviderProperties": {
+            "serviceProviderName": "AT&T Netbond",
+            "peeringLocation": "Chicago",
+            "bandwidthInMbps": 50
+        },
+        "circuitProvisioningState": "Enabled",
+        "allowClassicOperations": false,
+        "gatewayManagerEtag": "7",
+        "serviceKey": "7db0a77d-97cc-4040-aab7-99e3f37ac5b0",
+        "serviceProviderProvisioningState": "Provisioned",
+        "allowGlobalReach": false,
+        "globalReachEnabled": false,
+        "stag": 8
+    },
+    "sku": {
+        "name": "Standard_MeteredData",
+        "tier": "Premium",
+        "family": "MeteredData"
+    }
 }
 ```
 
@@ -637,67 +900,60 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
-            }
-          ]
-        }
-      }
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "Spoke-VNET-2-NAT-Gateway(Spoke-VNET-2)(073e6f45)(NatGateway)",
+    "name": "Spoke-VNET-2-NAT-Gateway",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/natGateways/Spoke-VNET-2-NAT-Gateway",
+    "etag": "W/\"e3d27ab0-77c0-4593-9599-afa06a4fa589\"",
+    "type": "Microsoft.Network/natGateways",
+    "location": "eastus2",
+    "tags": {},
+    "zones": [
+        "1"
     ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "844eadf7-7b17-4db8-a5cd-632a0b16ff51",
+        "idleTimeoutInMinutes": 10,
+        # Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get
+        "publicIpAddresses": [
+            {
+                "name": "NAT-Public-IP",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/publicIPAddresses/NAT-Public-IP",
+                "etag": "W/\"d4d9e43a-2ea7-4534-a6d3-63b3d8a79099\"",
+                "location": "eastus2",
+                "zones": [
+                    "1"
+                ],
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "a28a34ab-c9c4-4d56-a49e-644868e7b9b8",
+                    "natGateway": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/natGateways/Spoke-VNET-2-NAT-Gateway"
+                    },
+                    "ipAddress": "20.186.58.35",
+                    "publicIPAddressVersion": "IPv4",
+                    "publicIPAllocationMethod": "Static",
+                    "idleTimeoutInMinutes": 4,
+                    "ipTags": []
+                },
+                "type": "Microsoft.Network/publicIPAddresses",
+                "sku": {
+                    "name": "Standard",
+                    "tier": "Regional"
+                }
+            }
+        ],
+        "publicIpPrefixes": [
+            {
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/publicIPPrefixes/20.186.58.30"
+            }
+        ]
+    },
+    "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+    }
 }
 ```
 
@@ -713,7 +969,7 @@ The configuration of the Azure firewall is dependent on the Azure API response o
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/nat-gateways/get | 
+| Azure Firewalls - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/firewall/azure-firewalls/get | 
 | Public IP Addresses - Get | properties.ipConfigurations.properties.publicIPAddress | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get | 
 | Subnets - Get | properties.ipConfigurations.properties.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get | 
 
@@ -723,67 +979,95 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "Spoke-3-Firewall(US-West-RG)(073e6f45)(AzureFirewall)",
+    "name": "Spoke-3-Firewall",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall",
+    "etag": "W/\"8347fd01-ac03-4648-8c0d-6c6189c7bbeb\"",
+    "type": "Microsoft.Network/azureFirewalls",
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "sku": {
+            "name": "AZFW_VNet",
+            "tier": "Standard"
+        },
+        "threatIntelMode": "Alert",
+        "additionalProperties": {},
+        "ipConfigurations": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "Spoke-3-Firewall",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall/azureFirewallIpConfigurations/Spoke-3-Firewall",
+                "etag": "W/\"8347fd01-ac03-4648-8c0d-6c6189c7bbeb\"",
+                "type": "Microsoft.Network/azureFirewalls/azureFirewallIpConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAddress": "172.17.16.68",
+                    "privateIPAllocationMethod": "Dynamic",
+                    # Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get
+                    "publicIPAddress": {
+                        "name": "Spoke-3-Firewall",
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/publicIPAddresses/Spoke-3-Firewall",
+                        "etag": "W/\"800ab353-201f-4115-a096-278422739076\"",
+                        "location": "westus",
+                        "tags": {},
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "resourceGuid": "cacc4e88-23b2-43ad-a06a-c165bbccc5d6",
+                            "ipAddress": "13.86.142.24",
+                            "publicIPAddressVersion": "IPv4",
+                            "publicIPAllocationMethod": "Static",
+                            "idleTimeoutInMinutes": 4,
+                            "ipTags": [],
+                            "ipConfiguration": {
+                                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall/azureFirewallIpConfigurations/Spoke-3-Firewall"
+                            }
+                        },
+                        "type": "Microsoft.Network/publicIPAddresses",
+                        "sku": {
+                            "name": "Standard",
+                            "tier": "Regional"
+                        }
+                    },
+                    # Subnets: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get
+                    "subnet": {
+                        "name": "AzureFirewallSubnet",
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/virtualNetworks/Spoke-VNET3/subnets/AzureFirewallSubnet",
+                        "etag": "W/\"e88d699c-7496-499c-b1d4-2c6bebe9a91d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "172.17.16.64/26",
+                            "ipConfigurations": [
+                                {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall/azureFirewallIpConfigurations/Spoke-3-Firewall"
+                                }
+                            ],
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "westus",
+                                        "eastus"
+                                    ]
+                                }
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        },
+                        "type": "Microsoft.Network/virtualNetworks/subnets"
+                    }
+                }
             }
-          ]
+        ],
+        "networkRuleCollections": [],
+        "applicationRuleCollections": [],
+        "natRuleCollections": [],
+        "firewallPolicy": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourcegroups/US-West-RG/providers/Microsoft.Network/firewallPolicies/AzurePathTest-FW"
         }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+    }
 }
 ```
 
@@ -809,67 +1093,138 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "East-VHUB(East-RG1)(073e6f45)(VirtualHub)",
+    "name": "East-VHUB",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB",
+    "etag": "W/\"729f33a3-a3a3-4377-bb14-715b592740c2\"",
+    "type": "Microsoft.Network/virtualHubs",
+    "location": "eastus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "virtualHubRouteTableV2s": [],
+        "addressPrefix": "172.17.253.0/24",
+        "virtualRouterAsn": 65515,
+        "virtualRouterIps": [
+            "172.17.253.104",
+            "172.17.253.105"
+        ],
+        "routeTable": {
+            "routes": []
+        },
+        "virtualRouterAutoScaleConfiguration": {
+            "minCapacity": 2
+        },
+        # Virtual Wans: https://learn.microsoft.com/en-us/rest/api/virtualwan/virtual-wans/get
+        "virtualWan": {
+            "name": "VWAN-TO-BUR",
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualWans/VWAN-TO-BUR",
+            "etag": "W/\"f6e2942d-c798-43ab-9f76-9295a61ce2e0\"",
+            "type": "Microsoft.Network/virtualWans",
+            "location": "eastus",
+            "tags": {
+                "DEMO-LAB": "NO CHANGE"
+            },
+            "properties": {
+                "provisioningState": "Succeeded",
+                "disableVpnEncryption": false,
+                "allowBranchToBranchTraffic": true,
+                "office365LocalBreakoutCategory": "None",
+                "type": "Standard",
+                "virtualHubs": [
+                    {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB"
+                    },
+                    {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/West-VHUB"
+                    }
+                ],
+                # Vpn Sites: https://learn.microsoft.com/en-us/rest/api/virtualwan/vpn-sites/get
+                "vpnSites": [
+                    {
+                        "name": "Burlington",
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington",
+                        "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                        "type": "Microsoft.Network/vpnSites",
+                        "location": "eastus",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressSpace": {
+                                "addressPrefixes": [
+                                    "172.17.251.0/30",
+                                    "172.17.251.4/30"
+                                ]
+                            },
+                            "deviceProperties": {
+                                "deviceVendor": "Cisco",
+                                "linkSpeedInMbps": 0
+                            },
+                            "virtualWan": {
+                                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualWans/VWAN-TO-BUR"
+                            },
+                            "isSecuritySite": false,
+                            "o365Policy": {
+                                "breakOutCategories": {
+                                    "optimize": false,
+                                    "allow": false,
+                                    "default": false
+                                }
+                            },
+                            "vpnSiteLinks": [
+                                {
+                                    "name": "To-Lab-ASA",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington/vpnSiteLinks/To-Lab-ASA",
+                                    "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "ipAddress": "104.207.208.106",
+                                        "bgpProperties": {
+                                            "asn": 64666,
+                                            "bgpPeeringAddress": "172.17.251.1"
+                                        },
+                                        "linkProperties": {
+                                            "linkProviderName": "Crown Castle",
+                                            "linkSpeedInMbps": 1
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/vpnSites/vpnSiteLinks"
+                                },
+                                {
+                                    "name": "To-Bur-Fortigate",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington/vpnSiteLinks/To-Bur-Fortigate",
+                                    "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "ipAddress": "104.207.208.80",
+                                        "bgpProperties": {
+                                            "asn": 64665,
+                                            "bgpPeeringAddress": "172.17.251.5"
+                                        },
+                                        "linkProperties": {
+                                            "linkProviderName": "Crown Castle",
+                                            "linkSpeedInMbps": 1
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/vpnSites/vpnSiteLinks"
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        },
+        "vpnGateway": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/a139004e542a42b9a685e94e4401e7ed-eastus-gw"
+        },
+        "expressRouteGateway": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw"
+        },
+        "networkVirtualAppliances": [],
+        "routingState": "Provisioned",
+        "allowBranchToBranchTraffic": false,
+        "preferredRoutingGateway": "ExpressRoute",
+        "hubRoutingPreference": "ExpressRoute"
+    }
 }
 ```
 
