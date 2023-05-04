@@ -1251,67 +1251,263 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "VNET-1-Private-Load-Balancer(Spoke-VNET-1)(073e6f45)(LoadBalancer)",
+    "name": "VNET-1-Private-Load-Balancer",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer",
+    "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+    "type": "Microsoft.Network/loadBalancers",
+    "location": "westus2",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "cdd67be5-2871-430c-9693-6a142ea3ca15",
+        "frontendIPConfigurations": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "LoadBalancerFrontEnd",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/frontendIPConfigurations/LoadBalancerFrontEnd",
+                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAddress": "172.17.12.20",
+                    "privateIPAllocationMethod": "Static",
+                    "subnet": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/subnets/172.17.12.16-31"
+                    },
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/TestHAPorts"
+                        }
+                    ],
+                    "privateIPAddressVersion": "IPv4"
+                },
+                "zones": [
+                    "2"
+                ]
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "VNET-1-Private-Load-Balancer-Backend-Pool",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool",
+                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "loadBalancerBackendAddresses": [
+                        {
+                            "name": "Spoke-VNET-1_vnet-1-private-endpo278ipconfig1",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool/loadBalancerBackendAddresses/Spoke-VNET-1_vnet-1-private-endpo278ipconfig1",
+                            "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                # Network Interface IP Configurations: https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get
+                                "networkInterfaceIPConfiguration": {
+                                    "name": "ipconfig1",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo278/ipConfigurations/ipconfig1",
+                                    "etag": "W/\"b5540360-3c53-4b77-a8b0-01fa28561f8d\"",
+                                    "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "privateIPAddress": "172.17.12.22",
+                                        "privateIPAllocationMethod": "Dynamic",
+                                        "subnet": {
+                                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/subnets/172.17.12.16-31"
+                                        },
+                                        "primary": true,
+                                        "privateIPAddressVersion": "IPv4",
+                                        "loadBalancerBackendAddressPools": [
+                                            {
+                                                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "type": "Microsoft.Network/loadBalancers/backendAddressPools/loadBalancerBackendAddresses"
+                        },
+                        {
+                            "name": "Spoke-VNET-1_vnet-1-private-endpo158ipconfig1",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool/loadBalancerBackendAddresses/Spoke-VNET-1_vnet-1-private-endpo158ipconfig1",
+                            "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "networkInterfaceIPConfiguration": {
+                                    "name": "ipconfig1",
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo158/ipConfigurations/ipconfig1",
+                                    "etag": "W/\"3dc3fed7-49e1-4db2-abe4-1e48389bf2fd\"",
+                                    "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "privateIPAddress": "172.17.12.21",
+                                        "privateIPAllocationMethod": "Dynamic",
+                                        "subnet": {
+                                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/subnets/172.17.12.16-31"
+                                        },
+                                        "primary": true,
+                                        "privateIPAddressVersion": "IPv4",
+                                        "loadBalancerBackendAddressPools": [
+                                            {
+                                                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "type": "Microsoft.Network/loadBalancers/backendAddressPools/loadBalancerBackendAddresses"
+                        }
+                    ],
+                    # Network Interface IP Configurations: https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get
+                    "backendIPConfigurations": [
+                        {
+                            "name": "ipconfig1",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo278/ipConfigurations/ipconfig1",
+                            "etag": "W/\"b5540360-3c53-4b77-a8b0-01fa28561f8d\"",
+                            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "privateIPAddress": "172.17.12.22",
+                                "privateIPAllocationMethod": "Dynamic",
+                                "subnet": {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/subnets/172.17.12.16-31"
+                                },
+                                "primary": true,
+                                "privateIPAddressVersion": "IPv4",
+                                "loadBalancerBackendAddressPools": [
+                                    {
+                                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ipconfig1",
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo158/ipConfigurations/ipconfig1",
+                            "etag": "W/\"3dc3fed7-49e1-4db2-abe4-1e48389bf2fd\"",
+                            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "privateIPAddress": "172.17.12.21",
+                                "privateIPAllocationMethod": "Dynamic",
+                                "subnet": {
+                                    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/subnets/172.17.12.16-31"
+                                },
+                                "primary": true,
+                                "privateIPAddressVersion": "IPv4",
+                                "loadBalancerBackendAddressPools": [
+                                    {
+                                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/TestHAPorts"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+            }
+        ],
+        "loadBalancingRules": [
+            {
+                "name": "TestHAPorts",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/TestHAPorts",
+                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "type": "Microsoft.Network/loadBalancers/loadBalancingRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/frontendIPConfigurations/LoadBalancerFrontEnd"
+                    },
+                    "frontendPort": 0,
+                    "backendPort": 0,
+                    "enableFloatingIP": false,
+                    "idleTimeoutInMinutes": 4,
+                    "protocol": "All",
+                    "enableDestinationServiceEndpoint": false,
+                    "enableTcpReset": false,
+                    "allowBackendPortConflict": false,
+                    "loadDistribution": "Default",
+                    "disableOutboundSnat": false,
+                    "backendAddressPool": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                    },
+                    "backendAddressPools": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool"
+                        }
+                    ],
+                    "probe": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/probes/HTTP"
+                    }
+                }
+            }
+        ],
+        "probes": [
+            {
+                "name": "HTTP",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/probes/HTTP",
+                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Http",
+                    "port": 80,
+                    "requestPath": "/",
+                    "intervalInSeconds": 15,
+                    "numberOfProbes": 2,
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/TestHAPorts"
+                        },
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/AzurePathTest-NoHA"
+                        },
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/to-firewall-virtual-appliance-HA"
+                        },
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/to-firewall-virtual-appliance-NoHA"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/loadBalancers/probes"
+            }
+        ],
+        "inboundNatRules": [
+            {
+                "name": "AzurePathTest_INNat",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/inboundNatRules/AzurePathTest_INNat",
+                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "type": "Microsoft.Network/loadBalancers/inboundNatRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/frontendIPConfigurations/AzurePathTest"
+                    },
+                    "frontendPort": 3389,
+                    "backendPort": 3389,
+                    "enableFloatingIP": false,
+                    "idleTimeoutInMinutes": 4,
+                    "protocol": "Tcp",
+                    "enableDestinationServiceEndpoint": false,
+                    "enableTcpReset": false,
+                    "allowBackendPortConflict": false,
+                    "backendIPConfiguration": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/AzurePathTest/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo650/ipConfigurations/ipconfig1"
+                    }
+                }
+            }
+        ],
+        "outboundRules": [],
+        "inboundNatPools": []
+    },
+    "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+    }
 }
 ```
 
@@ -1336,67 +1532,284 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "appgw_aks_test_2(MC_aks_test_2_aks-test-2-public_westus2)(073e6f45)(ApplicationGateway)",
+    "name": "appgw_aks_test_2",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2",
+    "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+    "type": "Microsoft.Network/applicationGateways",
+    "location": "westus2",
+    "tags": {
+        "managed-by-k8s-ingress": "1.5.3/94b2b229/2023-02-03-21:42T+0000"
     },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
-            }
-          ]
-        }
-      }
+    "zones": [
+        "1",
+        "2",
+        "3"
     ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "99a132df-e2fb-43f5-ad0b-11fab7baad1b",
+        "sku": {
+            "name": "Standard_v2",
+            "tier": "Standard_v2"
+        },
+        "operationalState": "Running",
+        "gatewayIPConfigurations": [
+            {
+                "name": "appGatewayIpConfig",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/gatewayIPConfigurations/appGatewayIpConfig",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "subnet": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/virtualNetworks/aks-vnet-39472610/subnets/appgw-subnet"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/gatewayIPConfigurations"
+            }
+        ],
+        "sslCertificates": [],
+        "trustedRootCertificates": [],
+        "trustedClientCertificates": [],
+        "sslProfiles": [],
+        "frontendIPConfigurations": [
+            {
+                "name": "appGwPublicFrontendIp",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendIPConfigurations/appGwPublicFrontendIp",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "type": "Microsoft.Network/applicationGateways/frontendIPConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/publicIPAddresses/public_IP_aks_test2_appgw"
+                    },
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/httpListeners/fl-e1903c8aa3446b7b3207aec6d6ecba8a"
+                        }
+                    ]
+                }
+            }
+        ],
+        "frontendPorts": [
+            {
+                "name": "port_80",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendPorts/port_80",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 80,
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/httpListeners/fl-e1903c8aa3446b7b3207aec6d6ecba8a"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/frontendPorts"
+            }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "defaultaddresspool",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendAddressPools/defaultaddresspool",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "backendAddresses": []
+                },
+                "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+            },
+            {
+                "name": "pool-default-aspnetapp-80-bp-80",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendAddressPools/pool-default-aspnetapp-80-bp-80",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "backendAddresses": [
+                        {
+                            "ipAddress": "10.244.0.14"
+                        }
+                    ],
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/requestRoutingRules/rr-e1903c8aa3446b7b3207aec6d6ecba8a"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+            }
+        ],
+        "loadDistributionPolicies": [],
+        "backendHttpSettingsCollection": [
+            {
+                "name": "bp-default-aspnetapp-80-80-aspnetapp",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/bp-default-aspnetapp-80-80-aspnetapp",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 80,
+                    "protocol": "Http",
+                    "cookieBasedAffinity": "Disabled",
+                    "pickHostNameFromBackendAddress": false,
+                    "requestTimeout": 30,
+                    "probe": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/pb-default-aspnetapp-80-aspnetapp"
+                    },
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/requestRoutingRules/rr-e1903c8aa3446b7b3207aec6d6ecba8a"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+            },
+            {
+                "name": "defaulthttpsetting",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/defaulthttpsetting",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 80,
+                    "protocol": "Http",
+                    "cookieBasedAffinity": "Disabled",
+                    "pickHostNameFromBackendAddress": false,
+                    "requestTimeout": 30,
+                    "probe": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/defaultprobe-Http"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+            }
+        ],
+        "backendSettingsCollection": [],
+        "httpListeners": [
+            {
+                "name": "fl-e1903c8aa3446b7b3207aec6d6ecba8a",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/httpListeners/fl-e1903c8aa3446b7b3207aec6d6ecba8a",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendIPConfigurations/appGwPublicFrontendIp"
+                    },
+                    "frontendPort": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendPorts/port_80"
+                    },
+                    "protocol": "Http",
+                    "hostNames": [],
+                    "requireServerNameIndication": false,
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/requestRoutingRules/rr-e1903c8aa3446b7b3207aec6d6ecba8a"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/httpListeners"
+            }
+        ],
+        "listeners": [],
+        "urlPathMaps": [],
+        "requestRoutingRules": [
+            {
+                "name": "rr-e1903c8aa3446b7b3207aec6d6ecba8a",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/requestRoutingRules/rr-e1903c8aa3446b7b3207aec6d6ecba8a",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "ruleType": "Basic",
+                    "priority": 19500,
+                    "httpListener": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/httpListeners/fl-e1903c8aa3446b7b3207aec6d6ecba8a"
+                    },
+                    "backendAddressPool": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendAddressPools/pool-default-aspnetapp-80-bp-80"
+                    },
+                    "backendHttpSettings": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/bp-default-aspnetapp-80-80-aspnetapp"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/requestRoutingRules"
+            }
+        ],
+        "routingRules": [],
+        "probes": [
+            {
+                "name": "defaultprobe-Http",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/defaultprobe-Http",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Http",
+                    "host": "localhost",
+                    "path": "/",
+                    "interval": 30,
+                    "timeout": 30,
+                    "unhealthyThreshold": 3,
+                    "pickHostNameFromBackendHttpSettings": false,
+                    "minServers": 0,
+                    "match": {},
+                    "backendHttpSettings": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/defaulthttpsetting"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/probes"
+            },
+            {
+                "name": "defaultprobe-Https",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/defaultprobe-Https",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Https",
+                    "host": "localhost",
+                    "path": "/",
+                    "interval": 30,
+                    "timeout": 30,
+                    "unhealthyThreshold": 3,
+                    "pickHostNameFromBackendHttpSettings": false,
+                    "minServers": 0,
+                    "match": {}
+                },
+                "type": "Microsoft.Network/applicationGateways/probes"
+            },
+            {
+                "name": "pb-default-aspnetapp-80-aspnetapp",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/pb-default-aspnetapp-80-aspnetapp",
+                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Http",
+                    "host": "localhost",
+                    "path": "/",
+                    "interval": 30,
+                    "timeout": 30,
+                    "unhealthyThreshold": 3,
+                    "pickHostNameFromBackendHttpSettings": false,
+                    "minServers": 0,
+                    "match": {},
+                    "backendHttpSettings": [
+                        {
+                            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/bp-default-aspnetapp-80-80-aspnetapp"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/probes"
+            }
+        ],
+        "rewriteRuleSets": [],
+        "redirectConfigurations": [],
+        "privateLinkConfigurations": [],
+        "privateEndpointConnections": [],
+        "enableHttp2": false,
+        "autoscaleConfiguration": {
+            "minCapacity": 0,
+            "maxCapacity": 3
         }
-      }
-    ]
-  }
+    }
 }
 ```
 
@@ -1421,67 +1834,50 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "1stsub-private-endpoint(public-service-test)(073e6f45)(PrivateEndpoint)",
+    "name": "1stsub-private-endpoint",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/1stsub-private-endpoint",
+    "etag": "W/\"17898344-69e0-41df-b9a2-7179d9f062b0\"",
+    "type": "Microsoft.Network/privateEndpoints",
+    "location": "eastus",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "b36d12ae-86b8-4639-8b30-27214474de12",
+        "privateLinkServiceConnections": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "name": "1stsub-private-endpoint",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/1stsub-private-endpoint/privateLinkServiceConnections/1stsub-private-endpoint",
+                "etag": "W/\"17898344-69e0-41df-b9a2-7179d9f062b0\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateLinkServiceId": "/subscriptions/eb48417e-0d31-46b0-acd4-990d862f9cdb/resourceGroups/paastestgroup/providers/Microsoft.Storage/storageAccounts/2edsub4storageaccount",
+                    "groupIds": [
+                        "file"
+                    ],
+                    "privateLinkServiceConnectionState": {
+                        "status": "Approved",
+                        "description": "Auto-Approved",
+                        "actionsRequired": "None"
+                    }
+                },
+                "type": "Microsoft.Network/privateEndpoints/privateLinkServiceConnections"
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        ],
+        "manualPrivateLinkServiceConnections": [],
+        "customNetworkInterfaceName": "1stsub-private-endpoint-nic",
+        "subnet": {
+            "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-VNET1/subnets/ASAv-Subnet2"
+        },
+        "ipConfigurations": [],
+        "networkInterfaces": [
+            {
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/networkInterfaces/1stsub-private-endpoint-nic"
+            }
+        ],
+        "customDnsConfigs": []
+    }
 }
 ```
 
@@ -1505,67 +1901,110 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "public_service_test_privatelinkservice(public-service-test)(073e6f45)(PrivateLinkService)",
+    "name": "public_service_test_privatelinkservice",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice",
+    "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+    "type": "Microsoft.Network/privateLinkServices",
+    "location": "eastus",
+    "tags": {
+        "type": "dev"
     },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "bfd8925e-0c2e-448a-b215-1c42121cd572",
+        "fqdns": [],
+        "alias": "public_service_test_privatelinkservice.acb1b37c-fb58-47a8-bbbe-4137bd3064f2.eastus.azure.privatelinkservice",
+        "visibility": {
+            "subscriptions": []
+        },
+        "autoApproval": {
+            "subscriptions": []
+        },
+        "enableProxyProtocol": false,
+        "loadBalancerFrontendIpConfigurations": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/loadBalancers/TestLBStandard/frontendIPConfigurations/LoadBalancerFrontEnd"
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        ],
+        "ipConfigurations": [
+            {
+                "name": "Subnet1-1",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/ipConfigurations/Subnet1-1",
+                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "type": "Microsoft.Network/privateLinkServices/ipConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "subnet": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-VNET1/subnets/Subnet1"
+                    },
+                    "primary": false,
+                    "privateIPAddressVersion": "IPv4"
+                }
+            },
+            {
+                "name": "Subnet1-2",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/ipConfigurations/Subnet1-2",
+                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "type": "Microsoft.Network/privateLinkServices/ipConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAddress": "172.17.11.12",
+                    "privateIPAllocationMethod": "Static",
+                    "subnet": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-VNET1/subnets/Subnet1"
+                    },
+                    "primary": true,
+                    "privateIPAddressVersion": "IPv4"
+                }
+            }
+        ],
+        "privateEndpointConnections": [
+            {
+                "name": "publicservicetest_privateendpoint_1.0e476d97-89ac-4dea-8771-23087d1294aa",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/privateEndpointConnections/publicservicetest_privateendpoint_1.0e476d97-89ac-4dea-8771-23087d1294aa",
+                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateEndpoint": {
+                        "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/publicservicetest_privateendpoint_1"
+                    },
+                    "privateLinkServiceConnectionState": {
+                        "status": "Approved",
+                        "description": "Auto Approved",
+                        "actionsRequired": "None"
+                    },
+                    "linkIdentifier": "184561670"
+                },
+                "type": "Microsoft.Network/privateLinkServices/privateEndpointConnections"
+            },
+            {
+                "name": "2edSub-private-endpoint-pls.60e3456e-2c5c-4031-af30-08a12da52acc",
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/privateEndpointConnections/2edSub-private-endpoint-pls.60e3456e-2c5c-4031-af30-08a12da52acc",
+                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateEndpoint": {
+                        "id": "/subscriptions/eb48417e-0d31-46b0-acd4-990d862f9cdb/resourceGroups/paastestgroup/providers/Microsoft.Network/privateEndpoints/2edSub-private-endpoint-pls"
+                    },
+                    "privateLinkServiceConnectionState": {
+                        "status": "Approved",
+                        "description": "Auto Approved",
+                        "actionsRequired": "None"
+                    },
+                    "linkIdentifier": "536904747"
+                },
+                "type": "Microsoft.Network/privateLinkServices/privateEndpointConnections"
+            }
+        ],
+        "networkInterfaces": [
+            {
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/public-service-test/providers/Microsoft.Network/networkInterfaces/public_service_test_privatelinkservice.nic.280a7b6f-4ef7-43ef-9a47-1b49c27127bf"
+            }
+        ]
+    }
 }
 ```
 
@@ -1590,67 +2029,33 @@ Below are the Azure APIs used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "AzureFirewallSubnet_in_East-Test-VNET(East-RG1)(073e6f45)(ServiceEndpoint)",
+    "name": "AzureFirewallSubnet",
+    "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-Test-VNET/subnets/AzureFirewallSubnet",
+    "etag": "W/\"a2970964-5e0b-4f76-beb4-eddf5d573c6f\"",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "addressPrefix": "172.17.19.64/26",
+        "serviceEndpointPolicies": [
             {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+                "id": "/subscriptions/073e6f45-d1ae-40fe-93af-88231d2377bd/resourceGroups/East-RG1/providers/Microsoft.Network/serviceEndpointPolicies/XunServiceEndpoint1"
             }
-          ]
-        }
-      }
-    ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
-    ]
-  }
+        ],
+        "serviceEndpoints": [
+            {
+                "provisioningState": "Succeeded",
+                "service": "Microsoft.Storage",
+                "locations": [
+                    "*"
+                ]
+            }
+        ],
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Enabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+    },
+    "type": "Microsoft.Network/virtualNetworks/subnets"
 }
 ```
 
