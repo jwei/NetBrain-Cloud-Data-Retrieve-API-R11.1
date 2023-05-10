@@ -14,15 +14,16 @@ The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetResourceDataByAPI(api_server_id: str,
-                             azure_resource_uri: str,
-                             resource_action: str = None,
-                             async_request: bool = False,  # Todo @Jia -- remove
-                             api_method: str = "GET",  # Todo @Jia -- rename: http_method
-                             api_version: str = '',
-                             json_body: object = None) -> object:
+    def GetResourceDataByAPI(
+            api_server_id: str,
+            azure_resource_uri: str,
+            action: str = None,
+            http_method: str = "GET",
+            json_body: object = None,
+            api_version: str = ''
+    ) -> object:
     # implementation
-        # ...
+    # ...
 ```
 
 ## Input Parameters <a name="input"></a>
@@ -31,9 +32,8 @@ The function takes in several arguments, including:
  - `azure_resource_uri` (str) e.g. The resource identifier, e.g. /{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
  - `action[optional]` (str) in case that you want to download some specific data from the resource. e.g. pass in "getLearnedRoutes" when you want to download vnet gateway learned routes. Ref: https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP
  - `http_method[optional]` (str) GET or POST. Note that async methods like downloading large data set would need a POST method. (e.g. download vnet gateway learned routes, vnic effective routes, etc.) please check Microsoft Azure API document for reference.
- - `api_version[optional]` (str) API Version of the Azure Rest API, e.g. '2022-09-01', which can be found in Azure API document. If not provided, then a default API version is assigned for each resource provider. The default mapping can be found at the end of this document. @Jia -- hyperlink
+ - `api_version[optional]` (str) API Version of the Azure Rest API, e.g. '2022-09-01', which can be found in Azure API document. If not provided, then a default API version is assigned for each resource provider. The default mapping can be found at the end of this document [#here](#default_api_version).
  - `json_body[optional]` (object) API request body
- - `is_async_method[optional]` (bool) True if it is async API to download large data set from Azure.
 
 ## Output <a name="output"></a>
 > The JSON response body of the HTTP request to the Azure RESTful API, which can be found in Azure API Document (e.g. https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP)
