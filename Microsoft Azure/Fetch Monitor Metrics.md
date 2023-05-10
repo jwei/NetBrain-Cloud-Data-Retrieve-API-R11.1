@@ -8,11 +8,12 @@ The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILi
 ```python
 class NBAzureAPILibrary:
     @staticmethod
-    def GetMonitorMetrics(api_server_id: str,
-                          azure_resource_uri: str,
-                          api_version: str, 
-                          url_params: Dict[str, str]
-                          ) -> Dict[str, Any]:
+    def GetMonitorMetrics(
+            api_server_id: str,
+            azure_resource_uri: str,
+            params: object = None,
+            api_version: str = '2018-01-01'
+    ) -> object:
         # implementation
         # ...
 ```
@@ -20,8 +21,8 @@ class NBAzureAPILibrary:
 # Input Parameters:
  - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
  - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
- - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None.
- - `url_params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
+ - `params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
+ - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None. 
 
 # Output:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
