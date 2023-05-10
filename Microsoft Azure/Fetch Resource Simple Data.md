@@ -44,7 +44,7 @@ The function takes in several arguments, including:
 > This function does not raise any exceptions.
 
 # Sample <a name="sample"></a>
-## Synchronized Example -- Get Resource API Data
+## Example 1 -- Get Resource API Data with HTTP GET Method
 ```python
 '''
 Begin Declare Input Parameters
@@ -67,12 +67,12 @@ def BuildParameters(context, device_name, params):
 def RetrieveData(rtn_params):
     nb_node = rtn_params['params']
     api_server_id = rtn_params['apiServerId']
-    resource = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, nb_node['id'])    
+    resource = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id=api_server_id, azure_resource_uri=nb_node['id'])    
     return json.dumps(resource, indent=4)
  ```
  
  
-## Asynchronized Example -- Get Virtual Network Gateway BGP Learned Routes
+## Example 2 -- Get Virtual Network Gateway BGP Learned Routes with HTTP POST Method
 ```python
 '''
 Begin Declare Input Parameters
@@ -98,7 +98,7 @@ def RetrieveData(rtn_params):
     id = rtn_params['nbNode']['id']
     api_server_id = rtn_params['apiServerId']
     
-    data = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id, id, "getBgpPeerStatus", is_async_method=True)
+    data = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id=api_server_id, azure_resource_uri=id, action="getBgpPeerStatus", http_method='POST')
     
     return json.dumps(data, indent=4)
  ```
