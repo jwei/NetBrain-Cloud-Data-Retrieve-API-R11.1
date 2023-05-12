@@ -63,10 +63,13 @@ class NBAWSAPILibrary:
 | network-firewall | Network Firewall | describe_firewall_policy | None| FirewallPolicyArn | N/A |
 
 # Output:
-> The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
+> The JSON response body of the request to the AWS SDK. This is a dictionary with string keys and values.
 
 # Raises:
-> This function does not raise any exceptions.
+- If the function name specified in the `func_name` parameter is not found in either `built_in_func_mapping` or `customized_func_mapping`, the code raises an `Exception` with an error message.
+- If a filter key specified in either `filter_keys` or `customized_filters` is not defined in the function mapping specified in `config` or `customized_func_mapping`, respectively, the code raises an `Exception` with an error message.
+- If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
+- If the `resource_type` specified in `config` is not one of the supported types ('ec2', 'elbv2', or 'network-firewall'), the code raises a `Warning` with an error message. However, this warning is treated the same as an exception, and the code immediately raises an `Exception` with the same error message.
 
 # Example
 
@@ -76,23 +79,33 @@ Begin Declare Input Parameters
 [
 ]
 End Declare
+ 
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
 '''
+import json
   
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(
-        context,
-        device_name,
-        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*'] }
-    )
-    return node_props
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    return self_node['params']
       
-def RetrieveData(param):   
-    nb_node = param['params']
-    data = NBAzureAPILibrary.GetResourceData(
-        api_server_id=param['apiServerId'],
-        nb_resource_data=nb_node,
-        data_type='load_balancing_rules'
-    )
-      
-    return json.dumps(data, indent=4)
+def RetrieveData(params):
+    # customized_filters is optional   
+    customized_filters = [{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]
+    # customized_func_mapping is optional 
+    customized_func_mapping = {
+        'describe_transit_gateway_route_tables':
+        {
+            'resource_type': 'ec2',
+            'field_name': 'TransitGatewayRouteTables',
+            'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId',
+            'transit-gateway-id': 'TransitGatewayId'
+        }
+    }
+    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-route-table-id'],
+                                         customized_filters={}, customized_func_mapping={})
+    return data
  ```
