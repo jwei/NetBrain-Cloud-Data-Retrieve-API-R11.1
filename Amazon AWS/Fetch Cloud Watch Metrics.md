@@ -1,27 +1,76 @@
 # Introduction
 
-The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
-@Jia -- add merics doc ref
+The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS cloud watch solution to fetch metrics of AWS resources via the Azure SDK.
 
-@Jia -- Finalize API Def, e.g. apiver should be at the end
+# Supported devices
+
+* AWS EC2 instances
+* AWS NAT Gateways
+* AWS Transit Gateways
+* AWS DX Router
+* AWS Network Firewall
+* AWS Classic Load Balancer
+* AWS Elastic Load Balancer
+* AWS Application Load Balancer
+* AWS Gateway Load Balancer
+
+
 # API Definition
+ - `GetCloudWatchResourceId` method would be used to get the resource ID for the AWS resource based on the device type and parameters that were passed to the function.This retrieved resource ID is then used to construct the CloudWatch metric query, which is passed as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
+
+
+
+
+ - `GetCloudWatchMetrics` is a method that retrieves CloudWatch metrics data for a specified resource. It takes in a dictionary of parameters, which includes information such as the resource ID, the CloudWatch metric data query, and the CloudWatch client configuration
+
 ```python
-class NBAzureAPILibrary:
+class NBAWSAPILibrary:
     @staticmethod
-    def GetMonitorMetrics(api_server_id: str,
-                          azure_resource_uri: str,
-                          api_version: str, 
-                          url_params: Dict[str, str]
-                          ) -> Dict[str, Any]:
+    def GetCloudWatchResourceID(param: object):        
+        """Get the resource ID for a given AWS resource to use with CloudWatch metrics.
+ 
+        Args:
+            param (dict): A dictionary containing the parameters needed to identify the resource.
+ 
+        Returns:
+            (str): The ID of the resource.
+ 
+        Raises:
+            Exception: If the given resource is not supported for CloudWatch metrics.
+        """
+ 
+        # implementation
+        # ...
+ 
+    @staticmethod
+    def GetCloudWatchMetrics(params: object) -> object:
+        """ Fetches AWS cloud watch metrics from Azure Insights module
+ 
+        Leverage AWS cloud watch module to fetch resource metrics via SDK
+        Ref:
+        1. AWS Cloud Watch Metrics service:
+ 
+        Args:
+            param (dict): e.g. {
+                'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 
+                'RegionName': 'us-east-1',
+                'func_param': {'StartTime': datetime.datetime(2020, 9, 23, 12, 10, 22, 716496), 'EndTime': datetime.datetime(2020, 9, 24, 12, 10, 22, 716496), ...}
+            }
+ 
+ 
+        Returns:
+            (object) http response json body
+ 
+        Raises:
+        """
+ 
         # implementation
         # ...
 ```
 
 # Input Parameters:
- - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
- - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
- - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None.
- - `url_params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
+ - `param`(str) - it is a NetBrain object that contains essential information, including 'apiServerId', 'RegionName', and so on.
+
 
 # Output:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
@@ -37,19 +86,50 @@ Begin Declare Input Parameters
 [
 ]
 End Declare
+ 
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
 '''
-
-metric_name = 'ExpressRouteGatewayCpuUtilization'  # metric name
+import json
+import datetime
  
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(context, device_name, 
-            {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']})
-    return node_props
-     
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    return self_node['params']
+ 
 def RetrieveData(param):
-    resourceUri = param['params']['id']
-    url_params = {'metricnames': metric_name}
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(param['apiServerId'], resourceUri, url_params)
-    return json.dumps(rtn_res, indent=4)
+    _id = NBAWSAPILibrary.GetCloudWatchResourceId(param)
+    dt_now = datetime.datetime.now()
+    dt_yestoday = dt_now - datetime.timedelta(days=1)
+    param['func_param'] = {
+        'StartTime': dt_yestoday,
+        'EndTime': dt_now,
+        'MaxDatapoints': 20,
+        'MetricDataQueries':[
+            {
+                'Id': 'a0',
+                'MetricStat': {
+                    'Period': 300,
+                    'Stat': 'Sum',
+                    'Metric': {
+                        'Namespace':'AWS/ApplicationELB',
+                        'MetricName':'RequestCount',
+                        'Dimensions':[
+                            {
+                                "Name": "LoadBalancer",
+                                "Value": _id
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+    res = NBAWSAPILibrary.GetCloudWatchMetrics(param)
+    data = json.loads(res)
+    return [data]
     
  ```
