@@ -1,6 +1,6 @@
 # Introduction
 
-The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS cloud watch solution to fetch metrics of AWS resources via the Azure SDK.
+The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS cloud watch solution to fetch metrics of AWS resources via the AWS SDK.
 
 # Supported devices
 
@@ -69,7 +69,7 @@ class NBAWSAPILibrary:
 ```
 
 # Input Parameters:
- - `param`(str) - it is a NetBrain object that contains essential information, including 'apiServerId', 'RegionName', and so on.
+ - `param`(str) - it is a NetBrain object that contains essential information, including `apiServerId`, `RegionName`, and so on.
 
 
 # Output:
