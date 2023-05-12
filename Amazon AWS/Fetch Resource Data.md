@@ -1,24 +1,40 @@
 # Introduction
-The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It is used to retrieve data (tables) of Azure resources.
+The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
 
 # API Definition
 ```python
-class NBAzureAPILibrary:
+class NBAWSAPILibrary:
     @staticmethod
-    def GetResourceData(api_server_id: str,
-                        nb_resource_data: object,
-                        data_type: str, 
-                        sub_resource_uri: str
-                        ) -> object:
-    # implementation
+    def GetResourceData(param, func_name, filter_keys=[], customized_filters=[], customized_func_mapping={}):
+        """Simulate the functionality of NCT and get Azure resource complex data (tables).
+ 
+        Args:
+            param (dict): e.g., {'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}
+            func_name (string): This parameter specifies the name of the AWS function that will be called to retrieve the desired resources. E.g., 'describe_transit_gateway_route_tables'
+            filter_keys (list): The filters provided in this parameter have the second highest priority. They will be used if there are no filters provided in customized_filters for the same key. E.g., ['transit-gateway-route-table-id']
+            customized_filters (list): The filters provided in this parameter have the highest priority. They will override any other filters defined later in the code for the same key. E.g., [{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]
+            customized_func_mapping (dict): Specifies how to fetch resources through the context of a specific device. E.g., {'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}
+ 
+        Returns:
+            (object) list of objects
+ 
+        Raises:
+        """
+  
+        # implementation
         # ...
 ```
 
 # Input Parameters:
- - `api_server_id`(str) - The external API Server ID of this technology instance. It is used to identify the target Azure API server. The user should be able to get it in the API script context. The usage reference can be found in the Sample Azure API Parser in NetBrain Parser Library.
- - `nb_resource_data`(object) - The entire resource data structure in NetBrain. It is retrieved by calling the `GetDeviceProperties` API method, passing in the device name and some parameters.
- - `data_type`(str) - The available data type for the current resource. This can be found in the Azure API documentation.
- - `sub_resource_uri`(str) - An optional parameter in case the customer just wants to fetch one sub-table of data. For example, if an Azure Load Balancer has multiple Backend Address Pools, the user can specify which one they want to fetch.
+ - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
+
+ - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `'describe_transit_gateway_route_tables'`.
+
+ - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
+
+ - `customized_filters` (list): A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`.
+
+ - `customized_func_mapping` (dict): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. For example, `{'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`.
 
 | Resource Type | data_type | sub_resource_uri | Notes |
 | --- | --- | --- | --- |
