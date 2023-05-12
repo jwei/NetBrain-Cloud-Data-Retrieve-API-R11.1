@@ -2,6 +2,7 @@
 The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
 
 # API Definition
+The `GetResourceData` function is used to retrieve data from AWS resources using AWS SDK methods. It takes various parameters such as params which contain the standard parameters for the AWS SDK method,
 ```python
 class NBAWSAPILibrary:
     @staticmethod
