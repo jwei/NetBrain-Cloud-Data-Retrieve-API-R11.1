@@ -62,6 +62,7 @@ class NBAWSAPILibrary:
             (object) http response json body
  
         Raises:
+           Exception: It raises a generic Exception if the provided parameters are invalid.
         """
  
         # implementation
