@@ -45,38 +45,22 @@ class NBAWSAPILibrary:
 
  - `customized_func_mapping` (dict): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. For example, `{'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`.
 
-| Resource Type | data_type | sub_resource_uri | Notes |
-| --- | --- | --- | --- |
-| Virtual Network (Distributed Router) | vnet_route_tables | route_table_azure_uri | |
-| | vnet_peerings | - | |
-| | private_endpoints | - | |
-| | network_security_groups | subnet_id or vnic_id | |
-| | vnic_effective_routes | vnic_id | |
-| Virtual Machine | vnics | - | Returns a list of this VM's network interfaces with full api data, including "ipConfigurations", "networkSecurityGroups", etc. |
-| Load Balancer | load_balancing_rules | - | Retruns a list of load balancing rules of this load balancer. |
-| | inbound_nat_rules | - | |
-| | outbound_rules | - | |
-| | backend_pools | backend_address_pool_uri | |
-| Firewall 	| dnat_rule_collections	| -	| |
-| 	| network_rule_collections | -	| |
-| 	| application_rule_collections	| -	| |
-| Application Gateway | app_gw_rules | -	| |
-| 	| http_settings	| -	| |
-| 	| translation_tables	|- 	||
-| 	| listeners	|- 	||
-| 	| backend_pools	| backend_address_pool_uri ||
-| ExpressRoute Circuit | arp_table	| -	| |
-| 	| route_table | -	| |
-| 	| route_summary_table |- 	||
-| Virtual Hub | route_tables	| -	| |
-| 	| effective_routes	| -	| |
-| NAT Gateway | nat_table | -	| |
-| Virtual Network Gateway | bgp_learned_routes	| -	| |
-| 	| bgp_advertised_routes	| -	| |
-| 	| bgp_peerings	|- 	||
-| VPN Gateway | bgp_learned_routes	| -	| |
-| 	| bgp_advertised_routes	| -	| |
-| 	| bgp_peerings	|- 	||
+| Resource Type | Device Type | func_name | filed_name | filter_keys | customer_filters |
+| --- | --- | --- | --- | --- | --- |
+| ec2 | VPC router | describe_route_tables | RouteTables | vpc-id | |
+| ec2 | VPC router | describe_security_groups | SecurityGroups | vpc-id | |
+| ec2 | VPC router | describe_network_acls | NetworkAcls | vpc-id | |
+| ec2 | VPC router | describe_vpc_peering_connections | VpcPeeringConnections | requester-vpc-info.vpc-id | |
+| ec2 | VPC router | describe_vpc_peering_connections | VpcPeeringConnections | accepter-vpc-info.vpc-id | |
+| ec2 | VPC router | describe_network_interfaces | NetworkInterfaces | vpc-id | |
+| ec2 | Transit Gateway | describe_transit_gateway_route_tables | TransitGatewayRouteTables | transit-gateway-route-table-id | |
+| ec2 | Transit Gateway | describe_transit_gateway_route_tables | TransitGatewayRouteTables | transit-gateway-id | |
+| ec2 | Transit Gateway | describe_transit_gateway_attachments | TransitGatewayAttachments | transit-gateway-route-table-id | |
+| ec2 | Transit Gateway | describe_transit_gateway_attachments | TransitGatewayAttachments | transit-gateway-id | |
+| elbv2 | Application Load Balancer | describe_listeners | Listeners | LoadBalancerArn | N/A |
+| elbv2 | Network Load Balancer | describe_listeners | Listeners | LoadBalancerArn | N/A |
+| elbv2 | Gateway Load Balancer | describe_listeners | Listeners | LoadBalancerArn | N/A |
+| network-firewall | Network Firewall | describe_firewall_policy | None| FirewallPolicyArn | N/A |
 
 # Output:
 > The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
