@@ -59,7 +59,7 @@ class NBAWSAPILibrary:
  
  
         Returns:
-            (object) http response json body
+            (object) response json body
  
         Raises:
            Exception: It raises a generic Exception if the provided parameters are invalid.
@@ -74,7 +74,7 @@ class NBAWSAPILibrary:
 
 
 # Output:
-> resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
+> resp_body_json: The JSON response body of request to the AWS cloud watch metrics SDK. This is a dictionary with string keys and values.
 
 # Raises:
 > The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
