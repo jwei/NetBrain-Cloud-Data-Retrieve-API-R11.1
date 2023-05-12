@@ -76,7 +76,7 @@ class NBAWSAPILibrary:
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
 
 # Raises:
-> This function does not raise any exceptions.
+> The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
 
 # Example
 
