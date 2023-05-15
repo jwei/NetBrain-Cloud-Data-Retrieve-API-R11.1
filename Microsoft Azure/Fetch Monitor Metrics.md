@@ -1,10 +1,15 @@
-# Introduction
+# Table of Contents
+- [Introduction](#introduction)
+- [API Definition](#api_def)
+    - [Input Parameters](#input)
+    - [Output](#output)    
+- [Sample](#sample)   
 
+# Introduction <a name="introduction"></a>
 The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
-@Jia -- add merics doc ref
+For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
 
-@Jia -- Finalize API Def, e.g. apiver should be at the end
-# API Definition
+# API Definition <a name="api_def"></a>
 ```python
 class NBAzureAPILibrary:
     @staticmethod
@@ -18,19 +23,16 @@ class NBAzureAPILibrary:
         # ...
 ```
 
-# Input Parameters:
+# Input Parameters <a name="input"></a>
  - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
  - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
  - `params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
  - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None. 
 
-# Output:
+# Output <a name="output"></a>
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
 
-# Raises:
-> This function does not raise any exceptions.
-
-# Example
+# Sample <a name="sample"></a>
 
 ```python
 '''
