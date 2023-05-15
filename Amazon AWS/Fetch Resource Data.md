@@ -1,6 +1,17 @@
-# Introduction
+# Table of Contents
+- [Introduction](#introduction)
+- [API Definition](#definition)
+    - [Input Parameters](#input)
+    - [Output](#output)    
+- [Sample](#sample)
+    - [Sample 1 -- Get Resource API Data with HTTP GET Method](#sample-1) 
+    - [Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-2)
+    - [Sample 3 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-3) 
+
+
+# Introduction <a name="introduction"></a>
 The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
-# Supported Devices
+# Supported Devices <a name="devices"></a>
 Below are supported device by built-in mapping function. Please use `customized_func_mapping` for more devices based AWS boto3 document.
 * AWS VPC router
 * AWS Transit Gateways
@@ -9,7 +20,7 @@ Below are supported device by built-in mapping function. Please use `customized_
 * AWS Application Load Balancer
 * AWS Gateway Load Balancer
 
-# API Definition
+# API Definition <a name="definition"></a>
 The `GetResourceData` function is used to retrieve data from AWS resources using AWS SDK methods. It takes various parameters such as params which contain the standard parameters for the AWS SDK method.
 ```python
 class NBAWSAPILibrary:
@@ -34,7 +45,7 @@ class NBAWSAPILibrary:
         # ...
 ```
 
-# Input Parameters:
+# Input Parameters <a name="input"></a>
  - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
  - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `describe_transit_gateway_route_tables`.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
@@ -90,16 +101,18 @@ class NBAWSAPILibrary:
 
 
 
-# Output:
+# Output <a name="output"></a>
 > The JSON response body of the request to the AWS SDK. This is a dictionary with string keys and values.
 
-# Raises:
+# Raises <a name="raises"></a>
 - If the function name specified in the `func_name` parameter is not found in either `built_in_func_mapping` or `customized_func_mapping`, the code raises an `Exception` with an error message.
 - If a filter key specified in either `filter_keys` or `customized_filters` is not defined in the function mapping specified in `config` or `customized_func_mapping`, respectively, the code raises an `Exception` with an error message.
 - If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
 - If the `resource_type` specified in config is not one of the supported types (`ec2`, `elbv2`, or `network-firewall`), the code raises a `Warning` with an error message. However, this warning is treated the same as an exception, and the code immediately raises an `Exception` with the same error message.
 
-# Example 1 -- Using filter keys
+
+# Sample <a name="sample"></a>
+## Sample 1 -- Using filter keys <a name="sample-1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -124,7 +137,7 @@ def RetrieveData(params):
     return json.dumps(data, indent=4, default=str)
  ```
  
- # Example 2 -- Using customized filters
+## Sample 2 -- Using customized filters <a name="sample-2"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -151,7 +164,7 @@ def RetrieveData(params):
     return json.dumps(data, indent=4, default=str)
  ```
  
- # Example 3 -- Using customized function mapping
+ ## Sample 3 -- Using customized function mapping <a name="sample-3"></a>
 ```python
 '''
 Begin Declare Input Parameters
