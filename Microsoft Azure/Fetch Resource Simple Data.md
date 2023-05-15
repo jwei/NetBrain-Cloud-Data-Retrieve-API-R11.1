@@ -11,7 +11,7 @@
 # Introduction <a name="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary` class that retrieves Azure resource data via the Azure Management REST API. It supports both GET and POST methods to download resource data, where GET is used to download the resource data, and POST is used to download large or complex data sets asynchronously.
 
-# API Definition  <a name="api_def"></a>
+# API Definition <a name="api_def"></a>
 ```python
 class NBAzureAPILibrary:
     @staticmethod
