@@ -130,7 +130,6 @@ def RetrieveData(param):
         ]
     }
     res = NBAWSAPILibrary.GetCloudWatchMetrics(param)
-    data = json.loads(res)
-    return [data]
+    return json.dumps(res, indent=4, default=str)
     
  ```
