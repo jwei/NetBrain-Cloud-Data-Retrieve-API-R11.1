@@ -32,16 +32,12 @@ The function takes in several arguments, including:
  - `azure_resource_uri` (str) e.g. The resource identifier, e.g. /{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}
  - `action[optional]` (str) in case that you want to download some specific data from the resource. e.g. pass in "getLearnedRoutes" when you want to download vnet gateway learned routes. Ref: https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP
  - `http_method[optional]` (str) GET or POST. The default method is "GET". Note that async methods like downloading large data set would need a POST method. (e.g. download vnet gateway learned routes, vnic effective routes, etc.) please check Microsoft Azure API document for reference.
- - `api_version[optional]` (str) API Version of the Azure Rest API, e.g. '2022-09-01', which can be found in Azure API document. If not provided, then a default API version is assigned for each resource provider. The default mapping can be found at the end of this document [#here](#default_api_version).
  - `json_body[optional]` (object) API request body
+ - `api_version[optional]` (str) API Version of the Azure Rest API, e.g. '2022-09-01', which can be found in Azure API document. If not provided, then a default API version is assigned for each resource provider. The default mapping can be found at the end of this document [#here](#default_api_version).
 
 ## Output <a name="output"></a>
 > The JSON response body of the HTTP request to the Azure RESTful API, which can be found in Azure API Document (e.g. https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP)
 > This is a dictionary with string keys and values.
-> Todo @Jia -- add a random sample JSON response.
-
-## Raises <a name="exception"></a>
-> This function does not raise any exceptions.
 
 # Sample <a name="sample"></a>
 ## Example 1 -- Get Resource API Data with HTTP GET Method
@@ -51,28 +47,28 @@ Begin Declare Input Parameters
 [
 ]
 End Declare
-
-For sample
-[
-    {"name": "$param1"},
-    {"name": "$param2"}
-]
 '''
-
+ 
 def BuildParameters(context, device_name, params):
-    # query DB, get required property of the node data model
-    self_node = GetDeviceProperties(context, device_name, {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
-    return self_node
-	
-def RetrieveData(rtn_params):
-    nb_node = rtn_params['params']
-    api_server_id = rtn_params['apiServerId']
-    resource = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id=api_server_id, azure_resource_uri=nb_node['id'])    
-    return json.dumps(resource, indent=4)
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+ 
+ 
+def RetrieveData(params):   
+    nb_node = params['params']
+    data = NBAzureAPILibrary.GetResourceDataByAPI(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=nb_node['id']
+    )
+    return json.dumps(data, indent=4)
  ```
  
  
-## Example 2 -- Get Virtual Network Gateway BGP Learned Routes with HTTP POST Method
+## Example 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method
 ```python
 '''
 Begin Declare Input Parameters
@@ -86,20 +82,24 @@ For sample
     {"name": "$param2"}
 ]
 '''
-
+    
 def BuildParameters(context, device_name, params):
-    self_node = GetDeviceProperties(context, device_name, 
-			{'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']})
-    return {
-        'nbNode': self_node['params']
-    }
-	
-def RetrieveData(rtn_params):
-    id = rtn_params['nbNode']['id']
-    api_server_id = rtn_params['apiServerId']
-    
-    data = NBAzureAPILibrary.GetResourceDataByAPI(api_server_id=api_server_id, azure_resource_uri=id, action="getBgpPeerStatus", http_method='POST')
-    
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+
+
+def RetrieveData(params):    
+    nb_node = params['params']
+    data = NBAzureAPILibrary.GetResourceDataByAPI(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=nb_node['id'],
+        action="getBgpPeerStatus",
+        http_method='POST'
+    )
     return json.dumps(data, indent=4)
  ```
 
