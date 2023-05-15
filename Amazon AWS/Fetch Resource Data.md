@@ -135,5 +135,5 @@ def RetrieveData(params):
     }
     data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-route-table-id'],
                                          customized_filters={}, customized_func_mapping={})
-    return json.dumps(data, default=str, indent=4)
+    return json.dumps(data, indent=4, default=str)
  ```
