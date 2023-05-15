@@ -58,24 +58,36 @@ class NBAWSAPILibrary:
 
  - `customized_filters` (list, optional): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
- - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. 
-```python
-{
-    func_name:
+ - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. Please check below for format and example.
+ 
+    ```python
+    # Format
     {
-        'resource_type': resource_type,
-        'field_name': field_name,
-        filter_key1: device_property,
-        filter_key2: device_property,
+        func_name:
+        {
+            'resource_type': resource_type,
+            'field_name': field_name,
+            filter_key1: device_property,
+            filter_key2: device_property,
+        }
     }
-}
-```
- - Format: `{func_name: {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`. For example, `{'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`.
+    # Example
+    {
+      "describe_transit_gateway_route_tables": {
+        "resource_type": "ec2",
+        "field_name": "TransitGatewayRouteTables",
+        "transit-gateway-route-table-id": "Options.AssociationDefaultRouteTableId",
+        "transit-gateway-id": "TransitGatewayId"
+      }
+    }
+    ```
    - `Resource Type` (string): Refers to the type of digital asset or service that is being managed or tracked. It could be `ec2`, `elbc2` or `network-firewall`.
    - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `'describe_transit_gateway_route_tables'`.
    - `filed_name` (string): Refers to the specific attribute or property of the resource that is being accessed or modified..
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
    - `property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
+
+
 
 
 # Output:
