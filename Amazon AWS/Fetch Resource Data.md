@@ -39,22 +39,22 @@ class NBAWSAPILibrary:
  - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, 'describe_transit_gateway_route_tables'.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
 
-| Resource Type | Device Type | func_name | filter_keys |
-| --- | --- | --- | --- |
-| ec2 | VPC router | describe_route_tables | vpc-id |
-| ec2 | VPC router | describe_security_groups | vpc-id |
-| ec2 | VPC router | describe_network_acls | vpc-id |
-| ec2 | VPC router | describe_vpc_peering_connections | requester-vpc-info.vpc-id |
-| ec2 | VPC router | describe_vpc_peering_connections | accepter-vpc-info.vpc-id |
-| ec2 | VPC router | describe_network_interfaces | vpc-id |
-| ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-route-table-id |
-| ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-id |
-| ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-route-table-id |
-| ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-id |
-| elbv2 | Application Load Balancer | describe_listeners | LoadBalancerArn |
-| elbv2 | Network Load Balancer | describe_listeners | LoadBalancerArn |
-| elbv2 | Gateway Load Balancer | describe_listeners | LoadBalancerArn |
-| network-firewall | Network Firewall | describe_firewall_policy | FirewallPolicyArn |
+    | Resource Type | Device Type | func_name | filter_keys |
+    | --- | --- | --- | --- |
+    | ec2 | VPC router | describe_route_tables | vpc-id |
+    | ec2 | VPC router | describe_security_groups | vpc-id |
+    | ec2 | VPC router | describe_network_acls | vpc-id |
+    | ec2 | VPC router | describe_vpc_peering_connections | requester-vpc-info.vpc-id |
+    | ec2 | VPC router | describe_vpc_peering_connections | accepter-vpc-info.vpc-id |
+    | ec2 | VPC router | describe_network_interfaces | vpc-id |
+    | ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-route-table-id |
+    | ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-id |
+    | ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-route-table-id |
+    | ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-id |
+    | elbv2 | Application Load Balancer | describe_listeners | LoadBalancerArn |
+    | elbv2 | Network Load Balancer | describe_listeners | LoadBalancerArn |
+    | elbv2 | Gateway Load Balancer | describe_listeners | LoadBalancerArn |
+    | network-firewall | Network Firewall | describe_firewall_policy | FirewallPolicyArn |
 
  - `customized_filters` (list, optional): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
