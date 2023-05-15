@@ -1,6 +1,6 @@
 # Introduction
 The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
-# Supported devices
+# Supported Devices
 Below are supported device by built-in mapping function. Please use `customized_func_mapping` for more devices based AWS boto3 document.
 * AWS VPC router
 * AWS Transit Gateways
