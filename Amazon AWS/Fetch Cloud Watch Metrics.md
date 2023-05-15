@@ -69,14 +69,14 @@ class NBAWSAPILibrary:
         # ...
 ```
 
-# Input Parameters:
+# Input Parameters
  - `param`(str) - it is a NetBrain object that contains essential information, including `apiServerId`, `RegionName`, and so on.
 
 
-# Output:
+# Output
 > resp_body_json: The JSON response body of request to the AWS cloud watch metrics SDK. This is a dictionary with string keys and values.
 
-# Raises:
+# Raises
 > The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
 
 # Example
