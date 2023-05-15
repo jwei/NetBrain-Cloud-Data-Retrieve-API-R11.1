@@ -36,7 +36,7 @@ class NBAWSAPILibrary:
 
 # Input Parameters:
  - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
- - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, 'describe_transit_gateway_route_tables'.
+ - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `describe_transit_gateway_route_tables`.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
 
     | Resource Type | Device Type | func_name | filter_keys |
@@ -97,7 +97,7 @@ class NBAWSAPILibrary:
 - If the function name specified in the `func_name` parameter is not found in either `built_in_func_mapping` or `customized_func_mapping`, the code raises an `Exception` with an error message.
 - If a filter key specified in either `filter_keys` or `customized_filters` is not defined in the function mapping specified in `config` or `customized_func_mapping`, respectively, the code raises an `Exception` with an error message.
 - If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
-- If the `resource_type` specified in `config` is not one of the supported types ('ec2', 'elbv2', or 'network-firewall'), the code raises a `Warning` with an error message. However, this warning is treated the same as an exception, and the code immediately raises an `Exception` with the same error message.
+- If the `resource_type` specified in config is not one of the supported types (`ec2`, `elbv2`, or `network-firewall`), the code raises a `Warning` with an error message. However, this warning is treated the same as an exception, and the code immediately raises an `Exception` with the same error message.
 
 # Example
 
