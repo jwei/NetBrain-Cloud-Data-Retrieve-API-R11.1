@@ -1,12 +1,14 @@
 # Table of Contents
 - [Introduction](#introduction)
+- [Supported Devices](#devices)
 - [API Definition](#definition)
     - [Input Parameters](#input)
-    - [Output](#output)    
+    - [Output](#output)
+    - [Raises](#raises)
 - [Sample](#sample)
-    - [Sample 1 -- Get Resource API Data with HTTP GET Method](#sample-1) 
-    - [Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-2)
-    - [Sample 3 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-3) 
+    - [Sample 1 -- Using filter keys](#sample-1) 
+    - [Sample 2 -- Using customized filters](#sample-2)
+    - [Sample 3 -- Using customized function mapping](#sample-3) 
 
 
 # Introduction <a name="introduction"></a>
@@ -45,7 +47,7 @@ class NBAWSAPILibrary:
         # ...
 ```
 
-# Input Parameters <a name="input"></a>
+## Input Parameters <a name="input"></a>
  - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
  - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `describe_transit_gateway_route_tables`.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
@@ -101,10 +103,10 @@ class NBAWSAPILibrary:
 
 
 
-# Output <a name="output"></a>
+## Output <a name="output"></a>
 > The JSON response body of the request to the AWS SDK. This is a dictionary with string keys and values.
 
-# Raises <a name="raises"></a>
+## Raises <a name="raises"></a>
 - If the function name specified in the `func_name` parameter is not found in either `built_in_func_mapping` or `customized_func_mapping`, the code raises an `Exception` with an error message.
 - If a filter key specified in either `filter_keys` or `customized_filters` is not defined in the function mapping specified in `config` or `customized_func_mapping`, respectively, the code raises an `Exception` with an error message.
 - If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
@@ -164,7 +166,7 @@ def RetrieveData(params):
     return json.dumps(data, indent=4, default=str)
  ```
  
- ## Sample 3 -- Using customized function mapping <a name="sample-3"></a>
+## Sample 3 -- Using customized function mapping <a name="sample-3"></a>
 ```python
 '''
 Begin Declare Input Parameters
