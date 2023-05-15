@@ -1,11 +1,11 @@
 # Table of Contents
-1. [Introduction](#introduction)
-2. [API Definition](#api_def)
-- [Input Parameters](#input)
-- [Output](#output)
-- [Raises](#exception)
-3. [Sample](#sample)
-4. [Default Azure API Versions](#default_api_version)
+- [Introduction](#introduction)
+- [API Definition](#api_def)
+    - [Input Parameters](#input)
+    - [Output](#output)
+    - [Raises](#exception)
+- [Sample](#sample)
+- [Default Azure API Versions](#default_api_version)
 
 # Introduction <a name="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary` class that retrieves Azure resource data via the Azure Management REST API. It supports both GET and POST methods to download resource data, where GET is used to download the resource data, and POST is used to download large or complex data sets asynchronously.
