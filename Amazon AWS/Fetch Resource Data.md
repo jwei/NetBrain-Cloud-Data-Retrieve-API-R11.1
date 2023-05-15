@@ -99,8 +99,32 @@ class NBAWSAPILibrary:
 - If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
 - If the `resource_type` specified in config is not one of the supported types (`ec2`, `elbv2`, or `network-firewall`), the code raises a `Warning` with an error message. However, this warning is treated the same as an exception, and the code immediately raises an `Exception` with the same error message.
 
-# Example
-
+# Example 1 -- Using filter keys
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+ 
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+import json
+  
+def BuildParameters(context, device_name, params):
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    return self_node['params']
+      
+def RetrieveData(params):
+    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-id'])
+    return json.dumps(data, indent=4, default=str)
+ ```
+ 
+ # Example 2 -- Using customized filters
 ```python
 '''
 Begin Declare Input Parameters
@@ -123,6 +147,31 @@ def BuildParameters(context, device_name, params):
 def RetrieveData(params):
     # customized_filters is optional   
     customized_filters = [{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]
+    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', customized_filters=customized_filters)
+    return json.dumps(data, indent=4, default=str)
+ ```
+ 
+ # Example 3 -- Using customized function mapping
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+ 
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+import json
+  
+def BuildParameters(context, device_name, params):
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    return self_node['params']
+      
+def RetrieveData(params):
     # customized_func_mapping is optional 
     customized_func_mapping = {
         'describe_transit_gateway_route_tables':
@@ -133,7 +182,6 @@ def RetrieveData(params):
             'transit-gateway-id': 'TransitGatewayId'
         }
     }
-    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-route-table-id'],
-                                         customized_filters={}, customized_func_mapping={})
+    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-id'], customized_func_mapping=customized_func_mapping)
     return json.dumps(data, indent=4, default=str)
  ```
