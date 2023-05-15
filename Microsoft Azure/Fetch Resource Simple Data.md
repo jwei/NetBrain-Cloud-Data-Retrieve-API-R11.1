@@ -4,8 +4,8 @@
     - [Input Parameters](#input)
     - [Output](#output)    
 - [Sample](#sample)
-    - [Example 1 -- Get Resource API Data with HTTP GET Method](#sample-1) 
-    - [Example 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-2) 
+    - [Sample 1 -- Get Resource API Data with HTTP GET Method](#sample-1) 
+    - [Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-2) 
 - [Default Azure API Versions](#default_api_version)
 
 # Introduction <a name="introduction"></a>
@@ -41,7 +41,7 @@ The function takes in several arguments, including:
 > This is a dictionary with string keys and values.
 
 # Sample <a name="sample"></a>
-## Example 1 -- Get Resource API Data with HTTP GET Method <a name="sample-1"></a>
+## Sample 1 -- Get Resource API Data with HTTP GET Method <a name="sample-1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -69,7 +69,7 @@ def RetrieveData(params):
  ```
  
  
-## Example 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method <a name="sample-2"></a>
+## Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method <a name="sample-2"></a>
 ```python
 '''
 Begin Declare Input Parameters
