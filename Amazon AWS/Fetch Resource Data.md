@@ -85,7 +85,7 @@ class NBAWSAPILibrary:
    - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `'describe_transit_gateway_route_tables'`.
    - `filed_name` (string): Refers to the specific attribute or property of the resource that is being accessed or modified..
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
-   - `property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
+   - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
 
 
 
