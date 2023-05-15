@@ -26,7 +26,7 @@ class NBAzureAPILibrary:
 # Input Parameters <a name="input"></a>
  - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
  - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
- - `params[optional]`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
+ - `params`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
  - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API. This is a string value. This parameter is optional and defaults to None. 
 
 # Output <a name="output"></a>
@@ -45,15 +45,18 @@ End Declare
 metric_name = 'ExpressRouteGatewayCpuUtilization'  # metric name
  
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(context, device_name, 
+    nb_node = GetDeviceProperties(
+            context, 
+            device_name, 
             {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']})
-    return node_props
+    return nb_node
      
-def RetrieveData(param):
-    resourceUri = param['params']['id']
-    url_params = {'metricnames': metric_name}
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(param['apiServerId'], resourceUri, url_params)
-    return json.dumps(rtn_res, indent=4)
-    
+def RetrieveData(params):    
+    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(
+        api_server_id=params['apiServerId'], 
+        azure_resource_uri=params['params']['id'], 
+        params={'metricnames': metric_name}
+    )
+    return json.dumps(rtn_res, indent=4)   
  ```
 
