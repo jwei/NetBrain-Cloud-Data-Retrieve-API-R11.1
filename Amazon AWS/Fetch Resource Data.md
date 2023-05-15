@@ -36,12 +36,29 @@ class NBAWSAPILibrary:
 
 # Input Parameters:
  - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
-
+ - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, 'describe_transit_gateway_route_tables'.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
+
+| Device Type | func_name | filter_keys |
+| --- | --- | --- |
+| VPC router | describe_route_tables | vpc-id |
+| VPC router | describe_security_groups | vpc-id |
+| VPC router | describe_network_acls | vpc-id |
+| VPC router | describe_vpc_peering_connections | requester-vpc-info.vpc-id |
+| VPC router | describe_vpc_peering_connections | accepter-vpc-info.vpc-id |
+| VPC router | describe_network_interfaces | vpc-id |
+| Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-route-table-id |
+| Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-id |
+| Transit Gateway | describe_transit_gateway_attachments | transit-gateway-route-table-id |
+| Transit Gateway | describe_transit_gateway_attachments | transit-gateway-id |
+| Application Load Balancer | describe_listeners | LoadBalancerArn |
+| Network Load Balancer | describe_listeners | LoadBalancerArn |
+| Gateway Load Balancer | describe_listeners | LoadBalancerArn |
+| Network Firewall | describe_firewall_policy | FirewallPolicyArn |
 
  - `customized_filters` (list, optional): Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
- - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. For example, `{'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`.
+ - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. Format: `{func_name: {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`. For example, `{'describe_transit_gateway_route_tables': {'resource_type': 'ec2', 'field_name': 'TransitGatewayRouteTables', 'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId', 'transit-gateway-id': 'TransitGatewayId'}}`.
    - `Resource Type` (string): Refers to the type of digital asset or service that is being managed or tracked. It could be `ec2`, `elbc2` or `network-firewall`.
    - `Device Type` (string): Refers to the specific category device that is being used to access or interact with the resource.
    - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `'describe_transit_gateway_route_tables'`.
