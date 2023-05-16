@@ -10,9 +10,12 @@
     - [Sample 2 -- Using customized filters](#sample-2)
     - [Sample 3 -- Using customized function mapping](#sample-3) 
 
+TODO @Xun add boto3 API instruction here
 
 # Introduction <a name="introduction"></a>
 The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
+
+
 # Supported Devices <a name="devices"></a>
 Below are supported device by built-in mapping function. Please use `customized_func_mapping` for more devices based AWS boto3 document.
 * AWS VPC router
@@ -69,7 +72,7 @@ class NBAWSAPILibrary:
     | elbv2 | Gateway Load Balancer | describe_listeners | LoadBalancerArn |
     | network-firewall | Network Firewall | describe_firewall_policy | FirewallPolicyArn |
 
- - `customized_filters` (list, optional): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
+ - `customized_filters` (list, optional, TODO @Xun advanced feature not recomended): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
  - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. Please check below for format and example.
  
