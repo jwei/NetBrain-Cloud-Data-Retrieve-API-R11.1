@@ -52,7 +52,7 @@ class NBAWSAPILibrary:
 ## Input Parameters <a name="input"></a>
  - `param` (dict): A dictionary object that contains key-value pairs representing parameters to be passed to the AWS function being called. For example, `{'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}`.
  - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `describe_transit_gateway_route_tables`.
- - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
+ - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. [Sample 1 -- Using filter keys](#sample-1) 
 
     | Resource Type | Device Type | func_name | filter_keys | note |
     | --- | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ class NBAWSAPILibrary:
     |  | Gateway Load Balancer | [describe_listeners](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/client/describe_listeners.html) | LoadBalancerArn | The Amazon Resource Name (ARN) of the load balancer. |
     | network-firewall | Network Firewall | [describe_firewall_policy](https://boto3.amazonaws.com/v1/documentation/api/1.26.92/reference/services/network-firewall/client/describe_firewall_policy.html) | FirewallPolicyArn | The Amazon Resource Name (ARN) of the firewall policy. |
 
- - `customized_filters` (list, optional, TODO @Xun advanced feature not recomended): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
+ - `customized_filters` (list, optional, TODO @Xun advanced feature not recomended): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. [Sample 2 -- Using customized filters](#sample-2). Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
- - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. Please check below for format and example.
+ - `customized_func_mapping` (dict, optional): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `field_name` and so on. [Sample 3 -- Using customized function mapping](#sample-3). Please check below for format and example as well.
  
     ```python
     # Format
