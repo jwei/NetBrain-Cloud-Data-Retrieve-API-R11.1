@@ -81,7 +81,7 @@ class NBAWSAPILibrary:
         func_name:
         {
             'resource_type': resource_type,
-            'response_field_name': response_field_name, TODO @Xun wording is confusing
+            'response_field_name': response_field_name,
             filter_key1: device_property,
             filter_key2: device_property,
         }
