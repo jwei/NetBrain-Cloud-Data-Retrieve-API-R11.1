@@ -82,7 +82,7 @@ class NBAWSAPILibrary:
         func_name:
         {
             'resource_type': resource_type,
-            'field_name': field_name,
+            'field_name': field_name, TODO @Xun wording is confusing
             filter_key1: device_property,
             filter_key2: device_property,
         }
