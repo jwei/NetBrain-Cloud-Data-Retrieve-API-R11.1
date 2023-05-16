@@ -138,7 +138,11 @@ def BuildParameters(context, device_name, params):
     return self_node['params']
       
 def RetrieveData(params):
-    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-id'])
+    data = NBAWSAPILibrary.GetResourceData(
+                params=params, 
+                func_name='describe_transit_gateway_route_tables', 
+                filter_keys=['transit-gateway-id']
+    )
     return json.dumps(data, indent=4, default=str)
  ```
  
@@ -165,7 +169,11 @@ def BuildParameters(context, device_name, params):
 def RetrieveData(params):
     # customized_filters is optional   
     customized_filters = [{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]
-    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', customized_filters=customized_filters)
+    data = NBAWSAPILibrary.GetResourceData(
+                params=params, 
+                func_name='describe_transit_gateway_route_tables', 
+                customized_filters=customized_filters
+    )
     return json.dumps(data, indent=4, default=str)
  ```
  
@@ -200,6 +208,11 @@ def RetrieveData(params):
             'transit-gateway-id': 'TransitGatewayId'
         }
     }
-    data = NBAWSAPILibrary.GetResourceData(params, func_name='describe_transit_gateway_route_tables', filter_keys=['transit-gateway-id'], customized_func_mapping=customized_func_mapping)
+    data = NBAWSAPILibrary.GetResourceData(
+                params=params, 
+                func_name='describe_transit_gateway_route_tables', 
+                filter_keys=['transit-gateway-id'], 
+                customized_func_mapping=customized_func_mapping
+    )
     return json.dumps(data, indent=4, default=str)
  ```
