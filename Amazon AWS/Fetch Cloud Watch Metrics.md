@@ -1,8 +1,18 @@
-# Introduction
+# Table of Contents
+- [Introduction](#introduction)
+- [Supported Devices](#devices)
+- [API Definition](#definition)
+    - [Input Parameters](#input)
+    - [Output](#output)
+    - [Exception Raises](#raises)
+- [Sample](#sample)
+
+
+# Introduction <a name="introduction"></a>
 
 The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS cloud watch solution to fetch metrics of AWS resources via the AWS SDK.
 
-# Supported devices
+# Supported devices  <a name="devices"></a>
 
 * AWS EC2 instances
 * AWS NAT Gateways
@@ -15,10 +25,8 @@ The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPIL
 * AWS Gateway Load Balancer
 
 
-# API Definition
+# API Definition <a name="definition"></a>
  - `GetCloudWatchResourceId` method would be used to get the resource ID for the AWS resource based on the device type and parameters that were passed to the function.This retrieved resource ID is then used to construct the CloudWatch metric query, which is passed as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
-
-
 
 
  - `GetCloudWatchMetrics` is a method that retrieves CloudWatch metrics data for a specified resource. It takes in a dictionary of parameters, which includes information such as the resource ID, the CloudWatch metric data query, and the CloudWatch client configuration
@@ -69,17 +77,17 @@ class NBAWSAPILibrary:
         # ...
 ```
 
-# Input Parameters
+## Input Parameters <a name="input"></a>
  - `param`(str) - it is a NetBrain object that contains essential information, including `apiServerId`, `RegionName`, and so on.
 
 
-# Output
+## Output <a name="output"></a>
 > resp_body_json: The JSON response body of request to the AWS cloud watch metrics SDK. This is a dictionary with string keys and values.
 
-# Raises
+## Exception Raises <a name="raises"></a>
 > The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
 
-# Example
+# Sample <a name="sample"></a>
 
 ```python
 '''
