@@ -4,7 +4,7 @@
 - [API Definition](#definition)
     - [Input Parameters](#input)
     - [Output](#output)
-    - [Raises](#raises)
+    - [Exception Raises](#raises)
 - [Sample](#sample)
     - [Sample 1 -- Using filter keys](#sample-1) 
     - [Sample 2 -- Using customized filters](#sample-2)
@@ -40,7 +40,7 @@ class NBAWSAPILibrary:
         Returns:
             (object) list of objects
  
-        Raises:
+        Exception Raises:
         """
   
         # implementation
@@ -106,7 +106,7 @@ class NBAWSAPILibrary:
 ## Output <a name="output"></a>
 > The JSON response body of the request to the AWS SDK. This is a dictionary with string keys and values.
 
-## Raises <a name="raises"></a>
+## Exception Raises <a name="raises"></a>
 - If the function name specified in the `func_name` parameter is not found in either `built_in_func_mapping` or `customized_func_mapping`, the code raises an `Exception` with an error message.
 - If a filter key specified in either `filter_keys` or `customized_filters` is not defined in the function mapping specified in `config` or `customized_func_mapping`, respectively, the code raises an `Exception` with an error message.
 - If a customized filter is not in the correct format (i.e., it does not have a `Name` and `Values` field), the code raises an `Exception` with an error message.
