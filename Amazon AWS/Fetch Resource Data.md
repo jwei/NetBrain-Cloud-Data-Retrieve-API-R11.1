@@ -10,7 +10,6 @@
     - [Sample 2 -- Using customized filters](#sample-2)
     - [Sample 3 -- Using customized function mapping](#sample-3) 
 
-TODO @Xun add boto3 API instruction here
 
 # Introduction <a name="introduction"></a>
 The `GetResourceData` function is a static method defined in the `NBAWSAPILibrary` class. It is used to retrieve data (tables) of AWS resources.
@@ -55,22 +54,22 @@ class NBAWSAPILibrary:
  - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `describe_transit_gateway_route_tables`.
  - `filter_keys` (list): A list of strings representing keys for filters to be applied to the AWS function call. Filters provided in this parameter have the second highest priority, and will be used if there are no filters provided in `customized_filters` for the same key. For example, `['transit-gateway-route-table-id']`.
 
-    | Resource Type | Device Type | func_name | filter_keys |
-    | --- | --- | --- | --- |
-    | ec2 | VPC router | describe_route_tables | vpc-id |
-    | ec2 | VPC router | describe_security_groups | vpc-id |
-    | ec2 | VPC router | describe_network_acls | vpc-id |
-    | ec2 | VPC router | describe_vpc_peering_connections | requester-vpc-info.vpc-id |
-    | ec2 | VPC router | describe_vpc_peering_connections | accepter-vpc-info.vpc-id |
-    | ec2 | VPC router | describe_network_interfaces | vpc-id |
-    | ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-route-table-id |
-    | ec2 | Transit Gateway | describe_transit_gateway_route_tables | transit-gateway-id |
-    | ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-route-table-id |
-    | ec2 | Transit Gateway | describe_transit_gateway_attachments | transit-gateway-id |
-    | elbv2 | Application Load Balancer | describe_listeners | LoadBalancerArn |
-    | elbv2 | Network Load Balancer | describe_listeners | LoadBalancerArn |
-    | elbv2 | Gateway Load Balancer | describe_listeners | LoadBalancerArn |
-    | network-firewall | Network Firewall | describe_firewall_policy | FirewallPolicyArn |
+    | Resource Type | Device Type | func_name | filter_keys | note |
+    | --- | --- | --- | --- | --- |
+    | ec2 | VPC router | [describe_route_tables](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_route_tables.html) | vpc-id | The ID of the VPC for the route table. |
+    |  |  | [describe_security_groups](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_security_groups.html) | vpc-id | The ID of the VPC specified when the security group was created. |
+    |  |  | [describe_network_acls](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_network_acls.html) | vpc-id | The ID of the VPC for the network ACL. |
+    |  |  | [describe_vpc_peering_connections](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_vpc_peering_connections.html) | requester-vpc-info.vpc-id | The ID of the requester VPC. |
+    |  |  | [describe_vpc_peering_connections](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_vpc_peering_connections.html) | accepter-vpc-info.vpc-id | The ID of the accepter VPC. |
+    |  |  | [describe_network_interfaces](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_network_interfaces.html) | vpc-id | The ID of the VPC for the network interface. |
+    |  | Transit Gateway | [describe_transit_gateway_route_tables](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_transit_gateway_route_tables.html) | transit-gateway-route-table-id | The ID of the transit gateway route table. |
+    |  |  | [describe_transit_gateway_route_tables](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_transit_gateway_route_tables.html) | transit-gateway-id | The ID of the transit gateway. |
+    |  |  | [describe_transit_gateway_attachments](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_transit_gateway_attachments.html) | transit-gateway-route-table-id | The ID of the transit gateway route table. |
+    |  |  | [describe_transit_gateway_attachments](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_transit_gateway_attachments.html) | transit-gateway-id | The ID of the transit gateway. |
+    | elbv2 | Application Load Balancer | [describe_listeners](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/client/describe_listeners.html) | LoadBalancerArn | The Amazon Resource Name (ARN) of the load balancer. |
+    |  | Network Load Balancer | [describe_listeners](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/client/describe_listeners.html) | LoadBalancerArn | The Amazon Resource Name (ARN) of the load balancer. |
+    |  | Gateway Load Balancer | [describe_listeners](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/client/describe_listeners.html) | LoadBalancerArn | The Amazon Resource Name (ARN) of the load balancer. |
+    | network-firewall | Network Firewall | [describe_firewall_policy](https://boto3.amazonaws.com/v1/documentation/api/1.26.92/reference/services/network-firewall/client/describe_firewall_policy.html) | FirewallPolicyArn | The Amazon Resource Name (ARN) of the firewall policy. |
 
  - `customized_filters` (list, optional, TODO @Xun advanced feature not recomended): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. For example, `[{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
 
