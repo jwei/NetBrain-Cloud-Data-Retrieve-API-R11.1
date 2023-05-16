@@ -80,7 +80,7 @@ class NBAWSAPILibrary:
 ```
 
 ## Input Parameters <a name="input"></a>
- - `param`(str) - it is a NetBrain object that contains essential information, including `apiServerId`, `RegionName`, and so on.
+ - `param`(str) - it is a NetBrain object that contains essential information, including `apiServerId`, `RegionName`, and so on. TODO @Xun update query/how
 
 
 ## Output <a name="output"></a>
