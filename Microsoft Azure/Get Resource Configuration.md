@@ -948,6 +948,37 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/publicIPPrefixes/20.186.58.30"
             }
+        ],
+        # Subnets: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get
+        "subnets": [
+            {
+                "name": "AzureFirewallSubnet",
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/virtualNetworks/Spoke-VNET3/subnets/AzureFirewallSubnet",
+                "etag": "W/\"e88d699c-7496-499c-b1d4-2c6bebe9a91d\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "172.17.16.64/26",
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall/azureFirewallIpConfigurations/Spoke-3-Firewall"
+                        }
+                    ],
+                    "serviceEndpoints": [
+                        {
+                            "provisioningState": "Succeeded",
+                            "service": "Microsoft.Storage",
+                            "locations": [
+                                "westus",
+                                "eastus"
+                            ]
+                        }
+                    ],
+                    "delegations": [],
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            }
         ]
     },
     "sku": {
