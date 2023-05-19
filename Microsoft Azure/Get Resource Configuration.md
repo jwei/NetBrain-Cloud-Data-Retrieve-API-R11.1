@@ -37,7 +37,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
   "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "netbrainHostName": "test-vnet(<ResourceGroup>)(<Subscription_ID_Prefix>)(VirtualNetworkDistributedRouter)",
   "name": "test-vnet",
   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
   "type": "Microsoft.Network/virtualNetworks",
@@ -124,7 +124,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "East-VPN-GW(East-RG1)(073e6f45)(VirtualNetworkGateway)",
+    "netbrainHostName": "East-VPN-GW(<ResourceGroup>)(<Subscription_ID_Prefix>)(VirtualNetworkGateway)",
     "name": "East-VPN-GW",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworkGateways/East-VPN-GW",
     "etag": "W/\"c29b2eef-4bf8-4826-94fa-cc3a4e468bee\"",
@@ -383,7 +383,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "e53bd582834840239c034dae44bfacc1-westus-gw(East-RG1)(073e6f45)(VpnGateway)",
+    "netbrainHostName": "e53bd582834840239c034dae44bfacc1-westus-gw(<ResourceGroup>)(<Subscription_ID_Prefix>)(VpnGateway)",
     "name": "e53bd582834840239c034dae44bfacc1-westus-gw",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw",
     "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
@@ -617,7 +617,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "947de39baaf54512b65930c2300c7ded-eastus-er-gw(East-RG1)(073e6f45)(ExpressRouteGateway)",
+    "netbrainHostName": "947de39baaf54512b65930c2300c7ded-eastus-er-gw(<ResourceGroup>)(<Subscription_ID_Prefix>)(ExpressRouteGateway)",
     "name": "947de39baaf54512b65930c2300c7ded-eastus-er-gw",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw",
     "etag": "W/\"ea450342-3433-4929-a9b0-c6041a799704\"",
@@ -725,7 +725,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "Bur-Netbond(Primary)(East-RG1)(073e6f45)(MSEE)",
+    "netbrainHostName": "Bur-Netbond(Primary)(<ResourceGroup>)(<Subscription_ID_Prefix>)(MSEE)",
     "name": "Bur-Netbond",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond",
     "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
@@ -901,7 +901,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "Spoke-VNET-2-NAT-Gateway(Spoke-VNET-2)(073e6f45)(NatGateway)",
+    "netbrainHostName": "Spoke-VNET-2-NAT-Gateway(<ResourceGroup>)(<Subscription_ID_Prefix>)(NatGateway)",
     "name": "Spoke-VNET-2-NAT-Gateway",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/natGateways/Spoke-VNET-2-NAT-Gateway",
     "etag": "W/\"e3d27ab0-77c0-4593-9599-afa06a4fa589\"",
@@ -980,7 +980,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "Spoke-3-Firewall(US-West-RG)(073e6f45)(AzureFirewall)",
+    "netbrainHostName": "Spoke-3-Firewall(<ResourceGroup>)(<Subscription_ID_Prefix>)(AzureFirewall)",
     "name": "Spoke-3-Firewall",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall",
     "etag": "W/\"8347fd01-ac03-4648-8c0d-6c6189c7bbeb\"",
@@ -1094,7 +1094,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "East-VHUB(East-RG1)(073e6f45)(VirtualHub)",
+    "netbrainHostName": "East-VHUB(<ResourceGroup>)(<Subscription_ID_Prefix>)(VirtualHub)",
     "name": "East-VHUB",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB",
     "etag": "W/\"729f33a3-a3a3-4377-bb14-715b592740c2\"",
@@ -1252,7 +1252,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "VNET-1-Private-Load-Balancer(Spoke-VNET-1)(073e6f45)(LoadBalancer)",
+    "netbrainHostName": "VNET-1-Private-Load-Balancer(<ResourceGroup>)(<Subscription_ID_Prefix>)(LoadBalancer)",
     "name": "VNET-1-Private-Load-Balancer",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer",
     "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
@@ -1533,7 +1533,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "appgw_aks_test_2(MC_aks_test_2_aks-test-2-public_westus2)(073e6f45)(ApplicationGateway)",
+    "netbrainHostName": "appgw_aks_test_2(<ResourceGroup>)(<Subscription_ID_Prefix>)(ApplicationGateway)",
     "name": "appgw_aks_test_2",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2",
     "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
@@ -1835,7 +1835,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "1stsub-private-endpoint(public-service-test)(073e6f45)(PrivateEndpoint)",
+    "netbrainHostName": "1stsub-private-endpoint(<ResourceGroup>)(<Subscription_ID_Prefix>)(PrivateEndpoint)",
     "name": "1stsub-private-endpoint",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/1stsub-private-endpoint",
     "etag": "W/\"17898344-69e0-41df-b9a2-7179d9f062b0\"",
@@ -1902,7 +1902,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "public_service_test_privatelinkservice(public-service-test)(073e6f45)(PrivateLinkService)",
+    "netbrainHostName": "public_service_test_privatelinkservice(<ResourceGroup>)(<Subscription_ID_Prefix>)(PrivateLinkService)",
     "name": "public_service_test_privatelinkservice",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice",
     "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
@@ -2030,7 +2030,7 @@ Below are the Azure APIs used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "AzureFirewallSubnet_in_East-Test-VNET(East-RG1)(073e6f45)(ServiceEndpoint)",
+    "netbrainHostName": "AzureFirewallSubnet_in_East-Test-VNET(<ResourceGroup>)(<Subscription_ID_Prefix>)(ServiceEndpoint)",
     "name": "AzureFirewallSubnet",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-Test-VNET/subnets/AzureFirewallSubnet",
     "etag": "W/\"a2970964-5e0b-4f76-beb4-eddf5d573c6f\"",
