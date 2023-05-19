@@ -154,7 +154,7 @@ Below are the Azure APIs used to generate this configuration.
                         "properties": {
                             "provisioningState": "Succeeded",
                             "resourceGuid": "239090b6-9758-4bda-846f-553fcbffb698",
-                            "ipAddress": "52.179.98.177",
+                            "ipAddress": "40.85.154.247",
                             "publicIPAddressVersion": "IPv4",
                             "publicIPAllocationMethod": "Dynamic",
                             "idleTimeoutInMinutes": 4,
@@ -223,7 +223,7 @@ Below are the Azure APIs used to generate this configuration.
                     ],
                     "customBgpIpAddresses": [],
                     "tunnelIpAddresses": [
-                        "52.179.98.177"
+                        "40.85.154.247"
                     ]
                 }
             ]
@@ -455,7 +455,7 @@ Below are the Azure APIs used to generate this configuration.
                                     "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
-                                        "ipAddress": "104.207.208.80",
+                                        "ipAddress": "40.85.154.247",
                                         "linkProperties": {
                                             "linkProviderName": "NetBrain",
                                             "linkSpeedInMbps": 50
@@ -469,7 +469,7 @@ Below are the Azure APIs used to generate this configuration.
                                     "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
-                                        "ipAddress": "104.207.208.106",
+                                        "ipAddress": "40.85.154.247",
                                         "linkProperties": {
                                             "linkProviderName": "NetBrain",
                                             "linkSpeedInMbps": 50
@@ -1014,7 +1014,7 @@ Below are the Azure APIs used to generate this configuration.
                         "properties": {
                             "provisioningState": "Succeeded",
                             "resourceGuid": "cacc4e88-23b2-43ad-a06a-c165bbccc5d6",
-                            "ipAddress": "13.86.142.24",
+                            "ipAddress": "40.85.154.247",
                             "publicIPAddressVersion": "IPv4",
                             "publicIPAllocationMethod": "Static",
                             "idleTimeoutInMinutes": 4,
@@ -1177,7 +1177,7 @@ Below are the Azure APIs used to generate this configuration.
                                     "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
-                                        "ipAddress": "104.207.208.106",
+                                        "ipAddress": "40.85.154.247",
                                         "bgpProperties": {
                                             "asn": 64666,
                                             "bgpPeeringAddress": "172.17.251.1"
@@ -1195,7 +1195,7 @@ Below are the Azure APIs used to generate this configuration.
                                     "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
-                                        "ipAddress": "104.207.208.80",
+                                        "ipAddress": "40.85.154.247",
                                         "bgpProperties": {
                                             "asn": 64665,
                                             "bgpPeeringAddress": "172.17.251.5"
