@@ -40,23 +40,30 @@ Begin Declare Input Parameters
 [
 ]
 End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
 '''
 
 metric_name = 'ExpressRouteGatewayCpuUtilization'  # metric name
- 
+
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
-            context, 
-            device_name, 
-            {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']})
+        context, 
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']}
+    )
     return nb_node
-     
-def RetrieveData(params):    
-    rtn_res = NBAzureAPILibrary.GetMonitorMetrics(
-        api_server_id=params['apiServerId'], 
-        azure_resource_uri=params['params']['id'], 
+
+def RetrieveData(params):
+    data = NBAzureAPILibrary.GetMonitorMetrics(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=params['params']['id'],
         params={'metricnames': metric_name}
     )
-    return json.dumps(rtn_res, indent=4)   
+    return json.dumps(data, indent=4)
  ```
 
