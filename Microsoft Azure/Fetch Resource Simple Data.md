@@ -16,12 +16,12 @@ The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary
 class NBAzureAPILibrary:
     @staticmethod
     def GetResourceDataByAPI(
-            api_server_id: str,
-            azure_resource_uri: str,
-            action: str = None,
-            http_method: str = 'GET',
-            json_body: object = None,
-            api_version: str = ''
+        api_server_id: str,
+        azure_resource_uri: str,
+        action: str = None,
+        http_method: str = 'GET',
+        json_body: object = None,
+        api_version: str = ''
     ) -> object:
     # implementation
     # ...
