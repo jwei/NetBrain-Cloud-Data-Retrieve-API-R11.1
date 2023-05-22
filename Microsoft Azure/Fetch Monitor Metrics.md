@@ -14,10 +14,10 @@ For a complete list of available metrics for each Azure resource, please referen
 class NBAzureAPILibrary:
     @staticmethod
     def GetMonitorMetrics(
-            api_server_id: str,
-            azure_resource_uri: str,
-            params: object = None,
-            api_version: str = '2018-01-01'
+        api_server_id: str,
+        azure_resource_uri: str,
+        params: object = None,
+        api_version: str = '2018-01-01'
     ) -> object:
         # implementation
         # ...
