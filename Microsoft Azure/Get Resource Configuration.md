@@ -598,7 +598,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## Azure Express Route Gateway
+## Azure ExpressRoute Gateway
 
 ### Introduction
 The configuration of the Azure express route gateway is dependent on the Azure API response of the Azure express route gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `expressRouteCircuitPeering`.
