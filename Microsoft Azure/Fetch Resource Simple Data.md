@@ -48,8 +48,14 @@ Begin Declare Input Parameters
 [
 ]
 End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
 '''
- 
+
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
         context,
@@ -57,9 +63,8 @@ def BuildParameters(context, device_name, params):
         {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
     )
     return nb_node
- 
- 
-def RetrieveData(params):   
+
+def RetrieveData(params):
     nb_node = params['params']
     data = NBAzureAPILibrary.GetResourceDataByAPI(
         api_server_id=params['apiServerId'],
@@ -83,7 +88,7 @@ For sample
     {"name": "$param2"}
 ]
 '''
-    
+
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
         context,
@@ -92,8 +97,7 @@ def BuildParameters(context, device_name, params):
     )
     return nb_node
 
-
-def RetrieveData(params):    
+def RetrieveData(params):
     nb_node = params['params']
     data = NBAzureAPILibrary.GetResourceDataByAPI(
         api_server_id=params['apiServerId'],
