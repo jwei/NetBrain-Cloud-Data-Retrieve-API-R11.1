@@ -19,7 +19,7 @@ class NBAzureAPILibrary:
             api_server_id: str,
             azure_resource_uri: str,
             action: str = None,
-            http_method: str = "GET",
+            http_method: str = 'GET',
             json_body: object = None,
             api_version: str = ''
     ) -> object:
@@ -102,7 +102,7 @@ def RetrieveData(params):
     data = NBAzureAPILibrary.GetResourceDataByAPI(
         api_server_id=params['apiServerId'],
         azure_resource_uri=nb_node['id'],
-        action="getBgpPeerStatus",
+        action='getBgpPeerStatus',
         http_method='POST'
     )
     return json.dumps(data, indent=4)
