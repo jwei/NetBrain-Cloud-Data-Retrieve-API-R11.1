@@ -55,7 +55,7 @@ The function takes in several arguments, including:
 
 ## Virtual Network <a name="vnet"></a>
  - In NetBrain, we generate an "Azure VNet Distributed Router" for each Azure Virtual Network to represent its networking entity.
- - The Azure VNet's resource URI is saved in the "vNetId" data field of the VNet Distributed Router.
+ - The Azure Virtual Network's resource URI is saved in the "vNetId" data field of the Azure VNet Distributed Router.
  - For the usage please check samples below.
 
 # Samples <a name="sample"></a>
@@ -126,10 +126,126 @@ def RetrieveData(params):
 ```
 
 ## Sample 3 -- Get ExpressRoute Circuit API Data  <a name="sample_3"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+ 
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+ 
+ 
+def RetrieveData(params):   
+    # Note that MSEE (Microsoft Enterprise Edge) is generated from ExpressRoute Circuit.
+    # One ExpressRoute Circuit generates two MSEE (Primary and Secondary).
+    # The ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
+    nb_msee = params['params']
+    circuit_id = nb_msee['circuitId']
+    
+    data = NBAzureAPILibrary.GetResourceDataByAPI(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=circuit_id
+    )
+    return json.dumps(data, indent=4)
+```
 
 ## Sample 4 -- Get ExpressRoute Circuit Peering Status  <a name="sample_4"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+ 
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+ 
+ 
+def RetrieveData(params):   
+    # Note that MSEE (Microsoft Enterprise Edge) is generated from ExpressRoute Circuit.
+    # One ExpressRoute Circuit generates two MSEE (Primary and Secondary).
+    # The ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
+    nb_msee = params['params']
+    circuit_id = nb_msee['circuitId']
+    
+    # get Expressroute Circuit data
+    circuit_api_data = NBAzureAPILibrary.GetResourceDataByAPI(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=circuit_id
+    )
+    
+    results = []
+    
+    # formulate route table id
+    # noted that route table is for each peering
+    # ref: https://learn.microsoft.com/en-us/rest/api/expressroute/express-route-circuits/list-routes-table?tabs=HTTP
+    device_path = 'Primary'
+    if 'properties' in circuit_api_data \
+        and 'peerings' in circuit_api_data['properties'] \
+        and circuit_api_data['properties']['peerings']:
+        for peering in circuit_api_data['properties']['peerings']:
+            peering_name = peering['name']
+            route_table_id = f"{circuit_id}/peerings/{peering_name}/routeTables/{device_path}"
+            peering_api_data = NBAzureAPILibrary.GetResourceDataByAPI(
+                api_server_id=params['apiServerId'],
+                azure_resource_uri=route_table_id,
+                http_method='POST'
+            )
+            if peering_api_data:
+                results.append({
+                    'peeringName': peering_name,
+                    'peeringId': peering['id'],
+                    'routeTable': peering_api_data
+                }) 
+    
+    return json.dumps(results, indent=4)
+```
 
 ## Sample 5 -- Get Virtual Network API Data  <a name="sample_5"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+ 
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+ 
+ 
+def RetrieveData(params):   
+    # Note that the VNet Router (Virtual Network Distributed Router) is generated from Azure Virtual Network.
+    # The purpose is to represent vnet's networking entity.
+    # The VNet's resource URI is saved in the "vNetId" data field of the VNet Router.
+    nb_vnet_router = params['params']
+    vnet_id = nb_vnet_router['vNetId']
+    
+    data = NBAzureAPILibrary.GetResourceDataByAPI(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=vnet_id
+    )
+    return json.dumps(data, indent=4)
+```
 
 # Default Azure API Versions <a name="default_api_version"></a>
 Below are the default API versions for different Azure provider.
