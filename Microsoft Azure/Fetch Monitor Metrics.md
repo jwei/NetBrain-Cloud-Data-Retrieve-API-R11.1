@@ -2,7 +2,10 @@
 - [Introduction](#introduction)
 - [API Definition](#api_def)
     - [Input Parameters](#input)
-    - [Output](#output)    
+    - [Output](#output)
+- [Special Notes](#special_notes)
+    - [ExpressRoute Circuit](#circuit)
+    - [Virtual Network](#vnet)
 - [Sample](#sample)   
 
 # Introduction <a name="introduction"></a>
@@ -23,14 +26,19 @@ class NBAzureAPILibrary:
         # ...
 ```
 
-# Input Parameters <a name="input"></a>
+## Input Parameters <a name="input"></a>
  - `api_server_id`(str) - The Azure Tenant API Server Instance ID saved in Device.
  - `azure_resource_uri`(str) - The resource identifier for the Azure resource whose metrics are to be fetched.
  - `params`(dic) - A dictionary containing additional URL parameters to use when calling the Azure monitor metrics API. For a complete list of available metrics for each Azure resource, please reference to Microsoft document: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported
  - `api_version[optional]`(str) - The API version to use for the Azure monitor metrics API.
 
-# Output <a name="output"></a>
+## Output <a name="output"></a>
 > resp_body_json: The JSON response body of the HTTP request to the Azure monitor metrics API. This is a dictionary with string keys and values.
+
+# Special Notes <a name="special_notes"></a>
+## ExpressRoute Circuit <a name="circuit"></a>
+
+## Virtual Network <a name="vnet"></a>
 
 # Sample <a name="sample"></a>
 
