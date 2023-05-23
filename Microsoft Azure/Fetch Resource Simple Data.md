@@ -58,7 +58,7 @@ The function takes in several arguments, including:
  - The Azure VNet's resource URI is saved in the "vNetId" data field of the VNet Distributed Router.
  - For the usage please check samples below.
 
-# Sample <a name="sample"></a>
+# Samples <a name="sample"></a>
 ## Sample 1 -- Get Resource API Data with HTTP GET Method <a name="sample_1"></a>
 ```python
 '''
