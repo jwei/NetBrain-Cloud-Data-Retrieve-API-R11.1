@@ -127,12 +127,12 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "East-VPN-GW(<ResourceGroup>)(<Subscription_ID_Prefix>)(VirtualNetworkGateway)",
     "name": "East-VPN-GW",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworkGateways/East-VPN-GW",
-    "etag": "W/\"c29b2eef-4bf8-4826-94fa-cc3a4e468bee\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/virtualNetworkGateways",
     "location": "eastus",
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "2514e288-f3e1-4ac9-adac-e5bc03c7fe79",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "packetCaptureDiagnosticState": "None",
         "enablePrivateIpAddress": false,
         "isMigrateToCSES": false,
@@ -140,7 +140,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "default",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworkGateways/East-VPN-GW/ipConfigurations/default",
-                "etag": "W/\"c29b2eef-4bf8-4826-94fa-cc3a4e468bee\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/virtualNetworkGateways/ipConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -149,11 +149,11 @@ Below are the Azure APIs used to generate this configuration.
                     "publicIPAddress": {
                         "name": "East-VNET1-VNG-IP",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/publicIPAddresses/East-VNET1-VNG-IP",
-                        "etag": "W/\"5bbd76c7-0fff-40c5-adac-ad14c81e5b80\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "location": "eastus",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "resourceGuid": "239090b6-9758-4bda-846f-553fcbffb698",
+                            "resourceGuid": "00000000-0000-0000-0000-000000000000",
                             "ipAddress": "40.85.154.247",
                             "publicIPAddressVersion": "IPv4",
                             "publicIPAllocationMethod": "Dynamic",
@@ -173,7 +173,7 @@ Below are the Azure APIs used to generate this configuration.
                     "subnet": {
                         "name": "GatewaySubnet",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-VNET1/subnets/GatewaySubnet",
-                        "etag": "W/\"4ec86895-3aad-471e-84de-177ff56b4442\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "172.17.11.128/26",
@@ -233,10 +233,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Spoke-VNET1-To-Hub-VNET",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-1/virtualNetworkPeerings/Spoke-VNET1-To-Hub-VNET",
-                "etag": "W/\"b53d457b-780d-48de-b8c9-80bc76113d08\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "resourceGuid": "561b78a8-76ca-08e1-0369-e0ba1169bf1e",
+                    "resourceGuid": "00000000-0000-0000-0000-000000000000",
                     "peeringState": "Connected",
                     "peeringSyncLevel": "FullyInSync",
                     "remoteVirtualNetwork": {
@@ -272,10 +272,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Spoke-VNET3-To-Hub-VNET",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/virtualNetworks/Spoke-VNET3/virtualNetworkPeerings/Spoke-VNET3-To-Hub-VNET",
-                "etag": "W/\"68bb885e-a9e7-42dd-94c2-8966f3f4e693\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "resourceGuid": "a8eb3ef9-5804-05f0-0124-ef526570f25d",
+                    "resourceGuid": "00000000-0000-0000-0000-000000000000",
                     "peeringState": "Connected",
                     "peeringSyncLevel": "FullyInSync",
                     "remoteVirtualNetwork": {
@@ -311,10 +311,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Spoke-VNET2-To-Hub-VNET",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/virtualNetworks/Spoke-VNET-2/virtualNetworkPeerings/Spoke-VNET2-To-Hub-VNET",
-                "etag": "W/\"67383cf6-e0af-4102-b54d-6dab5693a6f9\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "resourceGuid": "b5fa35a0-4544-0b61-26e2-cda7eb9f0fe9",
+                    "resourceGuid": "00000000-0000-0000-0000-000000000000",
                     "peeringState": "Connected",
                     "peeringSyncLevel": "FullyInSync",
                     "remoteVirtualNetwork": {
@@ -386,7 +386,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "e53bd582834840239c034dae44bfacc1-westus-gw(<ResourceGroup>)(<Subscription_ID_Prefix>)(VpnGateway)",
     "name": "e53bd582834840239c034dae44bfacc1-westus-gw",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw",
-    "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/vpnGateways",
     "location": "westus",
     "properties": {
@@ -395,7 +395,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Connection-VPNSite-NoBGP-Test",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test",
-                "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/vpnGateways/vpnConnections",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -422,7 +422,7 @@ Below are the Azure APIs used to generate this configuration.
                     "remoteVpnSite": {
                         "name": "VPNSite-NoBGP-Test",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test",
-                        "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "type": "Microsoft.Network/vpnSites",
                         "location": "westus",
                         "properties": {
@@ -452,7 +452,7 @@ Below are the Azure APIs used to generate this configuration.
                                 {
                                     "name": "Burlington-Fortigate",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-Fortigate",
-                                    "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
                                         "ipAddress": "40.85.154.247",
@@ -466,7 +466,7 @@ Below are the Azure APIs used to generate this configuration.
                                 {
                                     "name": "Burlington-ASA",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/VPNSite-NoBGP-Test/vpnSiteLinks/Burlington-ASA",
-                                    "etag": "W/\"6ce821df-7a86-482b-99b7-9dace1ecbb46\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
                                         "ipAddress": "40.85.154.247",
@@ -484,7 +484,7 @@ Below are the Azure APIs used to generate this configuration.
                         {
                             "name": "Burlington-Fortigate",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test/vpnLinkConnections/Burlington-Fortigate",
-                            "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "properties": {
                                 "provisioningState": "Succeeded",
                                 "vpnSiteLink": {
@@ -512,7 +512,7 @@ Below are the Azure APIs used to generate this configuration.
                         {
                             "name": "Burlington-ASA",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnGateways/e53bd582834840239c034dae44bfacc1-westus-gw/vpnConnections/Connection-VPNSite-NoBGP-Test/vpnLinkConnections/Burlington-ASA",
-                            "etag": "W/\"597fb38a-3155-4d30-9b73-061035052cf4\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "properties": {
                                 "provisioningState": "Succeeded",
                                 "vpnSiteLink": {
@@ -620,12 +620,12 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "947de39baaf54512b65930c2300c7ded-eastus-er-gw(<ResourceGroup>)(<Subscription_ID_Prefix>)(ExpressRouteGateway)",
     "name": "947de39baaf54512b65930c2300c7ded-eastus-er-gw",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw",
-    "etag": "W/\"ea450342-3433-4929-a9b0-c6041a799704\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/expressRouteGateways",
     "location": "eastus",
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "211f05d4-17c0-4eab-953f-5ffe3ec13db3",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "virtualHub": {
             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB"
         },
@@ -633,11 +633,11 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "ExRConnection-eastus-1596986809931",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteGateways/947de39baaf54512b65930c2300c7ded-eastus-er-gw/expressRouteConnections/ExRConnection-eastus-1596986809931",
-                "etag": "W/\"ea450342-3433-4929-a9b0-c6041a799704\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/expressRouteGateways/expressRouteConnections",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "resourceGuid": "225f6ef1-4c33-425c-a038-06ae813678ae",
+                    "resourceGuid": "00000000-0000-0000-0000-000000000000",
                     "routingConfiguration": {
                         "associatedRouteTable": {
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB/hubRouteTables/defaultRouteTable"
@@ -663,7 +663,7 @@ Below are the Azure APIs used to generate this configuration.
                     "expressRouteCircuitPeering": {
                         "name": "AzurePrivatePeering",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/peerings/AzurePrivatePeering",
-                        "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "peeringType": "AzurePrivatePeering",
@@ -728,17 +728,17 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "Bur-Netbond(Primary)(<ResourceGroup>)(<Subscription_ID_Prefix>)(MSEE)",
     "name": "Bur-Netbond",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond",
-    "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/expressRouteCircuits",
     "location": "eastus",
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "4bdbc638-ac36-49c9-a053-66a2a385a5c7",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "peerings": [
             {
                 "name": "AzurePrivatePeering",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/peerings/AzurePrivatePeering",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "peeringType": "AzurePrivatePeering",
@@ -770,10 +770,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "MyAuthorization2",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization2",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "58ad0e96-938d-48d1-9f74-8087f5b7f19b",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Available"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -781,10 +781,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "MyAuthorization3",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization3",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "28ea8385-ad29-4413-810f-4d1709c5df7d",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Used"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -792,10 +792,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "MyAuthorization4",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/MyAuthorization4",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "5fe58c3e-72c0-4310-8993-9b8168b7636b",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Used"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -803,10 +803,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "2ed-AD-Auth",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-Auth",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "f84ace51-d05d-4bdd-a053-8b659cc8dcc3",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Available"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -814,10 +814,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "publi",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/publi",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "29c5ae03-af13-4a1a-925d-db29f759499a",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Available"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -825,10 +825,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "2ed-AD-Auth-Canada-Central",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-Auth-Canada-Central",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "eb4c073f-df57-4e20-ba8d-2dd2045aa873",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Available"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -836,10 +836,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "2ed-AD-VWAN",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/2ed-AD-VWAN",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "dec6f56c-9223-4456-8c6d-3977b329bff6",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Used"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -847,10 +847,10 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "to-West-VHUB",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/expressRouteCircuits/Bur-Netbond/authorizations/to-West-VHUB",
-                "etag": "W/\"292809ed-199b-4b54-b3ea-33dae90bfd4a\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "authorizationKey": "2821adf4-0cd9-4a62-95d5-ccee110d7daf",
+                    "authorizationKey": "00000000-0000-0000-0000-000000000000",
                     "authorizationUseStatus": "Available"
                 },
                 "type": "Microsoft.Network/expressRouteCircuits/authorizations"
@@ -904,7 +904,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "Spoke-VNET-2-NAT-Gateway(<ResourceGroup>)(<Subscription_ID_Prefix>)(NatGateway)",
     "name": "Spoke-VNET-2-NAT-Gateway",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/natGateways/Spoke-VNET-2-NAT-Gateway",
-    "etag": "W/\"e3d27ab0-77c0-4593-9599-afa06a4fa589\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/natGateways",
     "location": "eastus2",
     "tags": {},
@@ -913,21 +913,21 @@ Below are the Azure APIs used to generate this configuration.
     ],
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "844eadf7-7b17-4db8-a5cd-632a0b16ff51",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "idleTimeoutInMinutes": 10,
         # Public IP Addresses: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get
         "publicIpAddresses": [
             {
                 "name": "NAT-Public-IP",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/publicIPAddresses/NAT-Public-IP",
-                "etag": "W/\"d4d9e43a-2ea7-4534-a6d3-63b3d8a79099\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "location": "eastus2",
                 "zones": [
                     "1"
                 ],
                 "properties": {
                     "provisioningState": "Succeeded",
-                    "resourceGuid": "a28a34ab-c9c4-4d56-a49e-644868e7b9b8",
+                    "resourceGuid": "00000000-0000-0000-0000-000000000000",
                     "natGateway": {
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-2/providers/Microsoft.Network/natGateways/Spoke-VNET-2-NAT-Gateway"
                     },
@@ -954,7 +954,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "AzureFirewallSubnet",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/virtualNetworks/Spoke-VNET3/subnets/AzureFirewallSubnet",
-                "etag": "W/\"e88d699c-7496-499c-b1d4-2c6bebe9a91d\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "addressPrefix": "172.17.16.64/26",
@@ -1014,7 +1014,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "Spoke-3-Firewall(<ResourceGroup>)(<Subscription_ID_Prefix>)(AzureFirewall)",
     "name": "Spoke-3-Firewall",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall",
-    "etag": "W/\"8347fd01-ac03-4648-8c0d-6c6189c7bbeb\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/azureFirewalls",
     "location": "westus",
     "properties": {
@@ -1029,7 +1029,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Spoke-3-Firewall",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/azureFirewalls/Spoke-3-Firewall/azureFirewallIpConfigurations/Spoke-3-Firewall",
-                "etag": "W/\"8347fd01-ac03-4648-8c0d-6c6189c7bbeb\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/azureFirewalls/azureFirewallIpConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1039,12 +1039,12 @@ Below are the Azure APIs used to generate this configuration.
                     "publicIPAddress": {
                         "name": "Spoke-3-Firewall",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/publicIPAddresses/Spoke-3-Firewall",
-                        "etag": "W/\"800ab353-201f-4115-a096-278422739076\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "location": "westus",
                         "tags": {},
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "resourceGuid": "cacc4e88-23b2-43ad-a06a-c165bbccc5d6",
+                            "resourceGuid": "00000000-0000-0000-0000-000000000000",
                             "ipAddress": "40.85.154.247",
                             "publicIPAddressVersion": "IPv4",
                             "publicIPAllocationMethod": "Static",
@@ -1064,7 +1064,7 @@ Below are the Azure APIs used to generate this configuration.
                     "subnet": {
                         "name": "AzureFirewallSubnet",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/US-West-RG/providers/Microsoft.Network/virtualNetworks/Spoke-VNET3/subnets/AzureFirewallSubnet",
-                        "etag": "W/\"e88d699c-7496-499c-b1d4-2c6bebe9a91d\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "172.17.16.64/26",
@@ -1128,7 +1128,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "East-VHUB(<ResourceGroup>)(<Subscription_ID_Prefix>)(VirtualHub)",
     "name": "East-VHUB",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualHubs/East-VHUB",
-    "etag": "W/\"729f33a3-a3a3-4377-bb14-715b592740c2\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/virtualHubs",
     "location": "eastus",
     "properties": {
@@ -1150,7 +1150,7 @@ Below are the Azure APIs used to generate this configuration.
         "virtualWan": {
             "name": "VWAN-TO-BUR",
             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualWans/VWAN-TO-BUR",
-            "etag": "W/\"f6e2942d-c798-43ab-9f76-9295a61ce2e0\"",
+            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
             "type": "Microsoft.Network/virtualWans",
             "location": "eastus",
             "tags": {
@@ -1175,7 +1175,7 @@ Below are the Azure APIs used to generate this configuration.
                     {
                         "name": "Burlington",
                         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington",
-                        "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                        "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                         "type": "Microsoft.Network/vpnSites",
                         "location": "eastus",
                         "properties": {
@@ -1205,7 +1205,7 @@ Below are the Azure APIs used to generate this configuration.
                                 {
                                     "name": "To-Lab-ASA",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington/vpnSiteLinks/To-Lab-ASA",
-                                    "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
                                         "ipAddress": "40.85.154.247",
@@ -1223,7 +1223,7 @@ Below are the Azure APIs used to generate this configuration.
                                 {
                                     "name": "To-Bur-Fortigate",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/vpnSites/Burlington/vpnSiteLinks/To-Bur-Fortigate",
-                                    "etag": "W/\"d5398329-a48a-4c0f-8d54-8095f55b445d\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "properties": {
                                         "provisioningState": "Succeeded",
                                         "ipAddress": "40.85.154.247",
@@ -1286,18 +1286,18 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "VNET-1-Private-Load-Balancer(<ResourceGroup>)(<Subscription_ID_Prefix>)(LoadBalancer)",
     "name": "VNET-1-Private-Load-Balancer",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer",
-    "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/loadBalancers",
     "location": "westus2",
     "tags": {},
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "cdd67be5-2871-430c-9693-6a142ea3ca15",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "frontendIPConfigurations": [
             {
                 "name": "LoadBalancerFrontEnd",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/frontendIPConfigurations/LoadBalancerFrontEnd",
-                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1322,21 +1322,21 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "VNET-1-Private-Load-Balancer-Backend-Pool",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool",
-                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "loadBalancerBackendAddresses": [
                         {
                             "name": "Spoke-VNET-1_vnet-1-private-endpo278ipconfig1",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool/loadBalancerBackendAddresses/Spoke-VNET-1_vnet-1-private-endpo278ipconfig1",
-                            "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "properties": {
                                 "provisioningState": "Succeeded",
                                 # Network Interface IP Configurations: https://docs.microsoft.com/en-us/rest/api/virtualnetwork/network-interface-ip-configurations/get
                                 "networkInterfaceIPConfiguration": {
                                     "name": "ipconfig1",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo278/ipConfigurations/ipconfig1",
-                                    "etag": "W/\"b5540360-3c53-4b77-a8b0-01fa28561f8d\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                     "properties": {
                                         "provisioningState": "Succeeded",
@@ -1360,13 +1360,13 @@ Below are the Azure APIs used to generate this configuration.
                         {
                             "name": "Spoke-VNET-1_vnet-1-private-endpo158ipconfig1",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/backendAddressPools/VNET-1-Private-Load-Balancer-Backend-Pool/loadBalancerBackendAddresses/Spoke-VNET-1_vnet-1-private-endpo158ipconfig1",
-                            "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "properties": {
                                 "provisioningState": "Succeeded",
                                 "networkInterfaceIPConfiguration": {
                                     "name": "ipconfig1",
                                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo158/ipConfigurations/ipconfig1",
-                                    "etag": "W/\"3dc3fed7-49e1-4db2-abe4-1e48389bf2fd\"",
+                                    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                                     "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                     "properties": {
                                         "provisioningState": "Succeeded",
@@ -1393,7 +1393,7 @@ Below are the Azure APIs used to generate this configuration.
                         {
                             "name": "ipconfig1",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo278/ipConfigurations/ipconfig1",
-                            "etag": "W/\"b5540360-3c53-4b77-a8b0-01fa28561f8d\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                             "properties": {
                                 "provisioningState": "Succeeded",
@@ -1414,7 +1414,7 @@ Below are the Azure APIs used to generate this configuration.
                         {
                             "name": "ipconfig1",
                             "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/networkInterfaces/vnet-1-private-endpo158/ipConfigurations/ipconfig1",
-                            "etag": "W/\"3dc3fed7-49e1-4db2-abe4-1e48389bf2fd\"",
+                            "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                             "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                             "properties": {
                                 "provisioningState": "Succeeded",
@@ -1446,7 +1446,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "TestHAPorts",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/loadBalancingRules/TestHAPorts",
-                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/loadBalancers/loadBalancingRules",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1481,7 +1481,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "HTTP",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/probes/HTTP",
-                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "protocol": "Http",
@@ -1511,7 +1511,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "AzurePathTest_INNat",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/Spoke-VNET-1/providers/Microsoft.Network/loadBalancers/VNET-1-Private-Load-Balancer/inboundNatRules/AzurePathTest_INNat",
-                "etag": "W/\"7f1ec08b-d06a-4c25-88d0-d29f847904b1\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/loadBalancers/inboundNatRules",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1567,7 +1567,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "appgw_aks_test_2(<ResourceGroup>)(<Subscription_ID_Prefix>)(ApplicationGateway)",
     "name": "appgw_aks_test_2",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2",
-    "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/applicationGateways",
     "location": "westus2",
     "tags": {
@@ -1580,7 +1580,7 @@ Below are the Azure APIs used to generate this configuration.
     ],
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "99a132df-e2fb-43f5-ad0b-11fab7baad1b",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "sku": {
             "name": "Standard_v2",
             "tier": "Standard_v2"
@@ -1590,7 +1590,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "appGatewayIpConfig",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/gatewayIPConfigurations/appGatewayIpConfig",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "subnet": {
@@ -1608,7 +1608,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "appGwPublicFrontendIp",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendIPConfigurations/appGwPublicFrontendIp",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/applicationGateways/frontendIPConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1628,7 +1628,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "port_80",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/frontendPorts/port_80",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "port": 80,
@@ -1645,7 +1645,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "defaultaddresspool",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendAddressPools/defaultaddresspool",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "backendAddresses": []
@@ -1655,7 +1655,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "pool-default-aspnetapp-80-bp-80",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendAddressPools/pool-default-aspnetapp-80-bp-80",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "backendAddresses": [
@@ -1677,7 +1677,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "bp-default-aspnetapp-80-80-aspnetapp",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/bp-default-aspnetapp-80-80-aspnetapp",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "port": 80,
@@ -1699,7 +1699,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "defaulthttpsetting",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/backendHttpSettingsCollection/defaulthttpsetting",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "port": 80,
@@ -1719,7 +1719,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "fl-e1903c8aa3446b7b3207aec6d6ecba8a",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/httpListeners/fl-e1903c8aa3446b7b3207aec6d6ecba8a",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "frontendIPConfiguration": {
@@ -1746,7 +1746,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "rr-e1903c8aa3446b7b3207aec6d6ecba8a",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/requestRoutingRules/rr-e1903c8aa3446b7b3207aec6d6ecba8a",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "ruleType": "Basic",
@@ -1769,7 +1769,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "defaultprobe-Http",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/defaultprobe-Http",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "protocol": "Http",
@@ -1792,7 +1792,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "defaultprobe-Https",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/defaultprobe-Https",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "protocol": "Https",
@@ -1810,7 +1810,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "pb-default-aspnetapp-80-aspnetapp",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/MC_aks_test_2_aks-test-2-public_westus2/providers/Microsoft.Network/applicationGateways/appgw_aks_test_2/probes/pb-default-aspnetapp-80-aspnetapp",
-                "etag": "W/\"5687248c-3700-412c-b211-750ad368e9ba\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "protocol": "Http",
@@ -1869,18 +1869,18 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "1stsub-private-endpoint(<ResourceGroup>)(<Subscription_ID_Prefix>)(PrivateEndpoint)",
     "name": "1stsub-private-endpoint",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/1stsub-private-endpoint",
-    "etag": "W/\"17898344-69e0-41df-b9a2-7179d9f062b0\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/privateEndpoints",
     "location": "eastus",
     "tags": {},
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "b36d12ae-86b8-4639-8b30-27214474de12",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "privateLinkServiceConnections": [
             {
                 "name": "1stsub-private-endpoint",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateEndpoints/1stsub-private-endpoint/privateLinkServiceConnections/1stsub-private-endpoint",
-                "etag": "W/\"17898344-69e0-41df-b9a2-7179d9f062b0\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "privateLinkServiceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/paastestgroup/providers/Microsoft.Storage/storageAccounts/2edsub4storageaccount",
@@ -1936,7 +1936,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "public_service_test_privatelinkservice(<ResourceGroup>)(<Subscription_ID_Prefix>)(PrivateLinkService)",
     "name": "public_service_test_privatelinkservice",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice",
-    "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "type": "Microsoft.Network/privateLinkServices",
     "location": "eastus",
     "tags": {
@@ -1944,7 +1944,7 @@ Below are the Azure APIs used to generate this configuration.
     },
     "properties": {
         "provisioningState": "Succeeded",
-        "resourceGuid": "bfd8925e-0c2e-448a-b215-1c42121cd572",
+        "resourceGuid": "00000000-0000-0000-0000-000000000000",
         "fqdns": [],
         "alias": "public_service_test_privatelinkservice.acb1b37c-fb58-47a8-bbbe-4137bd3064f2.eastus.azure.privatelinkservice",
         "visibility": {
@@ -1963,7 +1963,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Subnet1-1",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/ipConfigurations/Subnet1-1",
-                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/privateLinkServices/ipConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1978,7 +1978,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "Subnet1-2",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/ipConfigurations/Subnet1-2",
-                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "type": "Microsoft.Network/privateLinkServices/ipConfigurations",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -1996,7 +1996,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "publicservicetest_privateendpoint_1.0e476d97-89ac-4dea-8771-23087d1294aa",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/privateEndpointConnections/publicservicetest_privateendpoint_1.0e476d97-89ac-4dea-8771-23087d1294aa",
-                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "privateEndpoint": {
@@ -2014,7 +2014,7 @@ Below are the Azure APIs used to generate this configuration.
             {
                 "name": "2edSub-private-endpoint-pls.60e3456e-2c5c-4031-af30-08a12da52acc",
                 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/public-service-test/providers/Microsoft.Network/privateLinkServices/public_service_test_privatelinkservice/privateEndpointConnections/2edSub-private-endpoint-pls.60e3456e-2c5c-4031-af30-08a12da52acc",
-                "etag": "W/\"058d64b8-fd86-48e4-b1cb-61b629934556\"",
+                "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
                 "properties": {
                     "provisioningState": "Succeeded",
                     "privateEndpoint": {
@@ -2064,7 +2064,7 @@ Below are the Azure APIs used to generate this configuration.
     "netbrainHostName": "AzureFirewallSubnet_in_East-Test-VNET(<ResourceGroup>)(<Subscription_ID_Prefix>)(ServiceEndpoint)",
     "name": "AzureFirewallSubnet",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/East-RG1/providers/Microsoft.Network/virtualNetworks/East-Test-VNET/subnets/AzureFirewallSubnet",
-    "etag": "W/\"a2970964-5e0b-4f76-beb4-eddf5d573c6f\"",
+    "etag": "W/\"00000000-0000-0000-0000-000000000000\"",
     "properties": {
         "provisioningState": "Succeeded",
         "addressPrefix": "172.17.19.64/26",
