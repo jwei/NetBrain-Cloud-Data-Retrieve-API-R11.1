@@ -3,10 +3,17 @@
 - [API Definition](#api_def)
     - [Input Parameters](#input)
     - [Output](#output)    
-- [Sample](#sample)
-    - [Sample 1 -- Get Resource API Data with HTTP GET Method](#sample-1) 
-    - [Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample-2) 
+- [Special Notes](#special_notes)
+    - [ExpressRoute Circuit](#circuit)
+    - [Virtual Network](#vnet)
+- [Samples](#sample)
+    - [Sample 1 -- Get Resource API Data with HTTP GET Method](#sample_1) 
+    - [Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method](#sample_2) 
+    - [Sample 3 -- Get ExpressRoute Circuit API Data](#sample_3)
+    - [Sample 4 -- Get ExpressRoute Circuit Peering Status](#sample_4)
+    - [Sample 5 -- Get Virtual Network API Data](#sample_5)
 - [Default Azure API Versions](#default_api_version)
+
 
 # Introduction <a name="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBAzureAPILibrary` class that retrieves Azure resource data via the Azure Management REST API. It supports both GET and POST methods to download resource data, where GET is used to download the resource data, and POST is used to download large or complex data sets asynchronously.
@@ -40,8 +47,19 @@ The function takes in several arguments, including:
 > The JSON response body of the HTTP request to the Azure RESTful API, which can be found in Azure API Document (e.g. https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get-learned-routes?tabs=HTTP)
 > This is a dictionary with string keys and values.
 
+# Special Notes <a name="special_notes"></a>
+## ExpressRoute Circuit <a name="circuit"></a>
+ - In NetBrain, we generate two MSEE (Microsoft Enterprise Edge) devices (Primary and Secondary) for each Azure ExpressRoute Circuit. 
+ - The Azure ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
+ - For the usage please check samples below.
+
+## Virtual Network <a name="vnet"></a>
+ - In NetBrain, we generate an "Azure VNet Distributed Router" for each Azure Virtual Network to represent its networking entity.
+ - The Azure VNet's resource URI is saved in the "vNetId" data field of the VNet Distributed Router.
+ - For the usage please check samples below.
+
 # Sample <a name="sample"></a>
-## Sample 1 -- Get Resource API Data with HTTP GET Method <a name="sample-1"></a>
+## Sample 1 -- Get Resource API Data with HTTP GET Method <a name="sample_1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -71,10 +89,9 @@ def RetrieveData(params):
         azure_resource_uri=nb_node['id']
     )
     return json.dumps(data, indent=4)
- ```
- 
- 
-## Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method <a name="sample-2"></a>
+```
+
+## Sample 2 -- Get Virtual Network Gateway BGP Peer Status with HTTP POST Method <a name="sample_2"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -106,7 +123,13 @@ def RetrieveData(params):
         http_method='POST'
     )
     return json.dumps(data, indent=4)
- ```
+```
+
+## Sample 3 -- Get ExpressRoute Circuit API Data  <a name="sample_3"></a>
+
+## Sample 4 -- Get ExpressRoute Circuit Peering Status  <a name="sample_4"></a>
+
+## Sample 5 -- Get Virtual Network API Data  <a name="sample_5"></a>
 
 # Default Azure API Versions <a name="default_api_version"></a>
 Below are the default API versions for different Azure provider.
