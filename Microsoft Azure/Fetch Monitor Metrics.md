@@ -7,6 +7,9 @@
     - [ExpressRoute Circuit](#circuit)
     - [Virtual Network](#vnet)
 - [Sample](#sample)   
+    - [Sample 1 -- Get General Resource Metrics](#sample_1)
+    - [Sample 2 -- Get Resource Metrics of ExpressRoute Circuit](#sample_2)
+    - [Sample 3 -- Get Resource Metrics of Virtual Network](#sample_3)
 
 # Introduction <a name="introduction"></a>
 The `GetMonitorMetrics` function is a static method defined in the `NBAzureAPILibrary` class. It leverages the Azure Monitor solution to fetch metrics of Azure resources via the Azure RESTful API.
@@ -37,11 +40,17 @@ class NBAzureAPILibrary:
 
 # Special Notes <a name="special_notes"></a>
 ## ExpressRoute Circuit <a name="circuit"></a>
+ - In NetBrain, we generate two MSEE (Microsoft Enterprise Edge) devices (Primary and Secondary) for each Azure ExpressRoute Circuit. 
+ - The Azure ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
+ - For Usage please check samples below.
 
 ## Virtual Network <a name="vnet"></a>
+ - In NetBrain, we generate an "Azure VNet Distributed Router" for each Azure Virtual Network to represent its networking entity.
+ - The Azure VNet's resource URI is saved in the "vNetId" data field of the VNet Distributed Router.
+ - For Usage please check samples below.
 
-# Sample <a name="sample"></a>
-
+# Samples <a name="sample"></a>
+## Sample 1 -- Get General Resource Metrics  <a name="sample_1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -75,3 +84,77 @@ def RetrieveData(params):
     return json.dumps(data, indent=4)
  ```
 
+## Sample 2 -- Get Resource Metrics of ExpressRoute Circuit <a name="sample_2"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+metric_name = 'BgpAvailability'  # metric name
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context, 
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*']}
+    )
+    return nb_node
+
+def RetrieveData(params):
+    # Note that MSEE (Microsoft Enterprise Edge) is generated from ExpressRoute Circuit.
+    # One ExpressRoute Circuit generates two MSEE (Primary and Secondary).
+    # The ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
+    nb_msee = params['params']
+    circuit_id = nb_msee['circuitId']
+    
+    data = NBAzureAPILibrary.GetMonitorMetrics(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=circuit_id,
+        params={'metricnames': metric_name}
+    )
+    return json.dumps(data, indent=4)
+```
+
+## Sample 3 -- Get Resource Metrics of Virtual Network  <a name="sample_3"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+'''
+
+metric_name = 'BytesInDDoS'  # metric name
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params': ['*']}
+    )
+    return nb_node
+ 
+ 
+def RetrieveData(params):   
+    # Note that the VNet Router (Virtual Network Distributed Router) is generated from Azure Virtual Network.
+    # The purpose is to represent vnet's networking entity.
+    # The VNet's resource URI is saved in the "vNetId" data field of the VNet Router.
+    nb_vnet_router = params['params']
+    vnet_id = nb_vnet_router['vNetId']
+    
+    data = NBAzureAPILibrary.GetMonitorMetrics(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=vnet_id,
+        params={'metricnames': metric_name}
+    )
+    return json.dumps(data, indent=4)
+```
