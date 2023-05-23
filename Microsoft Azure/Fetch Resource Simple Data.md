@@ -199,10 +199,11 @@ def RetrieveData(params):
         and circuit_api_data['properties']['peerings']:
         for peering in circuit_api_data['properties']['peerings']:
             peering_name = peering['name']
-            route_table_id = f"{circuit_id}/peerings/{peering_name}/routeTables/{device_path}"
+            peering_id = f"{circuit_id}/peerings/{peering_name}"
+            table_id = f"{peering_id}/routeTables/{device_path}"
             peering_api_data = NBAzureAPILibrary.GetResourceDataByAPI(
                 api_server_id=params['apiServerId'],
-                azure_resource_uri=route_table_id,
+                azure_resource_uri=table_id,
                 http_method='POST'
             )
             if peering_api_data:
