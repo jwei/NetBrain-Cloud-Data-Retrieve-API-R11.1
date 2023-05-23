@@ -864,7 +864,7 @@ Below are the Azure APIs used to generate this configuration.
         "circuitProvisioningState": "Enabled",
         "allowClassicOperations": false,
         "gatewayManagerEtag": "7",
-        "serviceKey": "7db0a77d-97cc-4040-aab7-99e3f37ac5b0",
+        "serviceKey": "00000000-0000-0000-0000-000000000000",
         "serviceProviderProvisioningState": "Provisioned",
         "allowGlobalReach": false,
         "globalReachEnabled": false,
