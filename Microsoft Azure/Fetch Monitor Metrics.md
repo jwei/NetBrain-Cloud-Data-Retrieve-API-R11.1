@@ -6,7 +6,7 @@
 - [Special Notes](#special_notes)
     - [ExpressRoute Circuit](#circuit)
     - [Virtual Network](#vnet)
-- [Sample](#sample)   
+- [Samples](#sample)   
     - [Sample 1 -- Get General Resource Metrics](#sample_1)
     - [Sample 2 -- Get Resource Metrics of ExpressRoute Circuit](#sample_2)
     - [Sample 3 -- Get Resource Metrics of Virtual Network](#sample_3)
