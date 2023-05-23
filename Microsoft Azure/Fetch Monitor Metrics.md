@@ -42,12 +42,12 @@ class NBAzureAPILibrary:
 ## ExpressRoute Circuit <a name="circuit"></a>
  - In NetBrain, we generate two MSEE (Microsoft Enterprise Edge) devices (Primary and Secondary) for each Azure ExpressRoute Circuit. 
  - The Azure ExpressRoute Circuit resource URI is saved in the "circuitId" data field of MSEE.
- - For Usage please check samples below.
+ - For the usage please check samples below.
 
 ## Virtual Network <a name="vnet"></a>
  - In NetBrain, we generate an "Azure VNet Distributed Router" for each Azure Virtual Network to represent its networking entity.
  - The Azure VNet's resource URI is saved in the "vNetId" data field of the VNet Distributed Router.
- - For Usage please check samples below.
+ - For the usage please check samples below.
 
 # Samples <a name="sample"></a>
 ## Sample 1 -- Get General Resource Metrics  <a name="sample_1"></a>
