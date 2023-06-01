@@ -3,12 +3,20 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 
 
 # Table of Contents
-* [Azure Virtual Network Distributed Router](#azure-virtual-network-distributed-router)
-* [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
-* [Azure Virtual Machine](#azure-virtual-machine)
+* [AWS VPC Router](#aws-vpc-router)
+* [AWS VPC Endpoint](#aws-vpc-endpoint)
+* [AWS VPN Gateway](#aws-vpn-gateway)
+* [AWS Transit Gateway](#aws-transit-gateway)
+* [AWS Egress Internet Gateway](#aws-egress-internet-gateway)
+* [AWS Internet Gateway](#aws-internet-gateway)
+* [AWS Load Balancer](#aws-load-balancer)
+* [AWS Load Balancer v2](#aws-load-balancer-v2)
+* [AWS Direct Connect Router](#aws-direct-connect-router)
+* [AWS Direct Connect Gateway](#aws-direct-connect-gateway)
+* [AWS Nat Gateway](#aws-nat-gateway)
 
 
-## Azure Virtual Network Distributed Router
+## AWS VPC Router
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -93,7 +101,7 @@ Below are the Azure APIs used to generate this configuration.
 <br />
 
 
-## Azure Virtual Network Gateway
+## AWS VPC Endpoint
 
 ### Introduction
 The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
@@ -346,8 +354,738 @@ Below are the Azure APIs used to generate this configuration.
 <br />
 
 
-## Azure Virtual Machine
+## AWS VPN Gateway
 
 ### Introduction
-Configuration feature is not supported for Azure Virtual Machine yet. Please send API to get the resource data instead. Reference: https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
 
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+
+## AWS Transit Gateway
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+## AWS Egress Internet Gateway
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Internet Gateway
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Load Balancer
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Load Balancer v2
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Direct Connect Router
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Direct Connect Gateway
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
+
+## AWS Nat Gateway
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
+|------|------|------|------|
+| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+  
