@@ -14,6 +14,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [AWS Direct Connect Router](#aws-direct-connect-router)
 * [AWS Direct Connect Gateway](#aws-direct-connect-gateway)
 * [AWS NAT Gateway](#aws-nat-gateway)
+* [AWS Firewall](#aws-firewall)
 
 
 ## AWS VPC Router
@@ -26,9 +27,9 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_vpcs | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
-| describe_vpc_classic_link | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
-| describe_subnets | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html | 
-| describe_vpc_peering_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_peering_connections.html |
+| describe_vpc_classic_link | VpcClassicLinks | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
+| describe_subnets | Subnets | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html | 
+| describe_vpc_peering_connections | VpcPeeringConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_peering_connections.html |
 
 
 ### Sample
@@ -114,7 +115,7 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_vpc_endpoints | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoints.html|
-| describe_vpc_endpoint_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html |
+| describe_vpc_endpoint_connections | VpcEndpointConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -365,8 +366,8 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_vpn_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_gateways.html|
-| describe_vpn_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html |
-| describe_customer_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_customer_gateways.html |
+| describe_vpn_connections | VpnConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html |
+| describe_customer_gateways | CustomerGateways | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_customer_gateways.html |
 
 
 ### Sample
@@ -451,8 +452,8 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_transit_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateways.html|
-| describe_transit_gateway_connects | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html |
-| describe_transit_gateway_vpc_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_vpc_attachments.html |
+| describe_transit_gateway_connects | TransitGatewayConnects | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html |
+| describe_transit_gateway_vpc_attachments | TransitGatewayVpcAttachments | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_vpc_attachments.html |
 
 
 ### Sample
@@ -526,7 +527,7 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
 
-## AWS Egress Internet Gateway
+## AWS Internet Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -610,7 +611,7 @@ Below are the Azure APIs used to generate this configuration.
 <br />
   
 
-## AWS Internet Gateway
+## AWS Egress Internet Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
@@ -704,8 +705,8 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancers.html |
-| describe_load_balancer_policies | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html |
-| describe_instance_health | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_instance_health.html |
+| describe_load_balancer_policies | PolicyDescriptions | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html |
+| describe_instance_health | InstanceStates | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_instance_health.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -873,7 +874,7 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
-| describe_connections | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
+| describe_connections | connections | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -957,9 +958,9 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_direct_connect_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
-| describe_direct_connect_gateway_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
-| describe_direct_connect_gateway_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
-| describe_direct_connect_gateway_associations | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_associations.html |
+| describe_direct_connect_gateway_attachments | directConnectGatewayAttachments | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
+| describe_direct_connect_gateway_associations | directConnectGatewayAssociations | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_associations.html |
+| describe_direct_connect_gateway_association_proposals | directConnectGatewayAssociationProposals | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_association_proposals.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -1043,7 +1044,90 @@ Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
 | describe_nat_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_nat_gateways.html |
-| describe_subnets | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html |
+| describe_subnets | Subnet | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html |
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json
+{
+  "netbrainNotes": "This config file is generated via API",
+  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
+  "name": "test-vnet",
+  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
+  "type": "Microsoft.Network/virtualNetworks",
+  "location": "westus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "subnet1",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "addressPrefix": "10.0.1.0/24",
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
+            }
+          ]
+        }
+      }
+    ],
+    "virtualNetworkPeerings": [
+      {
+        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
+        "name": "peer",
+        "properties": {
+          "allowVirtualNetworkAccess": true,
+          "allowForwardedTraffic": false,
+          "allowGatewayTransit": false,
+          "useRemoteGateways": false,
+          "remoteVirtualNetwork": {
+            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
+          },
+          "remoteAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteVirtualNetworkAddressSpace": {
+            "addressPrefixes": [
+              "13.0.0.0/8"
+            ]
+          },
+          "remoteBgpCommunities": {
+            "virtualNetworkCommunity": "12076:20003",
+            "regionalCommunity": "12076:50004"
+          },
+          "peeringState": "Initiated",
+          "peeringSyncLevel": "FullyInSync",
+          "provisioningState": "Succeeded"
+        }
+      }
+    ]
+  }
+}
+```
+</details>
+<br />
+
+
+## AWS Firewall
+
+### Introduction
+The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+
+### Content
+Below are the Azure APIs used to generate this configuration.
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| describe_firewall | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/network-firewall/client/describe_firewall.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -1116,3 +1200,4 @@ Below are the Azure APIs used to generate this configuration.
 </details>
 <br />
   
+
