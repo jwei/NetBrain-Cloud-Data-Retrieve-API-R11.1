@@ -434,7 +434,10 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
 
+  
 ## AWS Transit Gateway
 
 ### Introduction
@@ -515,7 +518,9 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
-  
+</details>
+<br />
+
 ## AWS Egress Internet Gateway
 
 ### Introduction
@@ -596,6 +601,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Internet Gateway
@@ -678,6 +685,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Load Balancer
@@ -760,6 +769,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Load Balancer v2
@@ -842,6 +853,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Direct Connect Router
@@ -924,6 +937,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Direct Connect Gateway
@@ -1006,6 +1021,8 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
 
 ## AWS Nat Gateway
@@ -1088,4 +1105,6 @@ Below are the Azure APIs used to generate this configuration.
   }
 }
 ```
+</details>
+<br />
   
