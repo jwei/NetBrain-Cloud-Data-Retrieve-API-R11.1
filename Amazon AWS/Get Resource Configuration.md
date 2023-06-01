@@ -25,10 +25,10 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| describe_vpcs | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
-| describe_vpc_classic_link | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
-| describe_subnets | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets_link.html | 
-| describe_vpc_peering_connections | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_peering_connections.html |
+| describe_vpcs | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
+| describe_vpc_classic_link | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
+| describe_subnets | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets_link.html | 
+| describe_vpc_peering_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_peering_connections.html |
 
 
 ### Sample
