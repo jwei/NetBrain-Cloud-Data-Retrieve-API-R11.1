@@ -20,10 +20,10 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 ## AWS VPC Router
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS VPC Router is dependent on the AWS SDK boto3 response of the AWS virtual private cloud (VPC) as the primary response. The full resource configuration consists of some associated resources' data, including `vpc classic link`, `subnet`, and `vpc peering connections`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpcs | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
@@ -108,10 +108,10 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS VPC Endpoint
 
 ### Introduction
-The configuration of the Azure virtual network gateway is dependent on the Azure API response of the Azure Virtual Network Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including `publicIPAddress`, `subnet`, and `remoteVirtualNetworkPeerings`.
+The configuration of the AWS VPC Endpoint is dependent on the AWS SDK boto3 response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpc_endpoints | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoints.html|
@@ -359,10 +359,10 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS VPN Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS VPN Gateway is dependent on the AWS SDK boto3 response of the AWS VPN Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`, `Vpn Connections`, and `Customer Gateways`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpn_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_gateways.html|
@@ -445,7 +445,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Transit Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS Transit Gateway is dependent on the AWS SDK boto3 response of the AWS Transit Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `transit gateway connects`, ` transit gateway vpc attachments`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -530,7 +530,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Internet Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure Internet Gateway relies solely on the corresponding AWS SDK of the internet gateway. The AWS SDK provides detailed information regarding the configuration of the internet gateway, including its connectivity, security, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -614,10 +614,10 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Egress Internet Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure Egress Internet Gateway relies solely on the corresponding AWS SDK of the egress internet gateway. The AWS SDK provides detailed information regarding the configuration of the egress internet gateway, including its connectivity, security, etc.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_egress_only_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_egress_only_internet_gateways.html|
@@ -698,7 +698,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Load Balancer
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS Load Balancer is dependent on the AWS SDK boto3 response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -783,7 +783,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Load Balancer v2
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK boto3 response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -867,7 +867,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Direct Connect Router
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS direct connect router is dependent on the AWS SDK boto3 response of the virtual interface as the primary response. The full resource configuration consists of some associated resources' data, including `connections`.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -951,10 +951,10 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Direct Connect Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS direct connect gateway is dependent on the AWS SDK boto3 response of the direct connect gateway as the primary response. The full resource configuration consists of some associated resources' data, including `attachments`, `associations`, and `association proposals`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_direct_connect_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
@@ -1037,7 +1037,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS NAT Gateway
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the AWS NAT gateway is dependent on the AWS SDK boto3 response of the NAT gateway as the primary response. The full resource configuration consists of some associated resources' data, including `subnets` as well.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
@@ -1121,7 +1121,7 @@ Below are the Azure APIs used to generate this configuration.
 ## AWS Firewall
 
 ### Introduction
-The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
+The configuration of the Azure Firewall relies solely on the corresponding AWS SDK of the AWS network firewall. The AWS SDK provides detailed information regarding the configuration of the network firewall, including its connectivity, security, etc.
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
