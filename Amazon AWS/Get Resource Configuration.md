@@ -448,7 +448,7 @@ Below are the AWS SDK used to generate this configuration.
 The configuration of the AWS Transit Gateway is dependent on the AWS SDK boto3 response of the AWS Transit Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `transit gateway connects`, ` transit gateway vpc attachments`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_transit_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateways.html|
@@ -533,7 +533,7 @@ Below are the Azure APIs used to generate this configuration.
 The configuration of the Azure Internet Gateway relies solely on the corresponding AWS SDK of the internet gateway. The AWS SDK provides detailed information regarding the configuration of the internet gateway, including its connectivity, security, etc.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_internet_gateways.html|
@@ -701,7 +701,7 @@ Below are the AWS SDK used to generate this configuration.
 The configuration of the AWS Load Balancer is dependent on the AWS SDK boto3 response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancers.html |
@@ -786,7 +786,7 @@ Below are the Azure APIs used to generate this configuration.
 The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK boto3 response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html |
@@ -870,7 +870,7 @@ Below are the Azure APIs used to generate this configuration.
 The configuration of the AWS direct connect router is dependent on the AWS SDK boto3 response of the virtual interface as the primary response. The full resource configuration consists of some associated resources' data, including `connections`.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
@@ -1040,7 +1040,7 @@ Below are the AWS SDK used to generate this configuration.
 The configuration of the AWS NAT gateway is dependent on the AWS SDK boto3 response of the NAT gateway as the primary response. The full resource configuration consists of some associated resources' data, including `subnets` as well.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_nat_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_nat_gateways.html |
@@ -1124,7 +1124,7 @@ Below are the Azure APIs used to generate this configuration.
 The configuration of the Azure Firewall relies solely on the corresponding AWS SDK of the AWS network firewall. The AWS SDK provides detailed information regarding the configuration of the network firewall, including its connectivity, security, etc.
 
 ### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the AWS SDK used to generate this configuration.
 |**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_firewall | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/network-firewall/client/describe_firewall.html |
