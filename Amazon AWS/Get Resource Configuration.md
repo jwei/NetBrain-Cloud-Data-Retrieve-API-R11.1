@@ -13,7 +13,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [AWS Load Balancer v2](#aws-load-balancer-v2)
 * [AWS Direct Connect Router](#aws-direct-connect-router)
 * [AWS Direct Connect Gateway](#aws-direct-connect-gateway)
-* [AWS Nat Gateway](#aws-nat-gateway)
+* [AWS NAT Gateway](#aws-nat-gateway)
 
 
 ## AWS VPC Router
@@ -1025,7 +1025,7 @@ Below are the Azure APIs used to generate this configuration.
 <br />
   
 
-## AWS Nat Gateway
+## AWS NAT Gateway
 
 ### Introduction
 The configuration of the Azure virtual network distributed router relies solely on the corresponding Azure API of the virtual network. The Azure API provides detailed information regarding the configuration of the virtual network, including its connectivity, security, etc.
