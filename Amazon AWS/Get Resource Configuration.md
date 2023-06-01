@@ -111,12 +111,12 @@ The configuration of the Azure virtual network gateway is dependent on the Azure
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Network Gateways - Get | vnetGateway | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get | 
-| Public IP Addresses - Get | vnetGateway.properties.ipConfigurations.publicIPAddress | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get |
-| Subnets - Get | vnetGateway.properties.ipConfigurations.subnet | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get |
-| Virtual Network Peerings - Get | vnetGateway.properties.remoteVirtualNetworkPeerings | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations |
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Network Gateways - Get | vnetGateway | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get | 
+| Public IP Addresses - Get | vnetGateway.properties.ipConfigurations.publicIPAddress | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get |
+| Subnets - Get | vnetGateway.properties.ipConfigurations.subnet | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get |
+| Virtual Network Peerings - Get | vnetGateway.properties.remoteVirtualNetworkPeerings | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -364,9 +364,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -448,9 +448,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -531,9 +531,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -615,9 +615,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -699,9 +699,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -783,9 +783,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -867,9 +867,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -951,9 +951,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
@@ -1035,9 +1035,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
 
 
 ### Sample
