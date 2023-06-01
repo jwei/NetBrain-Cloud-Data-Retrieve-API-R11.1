@@ -23,9 +23,12 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
-|------|------|------|------|
-| Virtual Networks - Get | self | 2021-08-01 | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+|**Resource/Action**|**Relationship**|**Azure API document**|
+|------|------|------|
+| describe_vpcs | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
+| describe_vpc_classic_link | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
+| describe_subnets | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets_link.html | 
+| describe_vpc_peering_connections | self | boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_peering_connections.html |
 
 
 ### Sample
