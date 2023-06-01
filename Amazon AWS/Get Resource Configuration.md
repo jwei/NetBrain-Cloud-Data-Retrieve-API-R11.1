@@ -113,10 +113,8 @@ The configuration of the Azure virtual network gateway is dependent on the Azure
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Network Gateways - Get | vnetGateway | https://learn.microsoft.com/en-us/rest/api/network-gateway/virtual-network-gateways/get | 
-| Public IP Addresses - Get | vnetGateway.properties.ipConfigurations.publicIPAddress | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/public-ip-addresses/get |
-| Subnets - Get | vnetGateway.properties.ipConfigurations.subnet | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/subnets/get |
-| Virtual Network Peerings - Get | vnetGateway.properties.remoteVirtualNetworkPeerings | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get?source=recommendations |
+| describe_vpc_endpoints | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoints.html|
+| describe_vpc_endpoint_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -366,7 +364,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+| describe_vpn_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_gateways.html|
+| describe_vpn_connections | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html |
+| describe_customer_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_customer_gateways.html |
 
 
 ### Sample
@@ -450,7 +450,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+| describe_transit_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateways.html|
+| describe_transit_gateway_connects | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html |
+| describe_transit_gateway_vpc_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_vpc_attachments.html |
 
 
 ### Sample
@@ -533,7 +535,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+| describe_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_internet_gateways.html|
 
 
 ### Sample
@@ -617,7 +619,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+| describe_egress_only_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_egress_only_internet_gateways.html|
 
 
 ### Sample
@@ -701,8 +703,9 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
-
+| describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancers.html |
+| describe_load_balancer_policies | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html |
+| describe_instance_health | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_instance_health.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -785,7 +788,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
+| describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html |
 
 
 ### Sample
@@ -869,8 +872,8 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
-
+| describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
+| describe_connections | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -953,8 +956,10 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
-
+| describe_direct_connect_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
+| describe_direct_connect_gateway_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
+| describe_direct_connect_gateway_attachments | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
+| describe_direct_connect_gateway_associations | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_associations.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -1037,8 +1042,8 @@ The configuration of the Azure virtual network distributed router relies solely 
 Below are the Azure APIs used to generate this configuration.
 |**Resource/Action**|**Relationship**|**Azure API document**|
 |------|------|------|
-| Virtual Networks - Get | self | https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-networks/get | 
-
+| describe_nat_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_nat_gateways.html |
+| describe_subnets | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html |
 
 ### Sample
 <details><summary>Configuration File</summary>
