@@ -24,7 +24,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpcs | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
 | describe_vpc_classic_link | VpcClassicLinks | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
@@ -112,7 +112,7 @@ The configuration of the Azure virtual network gateway is dependent on the Azure
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpc_endpoints | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoints.html|
 | describe_vpc_endpoint_connections | VpcEndpointConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html |
@@ -363,7 +363,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_vpn_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_gateways.html|
 | describe_vpn_connections | VpnConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html |
@@ -449,7 +449,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_transit_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateways.html|
 | describe_transit_gateway_connects | TransitGatewayConnects | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html |
@@ -534,7 +534,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_internet_gateways.html|
 
@@ -618,7 +618,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_egress_only_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_egress_only_internet_gateways.html|
 
@@ -702,7 +702,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancers.html |
 | describe_load_balancer_policies | PolicyDescriptions | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html |
@@ -787,7 +787,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html |
 
@@ -871,7 +871,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
 | describe_connections | connections | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
@@ -955,7 +955,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_direct_connect_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
 | describe_direct_connect_gateway_attachments | directConnectGatewayAttachments | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
@@ -1041,7 +1041,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_nat_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_nat_gateways.html |
 | describe_subnets | Subnet | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html |
@@ -1125,7 +1125,7 @@ The configuration of the Azure virtual network distributed router relies solely 
 
 ### Content
 Below are the Azure APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Azure API document**|
+|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
 |------|------|------|
 | describe_firewall | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/network-firewall/client/describe_firewall.html |
 
