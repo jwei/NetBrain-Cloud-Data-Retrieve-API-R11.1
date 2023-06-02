@@ -672,7 +672,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Internet Gateway
 
 ### Introduction
-The configuration of the Azure Internet Gateway relies solely on the corresponding AWS SDK of the internet gateway. The AWS SDK provides detailed information regarding the configuration of the internet gateway, including its connectivity, security, etc.
+The configuration of the AWS Internet Gateway relies solely on the corresponding AWS SDK of the internet gateway. The AWS SDK provides detailed information regarding the configuration of the internet gateway, including its connectivity, security, etc.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
@@ -715,7 +715,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Egress Internet Gateway
 
 ### Introduction
-The configuration of the Azure Egress Internet Gateway relies solely on the corresponding AWS SDK of the egress internet gateway. The AWS SDK provides detailed information regarding the configuration of the egress internet gateway, including its connectivity, security, etc.
+The configuration of the AWS Egress Internet Gateway relies solely on the corresponding AWS SDK of the egress internet gateway. The AWS SDK provides detailed information regarding the configuration of the egress internet gateway, including its connectivity, security, etc.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
@@ -1212,7 +1212,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Firewall
 
 ### Introduction
-The configuration of the Azure Firewall relies solely on the corresponding AWS SDK of the AWS network firewall. The AWS SDK provides detailed information regarding the configuration of the network firewall, including its connectivity, security, etc.
+The configuration of the AWS Firewall relies solely on the corresponding AWS SDK of the AWS network firewall. The AWS SDK provides detailed information regarding the configuration of the network firewall, including its connectivity, security, etc.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
