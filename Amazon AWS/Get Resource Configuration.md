@@ -524,9 +524,9 @@ Below are the AWS SDK used to generate this configuration.
             "Value": "modified-TGW-Burlington"
         }
     ],
-    # TransitGatewayConnects: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html
+    # Transit Gateway Connects: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html
     "TransitGatewayConnects": [],
-    # TransitGatewayVpcAttachments: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_vpc_attachments.html
+    # Transit Gateway Vpc Attachments: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_vpc_attachments.html
     "TransitGatewayVpcAttachments": [
         {
             "TransitGatewayAttachmentId": "tgw-attach-05dcc1f653e6a9068",
@@ -829,9 +829,9 @@ Below are the AWS SDK used to generate this configuration.
     ],
     "CreatedTime": "2020-06-12 01:15:52.980000+00:00",
     "Scheme": "internet-facing",
-    # PolicyDescriptions :https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html
+    # Policy Descriptions: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html
     "PolicyDescriptions": [],
-    # InstanceStates: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_instance_health.html
+    # Instance States: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_instance_health.html
     "InstanceStates": [
         {
             "InstanceId": "i-00b7c339d4342abe8",
