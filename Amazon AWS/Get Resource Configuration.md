@@ -925,92 +925,92 @@ Below are the AWS SDK used to generate this configuration.
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "EqDC2-38rot99mm09t4(dxcon-fh6kt55l)",
-    'ownerAccount': 'string',
-    'virtualInterfaceId': 'string',
-    'location': 'string',
-    'connectionId': 'string',
-    'virtualInterfaceType': 'string',
-    'virtualInterfaceName': 'string',
-    'vlan': 123,
-    'asn': 123,
-    'amazonSideAsn': 123,
-    'authKey': 'string',
-    'amazonAddress': 'string',
-    'customerAddress': 'string',
-    'addressFamily': 'ipv4',
-    'virtualInterfaceState': 'available',
-    'customerRouterConfig': 'string',
-    'mtu': 123,
-    'jumboFrameCapable': True,
-    'virtualGatewayId': 'string',
-    'directConnectGatewayId': 'string',
-    'routeFilterPrefixes': [
+    "ownerAccount": "string",
+    "virtualInterfaceId": "string",
+    "location": "string",
+    "connectionId": "string",
+    "virtualInterfaceType": "string",
+    "virtualInterfaceName": "string",
+    "vlan": 123,
+    "asn": 123,
+    "amazonSideAsn": 123,
+    "authKey": "string",
+    "amazonAddress": "string",
+    "customerAddress": "string",
+    "addressFamily": "ipv4",
+    "virtualInterfaceState": "available",
+    "customerRouterConfig": "string",
+    "mtu": 123,
+    "jumboFrameCapable": true,
+    "virtualGatewayId": "string",
+    "directConnectGatewayId": "string",
+    "routeFilterPrefixes": [
         {
-            'cidr': 'string'
-        },
+            "cidr": "string"
+        }
     ],
-    'bgpPeers': [
+    "bgpPeers": [
         {
-            'bgpPeerId': 'string',
-            'asn': 123,
-            'authKey': 'string',
-            'addressFamily': 'ipv4',
-            'amazonAddress': 'string',
-            'customerAddress': 'string',
-            'bgpPeerState': ‘available',
-            'bgpStatus': 'up',
-            'awsDeviceV2': 'string',
-            'awsLogicalDeviceId': 'string'
-        },
+            "bgpPeerId": "string",
+            "asn": 123,
+            "authKey": "string",
+            "addressFamily": "ipv4",
+            "amazonAddress": "string",
+            "customerAddress": "string",
+            "bgpPeerState": "available",
+            "bgpStatus": "up",
+            "awsDeviceV2": "string",
+            "awsLogicalDeviceId": "string"
+        }
     ],
-    'region': 'string',
-    'awsDeviceV2': 'string',
-    'awsLogicalDeviceId': 'string',
-    'tags': [
+    "region": "string",
+    "awsDeviceV2": "string",
+    "awsLogicalDeviceId": "string",
+    "tags": [
         {
-            'key': 'string',
-            'value': 'string'
-        },
+            "key": "string",
+            "value": "string"
+        }
     ],
-    'siteLinkEnabled': True,
+    "siteLinkEnabled": true,
     # connections: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html
-    'connections': [
+    "connections": [
         {
-            'ownerAccount': 'string',
-            'connectionId': 'string',
-            'connectionName': 'string',
-            'connectionState': 'available',
-            'region': 'string',
-            'location': 'string',
-            'bandwidth': 'string',
-            'vlan': 123,
-            'partnerName': 'string',
-            'loaIssueTime': datetime(2015, 1, 1),
-            'lagId': 'string',
-            'awsDevice': 'string',
-            'jumboFrameCapable': True,
-            'awsDeviceV2': 'string',
-            'awsLogicalDeviceId': 'string',
-            'hasLogicalRedundancy': 'yes',
-            'tags': [
+            "ownerAccount": "string",
+            "connectionId": "string",
+            "connectionName": "string",
+            "connectionState": "available",
+            "region": "string",
+            "location": "string",
+            "bandwidth": "string",
+            "vlan": 123,
+            "partnerName": "string",
+            "loaIssueTime": "2015-01-01T00:00:00",
+            "lagId": "string",
+            "awsDevice": "string",
+            "jumboFrameCapable": true,
+            "awsDeviceV2": "string",
+            "awsLogicalDeviceId": "string",
+            "hasLogicalRedundancy": "yes",
+            "tags": [
                 {
-                    'key': 'string',
-                    'value': 'string'
-                },
+                    "key": "string",
+                    "value": "string"
+                }
             ],
-            'providerName': 'string',
-            'macSecCapable': True,
-            'portEncryptionStatus': 'string',
-            'encryptionMode': 'string',
-            'macSecKeys': [
+            "providerName": "string",
+            "macSecCapable": true,
+            "portEncryptionStatus": "string",
+            "encryptionMode": "string",
+            "macSecKeys": [
                 {
-                    'secretARN': 'string',
-                    'ckn': 'string',
-                    'state': 'string',
-                    'startOn': 'string'
-                },
+                    "secretARN": "string",
+                    "ckn": "string",
+                    "state": "string",
+                    "startOn": "string"
+                }
             ]
-        },
+        }
     ]
 }
 ```
