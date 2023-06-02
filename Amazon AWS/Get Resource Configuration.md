@@ -20,11 +20,11 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 ## AWS VPC Router
 
 ### Introduction
-The configuration of the AWS VPC Router is dependent on the AWS SDK boto3 response of the AWS virtual private cloud (VPC) as the primary response. The full resource configuration consists of some associated resources' data, including `vpc classic link`, `subnet`, and `vpc peering connections`.
+The configuration of the AWS VPC Router is dependent on the AWS SDK response of the AWS virtual private cloud (VPC) as the primary response. The full resource configuration consists of some associated resources' data, including `vpc classic link`, `subnet`, and `vpc peering connections`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_vpcs | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpcs.html|
 | describe_vpc_classic_link | VpcClassicLinks | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html |
@@ -108,11 +108,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS VPC Endpoint
 
 ### Introduction
-The configuration of the AWS VPC Endpoint is dependent on the AWS SDK boto3 response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
+The configuration of the AWS VPC Endpoint is dependent on the AWS SDK response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_vpc_endpoints | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoints.html|
 | describe_vpc_endpoint_connections | VpcEndpointConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html |
@@ -359,11 +359,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS VPN Gateway
 
 ### Introduction
-The configuration of the AWS VPN Gateway is dependent on the AWS SDK boto3 response of the AWS VPN Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`, `Vpn Connections`, and `Customer Gateways`.
+The configuration of the AWS VPN Gateway is dependent on the AWS SDK response of the AWS VPN Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`, `Vpn Connections`, and `Customer Gateways`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_vpn_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_gateways.html|
 | describe_vpn_connections | VpnConnections | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html |
@@ -445,11 +445,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Transit Gateway
 
 ### Introduction
-The configuration of the AWS Transit Gateway is dependent on the AWS SDK boto3 response of the AWS Transit Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `transit gateway connects`, ` transit gateway vpc attachments`.
+The configuration of the AWS Transit Gateway is dependent on the AWS SDK response of the AWS Transit Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `transit gateway connects`, ` transit gateway vpc attachments`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_transit_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateways.html|
 | describe_transit_gateway_connects | TransitGatewayConnects | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html |
@@ -534,7 +534,7 @@ The configuration of the Azure Internet Gateway relies solely on the correspondi
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_internet_gateways.html|
 
@@ -618,7 +618,7 @@ The configuration of the Azure Egress Internet Gateway relies solely on the corr
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_egress_only_internet_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_egress_only_internet_gateways.html|
 
@@ -698,11 +698,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Load Balancer
 
 ### Introduction
-The configuration of the AWS Load Balancer is dependent on the AWS SDK boto3 response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
+The configuration of the AWS Load Balancer is dependent on the AWS SDK response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancers.html |
 | describe_load_balancer_policies | PolicyDescriptions | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_load_balancer_policies.html |
@@ -783,11 +783,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Load Balancer v2
 
 ### Introduction
-The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK boto3 response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
+The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_load_balancers | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html |
 
@@ -867,11 +867,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Direct Connect Router
 
 ### Introduction
-The configuration of the AWS direct connect router is dependent on the AWS SDK boto3 response of the virtual interface as the primary response. The full resource configuration consists of some associated resources' data, including `connections`.
+The configuration of the AWS direct connect router is dependent on the AWS SDK response of the virtual interface as the primary response. The full resource configuration consists of some associated resources' data, including `connections`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
 | describe_connections | connections | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
@@ -951,11 +951,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Direct Connect Gateway
 
 ### Introduction
-The configuration of the AWS direct connect gateway is dependent on the AWS SDK boto3 response of the direct connect gateway as the primary response. The full resource configuration consists of some associated resources' data, including `attachments`, `associations`, and `association proposals`.
+The configuration of the AWS direct connect gateway is dependent on the AWS SDK response of the direct connect gateway as the primary response. The full resource configuration consists of some associated resources' data, including `attachments`, `associations`, and `association proposals`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_direct_connect_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
 | describe_direct_connect_gateway_attachments | directConnectGatewayAttachments | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html |
@@ -1037,11 +1037,11 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS NAT Gateway
 
 ### Introduction
-The configuration of the AWS NAT gateway is dependent on the AWS SDK boto3 response of the NAT gateway as the primary response. The full resource configuration consists of some associated resources' data, including `subnets` as well.
+The configuration of the AWS NAT gateway is dependent on the AWS SDK response of the NAT gateway as the primary response. The full resource configuration consists of some associated resources' data, including `subnets` as well.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_nat_gateways | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_nat_gateways.html |
 | describe_subnets | Subnet | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_subnets.html |
@@ -1125,7 +1125,7 @@ The configuration of the Azure Firewall relies solely on the corresponding AWS S
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK boto3 document**|
+|**Resource/Action**|**Relationship**|**AWS SDK document**|
 |------|------|------|
 | describe_firewall | self | https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/network-firewall/client/describe_firewall.html |
 
