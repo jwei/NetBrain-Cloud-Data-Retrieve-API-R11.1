@@ -923,67 +923,95 @@ Below are the AWS SDK used to generate this configuration.
 
 ```json
 {
-  "netbrainNotes": "This config file is generated via API",
-  "netbrainHostName": "test-vnet(rg1)(subscription_id_prefix)(VirtualNetworkDistributedRouter)",
-  "name": "test-vnet",
-  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet",
-  "type": "Microsoft.Network/virtualNetworks",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Succeeded",
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "subnet1",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
-        "properties": {
-          "provisioningState": "Succeeded",
-          "addressPrefix": "10.0.1.0/24",
-          "ipConfigurations": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe"
-            }
-          ]
-        }
-      }
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "EqDC2-38rot99mm09t4(dxcon-fh6kt55l)",
+    'ownerAccount': 'string',
+    'virtualInterfaceId': 'string',
+    'location': 'string',
+    'connectionId': 'string',
+    'virtualInterfaceType': 'string',
+    'virtualInterfaceName': 'string',
+    'vlan': 123,
+    'asn': 123,
+    'amazonSideAsn': 123,
+    'authKey': 'string',
+    'amazonAddress': 'string',
+    'customerAddress': 'string',
+    'addressFamily': 'ipv4',
+    'virtualInterfaceState': 'available',
+    'customerRouterConfig': 'string',
+    'mtu': 123,
+    'jumboFrameCapable': True,
+    'virtualGatewayId': 'string',
+    'directConnectGatewayId': 'string',
+    'routeFilterPrefixes': [
+        {
+            'cidr': 'string'
+        },
     ],
-    "virtualNetworkPeerings": [
-      {
-        "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer2",
-        "name": "peer",
-        "properties": {
-          "allowVirtualNetworkAccess": true,
-          "allowForwardedTraffic": false,
-          "allowGatewayTransit": false,
-          "useRemoteGateways": false,
-          "remoteVirtualNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet3"
-          },
-          "remoteAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
+    'bgpPeers': [
+        {
+            'bgpPeerId': 'string',
+            'asn': 123,
+            'authKey': 'string',
+            'addressFamily': 'ipv4',
+            'amazonAddress': 'string',
+            'customerAddress': 'string',
+            'bgpPeerState': ‘available',
+            'bgpStatus': 'up',
+            'awsDeviceV2': 'string',
+            'awsLogicalDeviceId': 'string'
+        },
+    ],
+    'region': 'string',
+    'awsDeviceV2': 'string',
+    'awsLogicalDeviceId': 'string',
+    'tags': [
+        {
+            'key': 'string',
+            'value': 'string'
+        },
+    ],
+    'siteLinkEnabled': True,
+    # connections: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html
+    'connections': [
+        {
+            'ownerAccount': 'string',
+            'connectionId': 'string',
+            'connectionName': 'string',
+            'connectionState': 'available',
+            'region': 'string',
+            'location': 'string',
+            'bandwidth': 'string',
+            'vlan': 123,
+            'partnerName': 'string',
+            'loaIssueTime': datetime(2015, 1, 1),
+            'lagId': 'string',
+            'awsDevice': 'string',
+            'jumboFrameCapable': True,
+            'awsDeviceV2': 'string',
+            'awsLogicalDeviceId': 'string',
+            'hasLogicalRedundancy': 'yes',
+            'tags': [
+                {
+                    'key': 'string',
+                    'value': 'string'
+                },
+            ],
+            'providerName': 'string',
+            'macSecCapable': True,
+            'portEncryptionStatus': 'string',
+            'encryptionMode': 'string',
+            'macSecKeys': [
+                {
+                    'secretARN': 'string',
+                    'ckn': 'string',
+                    'state': 'string',
+                    'startOn': 'string'
+                },
             ]
-          },
-          "remoteVirtualNetworkAddressSpace": {
-            "addressPrefixes": [
-              "13.0.0.0/8"
-            ]
-          },
-          "remoteBgpCommunities": {
-            "virtualNetworkCommunity": "12076:20003",
-            "regionalCommunity": "12076:50004"
-          },
-          "peeringState": "Initiated",
-          "peeringSyncLevel": "FullyInSync",
-          "provisioningState": "Succeeded"
-        }
-      }
+        },
     ]
-  }
 }
 ```
 </details>
