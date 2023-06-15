@@ -29,7 +29,7 @@ The `GetResourceData` function is used to retrieve data from AWS resources using
 ```python
 class NBAWSAPILibrary:
     @staticmethod
-    def GetResourceData(param, func_name, filter_keys=[], customized_filters=[], customized_func_mapping={}):
+    def GetResourceData(param, func_name, filter_keys=None, customized_filters=None, customized_func_mapping=None):
         """Simulate the functionality of NCT and get Azure resource complex data (tables).
  
         Args:
@@ -136,9 +136,9 @@ def BuildParameters(context, device_name, params):
     self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
     return self_node['params']
       
-def RetrieveData(params):
+def RetrieveData(param):
     data = NBAWSAPILibrary.GetResourceData(
-                params=params, 
+                param=param, 
                 func_name='describe_transit_gateway_route_tables', 
                 filter_keys=['transit-gateway-id']
     )
@@ -165,11 +165,11 @@ def BuildParameters(context, device_name, params):
     self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
     return self_node['params']
       
-def RetrieveData(params):
+def RetrieveData(param):
     # customized_filters is optional   
     customized_filters = [{'Name': 'transit-gateway-id', 'Values': ['tgw-0cf091f03edf14349']}]
     data = NBAWSAPILibrary.GetResourceData(
-                params=params, 
+                param=param, 
                 func_name='describe_transit_gateway_route_tables', 
                 customized_filters=customized_filters
     )
@@ -196,7 +196,7 @@ def BuildParameters(context, device_name, params):
     self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
     return self_node['params']
       
-def RetrieveData(params):
+def RetrieveData(param):
     # customized_func_mapping is optional 
     customized_func_mapping = {
         'describe_transit_gateway_route_tables':
@@ -208,7 +208,7 @@ def RetrieveData(params):
         }
     }
     data = NBAWSAPILibrary.GetResourceData(
-                params=params, 
+                param=param, 
                 func_name='describe_transit_gateway_route_tables', 
                 filter_keys=['transit-gateway-id'], 
                 customized_func_mapping=customized_func_mapping
