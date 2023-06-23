@@ -54,7 +54,7 @@ class NBAWSAPILibrary:
  
     @staticmethod
     def GetCloudWatchMetrics(params: object) -> object:
-        """ Fetches AWS CloudWatch metrics from Azure Insights module
+        """ Fetches AWS CloudWatch metrics from AWS CloudWatch module
  
         Leverage AWS CloudWatch module to fetch resource metrics via SDK
         Ref:
