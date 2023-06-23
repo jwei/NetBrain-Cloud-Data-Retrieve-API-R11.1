@@ -10,7 +10,7 @@
 
 # Introduction <a name="introduction"></a>
 
-The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS cloud watch solution to fetch metrics of AWS resources via the AWS SDK.
+The `GetCloudWatchMetrics` function is a static method defined in the `NBAWSAPILibrary` class. It leverages the AWS CloudWatch solution to fetch metrics of AWS resources via the AWS SDK.
 
 Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch/client/get_metric_data.html
 
@@ -54,11 +54,11 @@ class NBAWSAPILibrary:
  
     @staticmethod
     def GetCloudWatchMetrics(params: object) -> object:
-        """ Fetches AWS cloud watch metrics from Azure Insights module
+        """ Fetches AWS CloudWatch metrics from Azure Insights module
  
-        Leverage AWS cloud watch module to fetch resource metrics via SDK
+        Leverage AWS CloudWatch module to fetch resource metrics via SDK
         Ref:
-        1. AWS Cloud Watch Metrics service:
+        1. AWS CloudWatch Metrics service:
  
         Args:
             param (dict): e.g. {
@@ -89,7 +89,7 @@ class NBAWSAPILibrary:
 
 
 ## Output <a name="output"></a>
-> resp_body_json: The JSON response body of request to the AWS cloud watch metrics SDK. This is a dictionary with string keys and values.
+> resp_body_json: The JSON response body of request to the AWS CloudWatch metrics SDK. This is a dictionary with string keys and values.
 
 ## Exception Raises <a name="raises"></a>
 > The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
