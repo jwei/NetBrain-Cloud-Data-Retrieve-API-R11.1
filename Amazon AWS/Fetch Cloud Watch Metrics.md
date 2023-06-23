@@ -16,9 +16,9 @@ Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/ser
 
 # Supported devices  <a name="devices"></a>
 
-* AWS EC2 instances
-* AWS NAT Gateways
-* AWS Transit Gateways
+* AWS EC2 Instance
+* AWS NAT Gateway
+* AWS Transit Gateway
 * AWS DX Router
 * AWS Network Firewall
 * AWS Classic Load Balancer
