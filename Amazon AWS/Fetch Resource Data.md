@@ -20,7 +20,7 @@ Below are supported device by built-in mapping function. Please use `customized_
 * AWS VPC Router
 * AWS Transit Gateway
 * AWS Network Firewall
-* AWS Elastic Load Balancer
+* AWS Network Load Balancer
 * AWS Application Load Balancer
 * AWS Gateway Load Balancer
 
