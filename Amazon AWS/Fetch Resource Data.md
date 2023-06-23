@@ -30,7 +30,7 @@ The `GetResourceData` function is used to retrieve data from AWS resources using
 class NBAWSAPILibrary:
     @staticmethod
     def GetResourceData(param, func_name, filter_keys=None, customized_filters=None, customized_func_mapping=None):
-        """Simulate the functionality of NCT and get AWS resource complex data (tables).
+        """ Simulate the functionality of NCT and get AWS resource complex data (tables).
  
         Args:
             param (dict): e.g., {'apiServerId': 'b737cc5a-75a4-4663-97d6-eb2c6b576880', 'RegionName': 'ca-central-1', ...}
