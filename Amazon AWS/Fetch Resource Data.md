@@ -130,6 +130,7 @@ For sample
     {"name": "$param2"}
 ]
 '''
+
 import json
   
 def BuildParameters(context, device_name, params):
@@ -159,6 +160,7 @@ For sample
     {"name": "$param2"}
 ]
 '''
+
 import json
   
 def BuildParameters(context, device_name, params):
@@ -190,6 +192,7 @@ For sample
     {"name": "$param2"}
 ]
 '''
+
 import json
   
 def BuildParameters(context, device_name, params):
