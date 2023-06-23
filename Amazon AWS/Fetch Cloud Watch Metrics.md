@@ -136,8 +136,8 @@ def RetrieveData(param):
                         'MetricName':'RequestCount',
                         'Dimensions':[
                             {
-                                "Name": "LoadBalancer",
-                                "Value": _id
+                                'Name': 'LoadBalancer',
+                                'Value': _id
                             }
                         ]
                     }
