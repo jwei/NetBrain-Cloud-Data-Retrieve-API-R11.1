@@ -17,8 +17,8 @@ The `GetResourceData` function is a static method defined in the `NBAWSAPILibrar
 
 # Supported Devices <a name="devices"></a>
 Below are supported device by built-in mapping function. Please use `customized_func_mapping` for more devices based AWS boto3 document.
-* AWS VPC router
-* AWS Transit Gateways
+* AWS VPC Router
+* AWS Transit Gateway
 * AWS Network Firewall
 * AWS Elastic Load Balancer
 * AWS Application Load Balancer
