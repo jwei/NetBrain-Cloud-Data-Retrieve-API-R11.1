@@ -37,7 +37,7 @@ Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/ser
 class NBAWSAPILibrary:
     @staticmethod
     def GetCloudWatchResourceID(param: object):        
-        """Get the resource ID for a given AWS resource to use with CloudWatch metrics.
+        """ Get the resource ID for a given AWS resource to use with CloudWatch metrics.
  
         Args:
             param (dict): A dictionary containing the parameters needed to identify the resource.
