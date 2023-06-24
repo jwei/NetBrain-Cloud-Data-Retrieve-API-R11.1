@@ -376,14 +376,14 @@ Below are the AWS SDK used to generate this configuration.
                 {
                     "AcceptedRouteCount": 0,
                     "LastStatusChange": "2023-05-02 10:47:58+00:00",
-                    "OutsideIpAddress": "3.18.239.122",
+                    "OutsideIpAddress": "xxx.xxx.xxx.xxx",
                     "Status": "UP",
                     "StatusMessage": "0 BGP ROUTES"
                 },
                 {
                     "AcceptedRouteCount": 0,
                     "LastStatusChange": "2023-04-29 01:09:41+00:00",
-                    "OutsideIpAddress": "52.15.217.142",
+                    "OutsideIpAddress": "xxx.xxx.xxx.xxx",
                     "Status": "UP",
                     "StatusMessage": "0 BGP ROUTES"
                 }
@@ -393,7 +393,7 @@ Below are the AWS SDK used to generate this configuration.
                 {
                     "BgpAsn": "64513",
                     "CustomerGatewayId": "cgw-xxxxxxxxxxxxxxxxx",
-                    "IpAddress": "3.15.245.169",
+                    "IpAddress": "xxx.xxx.xxx.xxx",
                     "State": "available",
                     "Type": "ipsec.1",
                     "Tags": [
@@ -433,14 +433,14 @@ Below are the AWS SDK used to generate this configuration.
                 {
                     "AcceptedRouteCount": 3,
                     "LastStatusChange": "2023-04-11 12:31:37+00:00",
-                    "OutsideIpAddress": "3.19.204.36",
+                    "OutsideIpAddress": "xxx.xxx.xxx.xxx",
                     "Status": "UP",
                     "StatusMessage": "3 BGP ROUTES"
                 },
                 {
                     "AcceptedRouteCount": 3,
                     "LastStatusChange": "2023-04-11 12:30:49+00:00",
-                    "OutsideIpAddress": "18.216.245.201",
+                    "OutsideIpAddress": "xxx.xxx.xxx.xxx",
                     "Status": "UP",
                     "StatusMessage": "3 BGP ROUTES"
                 }
@@ -449,7 +449,7 @@ Below are the AWS SDK used to generate this configuration.
                 {
                     "BgpAsn": "64513",
                     "CustomerGatewayId": "cgw-xxxxxxxxxxxxxxxxx",
-                    "IpAddress": "3.18.73.221",
+                    "IpAddress": "xxx.xxx.xxx.xxx",
                     "State": "available",
                     "Type": "ipsec.1",
                     "Tags": [
@@ -1184,8 +1184,8 @@ Below are the AWS SDK used to generate this configuration.
         {
             "AllocationId": "eipalloc-xxxxxxxxxxxx",
             "NetworkInterfaceId": "eni-xxxxxxxxxxxx",
-            "PrivateIp": "10.56.0.44",
-            "PublicIp": "15.223.93.245"
+            "PrivateIp": "xxx.xxx.xxx.xxx",
+            "PublicIp": "xxx.xxx.xxx.xxx"
         }
     ],
     "NatGatewayId": "nat-xxxxxxxxxxxx",
