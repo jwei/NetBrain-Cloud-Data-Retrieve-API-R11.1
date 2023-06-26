@@ -88,11 +88,11 @@ class NBAWSAPILibrary:
     }
     # Example
     {
-      "describe_transit_gateway_route_tables": {
-        "resource_type": "ec2",
-        "response_field_name": "TransitGatewayRouteTables",
-        "transit-gateway-route-table-id": "Options.AssociationDefaultRouteTableId",
-        "transit-gateway-id": "TransitGatewayId"
+      'describe_transit_gateway_route_tables': {
+        'resource_type': 'ec2',
+        'response_field_name': 'TransitGatewayRouteTables',
+        'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId',
+        'transit-gateway-id': 'TransitGatewayId'
       }
     }
     ```
