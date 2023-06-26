@@ -263,7 +263,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS VPC Endpoint
 
 ### Introduction
-The configuration of the AWS VPC Endpoint is dependent on the AWS SDK response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
+AWS gateway VPC endpoint and interface VPC endpoint have the same configuration file structure. The configuration of the AWS VPC Endpoint is dependent on the AWS SDK response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
@@ -858,7 +858,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Load Balancer v2
 
 ### Introduction
-The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
+AWS Load Balancer v2 includes Network Load Balancer, Application Load Balancer, and Gateway Load Balancer. The configuration of the AWS Load Balancer v2 is dependent on the AWS SDK response of the Load Balancer v2 as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
