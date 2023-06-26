@@ -4,7 +4,8 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 
 # Table of Contents
 * [AWS VPC Router](#aws-vpc-router)
-* [AWS Gateway/Interface VPC Endpoint](#aws-vpc-endpoint)
+* [AWS Gateway VPC Endpoint](#aws-vpc-endpoint)
+* [AWS Interface VPC Endpoint](#aws-vpc-endpoint)
 * [AWS Virtual Private Gateway](#aws-virtual-private-gateway)
 * [AWS Transit Gateway](#aws-transit-gateway)
 * [AWS Egress Internet Gateway](#aws-egress-internet-gateway)
