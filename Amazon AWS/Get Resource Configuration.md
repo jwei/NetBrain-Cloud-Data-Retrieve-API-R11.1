@@ -311,7 +311,7 @@ Below are the AWS SDK used to generate this configuration.
 ## AWS Virtual Private Gateway
 
 ### Introduction
-The configuration of the AWS Virtual Private Gateway is dependent on the AWS SDK response of the AWS Virtual Private Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`, `Vpn Connections`, and `Customer Gateways`.
+The configuration of the AWS Virtual Private Gateway is dependent on the AWS SDK response of the AWS Virtual Private Gateway as the primary response. The full resource configuration consists of some associated resources' data, including `Vpn Connections`, `Customer Gateways`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
