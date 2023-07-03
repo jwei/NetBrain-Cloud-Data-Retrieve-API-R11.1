@@ -11,7 +11,6 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [AWS Internet Gateway](#aws-internet-gateway)
 * [AWS Classic Load Balancer](#aws-load-balancer)
 * [AWS Network/Application/Gateway Load Balancer](#aws-load-balancer-v2)
-* [AWS Direct Connect Router](#aws-direct-connect-router)
 * [AWS Direct Connect Gateway](#aws-direct-connect-gateway)
 * [AWS NAT Gateway](#aws-nat-gateway)
 * [AWS Firewall](#aws-firewall)
@@ -900,118 +899,6 @@ Below are the AWS SDK used to generate this configuration.
         }
     ],
     "IpAddressType": "ipv4"
-}
-```
-</details>
-<br />
-  
-
-## AWS Direct Connect Router
-
-### Introduction
-The configuration of the AWS direct connect router is dependent on the AWS SDK response of the virtual interface as the primary response. The full resource configuration consists of some associated resources' data, including `connections`.
-
-### Content
-Below are the AWS SDK used to generate this configuration.
-|**Resource/Action**|**Relationship**|**AWS SDK document**|
-|------|------|------|
-| describe_virtual_interfaces | self | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html |
-| describe_connections | connections | https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html |
-
-### Sample
-<details><summary>Configuration File</summary>
-
-```json
-{
-    "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "EqDC2-xxxxxxxxxxxxxxxxx(dxcon-xxxxxxxxxxxx)",
-    "ownerAccount": "string",
-    "virtualInterfaceId": "string",
-    "location": "string",
-    "connectionId": "string",
-    "virtualInterfaceType": "string",
-    "virtualInterfaceName": "string",
-    "vlan": 123,
-    "asn": 123,
-    "amazonSideAsn": 123,
-    "authKey": "string",
-    "amazonAddress": "string",
-    "customerAddress": "string",
-    "addressFamily": "ipv4",
-    "virtualInterfaceState": "available",
-    "customerRouterConfig": "string",
-    "mtu": 123,
-    "jumboFrameCapable": true,
-    "virtualGatewayId": "string",
-    "directConnectGatewayId": "string",
-    "routeFilterPrefixes": [
-        {
-            "cidr": "string"
-        }
-    ],
-    "bgpPeers": [
-        {
-            "bgpPeerId": "string",
-            "asn": 123,
-            "authKey": "string",
-            "addressFamily": "ipv4",
-            "amazonAddress": "string",
-            "customerAddress": "string",
-            "bgpPeerState": "available",
-            "bgpStatus": "up",
-            "awsDeviceV2": "string",
-            "awsLogicalDeviceId": "string"
-        }
-    ],
-    "region": "string",
-    "awsDeviceV2": "string",
-    "awsLogicalDeviceId": "string",
-    "tags": [
-        {
-            "key": "string",
-            "value": "string"
-        }
-    ],
-    "siteLinkEnabled": true,
-    # connections: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_connections.html
-    "connections": [
-        {
-            "ownerAccount": "string",
-            "connectionId": "string",
-            "connectionName": "string",
-            "connectionState": "available",
-            "region": "string",
-            "location": "string",
-            "bandwidth": "string",
-            "vlan": 123,
-            "partnerName": "string",
-            "loaIssueTime": "2015-01-01T00:00:00",
-            "lagId": "string",
-            "awsDevice": "string",
-            "jumboFrameCapable": true,
-            "awsDeviceV2": "string",
-            "awsLogicalDeviceId": "string",
-            "hasLogicalRedundancy": "yes",
-            "tags": [
-                {
-                    "key": "string",
-                    "value": "string"
-                }
-            ],
-            "providerName": "string",
-            "macSecCapable": true,
-            "portEncryptionStatus": "string",
-            "encryptionMode": "string",
-            "macSecKeys": [
-                {
-                    "secretARN": "string",
-                    "ckn": "string",
-                    "state": "string",
-                    "startOn": "string"
-                }
-            ]
-        }
-    ]
 }
 ```
 </details>
