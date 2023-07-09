@@ -37,27 +37,19 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "Spoke1(vpc-xxxxxxxxxxxxxxxxx)",
-    "CidrBlock": "172.16.101.0/24",
+    "netbrainHostName": "xxx(vpc-xxxxxxxxxxxxxxxxx)",
+    "CidrBlock": "192.168.0.0/24"
     "DhcpOptionsId": "xxxx-xxxxxxxxx",
     "State": "available",
     "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
-    "OwnerId": "747895045325",
+    "ownerid": "xxx",
     "InstanceTenancy": "default",
-    "CidrBlockAssociationSet": [
-        {
-            "AssociationId": "vpc-cidr-assoc-xxxxxxxxxxxxxxxxx",
-            "CidrBlock": "172.16.101.0/24",
-            "CidrBlockState": {
-                "State": "associated"
-            }
-        }
-    ],
+    "CidrBlockAssociationSet": [],
     "IsDefault": false,
     "Tags": [
         {
             "Key": "Name",
-            "Value": "Spoke1"
+            "Value": "xxx"
         }
     ],
     # VPC Classic Links: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_classic_link.html
@@ -68,14 +60,14 @@ Below are the AWS SDK used to generate this configuration.
             "AvailabilityZone": "us-east-1a",
             "AvailabilityZoneId": "use1-az1",
             "AvailableIpAddressCount": 10,
-            "CidrBlock": "172.16.101.144/28",
+            "CidrBlock": "192.168.0.0/24"
             "DefaultForAz": false,
             "MapPublicIpOnLaunch": false,
             "MapCustomerOwnedIpOnLaunch": false,
             "State": "available",
             "SubnetId": "subnet-xxxxxxxxxxxxxxxxx",
             "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
-            "OwnerId": "xxxxxxxxxxxxxxxxx",
+            "ownerid": "xxx",
             "AssignIpv6AddressOnCreation": false,
             "Ipv6CidrBlockAssociationSet": [],
             "Tags": [
@@ -84,7 +76,7 @@ Below are the AWS SDK used to generate this configuration.
                     "Value": "xxx"
                 }
             ],
-            "SubnetArn": "arn:aws:ec2:us-east-1:xxxxxxxxxxxxxxxxx:subnet/subnet-xxxxxxxxxxxxxxxxx",
+            "subnetarn": "xxx",
             "EnableDns64": false,
             "Ipv6Native": false,
             "PrivateDnsNameOptionsOnLaunch": {
@@ -98,35 +90,35 @@ Below are the AWS SDK used to generate this configuration.
     "VpcPeeringConnections": [
         {
             "AccepterVpcInfo": {
-                "CidrBlock": "172.16.102.0/24",
+                "CidrBlock": "192.168.0.0/24"
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "172.16.102.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     },
                     {
-                        "CidrBlock": "172.16.103.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     },
                     {
-                        "CidrBlock": "172.16.104.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "747895045325",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
                     "AllowEgressFromLocalVpcToRemoteClassicLink": false
                 },
-                "VpcId": "vpc-0797a80cf72fdc101",
+                "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
                 "Region": "us-east-1"
             },
             "RequesterVpcInfo": {
-                "CidrBlock": "172.16.101.0/24",
+                "CidrBlock": "192.168.0.0/24"
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "172.16.101.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "747895045325",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -142,23 +134,23 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "fourth"
+                    "Value": "xxx"
                 }
             ],
             "VpcPeeringConnectionId": "pcx-xxxxxxxxxxxxxxxxx"
         },
         {
             "AccepterVpcInfo": {
-                "CidrBlock": "172.26.1.0/24",
+                "CidrBlock": "192.168.0.0/24"
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "172.26.1.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     },
                     {
-                        "CidrBlock": "172.26.150.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "xxxxxxxxxxxxxxxxx",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -168,13 +160,13 @@ Below are the AWS SDK used to generate this configuration.
                 "Region": "us-east-2"
             },
             "RequesterVpcInfo": {
-                "CidrBlock": "172.16.101.0/24",
+                "CidrBlock": "192.168.0.0/24"
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "172.16.101.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "xxxxxxxxxxxxxxxxx",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -190,28 +182,28 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "third"
+                    "Value": "xxx"
                 }
             ],
             "VpcPeeringConnectionId": "pcx-xxxxxxxxxxxxxxxxx"
         },
         {
             "AccepterVpcInfo": {
-                "CidrBlock": "10.55.0.0/22",
+                "CidrBlock": "192.168.0.0/24"
                 "Ipv6CidrBlockSet": [
                     {
-                        "Ipv6CidrBlock": "2600:1f11:164:3e00::/56"
+                        "Ipv6CidrBlock": "xxxx:xxxx:xxx:xxxx::/xx"
                     }
                 ],
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "10.55.0.0/22"
+                        "CidrBlock": "192.168.0.0/24"
                     },
                     {
-                        "CidrBlock": "10.57.0.0/22"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "xxxxxxxxxxxxxxxxx",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -221,13 +213,13 @@ Below are the AWS SDK used to generate this configuration.
                 "Region": "ca-central-1"
             },
             "RequesterVpcInfo": {
-                "CidrBlock": "172.16.101.0/24",
+                "CidrBlock": "192.168.0.0/24"
                 "CidrBlockSet": [
                     {
-                        "CidrBlock": "172.16.101.0/24"
+                        "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "OwnerId": "xxxxxxxxxxxxxxxxx",
+                "ownerid": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -297,7 +289,7 @@ Below are the AWS SDK used to generate this configuration.
             "Value": "xxx"
         }
     ],
-    "OwnerId": "xxxxxxxxxxxxxxxxx",
+    "ownerid": "xxx",
     # VPC Endpoint Connections: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html
     "VpcEndpointConnections": []
 }
@@ -338,7 +330,7 @@ Below are the AWS SDK used to generate this configuration.
         }
     ],
     "VpnGatewayId": "vgw-xxxxxxxxxxxxxxxxx",
-    "AmazonSideAsn": 64512,
+    "AmazonSideAsn": 12345,
     "Tags": [
         {
             "Key": "Name",
@@ -348,7 +340,7 @@ Below are the AWS SDK used to generate this configuration.
     # VPN Connections: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html
     "VpnConnections": [
         {
-            "CustomerGatewayConfiguration": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<vpn_connection id=\"vpn-xxxxxxxxxxxxxxxxx\">\n  <customer_gateway_id>cgw-xxxxxxxxxxxxxxxxx</customer_gateway_id>\n  <vpn_gateway_id>vgw-xxxxxxxxxxxxxxxxx</vpn_gateway_id>\n  <vpn_connection_type>ipsec.1</vpn_connection_type>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.15.245.169</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.225.10</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64513</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.18.239.122</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.225.9</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64512</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha1</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>xlk6lMNzd4CNRP8YUX4PlRLVL4pV1FWS</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>hmac-sha1-96</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.15.245.169</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.68.26</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64513</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>52.15.217.142</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.68.25</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64512</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha1</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>KMA_6TXDeJzOJAnrn6gnMEtCO0jbE655</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>hmac-sha1-96</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n</vpn_connection>",
+            "CustomerGatewayConfiguration": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<vpn_connection id=\"vpn-xxxxxxxxxxxxxxxxx\">\n  <customer_gateway_id>cgw-xxxxxxxxxxxxxxxxx</customer_gateway_id>\n  <vpn_gateway_id>vgw-xxxxxxxxxxxxxxxxx</vpn_gateway_id>\n  <vpn_connection_type>ipsec.1</vpn_connection_type>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>12345</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>12345</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n</vpn_connection>",
             "CustomerGatewayId": "cgw-xxxxxxxxxxxxxxxxx",
             "Category": "VPN",
             "State": "available",
@@ -368,7 +360,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "CSR1000V2-TO-SPOKE3"
+                    "Value": "xxx"
                 }
             ],
             "VgwTelemetry": [
@@ -398,14 +390,14 @@ Below are the AWS SDK used to generate this configuration.
                     "Tags": [
                         {
                             "Key": "Name",
-                            "Value": "Csr1000v-2-to-spoke"
+                            "Value": "xxx"
                         }
                     ]
                 }
             ]
         },
         {
-            "CustomerGatewayConfiguration": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<vpn_connection id=\"vpn-xxxxxxxxxxxxxxxxx\">\n  <customer_gateway_id>cgw-xxxxxxxxxxxxxxxxx</customer_gateway_id>\n  <vpn_gateway_id>vgw-xxxxxxxxxxxxxxxxx</vpn_gateway_id>\n  <vpn_connection_type>ipsec.1</vpn_connection_type>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.18.73.221</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.14.138</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64513</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.19.204.36</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.14.137</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64512</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha1</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>W.1xFZ9TAtwgIn5g5vxKikxaIVFDH56i</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>hmac-sha1-96</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>3.18.73.221</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.10.6</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64513</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>18.216.245.201</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>169.254.10.5</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>64512</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha1</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>yrPRMk7SGQyo.es7ywU38qHAucXH8E8Q</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>hmac-sha1-96</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n</vpn_connection>",
+            "CustomerGatewayConfiguration": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<vpn_connection id=\"vpn-xxxxxxxxxxxxxxxxx\">\n  <customer_gateway_id>cgw-xxxxxxxxxxxxxxxxx</customer_gateway_id>\n  <vpn_gateway_id>vgw-xxxxxxxxxxxxxxxxx</vpn_gateway_id>\n  <vpn_connection_type>ipsec.1</vpn_connection_type>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.0</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>12345</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n  <ipsec_tunnel>\n    <customer_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>12345</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </customer_gateway>\n    <vpn_gateway>\n      <tunnel_outside_address>\n        <ip_address>1.2.3.4</ip_address>\n      </tunnel_outside_address>\n      <tunnel_inside_address>\n        <ip_address>192.168.0.1</ip_address>\n        <network_mask>255.255.255.252</network_mask>\n        <network_cidr>30</network_cidr>\n      </tunnel_inside_address>\n      <bgp>\n        <asn>123456</asn>\n        <hold_time>30</hold_time>\n      </bgp>\n    </vpn_gateway>\n    <ike>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>28800</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>main</mode>\n      <pre_shared_key>12345</pre_shared_key>\n    </ike>\n    <ipsec>\n      <protocol>esp</protocol>\n      <authentication_protocol>sha</authentication_protocol>\n      <encryption_protocol>aes-128-cbc</encryption_protocol>\n      <lifetime>3600</lifetime>\n      <perfect_forward_secrecy>group2</perfect_forward_secrecy>\n      <mode>tunnel</mode>\n      <clear_df_bit>true</clear_df_bit>\n      <fragmentation_before_encryption>true</fragmentation_before_encryption>\n      <tcp_mss_adjustment>1379</tcp_mss_adjustment>\n      <dead_peer_detection>\n        <interval>10</interval>\n        <retries>3</retries>\n      </dead_peer_detection>\n    </ipsec>\n  </ipsec_tunnel>\n</vpn_connection>",
             "CustomerGatewayId": "cgw-xxxxxxxxxxxxxxxxx",
             "Category": "VPN",
             "State": "available",
@@ -425,7 +417,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "CSR1000V1-TO-SPOKE3"
+                    "Value": "xxx"
                 }
             ],
             "VgwTelemetry": [
@@ -454,7 +446,7 @@ Below are the AWS SDK used to generate this configuration.
                     "Tags": [
                         {
                             "Key": "Name",
-                            "Value": "Csr1000v-1-to-spoke"
+                            "Value": "xxx"
                         }
                     ]
                 }
@@ -487,18 +479,18 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "modified-TGW-Burlington(tgw-xxxxxxxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(tgw-xxxxxxxxxxxxxxxxx)",
     "TransitGatewayId": "tgw-xxxxxxxxxxxxxxxxx",
-    "TransitGatewayArn": "arn:aws:ec2:us-east-1:747895045325:transit-gateway/tgw-xxxxxxxxxxxxxxxxx",
+    "TransitGatewayArn": "xxx",
     "State": "available",
-    "OwnerId": "xxxxxxxxxxxxxxxxx",
+    "ownerid": "xxx",
     "Description": "",
     "CreationTime": "2019-10-17 14:34:58+00:00",
     "Options": {
-        "AmazonSideAsn": 64512,
+        "AmazonSideAsn": 12345,
         "TransitGatewayCidrBlocks": [
-            "172.16.110.0/24",
-            "172.16.144.0/24"
+            "192.168.0.0/24",
+            "192.168.0.0/24"
         ],
         "AutoAcceptSharedAttachments": "enable",
         "DefaultRouteTableAssociation": "enable",
@@ -511,16 +503,16 @@ Below are the AWS SDK used to generate this configuration.
     },
     "Tags": [
         {
-            "Key": "jerryName",
+            "Key": "xxName",
             "Value": "xxx"
         },
         {
-            "Key": "yduName",
-            "Value": "ydu-add-auto"
+            "Key": "xxName",
+            "Value": "xxx"
         },
         {
             "Key": "Name",
-            "Value": "modified-TGW-Burlington"
+            "Value": "xxx"
         }
     ],
     # Transit Gateway Connects: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_transit_gateway_connects.html
@@ -546,7 +538,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "Spoke3"
+                    "Value": "xxx"
                 }
             ]
         },
@@ -573,7 +565,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "Spoke2"
+                    "Value": "xxx"
                 }
             ]
         },
@@ -636,7 +628,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "spoke1-path-test-donotdelete-ydu"
+                    "Value": "xxx"
                 }
             ]
         },
@@ -658,7 +650,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "spoke4-path-test-donotdelete-ydu"
+                    "Value": "xxx"
                 }
             ]
         }
@@ -686,7 +678,7 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "(igw-xxxxxxxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(igw-xxxxxxxxxxxxxxxxx)",
     "Attachments": [
         {
             "State": "available",
@@ -694,15 +686,15 @@ Below are the AWS SDK used to generate this configuration.
         }
     ],
     "InternetGatewayId": "igw-xxxxxxxxxxxxxxxxx",
-    "OwnerId": "xxxxxxxxxxxxxxxxx",
+    "ownerid": "xxx",
     "Tags": [
         {
             "Key": "DeletedName",
-            "Value": "IGW-Spoke1"
+            "Value": "xxx"
         },
         {
             "Key": "Name",
-            "Value": ""
+            "Value": "xxx"
         }
     ]
 }
@@ -729,7 +721,7 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "ydu-0107-EIGW(eigw-xxxxxxxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(eigw-xxxxxxxxxxxxxxxxx)",
     "Attachments": [
         {
             "State": "attached",
@@ -740,11 +732,11 @@ Below are the AWS SDK used to generate this configuration.
     "Tags": [
         {
             "Key": "DeletedName",
-            "Value": "spoke-1-eigw"
+            "Value": "xxx"
         },
         {
             "Key": "Name",
-            "Value": "ydu-0107-EIGW"
+            "Value": "xxx"
         }
     ]
 }
@@ -772,10 +764,10 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "CLB-Test(us-east-1-CLB-Test)",
-    "LoadBalancerName": "CLB-Test",
-    "DNSName": "CLB-Test-xxxxxxxxxxxxxxxxx.us-east-1.elb.amazonaws.com",
-    "CanonicalHostedZoneName": "CLB-Test-xxxxxxxxxxxxxxxxx.us-east-1.elb.amazonaws.com",
+    "netbrainHostName": "xxx(us-east-1-CLB-Test)",
+    "LoadBalancerName": "xxx",
+    "DNSName": "xxx",
+    "CanonicalHostedZoneName": "xxx",
     "CanonicalHostedZoneNameID": "xxxxxxxxxxxxx",
     "ListenerDescriptions": [
         {
@@ -820,7 +812,7 @@ Below are the AWS SDK used to generate this configuration.
     },
     "SourceSecurityGroup": {
         "OwnerAlias": "xxxxxxxxxxxxxxxxx",
-        "GroupName": "launch-wizard-16"
+        "GroupName": "12345"
     },
     "SecurityGroups": [
         "sg-xxxxxxxxxxxxxxxxx",
@@ -869,12 +861,12 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "ydu-test-nlb(xxxxxxxxxxxxxxxxx)",
-    "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:xxxxxxxxxxxxxxxxx:loadbalancer/net/ydu-test-nlb/xxxxxxxxxxxxxxxxx",
-    "DNSName": "ydu-test-nlb-xxxxxxxxxxxxxxxxx.elb.us-east-1.amazonaws.com",
-    "CanonicalHostedZoneId": "Z26RNL4JYFTOTI",
+    "netbrainHostName": "xxx(xxxxxxxxxxxxxxxxx)",
+    "LoadBalancerArn": "xxx",
+    "DNSName": "xxx",
+    "CanonicalHostedZoneId": "12345",
     "CreatedTime": "2020-04-16 18:30:00.094000+00:00",
-    "LoadBalancerName": "ydu-test-nlb",
+    "LoadBalancerName": "xxx",
     "Scheme": "internet-facing",
     "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
     "State": {
@@ -925,10 +917,10 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "ydu-0107-To-ATT-NetBond(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
     "directConnectGatewayId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "directConnectGatewayName": "ydu-0107-To-ATT-NetBond",
-    "amazonSideAsn": 64515,
+    "directConnectGatewayName": "xxx",
+    "amazonSideAsn": 12345,
     "ownerAccount": "xxxxxxxxxxxx",
     "directConnectGatewayState": "available",
     # Direct Connect Gateway Attachments: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_direct_connect_gateway_attachments.html
@@ -965,7 +957,7 @@ Below are the AWS SDK used to generate this configuration.
             "associationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "allowedPrefixesToDirectConnectGateway": [
                 {
-                    "cidr": "1.1.1.1/32"
+                    "cidr": "192.168.0.0/24"
                 }
             ],
             "virtualGatewayId": "vgw-xxxxxxxxxxxx",
@@ -985,10 +977,10 @@ Below are the AWS SDK used to generate this configuration.
             "associationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "allowedPrefixesToDirectConnectGateway": [
                 {
-                    "cidr": "172.16.105.0/24"
+                    "cidr": "192.168.0.0/24"
                 },
                 {
-                    "cidr": "172.16.109.0/24"
+                    "cidr": "192.168.0.0/24"
                 }
             ],
             "virtualGatewayId": "vgw-xxxxxxxxxxxx",
@@ -1008,10 +1000,10 @@ Below are the AWS SDK used to generate this configuration.
             "associationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "allowedPrefixesToDirectConnectGateway": [
                 {
-                    "cidr": "172.26.1.0/24"
+                    "cidr": "192.168.0.0/24"
                 },
                 {
-                    "cidr": "172.26.0.0/24"
+                    "cidr": "192.168.0.0/24"
                 }
             ],
             "virtualGatewayId": "vgw-xxxxxxxxxxxx",
@@ -1031,7 +1023,7 @@ Below are the AWS SDK used to generate this configuration.
             "associationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "allowedPrefixesToDirectConnectGateway": [
                 {
-                    "cidr": "172.46.0.0/16"
+                    "cidr": "192.168.0.0/24"
                 }
             ],
             "virtualGatewayId": "vgw-xxxxxxxxxxxx",
@@ -1065,7 +1057,7 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "ydu-0107-NATGW(nat-xxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(nat-xxxxxxxxxxxx)",
     "CreateTime": "2020-03-30 16:02:01+00:00",
     "NatGatewayAddresses": [
         {
@@ -1082,7 +1074,7 @@ Below are the AWS SDK used to generate this configuration.
     "Tags": [
         {
             "Key": "Name",
-            "Value": "ydu-0107-NATGW"
+            "Value": "xxx"
         }
     ],
     "ConnectivityType": "public",
@@ -1092,23 +1084,23 @@ Below are the AWS SDK used to generate this configuration.
             "AvailabilityZone": "ca-central-1b",
             "AvailabilityZoneId": "cac1-az2",
             "AvailableIpAddressCount": 247,
-            "CidrBlock": "10.56.0.0/24",
+            "CidrBlock": "192.168.0.0/24"
             "DefaultForAz": false,
             "MapPublicIpOnLaunch": false,
             "MapCustomerOwnedIpOnLaunch": false,
             "State": "available",
             "SubnetId": "subnet-xxxxxxxxxxxx",
             "VpcId": "vpc-xxxxxxxxxxxx",
-            "OwnerId": "xxxxxxxxxxxx",
+            "ownerid": "xxx",
             "AssignIpv6AddressOnCreation": false,
             "Ipv6CidrBlockAssociationSet": [],
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "Case1_subnet_1"
+                    "Value": "xxx"
                 }
             ],
-            "SubnetArn": "arn:aws:ec2:ca-central-1:xxxxxxxxxxxx:subnet/subnet-xxxxxxxxxxxx",
+            "subnetarn": "xxx",
             "EnableDns64": false,
             "Ipv6Native": false,
             "PrivateDnsNameOptionsOnLaunch": {
@@ -1141,12 +1133,12 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "NB-AWS-Lab-Firewall-1(us-east-1-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(us-east-1-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
     "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "Firewall": {
-        "FirewallName": "NB-AWS-Lab-Firewall-1",
-        "FirewallArn": "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:firewall/NB-AWS-Lab-Firewall-1",
-        "FirewallPolicyArn": "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:firewall-policy/Lab-Firewall-2",
+        "FirewallName": "xxx",
+        "FirewallArn": "xxx",
+        "FirewallPolicyArn": "xxx",
         "VpcId": "vpc-xxxxxxxxxxxx",
         "SubnetMappings": [
             {
@@ -1177,23 +1169,7 @@ Below are the AWS SDK used to generate this configuration.
                     "Status": "READY"
                 },
                 "Config": {
-                    "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:stateful-rulegroup/2ND-Stateful-Rule-Group": {
-                        "SyncStatus": "IN_SYNC",
-                        "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-                    },
-                    "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:stateless-rulegroup/Fw-to-Stateful-Rule": {
-                        "SyncStatus": "IN_SYNC",
-                        "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-                    },
-                    "arn:aws:network-firewall:us-east-1:aws-managed:stateful-rulegroup/MalwareDomainsStrictOrder": {
-                        "SyncStatus": "IN_SYNC",
-                        "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-                    },
-                    "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:firewall-policy/Lab-Firewall-2": {
-                        "SyncStatus": "IN_SYNC",
-                        "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-                    },
-                    "arn:aws:network-firewall:us-east-1:xxxxxxxxxxxx:stateless-rulegroup/Lab-Firewall-1-Stateless-Rule": {
+                    "arn:aws:network-firewall:xxx:xxxxxxxxxxxx:stateful-rulegroup/xxx": {
                         "SyncStatus": "IN_SYNC",
                         "UpdateToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
                     }
