@@ -81,7 +81,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "BMC-Subnet"
+                    "Value": "xxx"
                 }
             ],
             "SubnetArn": "arn:aws:ec2:us-east-1:xxxxxxxxxxxxxxxxx:subnet/subnet-xxxxxxxxxxxxxxxxx",
@@ -243,7 +243,7 @@ Below are the AWS SDK used to generate this configuration.
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "to-5325-huans-vpc-central"
+                    "Value": "xxx"
                 }
             ],
             "VpcPeeringConnectionId": "pcx-xxxxxxxxxxxxxxxxx"
@@ -274,7 +274,7 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "spoke2-s3-vpcgwe(vpce-xxxxxxxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(vpce-xxxxxxxxxxxxxxxxx)",
     "VpcEndpointId": "vpce-xxxxxxxxxxxxxxxxx",
     "VpcEndpointType": "Gateway",
     "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
@@ -294,7 +294,7 @@ Below are the AWS SDK used to generate this configuration.
     "Tags": [
         {
             "Key": "Name",
-            "Value": "spoke2-s3-vpcgwe"
+            "Value": "xxx"
         }
     ],
     "OwnerId": "xxxxxxxxxxxxxxxxx",
@@ -327,7 +327,7 @@ Below are the AWS SDK used to generate this configuration.
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "spoke-vpc-3-vgw(vgw-xxxxxxxxxxxxxxxxx)",
+    "netbrainHostName": "xxx(vgw-xxxxxxxxxxxxxxxxx)",
     "State": "available",
     "Type": "ipsec.1",
 
@@ -342,7 +342,7 @@ Below are the AWS SDK used to generate this configuration.
     "Tags": [
         {
             "Key": "Name",
-            "Value": "spoke-vpc-3-vgw"
+            "Value": "xxx"
         }
     ],
     # VPN Connections: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpn_connections.html
@@ -512,7 +512,7 @@ Below are the AWS SDK used to generate this configuration.
     "Tags": [
         {
             "Key": "jerryName",
-            "Value": "jerry_TestSharedTGW_from325_to_925"
+            "Value": "xxx"
         },
         {
             "Key": "yduName",
