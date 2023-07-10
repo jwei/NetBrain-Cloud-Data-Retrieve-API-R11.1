@@ -42,7 +42,7 @@ Below are the AWS SDK used to generate this configuration.
     "DhcpOptionsId": "xxxx-xxxxxxxxx",
     "State": "available",
     "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
-    "ownerid": "xxx",
+    "OwnerId": "xxx",
     "InstanceTenancy": "default",
     "CidrBlockAssociationSet": [],
     "IsDefault": false,
@@ -67,7 +67,7 @@ Below are the AWS SDK used to generate this configuration.
             "State": "available",
             "SubnetId": "subnet-xxxxxxxxxxxxxxxxx",
             "VpcId": "vpc-xxxxxxxxxxxxxxxxx",
-            "ownerid": "xxx",
+            "OwnerId": "xxx",
             "AssignIpv6AddressOnCreation": false,
             "Ipv6CidrBlockAssociationSet": [],
             "Tags": [
@@ -76,7 +76,7 @@ Below are the AWS SDK used to generate this configuration.
                     "Value": "xxx"
                 }
             ],
-            "subnetarn": "xxx",
+            "SubnetArn": "xxx",
             "EnableDns64": false,
             "Ipv6Native": false,
             "PrivateDnsNameOptionsOnLaunch": {
@@ -102,7 +102,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -118,7 +118,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -150,7 +150,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -166,7 +166,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -203,7 +203,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -219,7 +219,7 @@ Below are the AWS SDK used to generate this configuration.
                         "CidrBlock": "192.168.0.0/24"
                     }
                 ],
-                "ownerid": "xxx",
+                "OwnerId": "xxx",
                 "PeeringOptions": {
                     "AllowDnsResolutionFromRemoteVpc": false,
                     "AllowEgressFromLocalClassicLinkToRemoteVpc": false,
@@ -289,7 +289,7 @@ Below are the AWS SDK used to generate this configuration.
             "Value": "xxx"
         }
     ],
-    "ownerid": "xxx",
+    "OwnerId": "xxx",
     # VPC Endpoint Connections: https://boto3.amazonaws.com/v1/documentation/api/1.26.86/reference/services/ec2/client/describe_vpc_endpoint_connections.html
     "VpcEndpointConnections": []
 }
@@ -483,7 +483,7 @@ Below are the AWS SDK used to generate this configuration.
     "TransitGatewayId": "tgw-xxxxxxxxxxxxxxxxx",
     "TransitGatewayArn": "xxx",
     "State": "available",
-    "ownerid": "xxx",
+    "OwnerId": "xxx",
     "Description": "",
     "CreationTime": "2019-10-17 14:34:58+00:00",
     "Options": {
@@ -686,7 +686,7 @@ Below are the AWS SDK used to generate this configuration.
         }
     ],
     "InternetGatewayId": "igw-xxxxxxxxxxxxxxxxx",
-    "ownerid": "xxx",
+    "OwnerId": "xxx",
     "Tags": [
         {
             "Key": "DeletedName",
@@ -1091,7 +1091,7 @@ Below are the AWS SDK used to generate this configuration.
             "State": "available",
             "SubnetId": "subnet-xxxxxxxxxxxx",
             "VpcId": "vpc-xxxxxxxxxxxx",
-            "ownerid": "xxx",
+            "OwnerId": "xxx",
             "AssignIpv6AddressOnCreation": false,
             "Ipv6CidrBlockAssociationSet": [],
             "Tags": [
@@ -1100,7 +1100,7 @@ Below are the AWS SDK used to generate this configuration.
                     "Value": "xxx"
                 }
             ],
-            "subnetarn": "xxx",
+            "SubnetArn": "xxx",
             "EnableDns64": false,
             "Ipv6Native": false,
             "PrivateDnsNameOptionsOnLaunch": {
