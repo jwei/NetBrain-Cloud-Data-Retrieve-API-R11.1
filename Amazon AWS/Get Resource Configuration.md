@@ -4,7 +4,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 
 # Table of Contents
 * [AWS VPC Router](#aws-vpc-router)
-* [AWS Gateway/Interface VPC Endpoint](#aws-gateway%2Finterface-vpc-endpoint)
+* [AWS Gateway/Interface VPC Endpoint](#aws-vpc-endpoint)
 * [AWS Virtual Private Gateway](#aws-virtual-private-gateway)
 * [AWS Transit Gateway](#aws-transit-gateway)
 * [AWS Egress Internet Gateway](#aws-egress-internet-gateway)
@@ -248,7 +248,7 @@ Below are the AWS SDK used to generate this configuration.
 <br />
 
 
-## AWS Gateway/Interface VPC Endpoint
+## AWS VPC Endpoint
 
 ### Introduction
 AWS gateway VPC endpoint and interface VPC endpoint have the same configuration file structure. The configuration of the AWS VPC Endpoint is dependent on the AWS SDK response of the VPC Endpoint as the primary response. The full resource configuration consists of some associated resources' data, including `Vpc Endpoint Connections`.
