@@ -9,7 +9,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 * [AWS Transit Gateway](#aws-transit-gateway)
 * [AWS Egress Internet Gateway](#aws-egress-internet-gateway)
 * [AWS Internet Gateway](#aws-internet-gateway)
-* [AWS Classic Load Balancer](#aws-classic-load-balancer)
+* [AWS Classic Load Balancer](#aws-load-balancer)
 * [AWS Network/Application/Gateway Load Balancer](#aws-load-balancer-v2)
 * [AWS Direct Connect Gateway](#aws-direct-connect-gateway)
 * [AWS NAT Gateway](#aws-nat-gateway)
@@ -745,10 +745,10 @@ Below are the AWS SDK used to generate this configuration.
 <br />
   
 
-## AWS Classic Load Balancer
+## AWS Load Balancer
 
 ### Introduction
-The configuration of the AWS Classic Load Balancer is dependent on the AWS SDK response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
+The configuration of the **AWS Classic Load Balancer** is dependent on the AWS SDK response of the Load Balancer as the primary response. The full resource configuration consists of some associated resources' data, including `load balancer policies`, `instance health`.
 
 ### Content
 Below are the AWS SDK used to generate this configuration.
