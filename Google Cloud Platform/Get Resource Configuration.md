@@ -7,28 +7,17 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 # Table of Contents
 * [Google VPC Router](#google-vpc-router)
 
-- [Google VPC Router](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.1.GoogleVPCRouter)
-- [Google VPN Gateway](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.2.GoogleVPNGateway)
-- [Google Cloud Router](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.3.GoogleCloudRouter)
-- [Google Load Balancer](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.4.GoogleLoadBalancer)
-- [Google Firewall](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.5.GoogleFirewall)
-- [Google Cloud NAT](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.6.GoogleCloudNAT)
-- [Google Virtual Machine](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.7.GoogleVirtualMachine)
-- [Google Network Endpoint Group](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.8.GoogleNetworkEndpointGroup)
-- [Google Interconnect (Partner/ Dedicated)](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.9GoogleInterconnect(Partner/Dedicated))
-- [Google Peering Edge Router](https://confluence.netbraintech.com/confluence/display/PD/1.3.2+PRD+-+GoogleCloud+Discovery+and+Topology+Model+Requirements+Definition#id-1.3.2PRDGoogleCloudDiscoveryandTopologyModelRequirementsDefinition-3.1.10GooglePeeringEdgeRouter)
+## Google VPC Router
 
-# Google VPC Router
-
-### **Introduction**
+### Introduction
 
 The configuration of the Google Virtual Network distributed router relies solely on the corresponding Google API of the virtual network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
 
-### **Content**
+### Content
 
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
+### Sample
 
 Configuration File
 ```json5
