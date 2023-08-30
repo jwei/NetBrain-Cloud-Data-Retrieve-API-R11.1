@@ -1,8 +1,5 @@
-# **Usage**
-
+# Usage
 To retrieve the configuration data for a resource, you can utilize NetBrain's built-in configuration file function, which does not require coding. This function enables you to quickly obtain the resource configuration.
-
-# **Table of Contents**
 
 # Table of Contents
 * [Google VPC Router](#google-vpc-router)
@@ -10,19 +7,17 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 ## Google VPC Router
 
 ### Introduction
-
 The configuration of the Google Virtual Network distributed router relies solely on the corresponding Google API of the virtual network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
 
 ### Content
-
 Below are the Google APIs used to generate this configuration.
-|**Resource/Action**|**Relationship**|**Google API Version**|**Google API document**|
+|Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
 | Virtual Networks - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/get | 
 
 ### Sample
-
-Configuration File
+<details><summary>Configuration File</summary>
+    
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
@@ -64,15 +59,16 @@ Configuration File
 
 # Google VPN Gateway
 
-### **Introduction**
-
+### Introduction
 The configuration of the Google VPN gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including vpnInterfaces, tunnels.
 
-### **Content**
+### Content
 
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
+### Sample
+<details><summary>Configuration File</summary>
+
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
@@ -108,7 +104,7 @@ Below are the Google APIs used to generate this configuration.
             "peerGcpGateway": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-west4/vpnGateways/host-proj1-vpc-spk3-cloudvpn",
             "router": "https://www.googleapis.com/compute/v1/projects/netbrain-gcp-lab-002/regions/us-west4/routers/serv-proj2-us-west4-cloudvpn",
             "peerIp": "34.124.11.22",
-            "sharedSecret": "*************",
+            "sharedSecret": "*",
             "sharedSecretHash": "AH91_FUBngpP0Oy65ZGeI2UBf96K",
             "status": "ESTABLISHED",
             "selfLink": "https://www.googleapis.com/compute/v1/projects/netbrain-gcp-lab-002/regions/us-west4/vpnTunnels/to-hostproj1-tunnel-1",
@@ -133,63 +129,51 @@ Below are the Google APIs used to generate this configuration.
 
 # Google Cloud Router
 
-### **Introduction**
-
+### Introduction
 The configuration of the Google Cloud Router is dependent on the Google API response of the Google Routers as the primary response. The Google API provides detailed information regarding the configuration of the routers, including its name, region, network and etc.
 
-### **Content**
-
+### Content
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
-
+### Sample
 Configuration File
 
 # Google Load Balancer
-
-### **Introduction**
-
+### Introduction
 The configuration of the Google load balancer is dependent on the Google API response of the Google load balancer as the primary response. The full resource configuration consists of some associated resources' API data, including backendService, group.
 
-### **Content**
-
+### Content
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
+### Sample
 
 # Google Firewall
 
-### **Introduction**
-
+### Introduction
 There is no supported API data for GCP Firewall. The resource configuration consists of basic data, including id, name and networkName.
 
-### **Sample**
-
+### Sample
 Configuration File
 
 # Google Cloud NAT Gateway
 
-### **Introduction**
-
+### Introduction
 The configuration of the Google Cloud NAT Gateway distributed router relies solely on the corresponding Google API of the routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its subnetworks, peerings, etc.
 
-### **Content**
-
+### Content
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
+### Sample
 
 # Google Virtual Machine
 
-### **Introduction**
-
+### Introduction
 The configuration of the Google Virtual Machine relies solely on the corresponding Google API of the Virtual Machine. The Google API provides detailed information regarding the configuration of the instance, including its subnetworks, peerings, etc.
 
-### **Content**
-
+### Content
 Below are the Google APIs used to generate this configuration.
 
-### **Sample**
+### Sample
 
 # Google Network Endpoint Group
 
