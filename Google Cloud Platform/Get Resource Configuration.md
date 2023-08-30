@@ -57,6 +57,9 @@ Below are the Google APIs used to generate this configuration.
 }
 ```
 
+</details>
+<br />
+
 # Google VPN Gateway
 
 ### Introduction
@@ -122,10 +125,10 @@ Below are the Google APIs used to generate this configuration.
 }
 
 
-
-
-
 ```
+
+</details>
+<br />
 
 # Google Cloud Router
 
@@ -164,6 +167,14 @@ The configuration of the Google Cloud NAT Gateway distributed router relies sole
 Below are the Google APIs used to generate this configuration.
 
 ### Sample
+<details><summary>Configuration File</summary>
+
+```json5
+
+```
+
+</details>
+<br />
 
 # Google Virtual Machine
 
@@ -174,6 +185,14 @@ The configuration of the Google Virtual Machine relies solely on the correspondi
 Below are the Google APIs used to generate this configuration.
 
 ### Sample
+<details><summary>Configuration File</summary>
+
+```json5
+
+```
+
+</details>
+<br />
 
 # Google Network Endpoint Group
 
