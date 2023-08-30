@@ -43,3 +43,62 @@ class NBGoogleAPILibrary:
 
 ## Output <a name="output"></a>
 > resp_body_json: The JSON response body of the HTTP request to the Google monitor metrics API. This is a dictionary with string keys and values.
+
+# Samples <a name="sample"></a>
+## Sample 1 -- Get General Resource Metrics  <a name="sample_1"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+def BuildParameters(context, device_name, params):
+    node_props = GetDeviceProperties(context, device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params':['nbProperties','id']
+        })
+    
+    nb_props = json.loads(node_props['params']['nbProperties'])
+
+    params = [{
+        'devName': device_name,
+        'projId': nb_props['projectId'],
+        'deviceId':node_props['params']['id']
+    }]
+    return params
+
+
+def RetrieveData(params):
+    instanceName = params['devName']
+    #Get Current Time and Start Time for Metrics
+    currentTime = datetime.now(timezone.utc)
+    pastTime = currentTime - timedelta(seconds = 180)
+
+    api_server_id = params['apiServerId']
+    proj_id = params['projId']
+    url_params = {
+        'filter': {
+           'metric.type' : "compute.googleapis.com/instance/cpu/usage_time",
+           'metric.labels.instance_name': instanceName
+        },
+        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+    # Get Live Data
+    data = NBGoogleAPILibrary.GetMonitorMetrics(
+        api_server_id=params['apiServerId'],
+        azure_resource_uri=params['params']['id'],
+        params={'metricnames': metric_name}
+    )
+    return data
+ ```
