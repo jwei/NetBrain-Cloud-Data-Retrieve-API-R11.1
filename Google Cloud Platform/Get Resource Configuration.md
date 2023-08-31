@@ -364,7 +364,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google Firewall
 
 ### Introduction
-There is no supported API data for GCP Firewall. The resource configuration consists of basic data, including id, name and networkName.
+There is no supported API data for Google Firewall. The resource configuration consists of basic data, including id, name and networkName.
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -383,10 +383,10 @@ There is no supported API data for GCP Firewall. The resource configuration cons
 <br />
 
 
-## Google Cloud NAT Gateway
+## Google Cloud NAT Gateway - Review
 
 ### Introduction
-The configuration of the Google Cloud NAT Gateway distributed router relies solely on the corresponding Google API of the routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its subnetworks, peerings, etc.
+The configuration of the Google Cloud NAT Gateway relies solely on the corresponding Google API of the routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -400,7 +400,34 @@ Below are the Google APIs used to generate this configuration.
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "tyler-nat-gw(<NAT-gateway-id>-tyler-nat-gw)"
+    "netbrainHostName": "asia-vpc-spoke4(2490677651552452917-asia-vpc-spoke4)",
+    "name": "asia-vpc-spoke4",
+    "endpointTypes": [
+        "ENDPOINT_TYPE_VM"
+    ],
+    "sourceSubnetworkIpRangesToNat": "ALL_SUBNETWORKS_ALL_IP_RANGES",
+    "natIps": [
+        "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west1/addresses/asia-vpc-spoke4-natip"
+    ],
+    "subnetworks": [
+        {
+            "name": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-2",
+            "sourceIpRangesToNat": [
+                "PRIMARY_IP_RANGE"
+            ]
+        }
+    ],
+    "natIpAllocateOption": "AUTO_ONLY",
+    "minPortsPerVm": 64,
+    "udpIdleTimeoutSec": 30,
+    "icmpIdleTimeoutSec": 30,
+    "tcpEstablishedIdleTimeoutSec": 1200,
+    "tcpTransitoryIdleTimeoutSec": 30,
+    "logConfig": {
+        "enable": false,
+        "filter": "ALL"
+    },
+    "enableEndpointIndependentMapping": false
 }
 ```
 
@@ -415,7 +442,7 @@ Configuration feature is not supported for Google Virtual Machine yet. Please se
 
 ## Google Cloud Internet Gateway
 ### Introduction
-Configuration feature is currently not available for the Google Cloud Internet Gateway. The structure of the resource data is as follows:
+Configuration feature is currently not support for Google Cloud Internet Gateway API. The structure of the resource data is as follows:
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -423,16 +450,18 @@ Configuration feature is currently not available for the Google Cloud Internet G
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "Global-igw(<igw-id>)(<igw-id>)",
-    "id": "<igw-id>",
-    "name": "Global-igw(<igw-id>)(<igw-id>)"
+    "netbrainHostName": "europe-west-vpc-igw(<ig-id>-igw)",
+    "id": "<ig-id>-igw",
+    "name": "europe-west-vpc-igw(<ig-id>-igw)",
+    "networkId": "<ig-id>",
+    "networkLink": "https://www.googleapis.com/compute/v1/projects/netbrain-gcp-lab-004/global/networks/europe-west-vpc"
 }
 ```
 
 </details>
 <br/>
 
-## Partner Google Interconnect <a id="partner-google-interconnect"></a>
+## Google Partner Interconnect <a id="partner-google-interconnect"></a>
 ### Introduction
 The configuration of the Google Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, partnerMetadata, etc.
 
@@ -478,20 +507,18 @@ Below are the Google APIs used to generate this configuration.
     "stackType": "IPV4_ONLY"
 }
 ```
-
 </details>
 <br />
 
-
-## Dedicated Google Interconnect <a id="dedicated-google-interconnect"></a>
+## Google Dedicated Interconnect - Review <a id="dedicated-google-interconnect"></a> 
 ### Introduction
-The configuration of the Dedicated Google Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, encryption, etc.
+The configuration of the  Dedicated Google Interconnect is dependent on the Google API response of the interconnects as the primary response. The full resource configuration consists of some associated resources' Interconnect Attachments.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| Dedicated Google Interconnect  - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
+| Dedicated Google Interconnect  - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/interconnects/get
 | Interconnect Attachments - Get | interconnectAttachments | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
 
 ### Sample
@@ -500,36 +527,25 @@ Below are the Google APIs used to generate this configuration.
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-partnerinterconnect)",
-    "kind": "compute#interconnectAttachment",
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/interconnectAttachments/gcptonetbondb",
-    "id": "<interconnect-id>",
-    "creationTimestamp": "2021-04-08T12:44:16.166-07:00",
-    "name": "gcptonetbondb",
-    "router": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/routers/gcp-router-b",
-    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4",
-    "mtu": 1500,
-    "cloudRouterIpAddress": "xx.xx.xx.xx/29",
-    "customerRouterIpAddress": "xx.xx.xx.xx/29",
-    "type": "DEDICATED",
-    "pairingKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/us-east4/2",
-    "adminEnabled": true,
-    "vlanTag8021q": 1141,
-    "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
-    "bandwidth": "BPS_50M",
-    // "partnerMetadata": {
-    //     "partnerName": "AT&T",
-    //     "interconnectName": "chicago-zone2-cgcil02",
-    //     "portalUrl": "https://synaptic.att.com/"
-    // },
-    "labelFingerprint": "42WmSpB8rSM=",
-    "state": "ACTIVE",
-    "partnerAsn": "8030",
-    "encryption": "NONE",
-    "dataplaneVersion": 1,
-    "stackType": "IPV4_ONLY",
+    "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-dedicateinterconnect)",
+    "kind": string,
+    "description": string,
+    "selfLink": string,
+    "id": string,
+    "creationTimestamp": string,
+    "name": string,
+    "location": string,
+    "linkType": enum,
+    "requestedLinkCount": integer,
+    "interconnectType": enum,
+    "adminEnabled": boolean,
+    "nocContactEmail": string,
+    "customerName": string,
+    "operationalStatus": enum,
+    "provisionedLinkCount": integer,
     "interconnectAttachments": [
         {
+
             "kind": "compute#interconnectAttachment",
             "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/interconnectAttachments/gcptonetbondb",
             "id": "<interconnect-id>",
@@ -540,25 +556,57 @@ Below are the Google APIs used to generate this configuration.
             "mtu": 1500,
             "cloudRouterIpAddress": "xx.xx.xx.xx/29",
             "customerRouterIpAddress": "xx.xx.xx.xx/29",
-            "type": "DEDICATED",
+            "type": "PARTNER",
             "pairingKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/us-east4/2",
             "adminEnabled": true,
             "vlanTag8021q": 1141,
             "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
             "bandwidth": "BPS_50M",
+            "partnerMetadata": {
+                "partnerName": "AT&T",
+                "interconnectName": "chicago-zone2-cgcil02",
+                "portalUrl": "https://synaptic.att.com/"
+            },
             "labelFingerprint": "42WmSpB8rSM=",
             "state": "ACTIVE",
             "partnerAsn": "8030",
             "encryption": "NONE",
             "dataplaneVersion": 1,
-            "stackType": "IPV4_ONLY",
-            // "partnerMetadata": {
-            //     "partnerName": "AT&T",
-            //     "interconnectName": "chicago-zone2-cgcil02",
-            //     "portalUrl": "https://synaptic.att.com/"
-            // },
+            "stackType": "IPV4_ONLY"
         }
-    ]
+    ],
+    "peerIpAddress": string,
+    "googleIpAddress": string,
+    "googleReferenceId": string,
+    "expectedOutages": [
+        {
+        "name": string,
+        "description": string,
+        "source": enum,
+        "state": enum,
+        "issueType": enum,
+        "affectedCircuits": [
+            string
+        ],
+        "startTime": string,
+        "endTime": string
+        }
+    ],
+    "circuitInfos": [
+        {
+        "googleCircuitId": string,
+        "googleDemarcId": string,
+        "customerDemarcId": string
+        }
+    ],
+    "labels": {
+        string: string,
+        ...
+    },
+    "labelFingerprint": string,
+    "state": enum,
+    "satisfiesPzs": boolean,
+    "remoteLocation": string
 }
 ```
 
@@ -568,7 +616,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google Cloud Private Service Connect Endpoint
 
 ### Introduction
-The configuration of the Google Cloud Private Service Connect Endpoint relies solely on the corresponding Google API of the Virtual Machine. The Google API provides detailed information regarding the configuration of the instance, including its IpAddress, serviceDirectoryRegistrations, etc.
+The configuration of the Google Cloud Private Service Connect Endpoint relies solely on the corresponding Google API of the globalForwardingRules. The Google API provides detailed information regarding the configuration of the instance, including its IPAddress, serviceDirectoryRegistrations, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
