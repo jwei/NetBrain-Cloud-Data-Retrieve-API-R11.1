@@ -23,7 +23,7 @@ The configuration of the Google Virtual Network distributed router relies solely
 Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| Virtual Networks - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/get | 
+| VPC Router - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/get | 
 
 ### Sample
 <details><summary>Configuration File</summary>
