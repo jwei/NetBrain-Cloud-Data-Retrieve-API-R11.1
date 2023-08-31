@@ -324,7 +324,7 @@ Configuration feature is not supported for Google Virtual Machine yet. Please se
 
 ## Google Cloud Internet Gateway
 ### Introduction
-There are no proper API data for GCP Internet Gateway. So just generate a simple configuration file as below
+Configuration feature is currently not available for the Google Cloud Internet Gateway. The structure of the resource data is as follows:
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -341,9 +341,9 @@ There are no proper API data for GCP Internet Gateway. So just generate a simple
 </details>
 <br/>
 
-## Google Interconnect (Partner/Dedicated) <a id="google-interconnect"></a>
+## Partner Google Interconnect <a id="partner-google-interconnect"></a>
 ### Introduction
-The configuration of the Google Interconnect relies solely on the corresponding Google API of the Virtual Machine. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, encryption, etc.
+The configuration of the Google Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, partnerMetadata, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -369,7 +369,7 @@ Below are the Google APIs used to generate this configuration.
     "cloudRouterIpAddress": "xx.xx.xx.xx/29",
     "customerRouterIpAddress": "xx.xx.xx.xx/29",
     "type": "PARTNER",
-    "pairingKey": "97c42ce4-5a8f-4b31-b64f-e43b4a1aba20/us-east4/2",
+    "pairingKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/us-east4/2",
     "adminEnabled": true,
     "vlanTag8021q": 1141,
     "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
@@ -391,6 +391,88 @@ Below are the Google APIs used to generate this configuration.
 </details>
 <br />
 
+
+## Dedicated Google Interconnect <a id="dedicated-google-interconnect"></a>
+### Introduction
+The configuration of the Dedicated Google Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, encryption, etc.
+
+### Content
+Below are the Google APIs used to generate this configuration.
+|Resource/Action|Relationship|Google API Version|Google API document|
+|------|------|------|------|
+| Dedicated Google Interconnect  - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
+| Interconnect Attachments - Get | interconnectAttachments | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json5
+{
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-partnerinterconnect)",
+    "kind": "compute#interconnectAttachment",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/interconnectAttachments/gcptonetbondb",
+    "id": "<interconnect-id>",
+    "creationTimestamp": "2021-04-08T12:44:16.166-07:00",
+    "name": "gcptonetbondb",
+    "router": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/routers/gcp-router-b",
+    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4",
+    "mtu": 1500,
+    "cloudRouterIpAddress": "xx.xx.xx.xx/29",
+    "customerRouterIpAddress": "xx.xx.xx.xx/29",
+    "type": "DEDICATED",
+    "pairingKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/us-east4/2",
+    "adminEnabled": true,
+    "vlanTag8021q": 1141,
+    "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
+    "bandwidth": "BPS_50M",
+    // "partnerMetadata": {
+    //     "partnerName": "AT&T",
+    //     "interconnectName": "chicago-zone2-cgcil02",
+    //     "portalUrl": "https://synaptic.att.com/"
+    // },
+    "labelFingerprint": "42WmSpB8rSM=",
+    "state": "ACTIVE",
+    "partnerAsn": "8030",
+    "encryption": "NONE",
+    "dataplaneVersion": 1,
+    "stackType": "IPV4_ONLY",
+    "interconnectAttachments": [
+        {
+            "kind": "compute#interconnectAttachment",
+            "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/interconnectAttachments/gcptonetbondb",
+            "id": "<interconnect-id>",
+            "creationTimestamp": "2021-04-08T12:44:16.166-07:00",
+            "name": "gcptonetbondb",
+            "router": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4/routers/gcp-router-b",
+            "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east4",
+            "mtu": 1500,
+            "cloudRouterIpAddress": "xx.xx.xx.xx/29",
+            "customerRouterIpAddress": "xx.xx.xx.xx/29",
+            "type": "DEDICATED",
+            "pairingKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/us-east4/2",
+            "adminEnabled": true,
+            "vlanTag8021q": 1141,
+            "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
+            "bandwidth": "BPS_50M",
+            "labelFingerprint": "42WmSpB8rSM=",
+            "state": "ACTIVE",
+            "partnerAsn": "8030",
+            "encryption": "NONE",
+            "dataplaneVersion": 1,
+            "stackType": "IPV4_ONLY",
+            // "partnerMetadata": {
+            //     "partnerName": "AT&T",
+            //     "interconnectName": "chicago-zone2-cgcil02",
+            //     "portalUrl": "https://synaptic.att.com/"
+            // },
+        }
+    ]
+}
+```
+
+</details>
+<br />
 
 ## Google Cloud Private Service Connect Endpoint
 
