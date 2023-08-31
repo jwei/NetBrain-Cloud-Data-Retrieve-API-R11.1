@@ -37,17 +37,17 @@ Below are the Google APIs used to generate this configuration.
     "creationTimestamp": "2021-04-21T14:17:20.628-07:00",
     "name": "central-vpc-hub",
     "description": "Second Host Project",
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub",
-    "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/xxxxxxxxxxxxxxxxxxx",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
+    "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/xxxxxxxxxxxxxxxxxxx",
     "autoCreateSubnetworks": false,
     "subnetworks": [
-        "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/subnetworks/subnet-1",
-        "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/subnetworks/subnet-2"
+        "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
+        "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-2"
     ],
     "peerings": [
         {
             "name": "host-proj2-vpc-to-host-proj1-vpc",
-            "network": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub",
+            "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
             "state": "INACTIVE",
             "stateDetails": "[2022-04-22T17:42:28.882-07:00]: Peer network tried to connect and failed.",
             "autoCreateRoutes": true,
@@ -73,7 +73,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google VPN Gateway
 
 ### Introduction
-The configuration of the Google VPN gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including vpnInterfaces, tunnels.
+The configuration of the Google VPN gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including tunnels.
 
 ### Content
 
@@ -81,7 +81,7 @@ Below are the Google APIs used to generate this configuration.
 
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| Virtual Networks - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/vpnGateways/get | 
+| VPN Gateway - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/vpnGateways/get | 
 | Tunnels - Get | tunnels | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/get https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/list | 
 
 ### Sample
@@ -96,9 +96,9 @@ Below are the Google APIs used to generate this configuration.
     "creationTimestamp": "2021-08-19T12:02:24.423-07:00",
     "name": "tyler-vpn-000",
     "description": "",
-    "region": "https://www.googleapis.com/compute/v1/projects/qa-testresource/regions/us-east1",
-    "network": "https://www.googleapis.com/compute/v1/projects/qa-testresource/global/networks/default",
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/qa-testresource/regions/us-east1/vpnGateways/tyler-vpn-000",
+    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
+    "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/default",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/vpnGateways/tyler-vpn-000",
     "labelFingerprint": "xxxxxxxxxxxx",
     "vpnInterfaces": [
         {
@@ -116,16 +116,16 @@ Below are the Google APIs used to generate this configuration.
             "creationTimestamp": "2021-06-14T13:44:43.411-07:00",
             "name": "to-hostproj1-tunnel-1",
             "description": "to-hostproj1-tunnel-1",
-            "region": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-west4",
-            "vpnGateway": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-west4/vpnGateways/serv-proj2-us-west4-cloudvpn",
+            "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4",
+            "vpnGateway": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/vpnGateways/serv-proj2-us-west4-cloudvpn",
             "vpnGatewayInterface": 0,
-            "peerGcpGateway": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-west4/vpnGateways/host-proj1-vpc-spk3-cloudvpn",
-            "router": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-west4/routers/serv-proj2-us-west4-cloudvpn",
+            "peerGcpGateway": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/vpnGateways/host-proj1-vpc-spk3-cloudvpn",
+            "router": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/routers/serv-proj2-us-west4-cloudvpn",
             "peerIp": "xx.xx.xx.xx",
             "sharedSecret": "*",
             "sharedSecretHash": "AH91_FUBngpP0Oy65ZGeI2UBf96K",
             "status": "ESTABLISHED",
-            "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-west4/vpnTunnels/to-hostproj1-tunnel-1",
+            "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/vpnTunnels/to-hostproj1-tunnel-1",
             "ikeVersion": 2,
             "detailedStatus": "Tunnel is up and running.",
             "localTrafficSelector": [
@@ -168,13 +168,13 @@ Below are the Google APIs used to generate this configuration.
     "creationTimestamp": "2021-02-09T09:02:01.340-08:00",
     "name": "central-cloud-router-2",
     "description": "",
-    "region": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1",
-    "network": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub",
+    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1",
+    "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
     "bgp": {
         "asn": 65511,
         "advertiseMode": "DEFAULT"
     },
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/routers/central-cloud-router-2",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/routers/central-cloud-router-2",
     "encryptedInterconnectRouter": false
 }
 ```
@@ -206,20 +206,20 @@ Below are the Google APIs used to generate this configuration.
     "creationTimestamp": "2021-07-15T18:35:38.345-07:00",
     "name": "host-proj2-tcp-internal-lb1-frontend",
     "description": "",
-    "region": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1",
+    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1",
     "IPAddress": "172.18.3.12",
     "IPProtocol": "TCP",
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/forwardingRules/host-proj2-tcp-internal-lb1-frontend",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/forwardingRules/host-proj2-tcp-internal-lb1-frontend",
     "loadBalancingScheme": "INTERNAL",
-    "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/subnetworks/subnet-1",
-    "network": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub",
+    "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
+    "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
     "backendService": {
         "kind": "compute#backendService",
         "id": "3089886968714976396",
         "creationTimestamp": "2021-07-15T18:35:31.122-07:00",
         "name": "host-proj2-tcp-internal-lb1",
         "description": "",
-        "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/backendServices/host-proj2-tcp-internal-lb1",
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/backendServices/host-proj2-tcp-internal-lb1",
         "backends": [
             {
                 "group": {
@@ -228,25 +228,25 @@ Below are the Google APIs used to generate this configuration.
                     "creationTimestamp": "2021-07-15T18:31:27.956-07:00",
                     "name": "host-proj2-ig",
                     "description": "This instance group is controlled by Instance Group Manager 'host-proj2-ig'. To modify instances in this group, use the Instance Group Manager API: https://cloud.google.com/compute/docs/reference/latest/instanceGroupManagers",
-                    "network": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub",
+                    "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
                     "fingerprint": "xxxxxxxxxxx",
-                    "zone": "https://www.googleapis.com/compute/v1/projects/<project_id>/zones/us-central1-a",
-                    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project_id>/zones/us-central1-a/instanceGroups/host-proj2-ig",
+                    "zone": "https://www.googleapis.com/compute/v1/projects/<project-id>/zones/us-central1-a",
+                    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/zones/us-central1-a/instanceGroups/host-proj2-ig",
                     "size": 1,
-                    "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1/subnetworks/subnet-1"
+                    "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1"
                 },
                 "balancingMode": "CONNECTION",
                 "failover": true
             }
         ],
         "healthChecks": [
-            "https://www.googleapis.com/compute/v1/projects/<project_id>/global/healthChecks/tcp-health-check"
+            "https://www.googleapis.com/compute/v1/projects/<project-id>/global/healthChecks/tcp-health-check"
         ],
         "timeoutSec": 30,
         "protocol": "TCP",
         "fingerprint": "OgJSiZYsVAU=",
         "sessionAffinity": "CLIENT_IP_PORT_PROTO",
-        "region": "https://www.googleapis.com/compute/v1/projects/<project_id>/regions/us-central1",
+        "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1",
         "failoverPolicy": {
             "disableConnectionDrainOnFailover": false,
             "dropTrafficIfUnhealthy": false,
@@ -256,10 +256,10 @@ Below are the Google APIs used to generate this configuration.
         "connectionDraining": {
             "drainingTimeoutSec": 300
         },
-        "network": "https://www.googleapis.com/compute/v1/projects/<project_id>/global/networks/central-vpc-hub"
+        "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub"
     },
     "serviceLabel": "lb",
-    "serviceName": "lb.host-proj2-tcp-internal-lb1-frontend.il4.us-central1.lb.<project_id>.internal",
+    "serviceName": "lb.host-proj2-tcp-internal-lb1-frontend.il4.us-central1.lb.<project-id>.internal",
     "networkTier": "PREMIUM",
     "labelFingerprint": "xxxxxxxxxxx",
     "fingerprint": "xxxxxxxxxxx",
