@@ -10,7 +10,8 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
   - [Google Cloud NAT Gateway](#google-cloud-nat-gateway)
   - [Google Virtual Machine](#google-virtual-machine)
   - [Google Cloud Internet Gateway](#google-cloud-internet-gateway)
-  - [Google Interconnect (Partner/Dedicated) ](#google-interconnect)
+  - [Partner Google Interconnect](#partner-google-interconnect)
+  - [Dedicated Google Interconnect](#dedicated-google-interconnect)
   - [Google Cloud Private Service Connect Endpoint](#google-cloud-private-service-connect-endpoint)
 
 ## Google VPC Router
