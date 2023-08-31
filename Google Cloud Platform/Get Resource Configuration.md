@@ -5,7 +5,8 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
   - [Google VPC Router](#google-vpc-router)
   - [Google VPN Gateway](#google-vpn-gateway)
   - [Google Cloud Router](#google-cloud-router)
-  - [Google Load Balancer](#google-load-balancer)
+  - [Google Internal Load Balancer](#google-internal-load-balancer)
+  - [Google External Load Balancer](#google-external-load-balancer)
   - [Google Firewall](#google-firewall)
   - [Google Cloud NAT Gateway](#google-cloud-nat-gateway)
   - [Google Virtual Machine](#google-virtual-machine)
@@ -230,15 +231,15 @@ Below are the Google APIs used to generate this configuration.
 </details>
 <br />
 
-## Google Load Balancer
+## Google Internal Load Balancer
 ### Introduction
-The configuration of the Google load balancer is dependent on the Google API response of the Google load balancer as the primary response. The full resource configuration consists of some associated resources' API data, including backendService, group.
+The configuration of the Google Internal Load Balancer is dependent on the Google API response of the Forwarding Rules as the primary response. The full resource configuration consists of some associated resources' API data, including backendService, group.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| Load Balancers / Forwarding Rules - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
+| Load Balancers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
 | Backend Services - Get | backendService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
 | Instance Groups - Get | backendService.backends.group | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
 
@@ -255,7 +256,7 @@ Below are the Google APIs used to generate this configuration.
     "name": "host-proj2-tcp-internal-lb1-frontend",
     "description": "",
     "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1",
-    "IPAddress": "172.18.3.12",
+    "IPAddress": "xx.xx.xx.xx",
     "IPProtocol": "TCP",
     "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/forwardingRules/host-proj2-tcp-internal-lb1-frontend",
     "loadBalancingScheme": "INTERNAL",
@@ -317,6 +318,47 @@ Below are the Google APIs used to generate this configuration.
 
 </details>
 <br />
+
+
+
+## Google External Load Balancer
+### Introduction
+The configuration of the Google External Load Balancer is dependent on the Google API response of the Forwarding Rules as the primary response.
+
+### Content
+Below are the Google APIs used to generate this configuration.
+|Resource/Action|Relationship|Google API Version|Google API document|
+|------|------|------|------|
+| Load Balancers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json5
+{
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "lb6-tcp-external-lb(<ldb-id>-external-tcp-loadbalancer)",
+    "kind": "compute#forwardingRule",
+    "id": "<ldb-id>",
+    "creationTimestamp": "2021-05-05T14:39:31.689-07:00",
+    "name": "lb6-tcp-external-lb-frontend",
+    "description": "",
+    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
+    "IPAddress": "xx.xx.xx.xx",
+    "IPProtocol": "TCP",
+    "portRange": "80-80",
+    "target": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/targetPools/lb6-tcp-external-lb",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/forwardingRules/lb6-tcp-external-lb-frontend",
+    "loadBalancingScheme": "EXTERNAL",
+    "networkTier": "STANDARD",
+    "labelFingerprint": "42WmSpB8rSM=",
+    "fingerprint": "QBWK_EndcTg="
+}
+```
+
+</details>
+<br />
+
 
 
 ## Google Firewall
