@@ -512,7 +512,7 @@ Below are the Google APIs used to generate this configuration.
 </details>
 <br />
 
-## Google Dedicated Interconnect - Review <a id="dedicated-google-interconnect"></a> 
+## Google Dedicated Interconnect <a id="dedicated-google-interconnect"></a> 
 ### Introduction
 The configuration of the  Dedicated Google Interconnect is dependent on the Google API response of the interconnects as the primary response. The full resource configuration consists of some associated resources' Interconnect Attachments.
 
@@ -618,7 +618,7 @@ The configuration of the Google Cloud Private Service Connect Endpoint relies so
 Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| NAT Gateway - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/get
+| Cloud Private Service Connect Endpoint - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules/get
 
 ### Sample
 <details><summary>Configuration File</summary>
