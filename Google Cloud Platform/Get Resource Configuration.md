@@ -240,7 +240,7 @@ Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
 | Load Balancers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
-| Backend Services - Get | backendService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+| Backend Service - Get | backendService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
 | Instance Groups - Get | backendService.backends.group | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
 
 ### Sample
@@ -262,6 +262,7 @@ Below are the Google APIs used to generate this configuration.
     "loadBalancingScheme": "INTERNAL",
     "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
     "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
+    // Backend Service: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
     "backendService": {
         "kind": "compute#backendService",
         "id": "3089886968714976396",
@@ -271,6 +272,7 @@ Below are the Google APIs used to generate this configuration.
         "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/backendServices/host-proj2-tcp-internal-lb1",
         "backends": [
             {
+                # Instance Groups: https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
                 "group": {
                     "kind": "compute#instanceGroup",
                     "id": "<group_id>",
@@ -383,16 +385,16 @@ There is no supported API data for Google Firewall. The resource configuration c
 <br />
 
 
-## Google Cloud NAT Gateway - Review
+## Google Cloud NAT Gateway
 
 ### Introduction
-The configuration of the Google Cloud NAT Gateway relies solely on the corresponding Google API of the routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
+The configuration of the Google Cloud NAT Gateway relies solely on the corresponding Google API of its cloud routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
-| NAT Gateway - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/routers/get
+| Cloud Routers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/routers/get
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -528,21 +530,21 @@ Below are the Google APIs used to generate this configuration.
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-dedicateinterconnect)",
-    "kind": string,
-    "description": string,
-    "selfLink": string,
-    "id": string,
-    "creationTimestamp": string,
-    "name": string,
-    "location": string,
-    "linkType": enum,
-    "requestedLinkCount": integer,
-    "interconnectType": enum,
-    "adminEnabled": boolean,
-    "nocContactEmail": string,
-    "customerName": string,
-    "operationalStatus": enum,
-    "provisionedLinkCount": integer,
+    "kind": "compute#interconnec",
+    "description": "dedicated-interconnec",
+    "selfLink": "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect-name}",
+    "id": "{interconnect-id}",
+    "creationTimestamp": "2021-04-08T12:44:16.166-07:00",
+    "name": "gcptonetbondb2",
+    "location": "us-east4",
+    "linkType": "LINK_TYPE_ETHERNET_10G_LR",
+    "requestedLinkCount": 1,
+    "interconnectType": "DEDICATED",
+    "adminEnabled": false,
+    "nocContactEmail": "example@ex.com",
+    "customerName": "example-name",
+    "operationalStatus": "OS_ACTIVE",
+    "provisionedLinkCount": 1,
     "interconnectAttachments": [
         {
 
@@ -562,11 +564,6 @@ Below are the Google APIs used to generate this configuration.
             "vlanTag8021q": 1141,
             "edgeAvailabilityDomain": "AVAILABILITY_DOMAIN_2",
             "bandwidth": "BPS_50M",
-            "partnerMetadata": {
-                "partnerName": "AT&T",
-                "interconnectName": "chicago-zone2-cgcil02",
-                "portalUrl": "https://synaptic.att.com/"
-            },
             "labelFingerprint": "42WmSpB8rSM=",
             "state": "ACTIVE",
             "partnerAsn": "8030",
@@ -575,38 +572,37 @@ Below are the Google APIs used to generate this configuration.
             "stackType": "IPV4_ONLY"
         }
     ],
-    "peerIpAddress": string,
-    "googleIpAddress": string,
-    "googleReferenceId": string,
+    "peerIpAddress": "xx.xx.xx.xx",
+    "googleIpAddress": "xx.xx.xx.xx",
+    "googleReferenceId": "xxxxxxxxxx",
     "expectedOutages": [
         {
-        "name": string,
-        "description": string,
-        "source": enum,
-        "state": enum,
-        "issueType": enum,
+        "name": "outage-name",
+        "description": "this is expected outage",
+        "source": "GOOGLE",
+        "state": "ACTIVE",
+        "issueType": "OUTAGE",
         "affectedCircuits": [
-            string
+            "IT_PARTIAL_OUTAGE"
         ],
-        "startTime": string,
-        "endTime": string
+        "startTime": "2021-04-08T12:44:16.166-07:00",
+        "endTime": "2021-04-09T12:44:16.166-07:00"
         }
     ],
     "circuitInfos": [
         {
-        "googleCircuitId": string,
-        "googleDemarcId": string,
-        "customerDemarcId": string
+        "googleCircuitId": "xxxxxxxxxx",
+        "googleDemarcId": "xxxxxxxxxx",
+        "customerDemarcId": "xxxxxxxxxx"
         }
     ],
     "labels": {
-        string: string,
-        ...
+        "label_key": "label_value"
     },
-    "labelFingerprint": string,
-    "state": enum,
-    "satisfiesPzs": boolean,
-    "remoteLocation": string
+    "labelFingerprint": "xxxxxxxx",
+    "state": "ACTIVE",
+    "satisfiesPzs": true,
+    "remoteLocation": "somewhere"
 }
 ```
 
