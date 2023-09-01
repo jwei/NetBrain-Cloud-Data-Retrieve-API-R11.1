@@ -9,6 +9,22 @@
 # Introduction <a id="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBGoogleAPILibrary` class that retrieves Google resource data via the Google REST API.
 
+
+# Supported devices -> TBD
+  - Google VPC Router
+  - Google VPN Gateway
+  - Google Cloud Router
+  - Google Internal Load Balancer
+  - Google External Load Balancer
+  - Google Firewall
+  - Google Cloud NAT Gateway
+  - Google Virtual Machine
+  - Google Cloud Internet Gateway
+  - Google Partner Interconnect
+  - Google Dedicated Interconnect
+  - Google Cloud Private Service Connect Endpoint
+
+
 # API Definition <a id="api_def"></a>
 ```python
   def GetResourceDataByAPI(

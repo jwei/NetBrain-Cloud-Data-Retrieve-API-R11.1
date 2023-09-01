@@ -63,24 +63,18 @@ from datetime import datetime, timezone, timedelta
 import json
 
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(context, device_name,
-                                     {
-                                         'techName': 'Google Cloud',
-                                         'paramType': 'SDN',
-                                         'params' :['nbProperties' ,'id']
-                                     })
-
-    nb_props = json.loads(node_props['params']['nbProperties'])
-
-    params = [{
-        'devName': device_name,
-        'projId': nb_props['projectId'],
-        'deviceId' :node_props['params']['id']
-    }]
-    return params
+    nb_node = GetDeviceProperties(
+        context, device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return nb_node
 
 
-def RetrieveData(params):
+def RetrieveData(nb_node):
     # Setup url_params
     currentTime = datetime.now(timezone.utc)
     pastTime = currentTime - timedelta(seconds = 330)
@@ -92,7 +86,8 @@ def RetrieveData(params):
         'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
     # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(params, url_params)
+    data = NBGoogleAPILibrary.GetMonitorMetrics(nb_node, url_params)
     return data
+
 
  ```
