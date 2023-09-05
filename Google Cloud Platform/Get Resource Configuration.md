@@ -5,8 +5,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
   - [Google VPC Router](#google-vpc-router)
   - [Google VPN Gateway](#google-vpn-gateway)
   - [Google Cloud Router](#google-cloud-router)
-  - [Google Internal Load Balancer](#google-internal-load-balancer)
-  - [Google External Load Balancer](#google-external-load-balancer)
+  - [Google Load Balancer](#google-load-balancer)
   - [Google Firewall](#google-firewall)
   - [Google Cloud NAT Gateway](#google-cloud-nat-gateway)
   - [Google Virtual Machine](#google-virtual-machine)
@@ -232,9 +231,9 @@ Below are the Google APIs used to generate this configuration.
 </details>
 <br />
 
-## Google Internal Load Balancer
+## Google Load Balancer
 ### Introduction
-The configuration of the Google Internal Load Balancer is dependent on the Google API response of the Forwarding Rules as the primary response. The full resource configuration consists of some associated resources' API data, including backendService, group.
+The configuration of the Google Load Balancer is dependent on the Google API response of the Forwarding Rules as the primary response. There is no distinct between internal or external, Layer 4 or Layer 7, and each load balance is the combination of various resources. The full resource configuration consists of some associated resources' API data, including backendService, group. 
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -319,45 +318,6 @@ Below are the Google APIs used to generate this configuration.
 }
 ```
 
-</details>
-<br />
-
-
-
-## Google External Load Balancer
-### Introduction
-The configuration of the Google External Load Balancer is dependent on the Google API response of the Forwarding Rules as the primary response.
-
-### Content
-Below are the Google APIs used to generate this configuration.
-|Resource/Action|Relationship|Google API Version|Google API document|
-|------|------|------|------|
-| Load Balancers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
-
-### Sample
-<details><summary>Configuration File</summary>
-
-```json5
-{
-    "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "lb6-tcp-external-lb(<ldb-id>-external-tcp-loadbalancer)",
-    "kind": "compute#forwardingRule",
-    "id": "<ldb-id>",
-    "creationTimestamp": "2021-05-05T14:39:31.689-07:00",
-    "name": "lb6-tcp-external-lb-frontend",
-    "description": "",
-    "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
-    "IPAddress": "xx.xx.xx.xx",
-    "IPProtocol": "TCP",
-    "portRange": "80-80",
-    "target": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/targetPools/lb6-tcp-external-lb",
-    "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/forwardingRules/lb6-tcp-external-lb-frontend",
-    "loadBalancingScheme": "EXTERNAL",
-    "networkTier": "STANDARD",
-    "labelFingerprint": "42WmSpB8rSM=",
-    "fingerprint": "QBWK_EndcTg="
-}
-```
 
 </details>
 <br />
