@@ -11,6 +11,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
   - [Google Cloud NAT Gateway](#google-cloud-nat-gateway)
   - [Google Virtual Machine](#google-virtual-machine)
   - [Google Cloud Internet Gateway](#google-cloud-internet-gateway)
+  - [Google Cloud Global Internet Gateway](#google-cloud-global-internet-gateway)
   - [Google Partner Interconnect](#partner-google-interconnect)
   - [Google Dedicated Interconnect](#dedicated-google-interconnect)
   - [Google Cloud Private Service Connect Endpoint](#google-cloud-private-service-connect-endpoint)
@@ -18,7 +19,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 ## Google VPC Router
 
 ### Introduction
-The configuration of the Google Virtual Network distributed router relies solely on the corresponding Google API of the virtual network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
+The configuration of the Google VPC Router distributed router relies solely on the corresponding Google API of the VPC Network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -113,7 +114,7 @@ Below are the Google APIs used to generate this configuration.
     "tunnels": [
         {
             "kind": "compute#vpnTunnel",
-            "id": "5256021233025810772",
+            "id": "<tunnel-id>",
             "creationTimestamp": "2021-06-14T13:44:43.411-07:00",
             "name": "to-hostproj1-tunnel-1",
             "description": "to-hostproj1-tunnel-1",
@@ -124,7 +125,7 @@ Below are the Google APIs used to generate this configuration.
             "router": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/routers/serv-proj2-us-west4-cloudvpn",
             "peerIp": "xx.xx.xx.xx",
             "sharedSecret": "*",
-            "sharedSecretHash": "AH91_FUBngpP0Oy65ZGeI2UBf96K",
+            "sharedSecretHash": "xxxxxxxxxxxxxxxxxxxxxx",
             "status": "ESTABLISHED",
             "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-west4/vpnTunnels/to-hostproj1-tunnel-1",
             "ikeVersion": 2,
@@ -366,7 +367,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google Firewall
 
 ### Introduction
-There is no supported API data for Google Firewall. The resource configuration consists of basic data, including id, name and networkName.
+An independent API for Google Firewall resources is not available; Instead, we create a Google Firewall for each Virtual Private Cloud (VPC). The configuration of the resource includes essential information such as the ID, name, and network name.
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -402,7 +403,7 @@ Below are the Google APIs used to generate this configuration.
 ```json5
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "asia-vpc-spoke4(2490677651552452917-asia-vpc-spoke4)",
+    "netbrainHostName": "asia-vpc-spoke4(<vpc-id>-asia-vpc-spoke4)",
     "name": "asia-vpc-spoke4",
     "endpointTypes": [
         "ENDPOINT_TYPE_VM"
@@ -444,7 +445,7 @@ Configuration feature is not supported for Google Virtual Machine yet. Please se
 
 ## Google Cloud Internet Gateway
 ### Introduction
-Configuration feature is currently not support for Google Cloud Internet Gateway API. The structure of the resource data is as follows:
+Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the internet.
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -456,7 +457,28 @@ Configuration feature is currently not support for Google Cloud Internet Gateway
     "id": "<ig-id>-igw",
     "name": "europe-west-vpc-igw(<ig-id>-igw)",
     "networkId": "<ig-id>",
-    "networkLink": "https://www.googleapis.com/compute/v1/projects/netbrain-gcp-lab-004/global/networks/europe-west-vpc"
+    "networkLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/europe-west-vpc"
+}
+```
+
+</details>
+<br/>
+
+## Google Cloud Global Internet Gateway
+### Introduction
+Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each organization to illustrate the path of network traffic to the internet.
+
+### Sample
+<details><summary>Configuration File</summary>
+
+```json5
+{
+    "netbrainNotes": "This config file is generated via API",
+    "netbrainHostName": "europe-west-vpc-igw(<ig-id>-igw)",
+    "id": "<ig-id>-igw",
+    "name": "europe-west-vpc-igw(<ig-id>-igw)",
+    "networkId": "<ig-id>",
+    "networkLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/europe-west-vpc"
 }
 ```
 
@@ -571,6 +593,8 @@ Below are the Google APIs used to generate this configuration.
             "encryption": "NONE",
             "dataplaneVersion": 1,
             "stackType": "IPV4_ONLY"
+            // Some additional params 
+            // ...
         }
     ],
     "peerIpAddress": "xx.xx.xx.xx",
