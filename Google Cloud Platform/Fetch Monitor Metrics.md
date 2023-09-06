@@ -12,6 +12,7 @@ For a complete list of available metrics for each Google resource, please refere
 # API Definition <a id="api_def"></a>
 ```python
 class NBGoogleAPILibrary:
+    @staticmethod
     def GetMonitorMetrics(
             api_server_id: str,
             params: dict,

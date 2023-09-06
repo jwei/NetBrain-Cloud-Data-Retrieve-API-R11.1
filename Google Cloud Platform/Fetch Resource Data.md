@@ -21,11 +21,16 @@ The `GetResourceDataByAPI` function is a static method of the `NBGoogleAPILibrar
 
 # API Definition <a id="api_def"></a>
 ```python
-  def GetResourceDataByAPI(
-            params: dict
+class NBGoogleAPILibrary:
+    @staticmethod
+    def GetResourceDataByAPI(
+            api_server_id: str,
+            resource_uri: str,
+            http_method: str = 'GET',
+            json_body: object = None,
     ) -> object:
-    # implementation
-    # ...
+        # implementation
+        # ...
 ```
 
 ## Input Parameters <a id="input"></a>
