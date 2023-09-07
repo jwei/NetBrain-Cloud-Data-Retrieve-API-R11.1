@@ -29,7 +29,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
     
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "central-vpc-hub-router(<vpc_id>-router)",
@@ -88,7 +88,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "tyler-vpn-000(<vpn_gateway_id>)",
@@ -160,7 +160,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "central-cloud-router-2(<router_id>)",
@@ -246,7 +246,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "host-proj2-tcp-internal-lb1(<ldb_id>-internal-tcp-loadbalancer)",
@@ -332,7 +332,7 @@ An independent API for Google Firewall resources is not available; Instead, we c
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "europewest-vpc-firewall(<firewall-id>-firewall)",
@@ -360,7 +360,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "asia-vpc-spoke4(<vpc-id>-asia-vpc-spoke4)",
@@ -410,7 +410,7 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "europe-west-vpc-igw(<ig-id>-igw)",
@@ -431,7 +431,7 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "europe-west-vpc-igw(<ig-id>-igw)",
@@ -458,7 +458,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-partnerinterconnect)",
@@ -508,7 +508,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "chicago-zone2-cgcil02(<interconnect-id>-dedicateinterconnect)",
@@ -608,7 +608,7 @@ Below are the Google APIs used to generate this configuration.
 ### Sample
 <details><summary>Configuration File</summary>
 
-```json5
+```json
 {
     "netbrainNotes": "This config file is generated via API",
     "netbrainHostName": "psctest1(<psc-id>)",
