@@ -553,8 +553,7 @@ Below are the Google APIs used to generate this configuration.
             "encryption": "NONE",
             "dataplaneVersion": 1,
             "stackType": "IPV4_ONLY"
-            // Some additional params 
-            // ...
+            # ... with some additional params 
         }
     ],
     "peerIpAddress": "xx.xx.xx.xx",
