@@ -107,9 +107,9 @@ Below are the Google APIs used to generate this configuration.
             "ipAddress": "xx.xx.xx.xx"
         }
     ],
-    // vpn tunnels: 
-    //   https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/get
-    //   https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/list
+    # vpn tunnels: 
+    #   https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/get
+    #   https://cloud.google.com/compute/docs/reference/rest/v1/vpnTunnels/list
     "tunnels": [
         {
             "kind": "compute#vpnTunnel",
@@ -262,7 +262,7 @@ Below are the Google APIs used to generate this configuration.
     "loadBalancingScheme": "INTERNAL",
     "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
     "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
-    // Backend Service: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+    # Backend Service: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
     "backendService": {
         "kind": "compute#backendService",
         "id": "3089886968714976396",
@@ -272,7 +272,7 @@ Below are the Google APIs used to generate this configuration.
         "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/backendServices/host-proj2-tcp-internal-lb1",
         "backends": [
             {
-                // Instance Groups: https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
+                # Instance Groups: https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
                 "group": {
                     "kind": "compute#instanceGroup",
                     "id": "<group_id>",
@@ -527,7 +527,7 @@ Below are the Google APIs used to generate this configuration.
     "customerName": "example-name",
     "operationalStatus": "OS_ACTIVE",
     "provisionedLinkCount": 1,
-    // Interconnect Attachments: https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
+    # Interconnect Attachments: https://cloud.google.com/compute/docs/reference/rest/v1/interconnectAttachments/get
     "interconnectAttachments": [
         {
 
