@@ -77,6 +77,8 @@ class NBGoogleAPILibrary:
 
 ## Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit <a id="sample1"></a>
 ```python
+# VPC -> add special Notes on Documentation similar to https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md#special_notes
+
 
 '''
 Begin Declare Input Parameters
@@ -111,7 +113,7 @@ def RetrieveData(params):
     # Common used variable: nb_node, resource id, resource name, resource self link
     nb_node = params['params']
     gcp_resource_id = nb_node['networkId'] if "networkId" in nb_node else None
-    gcp_resource_name = nb_node['name'] if "name" in nb_node else None
+    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
     gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
@@ -128,7 +130,7 @@ def RetrieveData(params):
     pastTime = currentTime - timedelta(hours=24)
     url_params = {
         'filter': {
-            'metric.type' : "compute.googleapis.com/quota/instances_per_vpc_network/limit",
+            'metric.type' : "compute.googleapis.com/quota/instances_per_peering_group/usage",
             'resource.labels.network_id': gcp_resource_id
         },
         'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -148,7 +150,6 @@ def RetrieveData(params):
 
 ## Sample 2: Get Resource Metrics of VPN Gateway Connections <a id="sample2"></a>
 ```python
-
 
 '''
 Begin Declare Input Parameters
@@ -183,7 +184,7 @@ def RetrieveData(params):
     # Common used variable: nb_node, resource id, resource name, resource self link
     nb_node = params['params']
     gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['name'] if "name" in nb_node else None
+    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
     gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
@@ -214,6 +215,7 @@ def RetrieveData(params):
         url_params=url_params
     )
     return data
+
 ```
 ## Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count<a id="sample3"></a>
 ```python
