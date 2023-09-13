@@ -1,20 +1,20 @@
 # Table of Contents
 - [Introduction](#introduction)
 - [API Definition](#api_def)
-    - [Input Parameters](#input-parameters)
+    - [Input Parameters](#input)
     - [Output](#output)
 - [Special Notes](#special-notes)
-    - [Virtual Private Network](#virtual-private-network)
+    - [Virtual Private Cloud](#vpc)
     - [Unsupported Virtual Node](#unsupported-virtual-node)
     - [Dedicated Interconnect](#dedicated-interconnect)
 - [Sample](#sample)
-    - [Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit](#sample-1-get-resource-metrics-of-vpc-instances-per-vpc-network-limit)
-    - [Sample 2: Get Resource Metrics of VPN Gateway Connections](#sample2-get-resource-metrics-of-vpn-gateway-connections)
-    - [Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count](#sample3-get-resource-metrics-of-cloud-router-sent-routes-count)    
-    - [Sample 4: Get Resource Metrics of Load Balance Max Rate](#sample4-get-resource-metrics-of-load-balance-max-rate)
-    - [Sample 5: Get Resource Metrics of Cloud NAT New Connections Count](#sample5-get-resource-metrics-of-cloud-nat-new-connections-count)
-    - [Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity](#sample6-get-resource-metrics-of-partner-interconnect-network-attachment-capacity)
-    - [Sample 7: Get Resource Metrics of Private Service Connect](#sample7-get-resource-metrics-of-private-service-connect)
+    - [Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit](#sample1)
+    - [Sample 2: Get Resource Metrics of VPN Gateway Connections](#sample2)
+    - [Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count](#sample3)    
+    - [Sample 4: Get Resource Metrics of Load Balance Max Rate](#sample4)
+    - [Sample 5: Get Resource Metrics of Cloud NAT New Connections Count](#sample5)
+    - [Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity](#sample6)
+    - [Sample 7: Get Resource Metrics of Private Service Connect](#sample7)
 
 
 # Introduction <a id="introduction"></a>
@@ -57,26 +57,28 @@ class NBGoogleAPILibrary:
 > resp_body_json: The JSON response body of the HTTP request to the Google monitor metrics API. This is a dictionary with string keys and values.
 
 
-# Special Notes
+# Special Notes <a id="special-notes"></a>
 
-## Virtual Private Network
+## Virtual Private Cloud <a id="vpc"></a>
 - In NetBrain, we generate "VPC Router" for each GCP Virtual Network to represent its networking entity
 - The VPC's resource id is saved in the "networkId" in the nb_node data from `RetrieveData` method
 - For the usage please check samples below.
 
-## Unsupported Virtual Node
+## Unsupported Virtual Node <a id="unsupported-virtual-node"></a>
 - There are some virual nodes building in NetBrain structure, which might not have metrics data:
   - Firewall
   - Internet Gateway
   - Global Internet Gateway
 
-## Dedicated Interconnect
+## Dedicated Interconnect  <a id="dedicated-interconnect"></a>
 - There is no user-case / actual node in Test Env
 
 # Samples <a id="sample"></a>
-## Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit
-- Test Resource that have the metrics data. e.g.  `"network_id": "8531699223824012810",`
+- Related Docs:
+  - [Metrics list](https://cloud.google.com/monitoring/api/metrics)
+  - [Monitored resource types](https://cloud.google.com/monitoring/api/resources)
 
+## Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit <a id="sample1"></a>
 ```python
 
 '''
@@ -147,8 +149,7 @@ def RetrieveData(params):
 
 ```
 
-## Sample 2: Get Resource Metrics of VPN Gateway Connections
-- Test Resource that have the metrics data. e.g.  `"gateway_id": "809802523348700275"`
+## Sample 2: Get Resource Metrics of VPN Gateway Connections <a id="sample2"></a>
 ```python
 
 
@@ -216,11 +217,8 @@ def RetrieveData(params):
         url_params=url_params
     )
     return data
-
-
 ```
-## Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count
-- Test Resource that have the metrics data. e.g.  `"router_id": "8073025866552711547"`
+## Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count<a id="sample3"></a>
 ```python
 
 '''
@@ -292,10 +290,8 @@ def RetrieveData(params):
 
 ```
 
-## Sample 4: Get Resource Metrics of Load Balance Max Rate
-- Test Resource that have the metrics data. e.g.  `"backend_service_name": "lb5-http-internal-lb-backend"`
+## Sample 4: Get Resource Metrics of HTTP Load Balance  Total Latencies<a id="sample4"></a>
 ```python
-
 
 '''
 Begin Declare Input Parameters
@@ -313,19 +309,17 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
-        context, device_name,
+        context,
+        device_name,
         {
-            'devName': device_name,
             'techName': 'Google Cloud',
             'paramType': 'SDN',
             'params': ['*']
         }
     )
-
-    nb_node['device_name'] = device_name
-
     return nb_node
 
 
@@ -333,11 +327,8 @@ def RetrieveData(params):
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
     gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['name'] if "name" in nb_node else None
+    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
     gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-
-    # Parse Device Name
-    device_name = params['device_name'].split('(')[0 ] +'-backend'
 
     # Setup api server id
     api_server_id = params['apiServerId']
@@ -348,17 +339,21 @@ def RetrieveData(params):
         raise Exception(msg)
     proj_id = params['params']['nbProperties']['projectId']
 
+    # Get forwarding rule name
+    forwarding_rule = nb_node['nbProperties']["forwardingRules"][0].split("/")[-1]
+
     # Setup url_params
     currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds = 330)
+    pastTime = currentTime - timedelta(hours=4)
     url_params = {
         'filter': {
-            'metric.type' : "network.googleapis.com/loadbalancer/max_rate",
-            'resource.labels.backend_service_name': device_name
+            'metric.type': "loadbalancing.googleapis.com/https/total_latencies",
+            'resource.labels.forwarding_rule_name': forwarding_rule
         },
         'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
         'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
+
     # Get Live Data
     data = NBGoogleAPILibrary.GetMonitorMetrics(
         api_server_id=api_server_id,
@@ -366,12 +361,10 @@ def RetrieveData(params):
         url_params=url_params
     )
     return data
-
 ```
 
 
-## Sample 5: Get Resource Metrics of Cloud NAT New Connections Count
-- Test Resource that have the metrics data. e.g.  `"nat_gateway_name": "central-nat-gateway-1",`
+## Sample 5: Get Resource Metrics of Cloud NAT New Connections Count<a id="sample5"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -442,8 +435,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity
-- Test Resource that have the metrics data. e.g.  `"interconnect": "chicago-zone1-cgcil01"`
+## Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity<a id="sample6"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -516,9 +508,11 @@ def RetrieveData(params):
 
 
 
-## Sample 7: Get Resource Metrics of Private Service Connect
-- Test Resource that have the metrics data. e.g.  `"nat_gateway_name": "central-nat-gateway-1",`
+## Sample 7: Get Resource Metrics of Private Service Connect<a id="sample7"></a>
 ```python
+# Research morethermore on this one
+# Note: forwarding rule -> all-ip -> private service endpoint
+
 '''
 Begin Declare Input Parameters
 [
@@ -550,12 +544,6 @@ def BuildParameters(context, device_name, params):
 
 
 def RetrieveData(params):
-    # Common used variables: GCP related Resource id, name, self link uri
-    nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-    
     # Setup api server id
     api_server_id = params['apiServerId']
 
@@ -565,13 +553,14 @@ def RetrieveData(params):
         raise Exception(msg)
     proj_id = params['params']['nbProperties']['projectId']
 
+    # raise Exception(str(params['params']))
     # Setup url_params
     currentTime = datetime.now(timezone.utc)
     pastTime = currentTime - timedelta(seconds=330)
     url_params = {
         'filter': {
-            'metric.type': "compute.googleapis.com/nat/new_connections_count",
-            'metric.labels.nat_gateway_name': gcp_resource_name
+            'metric.type': "compute.googleapis.com/private_service_connect/consumer/closed_connections_count",
+            'resource.labels.psc_connection_id': params['params']['pscConnectionId']
         },
         'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
         'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')

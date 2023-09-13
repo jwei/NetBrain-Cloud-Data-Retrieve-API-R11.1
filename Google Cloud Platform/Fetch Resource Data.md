@@ -45,7 +45,12 @@ The function takes in several arguments, including:
 > This is a dictionary with string keys and values.
 
 # Samples <a id="sample"></a>
-## Sample 1 -- Get Resource API Data <a id="sample_1"></a>
+## Sample 1 -- Get General Resource API Data <a id="sample_1"></a>
+- Supported Resources: VPC Router, VPN Gateway, Cloud Router, Private Service Connect, Partner Interconnect
+- Virtual Nodes: Internet Gateway,Global Internet Gateway
+- Unsupported Resources: Firewall, LoadBalancer, Cloud Nat
+- Unknow: Dedicated Interconnect
+
 ```python
 
 '''
