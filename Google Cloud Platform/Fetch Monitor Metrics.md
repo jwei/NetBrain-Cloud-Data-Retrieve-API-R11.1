@@ -507,9 +507,6 @@ def RetrieveData(params):
 
 ## Sample 7: Get Resource Metrics of Private Service Connect<a id="sample7"></a>
 ```python
-# Research morethermore on this one
-# Note: forwarding rule -> all-ip -> private service endpoint
-
 '''
 Begin Declare Input Parameters
 [
@@ -541,6 +538,12 @@ def BuildParameters(context, device_name, params):
 
 
 def RetrieveData(params):
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
+    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
+    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
+
     # Setup api server id
     api_server_id = params['apiServerId']
 
@@ -550,10 +553,9 @@ def RetrieveData(params):
         raise Exception(msg)
     proj_id = params['params']['nbProperties']['projectId']
 
-    # raise Exception(str(params['params']))
     # Setup url_params
     currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds=330)
+    pastTime = currentTime - timedelta(hours=4)
     url_params = {
         'filter': {
             'metric.type': "compute.googleapis.com/private_service_connect/consumer/closed_connections_count",
