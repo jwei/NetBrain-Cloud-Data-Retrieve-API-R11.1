@@ -70,9 +70,6 @@ class NBGoogleAPILibrary:
   - Internet Gateway
   - Global Internet Gateway
 
-## Dedicated Interconnect  <a id="dedicated-interconnect"></a>
-- There is no user-case / actual node in Test Env
-
 # Samples <a id="sample"></a>
 - Related Docs:
   - [Metrics list](https://cloud.google.com/monitoring/api/metrics)
