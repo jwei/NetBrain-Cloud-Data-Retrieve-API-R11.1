@@ -217,7 +217,6 @@ def RetrieveData(params):
 ```
 ## Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count<a id="sample3"></a>
 ```python
-
 '''
 Begin Declare Input Parameters
 [
@@ -252,7 +251,7 @@ def RetrieveData(params):
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
     gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['name'] if "name" in nb_node else None
+    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
     gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
@@ -283,7 +282,6 @@ def RetrieveData(params):
         url_params=url_params
     )
     return data
-
 
 ```
 
