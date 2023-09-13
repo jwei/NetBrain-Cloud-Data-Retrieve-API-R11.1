@@ -6,7 +6,6 @@
 - [Special Notes](#special-notes)
     - [Virtual Private Cloud](#vpc)
     - [Unsupported Virtual Node](#unsupported-virtual-node)
-    - [Dedicated Interconnect](#dedicated-interconnect)
 - [Sample](#sample)
     - [Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit](#sample1)
     - [Sample 2: Get Resource Metrics of VPN Gateway Connections](#sample2)
