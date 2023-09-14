@@ -10,7 +10,7 @@
     - [Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit](#sample1)
     - [Sample 2: Get Resource Metrics of VPN Gateway Connections](#sample2)
     - [Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count](#sample3)    
-    - [Sample 4: Get Resource Metrics of Load Balance Max Rate](#sample4)
+    - [Sample 4: Get Resource Metrics of HTTP Load Balance  Total Latencies](#sample4)
     - [Sample 5: Get Resource Metrics of Cloud NAT New Connections Count](#sample5)
     - [Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity](#sample6)
     - [Sample 7: Get Resource Metrics of Private Service Connect](#sample7)
