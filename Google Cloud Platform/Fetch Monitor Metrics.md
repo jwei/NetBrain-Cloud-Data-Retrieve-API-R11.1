@@ -26,7 +26,7 @@ class NBGoogleAPILibrary:
     @staticmethod
     def GetMonitorMetrics(
             api_server_id: str,
-            params: dict,
+            proj_id: str,
             url_params: dict,
             api_version: str = 'v3'
     ) -> object:
@@ -35,8 +35,8 @@ class NBGoogleAPILibrary:
 ```
 
 ## Input Parameters <a id="input"></a>
- - `api_server_id`(str) - The Google Tenant API Server Instance ID saved in Device.
- - `params`(dict) - A dictionary containing additional parameters to use when calling the Google monitor metrics API. 
+ - `api_server_id`(str) - The external API server used to discover this GCP resource..
+ - `proj_id`(str) - The project ID of the GCP resource belonging to. 
  - `url_params`(dic) - A dictionary, containing additional URL parameters like filter and interval, used when calling the Google monitor metrics API. For a complete list of available metrics for each Google resource, please reference to the document: https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list
      - <details><summary>e.g.:</summary>
 
@@ -51,7 +51,7 @@ class NBGoogleAPILibrary:
         }
         ```
         </details>
- - `api_version[optional]`(str) - The API version to use for the Google monitor metrics API.
+ - `api_version[optional]`(str) - API Version of the Google Rest API. default 'v3'
 ## Output <a id="output"></a>
 > resp_body_json: The JSON response body of the HTTP request to the Google monitor metrics API. This is a dictionary with string keys and values.
 
