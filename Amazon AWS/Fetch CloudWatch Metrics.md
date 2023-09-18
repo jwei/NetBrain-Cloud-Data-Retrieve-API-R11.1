@@ -79,7 +79,8 @@ class NBAWSAPILibrary:
         # ...
 ```
 
-## Input Parameters for API "GetCloudWatchMetrics" <a name="input"></a>
+## Input Parameters <a name="input"></a>
+### API "GetCloudWatchMetrics"
  - `param`(str) - it is a NetBrain object that contains `apiServerId`, `RegionName` and essential information in `func_param`.
     - `func_param` (dict) including `StartTime`, `EndTime`, `MetricDataQueries` and so on. 
        - `MetricDataQueries` (list) [REQUIRED] The metric queries to be returned. A single GetMetricData call can include as many as 500 MetricDataQuery structures. Each of these structures can specify either a metric to retrieve, a Metrics Insights query, or a math expression to perform on retrieved data. Please use this [link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) as reference to construct the metric query.
@@ -88,11 +89,15 @@ class NBAWSAPILibrary:
        - `MaxDatapoints` (integer) The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
 
 
-## Output for API "GetCloudWatchMetrics" <a name="output"></a>
-> resp_body_json: The JSON response body of request to the AWS CloudWatch metrics SDK. This is a dictionary with string keys and values.
+## Output <a name="output"></a>
+### API "GetCloudWatchMetrics"
+> resp_body_json: The JSON response body of the request to the AWS CloudWatch metrics SDK. This is a dictionary with string keys and values.
+
 
 ## Exception Raises <a name="raises"></a>
+### API "GetCloudWatchMetrics"
 > The `GetCloudWatchMetrics` function raises a generic Exception if the provided parameters are invalid. 
+
 
 # Sample <a name="sample"></a>
 
