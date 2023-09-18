@@ -28,37 +28,20 @@ Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/ser
 
 
 # API Definition <a name="definition"></a>
- - `GetCloudWatchResourceId` method would be used to get the resource ID for the AWS resource based on the device type and parameters that were passed to the function.This retrieved resource ID is then used to construct the CloudWatch metric query, which is passed as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
-
-
  - `GetCloudWatchMetrics` is a method that retrieves CloudWatch metrics data for a specified resource. It takes in a dictionary of parameters, which includes information such as the resource ID, the CloudWatch metric data query, and the CloudWatch client configuration
 
+
+ - `GetResourceIDFromDataModel` method would be used to get the resource ID for the AWS resource based on the device type and parameters that were passed to the function. This retrieved resource ID is then used to construct the CloudWatch metric query, which is passed as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
+
 ```python
-class NBAWSAPILibrary:
-    @staticmethod
-    def GetCloudWatchResourceID(param: object):        
-        """ Get the resource ID for a given AWS resource to use with CloudWatch metrics.
- 
-        Args:
-            param (dict): A dictionary containing the parameters needed to identify the resource.
- 
-        Returns:
-            (str): The ID of the resource.
- 
-        Raises:
-            Exception: If the given resource is not supported for CloudWatch metrics.
-        """
- 
-        # implementation
-        # ...
- 
+class NBAWSAPILibrary:    
     @staticmethod
     def GetCloudWatchMetrics(params: object) -> object:
         """ Fetches AWS CloudWatch metrics from AWS CloudWatch module
  
         Leverage AWS CloudWatch module to fetch resource metrics via SDK
         Ref:
-        1. AWS CloudWatch Metrics service:
+        1. AWS Cloud Watch Metrics service: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch/client/get_metric_data.html
  
         Args:
             param (dict): e.g. {
@@ -67,12 +50,29 @@ class NBAWSAPILibrary:
                 'func_param': {'StartTime': datetime.datetime(2020, 9, 23, 12, 10, 22, 716496), 'EndTime': datetime.datetime(2020, 9, 24, 12, 10, 22, 716496), ...}
             }
  
- 
         Returns:
-            (object) response json body
+            (object) response JSON body
  
         Raises:
            Exception: It raises a generic Exception if the provided parameters are invalid.
+        """
+ 
+        # implementation
+        # ...
+
+
+    @staticmethod
+    def GetResourceIDFromDataModel(nb_node: object):        
+        """ Get the AWS resource ID from NetBrain data model to use in AWS API request.
+ 
+        Args:
+            nb_node (dict): The NetBrain data model of this resource, which can be generated with the built-in function BuildParameters(). Please check the samples for usage.
+ 
+        Returns:
+            (str): The ID of the resource.
+ 
+        Raises:
+            Exception: If the given resource is not supported for CloudWatch metrics.
         """
  
         # implementation
