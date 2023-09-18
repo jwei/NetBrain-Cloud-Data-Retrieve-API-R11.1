@@ -19,12 +19,12 @@ Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/ser
 * AWS EC2 Instance
 * AWS NAT Gateway
 * AWS Transit Gateway
-* AWS DX Router
 * AWS Network Firewall
 * AWS Classic Load Balancer
 * AWS Network Load Balancer
 * AWS Application Load Balancer
 * AWS Gateway Load Balancer
+* AWS DX Router (coming soon...)
 
 
 # API Definition <a name="definition"></a>
