@@ -31,7 +31,7 @@ Reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/ser
  - `GetCloudWatchMetrics` is a method that retrieves CloudWatch metrics data for a specified resource. It takes in a dictionary of parameters, which includes information such as the resource ID, the CloudWatch metric data query, and the CloudWatch client configuration
 
 
- - `GetResourceIDFromDataModel` method would be used to get the resource ID for the AWS resource based on the device type and parameters that were passed to the function. This retrieved resource ID is then used to construct the CloudWatch metric query, which is passed as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
+ - `GetResourceIDFromDataModel` method is used to get the AWS resource ID from NetBrain data model. This resource ID is then used to construct the CloudWatch metric query, which is passed-in as a parameter to `NBAWSAPILibrary.GetCloudWatchMetrics` method to retrieve the metric data.
 
 ```python
 class NBAWSAPILibrary:    
