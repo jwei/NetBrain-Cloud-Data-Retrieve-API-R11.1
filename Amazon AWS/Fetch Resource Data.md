@@ -103,7 +103,7 @@ class NBAWSAPILibrary:
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
    - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
   
- - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`. Sample 2 -- Using customized filters. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
+ - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`.  [Sample 4 -- Using keyword arguments](#sample-4).. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
 
 
 
@@ -182,6 +182,47 @@ def RetrieveData(param):
  ```
  
 ## Sample 3 -- Using customized function mapping <a name="sample-3"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+ 
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+import json
+  
+def BuildParameters(context, device_name, params):
+    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    return self_node['params']
+      
+def RetrieveData(param):
+    # customized_func_mapping is optional 
+    customized_func_mapping = {
+        'describe_transit_gateway_route_tables':
+        {
+            'resource_type': 'ec2',
+            'response_field_name': 'TransitGatewayRouteTables',
+            'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId',
+            'transit-gateway-id': 'TransitGatewayId'
+        }
+    }
+    data = NBAWSAPILibrary.GetResourceData(
+                param=param, 
+                func_name='describe_transit_gateway_route_tables', 
+                filter_keys=['transit-gateway-id'], 
+                customized_func_mapping=customized_func_mapping
+    )
+    return json.dumps(data, indent=4, default=str)
+ ```
+
+## Sample 4 -- Using keyword arguments <a name="sample-4"></a>
 ```python
 '''
 Begin Declare Input Parameters
