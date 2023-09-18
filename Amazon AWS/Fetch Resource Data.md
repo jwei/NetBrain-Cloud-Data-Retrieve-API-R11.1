@@ -227,39 +227,33 @@ def RetrieveData(param):
 ```python
 '''
 Begin Declare Input Parameters
-[
-]
-End Declare
- 
-For sample
-[
-    {"name": "$param1"},
-    {"name": "$param2"}
-]
-'''
-
+ [
+    {"name": "$intf_name"}
+ ]
+ End Declare
+ '''
 import json
-  
+import datetime
+
 def BuildParameters(context, device_name, params):
-    self_node = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
-    return self_node['params']
-      
-def RetrieveData(param):
-    # customized_func_mapping is optional 
-    customized_func_mapping = {
-        'describe_transit_gateway_route_tables':
-        {
-            'resource_type': 'ec2',
-            'response_field_name': 'TransitGatewayRouteTables',
-            'transit-gateway-route-table-id': 'Options.AssociationDefaultRouteTableId',
-            'transit-gateway-id': 'TransitGatewayId'
-        }
-    }
+    intf_name = params['intf_name']
+    res_dev = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    dev = res_dev['params']
+    
+    res_intf = GetInterfaceProperties(context, device_name, intf_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
+    intf = res_intf['params']
+    dev.update(intf)
+    return dev
+
+def RetrieveData(param):    
+    vif_id = 'xxxx-xxxx'
+    connectionId = 'xxxx-xxxx'
+    
     data = NBAWSAPILibrary.GetResourceData(
-                param=param, 
-                func_name='describe_transit_gateway_route_tables', 
-                filter_keys=['transit-gateway-id'], 
-                customized_func_mapping=customized_func_mapping
+                param,
+                func_name='describe_virtual_interfaces', 
+                connectionId=param['connectionId'],
+                virtualInterfaceId=vif_id
     )
     return json.dumps(data, indent=4, default=str)
  ```
