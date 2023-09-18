@@ -9,7 +9,6 @@
     - [Sample 1 -- Using filter keys](#sample-1) 
     - [Sample 2 -- Using customized filters](#sample-2)
     - [Sample 3 -- Using customized function mapping](#sample-3)
-    - [Sample 4 -- Using keyword arguments](#sample-4)
 
 
 # Introduction <a name="introduction"></a>
@@ -104,7 +103,7 @@ class NBAWSAPILibrary:
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
    - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
   
- - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`. [Sample 4 -- Using keyword arguments](#sample-4). Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
+ - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
 
 
 
@@ -219,41 +218,6 @@ def RetrieveData(param):
                 func_name='describe_transit_gateway_route_tables', 
                 filter_keys=['transit-gateway-id'], 
                 customized_func_mapping=customized_func_mapping
-    )
-    return json.dumps(data, indent=4, default=str)
- ```
-
-## Sample 4 -- Using keyword arguments <a name="sample-4"></a>
-```python
-'''
-Begin Declare Input Parameters
- [
-    {"name": "$intf_name"}
- ]
- End Declare
- '''
-import json
-import datetime
-
-def BuildParameters(context, device_name, params):
-    intf_name = params['intf_name']
-    res_dev = GetDeviceProperties(context, device_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
-    dev = res_dev['params']
-    
-    res_intf = GetInterfaceProperties(context, device_name, intf_name, {'techName': 'Amazon AWS', 'paramType': 'SDN', 'params': ['*']})
-    intf = res_intf['params']
-    dev.update(intf)
-    return dev
-
-def RetrieveData(param):    
-    vif_id = 'xxxx-xxxx'
-    connectionId = 'xxxx-xxxx'
-    
-    data = NBAWSAPILibrary.GetResourceData(
-                param,
-                func_name='describe_virtual_interfaces', 
-                connectionId=param['connectionId'],
-                virtualInterfaceId=vif_id
     )
     return json.dumps(data, indent=4, default=str)
  ```
