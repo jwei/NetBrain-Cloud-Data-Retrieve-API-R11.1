@@ -8,7 +8,8 @@
 - [Sample](#sample)
     - [Sample 1 -- Using filter keys](#sample-1) 
     - [Sample 2 -- Using customized filters](#sample-2)
-    - [Sample 3 -- Using customized function mapping](#sample-3) 
+    - [Sample 3 -- Using customized function mapping](#sample-3)
+    - [Sample 4 -- Using keyword arguments](#sample-4)
 
 
 # Introduction <a name="introduction"></a>
@@ -103,7 +104,7 @@ class NBAWSAPILibrary:
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
    - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
   
- - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`.  [Sample 4 -- Using keyword arguments](#sample-4).. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
+ - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`.  [Sample 4 -- Using keyword arguments](#sample-4). Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
 
 
 
