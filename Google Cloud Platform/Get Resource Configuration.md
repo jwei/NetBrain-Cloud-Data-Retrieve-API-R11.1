@@ -7,13 +7,13 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
   - [Google Cloud Router](#google-cloud-router)
   - [Google Load Balancer](#google-load-balancer)
   - [Google Firewall](#google-firewall)
-  - [Google Cloud NAT Gateway](#google-cloud-nat-gateway)
+  - [Google Cloud NAT](#google-cloud-nat)
   - [Google Virtual Machine](#google-virtual-machine)
-  - [Google Cloud Internet Gateway](#google-cloud-internet-gateway)
-  - [Google Cloud Global Internet Gateway](#google-cloud-global-internet-gateway)
+  - [Google Internet Gateway](#google-internet-gateway)
+  - [Google Global Internet Gateway](#google-global-internet-gateway)
   - [Google Partner Interconnect](#partner-google-interconnect)
   - [Google Dedicated Interconnect](#dedicated-google-interconnect)
-  - [Google Cloud Private Service Connect Endpoint](#google-cloud-private-service-connect-endpoint)
+  - [Google Private Service Connect Endpoint](#google-private-service-connect-endpoint)
 
 ## Google VPC Router
 
@@ -346,10 +346,10 @@ An independent API for Google Firewall resources is not available; Instead, we c
 <br />
 
 
-## Google Cloud NAT Gateway
+## Google Cloud NAT
 
 ### Introduction
-The configuration of the Google Cloud NAT Gateway relies solely on the corresponding Google API of its cloud routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
+The configuration of the Google Cloud NAT relies solely on the corresponding Google API of its cloud routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -403,7 +403,7 @@ Below are the Google APIs used to generate this configuration.
 Configuration feature is not supported for Google Virtual Machine yet. Please send API to get the resource data instead. Reference: https://cloud.google.com/compute/docs/reference/rest/v1/instances/get
 
 
-## Google Cloud Internet Gateway
+## Google Internet Gateway
 ### Introduction
 Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the internet.
 
@@ -424,7 +424,7 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 </details>
 <br/>
 
-## Google Cloud Global Internet Gateway
+## Google Global Internet Gateway
 ### Introduction
 Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each organization to illustrate the path of network traffic to the internet.
 
@@ -593,10 +593,10 @@ Below are the Google APIs used to generate this configuration.
 </details>
 <br />
 
-## Google Cloud Private Service Connect Endpoint
+## Google Private Service Connect Endpoint
 
 ### Introduction
-The configuration of the Google Cloud Private Service Connect Endpoint relies solely on the corresponding Google API of the globalForwardingRules. The Google API provides detailed information regarding the configuration of the instance, including its IPAddress, serviceDirectoryRegistrations, etc.
+The configuration of the Google Private Service Connect Endpoint relies solely on the corresponding Google API of the globalForwardingRules. The Google API provides detailed information regarding the configuration of the instance, including its IPAddress, serviceDirectoryRegistrations, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
