@@ -6,10 +6,10 @@
 - [Special Notes](#special-notes)
   - [Resource Support Status](#resource-support-status)
 - [Samples](#sample)
-    - [Sample 1: Get Resource API Data of GCP General Resource](#sample1)
-    - [Sample 2: Get Resource API Data of GCP Cloud NAT](#sample2)
-    - [Sample 3: Get Resource API Data of GCP Firewall](#sample3)
-    - [Sample 4: Get Resource API Data of GCP Load Balancer](#sample4)
+    - [Sample 1: Get Resource API Data of Google General Resource](#sample1)
+    - [Sample 2: Get Resource API Data of Google Cloud NAT](#sample2)
+    - [Sample 3: Get Resource API Data of Google Firewall](#sample3)
+    - [Sample 4: Get Resource API Data of Google Load Balancer](#sample4)
 
 # Introduction <a id="introduction"></a>
 The `GetResourceDataByAPI` function is a static method of the `NBGCPAPILibrary` class that retrieves Google resource data via the Google REST API.
@@ -45,23 +45,23 @@ The function takes in several arguments, including:
 # Special Notes <a id="special-notes"></a>
 ## Resource Support Status
 - Supported Resources: 
-  - GCP Cloud NAT
-  - GCP Cloud Router
-  - GCP Firewall (Special case)
-  - GCP LoadBalancer (Special case)
-  - GCP Private Service Connect
-  - GCP Partner Interconnect
-  - GCP Dedicated Interconnect
-  - GCP VPC Router
-  - GCP VPN Gateway
+  - Google Cloud NAT
+  - Google Cloud Router
+  - Google Firewall (Special case)
+  - Google Load Balancer (Special case)
+  - Google Private Service Connect Endpoint
+  - Google Partner Interconnect
+  - Google Dedicated Interconnect
+  - Google VPC Router
+  - Google VPN Gateway
 - Unsupported Resources: 
-  - GCP Internet Gateway (Virtual Node)
-  - GCP Global Internet Gateway  (Virtual Node)
+  - Google Internet Gateway (Virtual Node)
+  - Google Global Internet Gateway  (Virtual Node)
 
 
 
 # Samples <a id="sample"></a>
-## Sample 1: Get Resource API Data of GCP General Resource <a id="sample1"></a>
+## Sample 1: Get Resource API Data of Google General Resource <a id="sample1"></a>
 
 
 ```python
@@ -154,7 +154,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 2: Get Resource API Data of GCP Cloud NAT <a id="sample2"></a>
+## Sample 2: Get Resource API Data of Google Cloud NAT <a id="sample2"></a>
 
 ```python
 
@@ -247,7 +247,7 @@ def RetrieveData(params):
 
 ```
 
-## Sample 3: Get Resource API Data of GCP Firewall <a id="sample3"></a>
+## Sample 3: Get Resource API Data of Google Firewall <a id="sample3"></a>
 
 ```python
 '''
@@ -347,7 +347,7 @@ def RetrieveData(params):
     return json.dumps(data, indent=4, default=str)
 ```
 
-## Sample 4: Get Resource API Data of GCP Load Balancer <a id="sample4"></a>
+## Sample 4: Get Resource API Data of Google Load Balancer <a id="sample4"></a>
 
 ```python
 '''

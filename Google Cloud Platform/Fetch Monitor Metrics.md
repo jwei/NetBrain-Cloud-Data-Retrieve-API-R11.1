@@ -4,25 +4,26 @@
     - [Input Parameters](#input)
     - [Output](#output)
 - [Special Notes](#special-notes)
-    - [Virtual Private Cloud](#vpc)
+    - [GCP Virtual Private Cloud](#vpc)
     - [Unsupported Virtual Node](#unsupported-virtual-node)
 - [Sample](#sample)
-    - [Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit](#sample1)
-    - [Sample 2: Get Resource Metrics of VPN Gateway Connections](#sample2)
-    - [Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count](#sample3)    
-    - [Sample 4: Get Resource Metrics of HTTP Load Balance  Total Latencies](#sample4)
-    - [Sample 5: Get Resource Metrics of Cloud NAT New Connections Count](#sample5)
-    - [Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity](#sample6)
-    - [Sample 7: Get Resource Metrics of Private Service Connect](#sample7)
+    - [Sample 1: Get Resource Metrics of GCP VPC Network Instances Per Peering Group Usage](#sample1)
+    - [Sample 2: Get Resource Metrics of GCP VPN Gateway Connections](#sample2)
+    - [Sample 3: Get Resource Metrics of GCP Cloud Router Sent Routes Count](#sample3)
+    - [Sample 4: Get Resource Metrics of GCP HTTP Load Balance  Total Latencies](#sample4)
+    - [Sample 5: Get Resource Metrics of GCP Cloud NAT New Connections Count](#sample5)
+    - [Sample 6: Get Resource Metrics of GCP Partner Interconnect Network Attachment Capacity](#sample6)
+    - [Sample 7: Get Resource Metrics of GCP Private Service Connect](#sample7)
+    - [Sample 8: Get Resource Metrics of GCP Firewall Subnet Firewall Hit Count](#sample8)
 
 
 # Introduction <a id="introduction"></a>
-The `GetMonitorMetrics` function is a static method defined in the `NBGoogleAPILibrary` class. It leverages the Google Monitor solution to fetch metrics of Google resources via the Google RESTful API.
+The `GetMonitorMetrics` function is a static method defined in the `NBGCPAPILibrary` class. It leverages the Google Monitor solution to fetch metrics of Google resources via the Google RESTful API.
 For a complete list of available metrics for each Google resource, please reference to Google document: https://cloud.google.com/monitoring/api/metrics
 
 # API Definition <a id="api_def"></a>
 ```python
-class NBGoogleAPILibrary:
+class NBGCPAPILibrary:
     @staticmethod
     def GetMonitorMetrics(
             api_server_id: str,
@@ -58,165 +59,33 @@ class NBGoogleAPILibrary:
 
 # Special Notes <a id="special-notes"></a>
 
-## Virtual Private Cloud <a id="vpc"></a>
+## GCP Virtual Private Cloud <a id="vpc"></a>
 - In NetBrain, we generate "VPC Router" for each GCP Virtual Network to represent its networking entity
 - The VPC's resource id is saved in the "networkId" in the nb_node data from `RetrieveData` method
 - For the usage please check samples below.
 
-## Unsupported Virtual Node <a id="unsupported-virtual-node"></a>
+## Unsupported Virtual Nodes <a id="unsupported-virtual-node"></a>
 - There are some virual nodes building in NetBrain structure, which might not have metrics data:
-  - Firewall
   - Internet Gateway
   - Global Internet Gateway
 
 # Samples <a id="sample"></a>
-- Related Docs:
-  - [Metrics list](https://cloud.google.com/monitoring/api/metrics)
-  - [Monitored resource types](https://cloud.google.com/monitoring/api/resources)
+**Filtering Metrics**
 
-## Sample 1: Get Resource Metrics of VPC Instances Per VPC Network-limit <a id="sample1"></a>
-```python
-# VPC -> add special Notes on Documentation similar to https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Simple%20Data.md#special_notes
+To filter metrics, you will need to modify the following variables:
 
+- `FILTER_METRIC_TYPE_PREFIX`
+- `FILTER_METRIC_TYPE`
 
-'''
-Begin Declare Input Parameters
-[
-]
-End Declare
+These variables control the metric types that are included in your API requests. You can find a comprehensive list of available metrics for various Google Cloud Platform (GCP) resources by referring to the [Metrics list](https://cloud.google.com/monitoring/api/metrics). This list will provide you with the necessary metric types to use for your filtering requirements.
 
-For sample
-[
-    {"name": "$param1"},
-    {"name": "$param2"}
-]
-'''
+**Filtering by Resource**
 
-from datetime import datetime, timezone, timedelta
-import json
+To retrieve specific resource metrics, you can use label-based filtering. This involves utilizing labels to narrow down your search for metrics associated with a particular resource. For more information on the available monitored resource types and their labels, please consult the [Monitored resource types](https://cloud.google.com/monitoring/api/resources) documentation.
 
-def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
-        context,
-        device_name,
-        {
-            'techName': 'Google Cloud',
-            'paramType': 'SDN',
-            'params': ['*']
-        }
-    )
-    return nb_node
+By effectively using these labels, you can tailor your API requests to obtain the precise metric data you require for your GCP resources.
 
-
-def RetrieveData(params):
-    # Common used variable: nb_node, resource id, resource name, resource self link
-    nb_node = params['params']
-    gcp_resource_id = nb_node['networkId'] if "networkId" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-
-    # Setup api server id
-    api_server_id = params['apiServerId']
-
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
-
-    # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(hours=24)
-    url_params = {
-        'filter': {
-            'metric.type' : "compute.googleapis.com/quota/instances_per_peering_group/usage",
-            'resource.labels.network_id': gcp_resource_id
-        },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
-    }
-
-    # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
-        url_params=url_params
-    )
-    return data
-
-
-```
-
-## Sample 2: Get Resource Metrics of VPN Gateway Connections <a id="sample2"></a>
-```python
-
-'''
-Begin Declare Input Parameters
-[
-]
-End Declare
-
-For sample
-[
-    {"name": "$param1"},
-    {"name": "$param2"}
-]
-'''
-
-from datetime import datetime, timezone, timedelta
-import json
-
-def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
-        context,
-        device_name,
-        {
-            'techName': 'Google Cloud',
-            'paramType': 'SDN',
-            'params': ['*']
-        }
-    )
-    return nb_node
-
-
-def RetrieveData(params):
-    # Common used variable: nb_node, resource id, resource name, resource self link
-    nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-
-    # Setup api server id
-    api_server_id = params['apiServerId']
-
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
-
-    # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds=330)
-    url_params = {
-        'filter': {
-            'metric.type' : "vpn.googleapis.com/gateway/connections",
-            'resource.labels.gateway_id': gcp_resource_id
-        },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
-    }
-
-    # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
-        url_params=url_params
-    )
-    return data
-
-```
-## Sample 3: Get Resource Metrics of Cloud Router Sent Routes Count<a id="sample3"></a>
+## Sample 1: Get Resource Metrics of GCP VPC Network Instances Per Peering Group Usage <a id="sample1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -234,6 +103,21 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'networkId'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(hours=24)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
+FILTER_METRIC_TYPE = "quota/instances_per_peering_group/usage"
+
+
 
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
@@ -248,45 +132,69 @@ def BuildParameters(context, device_name, params):
     return nb_node
 
 
-def RetrieveData(params):
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
     api_server_id = params['apiServerId']
 
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
 
     # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds=330)
     url_params = {
         'filter': {
-            'metric.type': "router.googleapis.com/sent_routes_count",
-            'resource.labels.router_id': gcp_resource_id
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'resource.labels.network_id': resource_info['id']
         },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
 
     # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
         url_params=url_params
     )
-    return data
+    return json.dumps(data, indent=4, default=str)
 
 ```
 
-## Sample 4: Get Resource Metrics of HTTP Load Balance  Total Latencies<a id="sample4"></a>
+## Sample 2: Get Resource Metrics of GCP VPN Gateway Connections <a id="sample2"></a>
 ```python
 
 '''
@@ -305,6 +213,21 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "vpn.googleapis.com/"
+FILTER_METRIC_TYPE = "gateway/connections"
+
+
 
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
@@ -319,48 +242,288 @@ def BuildParameters(context, device_name, params):
     return nb_node
 
 
-def RetrieveData(params):
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
     api_server_id = params['apiServerId']
 
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+
+    # Setup url_params
+    url_params = {
+        'filter': {
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'resource.labels.gateway_id': resource_info['id']
+        },
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+
+    # Get Live Data
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
+        url_params=url_params
+    )
+    return json.dumps(data, indent=4, default=str)
+
+```
+## Sample 3: Get Resource Metrics of GCP Cloud Router Sent Routes Count<a id="sample3"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+from datetime import datetime, timezone, timedelta
+import json
+
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "router.googleapis.com/"
+FILTER_METRIC_TYPE = "sent_routes_count"
+
+
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return nb_node
+
+
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+
+    # Setup api server id
+    api_server_id = params['apiServerId']
+
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+
+    # Setup url_params
+    url_params = {
+        'filter': {
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'resource.labels.router_id': resource_info['id']
+        },
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+
+    # Get Live Data
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
+        url_params=url_params
+    )
+    return json.dumps(data, indent=4, default=str)
+
+```
+
+## Sample 4: Get Resource Metrics of GCP HTTP Load Balance  Total Latencies<a id="sample4"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+from datetime import datetime, timezone, timedelta
+import json
+
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "loadbalancing.googleapis.com/"
+FILTER_METRIC_TYPE = "https/total_latencies"
+
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return nb_node
+
+
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+
+    # Setup api server id
+    api_server_id = params['apiServerId']
+
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
 
     # Get forwarding rule name
-    forwarding_rule = nb_node['nbProperties']["forwardingRules"][0].split("/")[-1]
+    forwarding_rule = params['params']['nbProperties']["forwardingRules"][0].split("/")[-1]
 
     # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(hours=4)
     url_params = {
         'filter': {
-            'metric.type': "loadbalancing.googleapis.com/https/total_latencies",
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
             'resource.labels.forwarding_rule_name': forwarding_rule
         },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
 
     # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
         url_params=url_params
     )
-    return data
+    return json.dumps(data, indent=4, default=str)
 ```
 
 
-## Sample 5: Get Resource Metrics of Cloud NAT New Connections Count<a id="sample5"></a>
+## Sample 5: Get Resource Metrics of GCP Cloud NAT New Connections Count<a id="sample5"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -378,6 +541,21 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
+FILTER_METRIC_TYPE = "nat/new_connections_count"
+
+
 
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
@@ -392,46 +570,70 @@ def BuildParameters(context, device_name, params):
     return nb_node
 
 
-def RetrieveData(params):
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-    
+
     # Setup api server id
     api_server_id = params['apiServerId']
 
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
 
     # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds=330)
     url_params = {
         'filter': {
-            'metric.type': "compute.googleapis.com/nat/new_connections_count",
-            'metric.labels.nat_gateway_name': gcp_resource_name
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'metric.labels.nat_gateway_name': resource_info['name']
         },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
 
     # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
         url_params=url_params
     )
-    return data
+    return json.dumps(data, indent=4, default=str)
 
 ```
 
 
-## Sample 6: Get Resource Metrics of Partner Interconnect Network Attachment Capacity<a id="sample6"></a>
+## Sample 6: Get Resource Metrics of GCP Partner Interconnect Network Attachment Capacity<a id="sample6"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -449,6 +651,19 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "interconnect.googleapis.com/"
+FILTER_METRIC_TYPE = "network/attachment/capacity"
 
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
@@ -463,113 +678,286 @@ def BuildParameters(context, device_name, params):
     return nb_node
 
 
-def RetrieveData(params):
-    # Setup api server id
-    api_server_id = params['apiServerId']
-    # GCP resource id, name, self_link
-    nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
-
-
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
-
-    # raise Exception(str(params['params']))
-    # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(seconds=330)
-    url_params = {
-        'filter': {
-            'metric.type': "interconnect.googleapis.com/network/attachment/capacity",
-            'resource.labels.interconnect': gcp_resource_name
-        },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
-    }
-
-    # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
-        url_params=url_params
-    )
-    return data
-
-```
-
-
-
-## Sample 7: Get Resource Metrics of Private Service Connect<a id="sample7"></a>
-```python
-'''
-Begin Declare Input Parameters
-[
-]
-End Declare
-
-For sample
-[
-    {"name": "$param1"},
-    {"name": "$param2"}
-]
-'''
-
-from datetime import datetime, timezone, timedelta
-import json
-
-
-def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
-        context,
-        device_name,
-        {
-            'techName': 'Google Cloud',
-            'paramType': 'SDN',
-            'params': ['*']
-        }
-    )
-    return nb_node
-
-
-def RetrieveData(params):
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
     # Common used variables: GCP related Resource id, name, self link uri
     nb_node = params['params']
-    gcp_resource_id = nb_node['id'] if "id" in nb_node else None
-    gcp_resource_name = nb_node['gcp_name'] if "gcp_name" in nb_node else None
-    gcp_resource_self_link = nb_node['selfLink'] if "selfLink" in nb_node else None
 
     # Setup api server id
     api_server_id = params['apiServerId']
 
-    # Setup projectId
-    if 'projectId' not in params['params']['nbProperties']:
-        msg = 'Error: Global Resource is not supported, because no projectId in nbProperties'
-        raise Exception(msg)
-    proj_id = params['params']['nbProperties']['projectId']
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
 
     # Setup url_params
-    currentTime = datetime.now(timezone.utc)
-    pastTime = currentTime - timedelta(hours=4)
     url_params = {
         'filter': {
-            'metric.type': "compute.googleapis.com/private_service_connect/consumer/closed_connections_count",
-            'resource.labels.psc_connection_id': params['params']['pscConnectionId']
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'resource.labels.interconnect': resource_info['name']
         },
-        'interval.startTime': pastTime.strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'interval.endTime': currentTime.strftime('%Y-%m-%dT%H:%M:%SZ')
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
     }
 
     # Get Live Data
-    data = NBGoogleAPILibrary.GetMonitorMetrics(
-        api_server_id=api_server_id,
-        proj_id=proj_id,
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
         url_params=url_params
     )
-    return data
+    return json.dumps(data, indent=4, default=str)
+
+```
+
+
+
+## Sample 7: Get Resource Metrics of GCP Private Service Connect<a id="sample7"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+from datetime import datetime, timezone, timedelta
+import json
+
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'pscConnectionId'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(hours=4)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
+FILTER_METRIC_TYPE = "private_service_connect/consumer/closed_connections_count"
+
+
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return nb_node
+
+
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+
+    # Setup api server id
+    api_server_id = params['apiServerId']
+
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+
+    # Setup url_params
+    url_params = {
+        'filter': {
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'resource.labels.psc_connection_id': resource_info['id']
+        },
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+
+    # Get Live Data
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
+        url_params=url_params
+    )
+    return json.dumps(data, indent=4, default=str)
+```
+
+
+## Sample 8: Get Resource Metrics of GCP Firewall Subnet Firewall Hit Count<a id="sample8"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+from datetime import datetime, timezone, timedelta
+import json
+
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'id'
+GCP_RESOURCE_NAME_KEY = 'networkName'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(seconds=330)
+
+# Metrics
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+FILTER_METRIC_TYPE_PREFIX = "firewallinsights.googleapis.com/"
+FILTER_METRIC_TYPE = "subnet/firewall_hit_count"
+
+
+def BuildParameters(context, device_name, params):
+    nb_node = GetDeviceProperties(
+        context,
+        device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return nb_node
+
+
+def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+
+    # Setup api server id
+    api_server_id = params['apiServerId']
+
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+
+    # Debug Example
+    # raise Exception(resource_info)
+
+    # Setup url_params
+    url_params = {
+        'filter': {
+            'metric.type': FILTER_METRIC_TYPE_PREFIX + FILTER_METRIC_TYPE,
+            # Returning labels to filter specific resource
+            #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+            'metric.labels.network_name': resource_info['name']
+        },
+        'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+
+    # Get Live Data
+    data = NBGCPAPILibrary.GetMonitorMetrics(
+        api_server_id=resource_info['apiServerId'],
+        proj_id=resource_info['projId'],
+        url_params=url_params
+    )
+    return json.dumps(data, indent=4, default=str)
 
 ```
