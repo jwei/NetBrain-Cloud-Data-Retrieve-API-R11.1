@@ -72,7 +72,7 @@ class NBAWSAPILibrary:
     |  | Gateway Load Balancer | [describe_listeners](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/client/describe_listeners.html) | LoadBalancerArn | The Amazon Resource Name (ARN) of the load balancer. |
     | network-firewall | Network Firewall | [describe_firewall_policy](https://boto3.amazonaws.com/v1/documentation/api/1.26.92/reference/services/network-firewall/client/describe_firewall_policy.html) | FirewallPolicyArn | The Amazon Resource Name (ARN) of the firewall policy. |
 
- - `customized_filters` (list, optional): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. [Sample 2 -- Using customized filters](#sample-2). Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
+ - `customized_filters` (list, optional): Customized_filters only supports `EC2` resource. Supposing customer want to create their own customized filters according to AWS boto3 SDK. A list of dictionaries representing customized filters to be applied to the AWS function call. Filters provided in this parameter have the highest priority and will override any other filters defined later in the code for the same key. [Sample 2 -- Using customized filters](#sample-2). Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html.
 
  - `customized_func_mapping` (dict, optional, not recommended): A dictionary object that specifies how to fetch resources through the context of a specific device. Each key represents the name of an AWS function, and its value is another dictionary containing the following fields: `resource_type`, `response_field_name` and so on. [Sample 3 -- Using customized function mapping](#sample-3). Please check below for format and example as well.
  
@@ -101,9 +101,9 @@ class NBAWSAPILibrary:
    - `func_name` (string): A string that specifies the name of the AWS function that will be called to retrieve the desired resources. For example, `'describe_transit_gateway_route_tables'`.
    - `response_field_name` (string): Refers to the specific attribute or property of the resource that is being accessed or modified..
    - `filter_keys` (string): A list of strings representing keys for filters to be applied to the AWS function call.
-   - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`
+   - `device_property` (string): Refers to the specific property keys in device. The value of properties will be used filter values. For example, `'Options.AssociationDefaultRouteTableId'`.
   
- - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html
+ - `**kwargs` (keyword argument, optional): keyword arguments used as parameters in Python method that specifies resources that this function needs to fetch through. E.g., `connectionId='xxxx-xxxx'`, `virtualInterfaceId='xxxx-xxxx'`, `DryRun=True`. Please use EC2 boto3 document as reference: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect/client/describe_virtual_interfaces.html.
 
 
 
