@@ -45,7 +45,7 @@ The function takes in several arguments, including:
 # Special Notes <a id="special-notes"></a>
 ## Resource Support Status
 - Supported Resources: 
-  - Google Cloud NAT
+  - Google Cloud NAT (Special case)
   - Google Cloud Router
   - Google Firewall (Special case)
   - Google Load Balancer (Special case)
