@@ -36,7 +36,7 @@ class NBGCPAPILibrary:
 ```
 
 ## Input Parameters <a id="input"></a>
- - `api_server_id`(str) - The external API server used to discover this GCP resource..
+ - `api_server_id`(str) - The external API server used to discover this GCP resource.
  - `proj_id`(str) - The project ID of the GCP resource belonging to. 
  - `url_params`(dic) - A dictionary, containing additional URL parameters like filter and interval, used when calling the Google monitor metrics API. For a complete list of available metrics for each Google resource, please reference to the document: https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list
      - <details><summary>e.g.:</summary>
@@ -52,7 +52,7 @@ class NBGCPAPILibrary:
         }
         ```
         </details>
- - `api_version[optional]`(str) - API Version of the Google Rest API. default 'v3'
+ - `api_version[optional]`(str) - API Version of the Google Rest API. default 'v3'.
 ## Output <a id="output"></a>
 > resp_body_json: The JSON response body of the HTTP request to the Google monitor metrics API. This is a dictionary with string keys and values.
 
@@ -60,8 +60,8 @@ class NBGCPAPILibrary:
 # Special Notes <a id="special-notes"></a>
 
 ## Google Virtual Private Cloud <a id="vpc"></a>
-- In NetBrain, we generate "VPC Router" for each Google Virtual Network to represent its networking entity
-- The VPC's resource id is saved in the "networkId" in the nb_node data from `RetrieveData` method
+- In NetBrain, we generate "VPC Router" for each Google Virtual Network to represent its networking entity.
+- The VPC's resource id is saved in the "networkId" in the nb_node data from `RetrieveData` method.
 - For the usage please check samples below.
 
 ## Unsupported Virtual Nodes <a id="unsupported-virtual-node"></a>
