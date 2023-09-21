@@ -66,8 +66,8 @@ class NBGCPAPILibrary:
 
 ## Unsupported Virtual Nodes <a id="unsupported-virtual-node"></a>
 - There are some virual nodes building in NetBrain structure, which might not have metrics data:
-  - Internet Gateway
-  - Global Internet Gateway
+  - Google Internet Gateway
+  - Google Global Internet Gateway
 
 # Samples <a id="sample"></a>
 **Filtering Metrics**
