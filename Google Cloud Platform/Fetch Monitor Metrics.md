@@ -4,17 +4,17 @@
     - [Input Parameters](#input)
     - [Output](#output)
 - [Special Notes](#special-notes)
-    - [GCP Virtual Private Cloud](#vpc)
+    - [Google Virtual Private Cloud](#vpc)
     - [Unsupported Virtual Node](#unsupported-virtual-node)
 - [Sample](#sample)
-    - [Sample 1: Get Resource Metrics of GCP VPC Network Instances Per Peering Group Usage](#sample1)
-    - [Sample 2: Get Resource Metrics of GCP VPN Gateway Connections](#sample2)
-    - [Sample 3: Get Resource Metrics of GCP Cloud Router Sent Routes Count](#sample3)
-    - [Sample 4: Get Resource Metrics of GCP HTTP Load Balance  Total Latencies](#sample4)
-    - [Sample 5: Get Resource Metrics of GCP Cloud NAT New Connections Count](#sample5)
-    - [Sample 6: Get Resource Metrics of GCP Partner Interconnect Network Attachment Capacity](#sample6)
-    - [Sample 7: Get Resource Metrics of GCP Private Service Connect](#sample7)
-    - [Sample 8: Get Resource Metrics of GCP Firewall Subnet Firewall Hit Count](#sample8)
+    - [Sample 1: Get Resource Metrics of Google VPC Network Instances Per Peering Group Usage](#sample1)
+    - [Sample 2: Get Resource Metrics of Google VPN Gateway Connections](#sample2)
+    - [Sample 3: Get Resource Metrics of Google Cloud Router Sent Routes Count](#sample3)
+    - [Sample 4: Get Resource Metrics of Google HTTP Load Balance  Total Latencies](#sample4)
+    - [Sample 5: Get Resource Metrics of Google Cloud NAT New Connections Count](#sample5)
+    - [Sample 6: Get Resource Metrics of Google Partner Interconnect Network Attachment Capacity](#sample6)
+    - [Sample 7: Get Resource Metrics of Google Private Service Connect Endpoint](#sample7)
+    - [Sample 8: Get Resource Metrics of Google Firewall Subnet Firewall Hit Count](#sample8)
 
 
 # Introduction <a id="introduction"></a>
@@ -59,8 +59,8 @@ class NBGCPAPILibrary:
 
 # Special Notes <a id="special-notes"></a>
 
-## GCP Virtual Private Cloud <a id="vpc"></a>
-- In NetBrain, we generate "VPC Router" for each GCP Virtual Network to represent its networking entity
+## Google Virtual Private Cloud <a id="vpc"></a>
+- In NetBrain, we generate "VPC Router" for each Google Virtual Network to represent its networking entity
 - The VPC's resource id is saved in the "networkId" in the nb_node data from `RetrieveData` method
 - For the usage please check samples below.
 
@@ -85,7 +85,7 @@ To retrieve specific resource metrics, you can use label-based filtering. This i
 
 By effectively using these labels, you can tailor your API requests to obtain the precise metric data you require for your GCP resources.
 
-## Sample 1: Get Resource Metrics of GCP VPC Network Instances Per Peering Group Usage <a id="sample1"></a>
+## Sample 1: Get Resource Metrics of Google VPC Network Instances Per Peering Group Usage <a id="sample1"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -194,7 +194,7 @@ def RetrieveData(params):
 
 ```
 
-## Sample 2: Get Resource Metrics of GCP VPN Gateway Connections <a id="sample2"></a>
+## Sample 2: Get Resource Metrics of Google VPN Gateway Connections <a id="sample2"></a>
 ```python
 
 '''
@@ -303,7 +303,7 @@ def RetrieveData(params):
     return json.dumps(data, indent=4, default=str)
 
 ```
-## Sample 3: Get Resource Metrics of GCP Cloud Router Sent Routes Count<a id="sample3"></a>
+## Sample 3: Get Resource Metrics of Google Cloud Router Sent Routes Count<a id="sample3"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -412,7 +412,7 @@ def RetrieveData(params):
 
 ```
 
-## Sample 4: Get Resource Metrics of GCP HTTP Load Balance  Total Latencies<a id="sample4"></a>
+## Sample 4: Get Resource Metrics of Google HTTP Load Balance  Total Latencies<a id="sample4"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -523,7 +523,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 5: Get Resource Metrics of GCP Cloud NAT New Connections Count<a id="sample5"></a>
+## Sample 5: Get Resource Metrics of Google Cloud NAT New Connections Count<a id="sample5"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -633,7 +633,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 6: Get Resource Metrics of GCP Partner Interconnect Network Attachment Capacity<a id="sample6"></a>
+## Sample 6: Get Resource Metrics of Google Partner Interconnect Network Attachment Capacity<a id="sample6"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -742,7 +742,7 @@ def RetrieveData(params):
 
 
 
-## Sample 7: Get Resource Metrics of GCP Private Service Connect<a id="sample7"></a>
+## Sample 7: Get Resource Metrics of Google Private Service Connect Endpoint<a id="sample7"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -851,7 +851,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 8: Get Resource Metrics of GCP Firewall Subnet Firewall Hit Count<a id="sample8"></a>
+## Sample 8: Get Resource Metrics of Google Firewall Subnet Firewall Hit Count<a id="sample8"></a>
 ```python
 '''
 Begin Declare Input Parameters
