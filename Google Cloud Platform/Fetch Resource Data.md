@@ -33,10 +33,10 @@ class NBGCPAPILibrary:
 ## Input Parameters <a id="input"></a>
 The function takes in several arguments, including:
  - `api_server_id` (str) The external API Server ID of this technology instance. User should be able to get it in API Script context. Check Sample Google API Parser in NetBrain Parser Library for usage reference.
- - `resource_uri` (str) The resource identifier
+ - `resource_uri` (str) The resource identifier.
  - `http_method[optional]` (str) GET or POST. The default method is "GET". 
- - `url_params[optional]` (dict) API request params for GET request
- - `json_body[optional]` (object) API request body
+ - `url_params[optional]` (dict) API request params for GET request.
+ - `json_body[optional]` (object) API request body.
 
 ## Output <a id="output"></a>
 > The JSON response body of the HTTP request to the Google RESTful API, which can be found in Azure API Document (e.g. https://cloud.google.com/compute/docs/reference/rest/v1)
