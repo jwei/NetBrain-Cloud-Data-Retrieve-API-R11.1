@@ -18,7 +18,7 @@ To retrieve the configuration data for a resource, you can utilize NetBrain's bu
 ## Google VPC Router
 
 ### Introduction
-The configuration of the Google VPC Router distributed router relies solely on the corresponding Google API of the VPC Network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
+The configuration of the Google VPC Router relies solely on the corresponding Google API of the VPC Network. The Google API provides detailed information regarding the configuration of the virtual network, including its subnetworks, peerings, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -74,7 +74,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google VPN Gateway
 
 ### Introduction
-The configuration of the Google VPN gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including tunnels.
+The configuration of the Google VPN Gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including tunnels.
 
 ### Content
 
@@ -349,7 +349,7 @@ An independent API for Google Firewall resources is not available; Instead, we c
 ## Google Cloud NAT
 
 ### Introduction
-The configuration of the Google Cloud NAT relies solely on the corresponding Google API of its cloud routers. The Google API provides detailed information regarding the configuration of the NAT Gateway, including its endpointTypes, natIps, etc.
+The configuration of the Google Cloud NAT relies solely on the corresponding Google API of its cloud routers. The Google API provides detailed information regarding the configuration of the Google Cloud NAT, including its endpointTypes, natIps, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -405,7 +405,7 @@ Configuration feature is not supported for Google Virtual Machine yet. Please se
 
 ## Google Internet Gateway
 ### Introduction
-Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the internet.
+Google Cloud does not provide an independent resource for an Google Internet Gateway. Instead, the Internet gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the Internet.
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -426,7 +426,7 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 
 ## Google Global Internet Gateway
 ### Introduction
-Google Cloud does not provide an independent resource for an internet gateway. Instead, an internet gateway is created for each organization to illustrate the path of network traffic to the internet.
+Google Cloud does not provide an independent resource for an Google Global Internet Gateway. Instead, the Google Global Internet Gateway is created to illustrate the path of network traffic to the Internet.
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -434,11 +434,9 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "europe-west-vpc-igw(<ig-id>-igw)",
-    "id": "<ig-id>-igw",
-    "name": "europe-west-vpc-igw(<ig-id>-igw)",
-    "networkId": "<ig-id>",
-    "networkLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/europe-west-vpc"
+    "netbrainHostName": "Global-igw(<global-ig-id>)",
+    "id": "<global-ig-id>",
+    "name": "Global-igw(<global-ig-id>)"
 }
 ```
 
@@ -447,7 +445,7 @@ Google Cloud does not provide an independent resource for an internet gateway. I
 
 ## Google Partner Interconnect <a id="partner-google-interconnect"></a>
 ### Introduction
-The configuration of the Google Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, partnerMetadata, etc.
+The configuration of the Google Partner Interconnect relies solely on the corresponding Google API of the interconnectAttachments. The Google API provides detailed information regarding the configuration of the instance, including its bandwidth, partnerMetadata, etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -496,7 +494,7 @@ Below are the Google APIs used to generate this configuration.
 
 ## Google Dedicated Interconnect <a id="dedicated-google-interconnect"></a> 
 ### Introduction
-The configuration of the  Dedicated Google Interconnect is dependent on the Google API response of the interconnects as the primary response. The full resource configuration consists of some associated resources' Interconnect Attachments.
+The configuration of the Google Dedicated Interconnect is dependent on the Google API response of the interconnects as the primary response. The full resource configuration consists of some associated resources' Interconnect Attachments.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
