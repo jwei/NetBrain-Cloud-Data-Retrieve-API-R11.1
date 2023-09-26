@@ -54,6 +54,7 @@ The function takes in several arguments, including:
   - Google Dedicated Interconnect
   - Google VPC Router
   - Google VPN Gateway
+  - Google Virtual Machine
 - Unsupported Resources: 
   - Google Internet Gateway (Virtual Node)
   - Google Global Internet Gateway  (Virtual Node)
@@ -119,7 +120,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
     api_server_id = params['apiServerId']
 
     # Get proj_id
-    proj_id = nb_node["projectId"] if "projectId" in nb_node else None
+    proj_id = nb_node['projectId'] if 'projectId' in nb_node else None
 
     gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
     gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
@@ -127,7 +128,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
     # Unsupported Devices
     if gcp_resource_self_link == None:
-        raise Exception("Error: Not support device '{}'".format(gcp_resource_name))
+        raise Exception('Error: Not support device "{}"'.format(gcp_resource_name))
 
 
     resource_info = {
@@ -212,7 +213,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
     api_server_id = params['apiServerId']
 
     # Get proj_id
-    proj_id = nb_node["projectId"] if "projectId" in nb_node else None
+    proj_id = nb_node['projectId'] if 'projectId' in nb_node else None
 
     gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
     gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
@@ -220,7 +221,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
     # Unsupported Devices
     if gcp_resource_self_link == None:
-        raise Exception("Error: Not support device '{}'".format(gcp_resource_name))
+        raise Exception('Error: Not support device "{}"'.format(gcp_resource_name))
 
 
     resource_info = {
@@ -304,7 +305,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
     api_server_id = params['apiServerId']
 
     # Get proj_id
-    proj_id = nb_node["projectId"] if "projectId" in nb_node else None
+    proj_id = nb_node['projectId'] if 'projectId' in nb_node else None
 
     gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
     gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
@@ -328,13 +329,13 @@ def RetrieveData(params):
 
 
     # Get Uri of Firewall
-    project_id = resource_info["projId"]
+    project_id = resource_info['projId']
     network_name = resource_info['networkName']
-    url = f"https://compute.googleapis.com/compute/v1/projects/{project_id}/global/firewalls"
+    url = f'https://compute.googleapis.com/compute/v1/projects/{project_id}/global/firewalls'
     url_params = {
         # Doc: https://cloud.google.com/compute/docs/reference/rest/v1/firewalls/list
         #   e.g.filter = 'network="https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/global/networks/asia-vpc-spoke4"'
-        "filter": f'(network="https://www.googleapis.com/compute/v1/projects/{project_id}/global/networks/{network_name}")'
+        'filter': f'(network="https://www.googleapis.com/compute/v1/projects/{project_id}/global/networks/{network_name}")'
     }
 
 
@@ -404,7 +405,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
     api_server_id = params['apiServerId']
 
     # Get proj_id
-    proj_id = nb_node["projectId"] if "projectId" in nb_node else None
+    proj_id = nb_node['projectId'] if 'projectId' in nb_node else None
 
     gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
     gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
@@ -435,13 +436,13 @@ def RetrieveData(params):
     )
 
     # Add details of backendService for internal-tcp-ldb
-    if "backendService" in data:
-        backend_url = data["backendService"]
+    if 'backendService' in data:
+        backend_url = data['backendService']
         backendService = NBGCPAPILibrary.GetResourceDataByAPI(
             api_server_id=resource_info['apiServerId'],
             resource_uri=backend_url
         )
-        data["backendService"] = backendService
+        data['backendService'] = backendService
 
     return json.dumps(data, indent=4, default=str)
 ```

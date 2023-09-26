@@ -74,7 +74,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google VPN Gateway
 
 ### Introduction
-The configuration of the Google VPN Gateway is dependent on the Google API response of the Google VPN gateway as the primary response. The full resource configuration consists of some associated resources' API data, including tunnels.
+The configuration of the Google VPN Gateway is dependent on the Google API response of the Google VPN Gateway as the primary response. The full resource configuration consists of some associated resources' API data, including tunnels.
 
 ### Content
 
@@ -149,7 +149,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google Cloud Router
 
 ### Introduction
-The configuration of the Google Cloud Router is dependent on the Google API response of the Google Routers as the primary response. The Google API provides detailed information regarding the configuration of the routers, including its name, region, network and etc.
+The configuration of the Google Cloud Router is dependent on the Google API response of the Google Cloud Router as the primary response. The Google API provides detailed information regarding the configuration of the routers, including its name, region, network and etc.
 
 ### Content
 Below are the Google APIs used to generate this configuration.
@@ -400,7 +400,7 @@ Below are the Google APIs used to generate this configuration.
 ## Google Virtual Machine
 
 ### Introduction
-Configuration feature is not supported for Google Virtual Machine yet. Please send API to get the resource data instead. Reference: https://cloud.google.com/compute/docs/reference/rest/v1/instances/get
+Configuration feature is not supported for Google Virtual Machine yet. Please send API to get the resource data instead (e.g. Sample 1 of Fetch Resource Data). GCP document reference: https://cloud.google.com/compute/docs/reference/rest/v1/instances/get
 
 
 ## Google Internet Gateway

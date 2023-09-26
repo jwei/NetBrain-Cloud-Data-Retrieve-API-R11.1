@@ -114,8 +114,8 @@ START_TIME = END_TIME - timedelta(hours=24)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
-FILTER_METRIC_TYPE = "quota/instances_per_peering_group/usage"
+FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
+FILTER_METRIC_TYPE = 'quota/instances_per_peering_group/usage'
 
 
 
@@ -213,7 +213,7 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
-# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+# The field 'key' of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
 GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
@@ -224,8 +224,8 @@ START_TIME = END_TIME - timedelta(seconds=330)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "vpn.googleapis.com/"
-FILTER_METRIC_TYPE = "gateway/connections"
+FILTER_METRIC_TYPE_PREFIX = 'vpn.googleapis.com/'
+FILTER_METRIC_TYPE = 'gateway/connections'
 
 
 
@@ -332,8 +332,8 @@ START_TIME = END_TIME - timedelta(seconds=330)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "router.googleapis.com/"
-FILTER_METRIC_TYPE = "sent_routes_count"
+FILTER_METRIC_TYPE_PREFIX = 'router.googleapis.com/'
+FILTER_METRIC_TYPE = 'sent_routes_count'
 
 
 
@@ -412,7 +412,7 @@ def RetrieveData(params):
 
 ```
 
-## Sample 4: Get Resource Metrics of Google HTTP Load Balance  Total Latencies<a id="sample4"></a>
+## Sample 4: Get Resource Metrics of Google HTTP Load Balancing Total Latencies<a id="sample4"></a>
 ```python
 '''
 Begin Declare Input Parameters
@@ -437,12 +437,12 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 # Time Range for the GCP Monitor statistics
 END_TIME = datetime.now(timezone.utc)
-START_TIME = END_TIME - timedelta(seconds=330)
+START_TIME = END_TIME - timedelta(hours=4)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "loadbalancing.googleapis.com/"
-FILTER_METRIC_TYPE = "https/total_latencies"
+FILTER_METRIC_TYPE_PREFIX = 'loadbalancing.googleapis.com/'
+FILTER_METRIC_TYPE = 'https/total_latencies'
 
 
 def BuildParameters(context, device_name, params):
@@ -499,7 +499,7 @@ def RetrieveData(params):
     resource_info = GetResourceInfoFromNetBrainDataModel(params)
 
     # Get forwarding rule name
-    forwarding_rule = params['params']['nbProperties']["forwardingRules"][0].split("/")[-1]
+    forwarding_rule = params['params']['nbProperties']['forwardingRules'][0].split("/")[-1]
 
     # Setup url_params
     url_params = {
@@ -552,8 +552,8 @@ START_TIME = END_TIME - timedelta(seconds=330)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
-FILTER_METRIC_TYPE = "nat/new_connections_count"
+FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
+FILTER_METRIC_TYPE = 'nat/new_connections_count'
 
 
 
@@ -662,8 +662,8 @@ START_TIME = END_TIME - timedelta(seconds=330)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "interconnect.googleapis.com/"
-FILTER_METRIC_TYPE = "network/attachment/capacity"
+FILTER_METRIC_TYPE_PREFIX = 'interconnect.googleapis.com/'
+FILTER_METRIC_TYPE = 'network/attachment/capacity'
 
 def BuildParameters(context, device_name, params):
     nb_node = GetDeviceProperties(
@@ -771,8 +771,8 @@ START_TIME = END_TIME - timedelta(hours=4)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "compute.googleapis.com/"
-FILTER_METRIC_TYPE = "private_service_connect/consumer/closed_connections_count"
+FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
+FILTER_METRIC_TYPE = 'private_service_connect/consumer/closed_connections_count'
 
 
 
@@ -880,8 +880,8 @@ START_TIME = END_TIME - timedelta(seconds=330)
 
 # Metrics
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
-FILTER_METRIC_TYPE_PREFIX = "firewallinsights.googleapis.com/"
-FILTER_METRIC_TYPE = "subnet/firewall_hit_count"
+FILTER_METRIC_TYPE_PREFIX = 'firewallinsights.googleapis.com/'
+FILTER_METRIC_TYPE = 'subnet/firewall_hit_count'
 
 
 def BuildParameters(context, device_name, params):
