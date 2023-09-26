@@ -120,13 +120,15 @@ START_TIME = END_TIME - timedelta(hours=24)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
 FILTER_METRIC_TYPE = 'quota/instances_per_peering_group/usage'
+
+
 """
 End - Define User Parameters 
 """
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -135,7 +137,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -236,7 +238,7 @@ FILTER_METRIC_TYPE = 'gateway/connections'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -245,7 +247,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -344,7 +346,7 @@ FILTER_METRIC_TYPE = 'sent_routes_count'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -353,7 +355,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -452,7 +454,7 @@ FILTER_METRIC_TYPE = 'https/total_latencies'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -461,7 +463,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -564,7 +566,7 @@ FILTER_METRIC_TYPE = 'nat/new_connections_count'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -573,7 +575,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -672,7 +674,7 @@ FILTER_METRIC_TYPE_PREFIX = 'interconnect.googleapis.com/'
 FILTER_METRIC_TYPE = 'network/attachment/capacity'
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -681,7 +683,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -783,7 +785,7 @@ FILTER_METRIC_TYPE = 'private_service_connect/consumer/closed_connections_count'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -792,7 +794,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
@@ -891,7 +893,7 @@ FILTER_METRIC_TYPE = 'subnet/firewall_hit_count'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context,
         device_name,
         {
@@ -900,7 +902,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:

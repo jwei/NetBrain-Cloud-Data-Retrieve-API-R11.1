@@ -88,7 +88,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -96,7 +96,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 
@@ -181,7 +181,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'cloudRouterLink'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -189,7 +189,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 
@@ -273,7 +273,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -281,7 +281,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 
@@ -373,7 +373,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    nb_node = GetDeviceProperties(
+    response= GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -381,7 +381,7 @@ def BuildParameters(context, device_name, params):
             'params': ['*']
         }
     )
-    return nb_node
+    return response
 
 
 
