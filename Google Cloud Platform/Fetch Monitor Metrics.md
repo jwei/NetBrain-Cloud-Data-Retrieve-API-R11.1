@@ -103,6 +103,10 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'networkId'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -116,7 +120,9 @@ START_TIME = END_TIME - timedelta(hours=24)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
 FILTER_METRIC_TYPE = 'quota/instances_per_peering_group/usage'
-
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
