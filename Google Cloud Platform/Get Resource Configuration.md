@@ -327,7 +327,14 @@ Below are the Google APIs used to generate this configuration.
 ## Google Firewall
 
 ### Introduction
-An independent API for Google Firewall resources is not available; Instead, we create a Google Firewall for each Virtual Private Cloud (VPC). The configuration of the resource includes essential information such as the ID, name, and network name.
+The configuration of the  Google Firewall relies solely on the corresponding Google API of its Networks. The Google API provides detailed information regarding the configuration of the Google Firewall, including its firewalls, firewallPolicys, etc.
+
+### Content
+Below are the Google APIs used to generate this configuration.
+|Resource/Action|Relationship|Google API Version|Google API document|
+|------|------|------|------|
+| Google Firewall - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/getEffectiveFirewalls
+
 
 ### Sample
 <details><summary>Configuration File</summary>
