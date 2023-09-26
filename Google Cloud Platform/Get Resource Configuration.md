@@ -335,10 +335,66 @@ An independent API for Google Firewall resources is not available; Instead, we c
 ```json
 {
     "netbrainNotes": "This config file is generated via API",
-    "netbrainHostName": "europewest-vpc-firewall(<firewall-id>-firewall)",
+    "netbrainHostName": "<network-name>-firewall(<firewall-id>-firewall)",
     "id": "<firewall-id>-firewall",
-    "name": "europewest-vpc-firewall(<firewall-id>-firewall)",
-    "networkName": "europewest-vpc"
+    "name": "<network-name>-firewall(<firewall-id>-firewall)",
+    "networkName": "<network-name>",
+    "firewalls": [
+        {
+            "kind": "compute#firewall",
+            "id": "<firewall-rule-id>",
+            "creationTimestamp": "2021-08-18T16:38:53.844-07:00",
+            "name": "allowalltraff",
+            "description": "",
+            "network": "https://www.googleapis.com/compute/v1/projects/<proj-id>/global/networks/<network-name>",
+            "priority": 1000,
+            "sourceRanges": [
+                "0.0.0.0/0"
+            ],
+            "allowed": [
+                {
+                    "IPProtocol": "all"
+                }
+            ],
+            "direction": "INGRESS",
+            "logConfig": {
+                "enable": false
+            },
+            "disabled": false,
+            "selfLink": "https://www.googleapis.com/compute/v1/projects/<proj-id>/global/firewalls/allowalltraff"
+        }
+    ],
+    "firewallPolicys": [
+        {
+            "name": "xxxxxxx",
+            "type": "HIERARCHY",
+            "shortName": "firewall-policy-org",
+            "displayName": "firewall-policy-org",
+            "rules": [
+                {
+                    "kind": "compute#firewallPolicyRule",
+                    "description": "",
+                    "priority": 500,
+                    "match": {
+                        "destIpRanges": [
+                            "172.18.3.82"
+                        ],
+                        "layer4Configs": [
+                            {
+                                "ipProtocol": "tcp",
+                                "ports": [
+                                    "86"
+                                ]
+                            }
+                        ]
+                    },
+                    "action": "allow",
+                    "direction": "EGRESS",
+                    "enableLogging": false
+                }
+            ]
+        }
+    ]
 }
 ```
 
