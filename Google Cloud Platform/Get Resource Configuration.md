@@ -240,6 +240,11 @@ Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
 | Load Balancers - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules/get
+| Target HTTP Proxies - Get | target | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/targetHttpProxies/get
+| Url Map - Get | target.urlMap | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/regionUrlMaps/get
+| Default Service - Get | target.urlMap.pathMatchers.defaultService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+| Service - Get | target.urlMap.pathMatchers.pathRules.service | v1 | https://cloud.Default.com/compute/docs/reference/rest/v1/backendServices/get
+| Default Service - Get | target.urlMap.defaultService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
 | Backend Service - Get | backendService | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
 | Instance Groups - Get | backendService.backends.group | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups/get
 
