@@ -127,7 +127,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -355,7 +355,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -469,7 +469,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -586,7 +586,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -701,7 +701,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -817,7 +817,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -931,7 +931,7 @@ End - Define User Parameters
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -1053,14 +1053,13 @@ METRICS = [
 
     }
 ]
-
 """
 End - Define User Parameters 
 """
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
