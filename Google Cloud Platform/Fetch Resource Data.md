@@ -88,7 +88,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -100,7 +100,7 @@ def BuildParameters(context, device_name, params):
 
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -144,7 +144,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Get Live Data
     data = NBGCPAPILibrary.GetResourceDataByAPI(
@@ -181,7 +181,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'cloudRouterLink'
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -193,7 +193,7 @@ def BuildParameters(context, device_name, params):
 
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -237,7 +237,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Get Live Data
     data = NBGCPAPILibrary.GetResourceDataByAPI(
@@ -273,7 +273,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -285,7 +285,7 @@ def BuildParameters(context, device_name, params):
 
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -325,7 +325,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
 
     # Get Uri of Firewall
@@ -373,7 +373,7 @@ GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context, device_name,
         {
             'techName': 'Google Cloud',
@@ -385,7 +385,7 @@ def BuildParameters(context, device_name, params):
 
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -424,7 +424,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Get resource_uri of ldb
     resource_uri = params['params']['nbProperties']['forwardingRules'][0]

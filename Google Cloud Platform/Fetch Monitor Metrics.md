@@ -15,6 +15,7 @@
     - [Sample 6: Get Resource Metrics of Google Partner Interconnect Network Attachment Capacity](#sample6)
     - [Sample 7: Get Resource Metrics of Google Private Service Connect Endpoint](#sample7)
     - [Sample 8: Get Resource Metrics of Google Firewall Subnet Firewall Hit Count](#sample8)
+    - [Sample 9: Get Get Resource Multiple Metrics of Google VPC Network Instances Per Peering Group Usage and Limit](#sample9)
 
 
 # Introduction <a id="introduction"></a>
@@ -120,8 +121,6 @@ START_TIME = END_TIME - timedelta(hours=24)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
 FILTER_METRIC_TYPE = 'quota/instances_per_peering_group/usage'
-
-
 """
 End - Define User Parameters 
 """
@@ -140,7 +139,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -178,7 +177,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -221,6 +220,10 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+
+"""
+Start - Define User Parameters 
+"""
 # The field 'key' of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -234,11 +237,13 @@ START_TIME = END_TIME - timedelta(seconds=330)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'vpn.googleapis.com/'
 FILTER_METRIC_TYPE = 'gateway/connections'
-
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
-    response= GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {
@@ -250,7 +255,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -288,7 +293,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -329,6 +334,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -342,7 +350,9 @@ START_TIME = END_TIME - timedelta(seconds=330)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'router.googleapis.com/'
 FILTER_METRIC_TYPE = 'sent_routes_count'
-
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -358,7 +368,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -396,7 +406,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -438,6 +448,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -451,6 +464,9 @@ START_TIME = END_TIME - timedelta(hours=4)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'loadbalancing.googleapis.com/'
 FILTER_METRIC_TYPE = 'https/total_latencies'
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -466,7 +482,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -504,7 +520,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Get forwarding rule name
     forwarding_rule = params['params']['nbProperties']['forwardingRules'][0].split("/")[-1]
@@ -549,6 +565,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -562,7 +581,9 @@ START_TIME = END_TIME - timedelta(seconds=330)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
 FILTER_METRIC_TYPE = 'nat/new_connections_count'
-
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -578,7 +599,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -616,7 +637,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -659,6 +680,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -672,6 +696,10 @@ START_TIME = END_TIME - timedelta(seconds=330)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'interconnect.googleapis.com/'
 FILTER_METRIC_TYPE = 'network/attachment/capacity'
+"""
+End - Define User Parameters 
+"""
+
 
 def BuildParameters(context, device_name, params):
     response= GetDeviceProperties(
@@ -686,7 +714,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -724,7 +752,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -768,6 +796,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'pscConnectionId'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
@@ -781,7 +812,9 @@ START_TIME = END_TIME - timedelta(hours=4)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'compute.googleapis.com/'
 FILTER_METRIC_TYPE = 'private_service_connect/consumer/closed_connections_count'
-
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -797,7 +830,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -835,7 +868,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Setup url_params
     url_params = {
@@ -877,6 +910,9 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'networkName'
@@ -890,6 +926,9 @@ START_TIME = END_TIME - timedelta(seconds=330)
 #   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
 FILTER_METRIC_TYPE_PREFIX = 'firewallinsights.googleapis.com/'
 FILTER_METRIC_TYPE = 'subnet/firewall_hit_count'
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -905,7 +944,7 @@ def BuildParameters(context, device_name, params):
     return response
 
 
-def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
+def GetResourceInfoFromDataModel(params: dict) -> dict:
     """
     Get Resource Info from NetBrain Data Model
     Args:
@@ -943,7 +982,7 @@ def GetResourceInfoFromNetBrainDataModel(params: dict) -> dict:
 
 def RetrieveData(params):
     # Get resource info that is used to send RestAPI to the GCP Monitor Service
-    resource_info = GetResourceInfoFromNetBrainDataModel(params)
+    resource_info = GetResourceInfoFromDataModel(params)
 
     # Debug Example
     # raise Exception(resource_info)
@@ -968,4 +1007,135 @@ def RetrieveData(params):
     )
     return json.dumps(data, indent=4, default=str)
 
+```
+
+
+## Sample 9: Get Get Resource Multiple Metrics of Google VPC Network Instances Per Peering Group Usage and Limit<a id="sample9"></a>
+```python
+'''
+Begin Declare Input Parameters
+[
+]
+End Declare
+
+For sample
+[
+    {"name": "$param1"},
+    {"name": "$param2"}
+]
+'''
+
+from datetime import datetime, timezone, timedelta
+import json
+
+
+"""
+Start - Define User Parameters 
+"""
+# The field "key" of the corresponding data field of GCP resources in NetBrain data model
+GCP_RESOURCE_ID_KEY = 'networkId'
+GCP_RESOURCE_NAME_KEY = 'gcp_name'
+GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+
+# Time Range for the GCP Monitor statistics
+END_TIME = datetime.now(timezone.utc)
+START_TIME = END_TIME - timedelta(hours=24)
+
+# Multi-Metrics please refer to
+#   to get a complete list, please ref to: https://cloud.google.com/monitoring/api/metrics_gcp
+METRICS = [
+    {
+        'FILTER_METRIC_TYPE_PREFIX': 'compute.googleapis.com/',
+        'FILTER_METRIC_TYPE': 'quota/instances_per_peering_group/usage'
+    },
+    {
+        'FILTER_METRIC_TYPE_PREFIX': 'compute.googleapis.com/',
+        'FILTER_METRIC_TYPE': 'quota/instances_per_peering_group/limit'
+
+    }
+]
+
+"""
+End - Define User Parameters 
+"""
+
+
+def BuildParameters(context, device_name, params):
+    response= GetDeviceProperties(
+        context,
+        device_name,
+        {
+            'techName': 'Google Cloud',
+            'paramType': 'SDN',
+            'params': ['*']
+        }
+    )
+    return response
+
+
+def GetResourceInfoFromDataModel(params: dict) -> dict:
+    """
+    Get Resource Info from NetBrain Data Model
+    Args:
+        params(dict): dictionary of netbrain data model
+    Returns:
+        (dict) the Resource Info that contains
+            - API Server ID
+            - Project ID
+            - GCP Resource ID
+            - GCP Resource Name
+            - GCP Resource Self Link
+    """
+    # Common used variables: GCP related Resource id, name, self link uri
+    nb_node = params['params']
+
+    # Setup api server id
+    api_server_id = params['apiServerId']
+
+    # Get proj_id
+    proj_id = NBGCPAPILibrary.GetProjectIdByResource(nb_node)
+
+    gcp_resource_id = nb_node[GCP_RESOURCE_ID_KEY] if GCP_RESOURCE_ID_KEY in nb_node else None
+    gcp_resource_name = nb_node[GCP_RESOURCE_NAME_KEY] if GCP_RESOURCE_NAME_KEY in nb_node else None
+    gcp_resource_self_link = nb_node[GCP_RESOURCE_SELF_LINK_KEY] if GCP_RESOURCE_SELF_LINK_KEY in nb_node else None
+
+    resource_info = {
+        'apiServerId': api_server_id,
+        'projId': proj_id,
+        'id': gcp_resource_id,
+        'name': gcp_resource_name,
+        'selfLink': gcp_resource_self_link
+    }
+    return resource_info
+
+
+def RetrieveData(params):
+    # Get resource info that is used to send RestAPI to the GCP Monitor Service
+    resource_info = GetResourceInfoFromDataModel(params)
+
+    result = {}
+    for mtx in METRICS:
+        prefix = mtx['FILTER_METRIC_TYPE_PREFIX']
+        type = mtx['FILTER_METRIC_TYPE']
+        url_params = {
+            'filter': {
+                'metric.type': prefix + type,
+                # Returning labels to filter specific resource
+                #    See full return type list, please ref: https://cloud.google.com/monitoring/api/resources
+                'resource.labels.network_id': resource_info['id']
+            },
+            'interval.startTime': START_TIME.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'interval.endTime': END_TIME.strftime('%Y-%m-%dT%H:%M:%SZ')
+        }
+
+        result_key = prefix + type
+
+        result_value = NBGCPAPILibrary.GetMonitorMetrics(
+            api_server_id=resource_info['apiServerId'],
+            proj_id=resource_info['projId'],
+            url_params=url_params
+        )
+        result[result_key] = result_value
+
+    return json.dumps(result, indent=4, default=str)
 ```
