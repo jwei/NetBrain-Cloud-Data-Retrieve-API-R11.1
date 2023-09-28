@@ -258,6 +258,161 @@ Below are the Google APIs used to generate this configuration.
     "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1",
     "IPAddress": "xx.xx.xx.xx",
     "IPProtocol": "TCP",
+    "portRange": "80-80",
+    # Target: https://cloud.google.com/compute/docs/reference/rest/v1/targetHttpProxies/get
+    "target": {
+        "kind": "compute#targetHttpProxy",
+        "id": "3267693297597854555",
+        "creationTimestamp": "2021-05-05T14:27:16.252-07:00",
+        "name": "lb5-http-internal-lb-target-proxy",
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/targetHttpProxies/lb5-http-internal-lb-target-proxy",
+        # UrlMap: https://cloud.google.com/compute/docs/reference/rest/v1/regionUrlMaps/get
+        "urlMap": {
+            "kind": "compute#urlMap",
+            "id": "<url-map-id>",
+            "creationTimestamp": "2021-05-05T14:27:12.247-07:00",
+            "name": "lb5-http-internal-lb",
+            "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/urlMaps/lb5-http-internal-lb",
+            "hostRules": [
+                {
+                    "hosts": [
+                        "<hostname>"
+                    ],
+                    "pathMatcher": "path-matcher-1"
+                }
+            ],
+            "pathMatchers": [
+                {
+                    "name": "path-matcher-1",
+                    # BackendService: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+                    "defaultService": {
+                        "kind": "compute#backendService",
+                        "id": "<default-service-id>",
+                        "creationTimestamp": "2021-05-05T14:26:55.156-07:00",
+                        "name": "lb5-http-internal-lb-backend",
+                        "description": "",
+                        "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/backendServices/lb5-http-internal-lb-backend",
+                        "backends": [
+                            {
+                                "description": "",
+                                "group": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/instanceGroups/traffic-director-ig",
+                                "balancingMode": "UTILIZATION",
+                                "maxUtilization": 0.8,
+                                "capacityScaler": 1
+                            }
+                        ],
+                        "healthChecks": [
+                            "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/healthChecks/lb5-http-internal-lb-health-check"
+                        ],
+                        "timeoutSec": 30,
+                        "port": 80,
+                        "protocol": "HTTP",
+                        "fingerprint": "gHQAFZlsf3w=",
+                        "portName": "http",
+                        "sessionAffinity": "NONE",
+                        "affinityCookieTtlSec": 0,
+                        "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
+                        "loadBalancingScheme": "INTERNAL_MANAGED",
+                        "connectionDraining": {
+                            "drainingTimeoutSec": 300
+                        },
+                        "logConfig": {
+                            "enable": false,
+                            "optionalMode": "EXCLUDE_ALL_OPTIONAL"
+                        },
+                        "localityLbPolicy": "ROUND_ROBIN"
+                    },
+                    "pathRules": [
+                         {
+                            # BackendService: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+                            "service": {
+                                "kind": "compute#backendService",
+                                "id": "1224882774310039957",
+                                "creationTimestamp": "2021-05-05T14:34:50.741-07:00",
+                                "name": "lb4-http-internal-lb-backend",
+                                "description": "",
+                                "selfLink": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/backendServices/lb4-http-internal-lb-backend",
+                                "backends": [
+                                    {
+                                        "description": "",
+                                        "group": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/instanceGroups/lb5-http-internal-lb-instance-group",
+                                        "balancingMode": "UTILIZATION",
+                                        "maxUtilization": 0.8,
+                                        "capacityScaler": 1
+                                    }
+                                ],
+                                "healthChecks": [
+                                    "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/healthChecks/lb4-http-internal-lb-health-check"
+                                ],
+                                "timeoutSec": 30,
+                                "port": 80,
+                                "protocol": "HTTP",
+                                "fingerprint": "C90_FYhotH8=",
+                                "portName": "http",
+                                "sessionAffinity": "NONE",
+                                "affinityCookieTtlSec": 0,
+                                "region": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1",
+                                "loadBalancingScheme": "INTERNAL_MANAGED",
+                                "connectionDraining": {
+                                    "drainingTimeoutSec": 300
+                                },
+                                "logConfig": {
+                                    "enable": false,
+                                    "optionalMode": "EXCLUDE_ALL_OPTIONAL"
+                                },
+                                "localityLbPolicy": "ROUND_ROBIN"
+                            },
+                            "paths": [
+                                "/image"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            # BackendService: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
+            "defaultService": {
+                "kind": "compute#backendService",
+                "id": "<default-service-id>",
+                "creationTimestamp": "2021-05-05T14:26:55.156-07:00",
+                "name": "lb5-http-internal-lb-backend",
+                "description": "",
+                "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/backendServices/lb5-http-internal-lb-backend",
+                "backends": [
+                    {
+                        "description": "",
+                        "group": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/instanceGroups/traffic-director-ig",
+                        "balancingMode": "UTILIZATION",
+                        "maxUtilization": 0.8,
+                        "capacityScaler": 1
+                    }
+                ],
+                "healthChecks": [
+                    "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1/healthChecks/lb5-http-internal-lb-health-check"
+                ],
+                "timeoutSec": 30,
+                "port": 80,
+                "protocol": "HTTP",
+                "fingerprint": "gHQAFZlsf3w=",
+                "portName": "http",
+                "sessionAffinity": "NONE",
+                "affinityCookieTtlSec": 0,
+                "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
+                "loadBalancingScheme": "INTERNAL_MANAGED",
+                "connectionDraining": {
+                    "drainingTimeoutSec": 300
+                },
+                "logConfig": {
+                    "enable": false,
+                    "optionalMode": "EXCLUDE_ALL_OPTIONAL"
+                },
+                "localityLbPolicy": "ROUND_ROBIN"
+            },
+            "fingerprint": "xxxxxxxxxxx",
+            "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1"
+        },
+        "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-east1",
+        "fingerprint": "xxxxxxxxxxx"
+    },
     "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/forwardingRules/host-proj2-tcp-internal-lb1-frontend",
     "loadBalancingScheme": "INTERNAL",
     "subnetwork": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
@@ -265,7 +420,7 @@ Below are the Google APIs used to generate this configuration.
     # Backend Service: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
     "backendService": {
         "kind": "compute#backendService",
-        "id": "3089886968714976396",
+        "id": "<backend-service-id>",
         "creationTimestamp": "2021-07-15T18:35:31.122-07:00",
         "name": "host-proj2-tcp-internal-lb1",
         "description": "",
