@@ -220,7 +220,6 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
-
 """
 Start - Define User Parameters 
 """

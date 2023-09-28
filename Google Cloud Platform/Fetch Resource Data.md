@@ -81,11 +81,16 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
 GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
-
+"""
+End - Define User Parameters 
+"""
 
 def BuildParameters(context, device_name, params):
     response = GetDeviceProperties(
@@ -174,10 +179,16 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
 GCP_RESOURCE_SELF_LINK_KEY = 'cloudRouterLink'
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -266,10 +277,16 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
 GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
@@ -366,10 +383,16 @@ For sample
 from datetime import datetime, timezone, timedelta
 import json
 
+"""
+Start - Define User Parameters 
+"""
 # The field "key" of the corresponding data field of GCP resources in NetBrain data model
 GCP_RESOURCE_ID_KEY = 'id'
 GCP_RESOURCE_NAME_KEY = 'gcp_name'
 GCP_RESOURCE_SELF_LINK_KEY = 'selfLink'
+"""
+End - Define User Parameters 
+"""
 
 
 def BuildParameters(context, device_name, params):
