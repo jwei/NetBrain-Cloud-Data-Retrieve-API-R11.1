@@ -332,31 +332,31 @@ Below are the Google APIs used to generate this configuration.
                             # BackendService: https://cloud.google.com/compute/docs/reference/rest/v1/backendServices/get
                             "service": {
                                 "kind": "compute#backendService",
-                                "id": "1224882774310039957",
+                                "id": "<backend-service-id>",
                                 "creationTimestamp": "2021-05-05T14:34:50.741-07:00",
                                 "name": "lb4-http-internal-lb-backend",
                                 "description": "",
-                                "selfLink": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/backendServices/lb4-http-internal-lb-backend",
+                                "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>9/regions/us-east1/backendServices/lb4-http-internal-lb-backend",
                                 "backends": [
                                     {
                                         "description": "",
-                                        "group": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/instanceGroups/lb5-http-internal-lb-instance-group",
+                                        "group": "https://www.googleapis.com/compute/v1/projects/<project-id>9/regions/us-east1/instanceGroups/lb5-http-internal-lb-instance-group",
                                         "balancingMode": "UTILIZATION",
                                         "maxUtilization": 0.8,
                                         "capacityScaler": 1
                                     }
                                 ],
                                 "healthChecks": [
-                                    "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1/healthChecks/lb4-http-internal-lb-health-check"
+                                    "https://www.googleapis.com/compute/v1/projects/<project-id>9/regions/us-east1/healthChecks/lb4-http-internal-lb-health-check"
                                 ],
                                 "timeoutSec": 30,
                                 "port": 80,
                                 "protocol": "HTTP",
-                                "fingerprint": "C90_FYhotH8=",
+                                "fingerprint": "xxxxxxxxxxxx",
                                 "portName": "http",
                                 "sessionAffinity": "NONE",
                                 "affinityCookieTtlSec": 0,
-                                "region": "https://www.googleapis.com/compute/v1/projects/norse-fragment-296509/regions/us-east1",
+                                "region": "https://www.googleapis.com/compute/v1/projects/<project-id>9/regions/us-east1",
                                 "loadBalancingScheme": "INTERNAL_MANAGED",
                                 "connectionDraining": {
                                     "drainingTimeoutSec": 300
