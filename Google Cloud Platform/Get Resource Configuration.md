@@ -25,6 +25,7 @@ Below are the Google APIs used to generate this configuration.
 |Resource/Action|Relationship|Google API Version|Google API document|
 |------|------|------|------|
 | VPC Router - Get | self | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/get | 
+| Subnetwork - Get | subnetworks | v1 | https://cloud.google.com/compute/docs/reference/rest/v1/networks/get | 
 
 ### Sample
 <details><summary>Configuration File</summary>
@@ -41,9 +42,38 @@ Below are the Google APIs used to generate this configuration.
     "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/central-vpc-hub",
     "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/xxxxxxxxxxxxxxxxxxx",
     "autoCreateSubnetworks": false,
+    # Subnetworks: https://cloud.google.com/compute/docs/reference/rest/v1/networks/get
     "subnetworks": [
-        "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-1",
-        "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/us-central1/subnetworks/subnet-2"
+{
+            "kind": "compute#subnetwork",
+            "id": "<subnetwork-id>",
+            "creationTimestamp": "2021-11-29T07:11:15.160-08:00",
+            "name": "australia-southeast-subnet1",
+            "description": "australia-southeast-subnet1",
+            "network": "https://www.googleapis.com/compute/v1/projects/<project-id>/global/networks/australia-vpc-spoke6",
+            "ipCidrRange": "xx.xx.xx.xx/28",
+            "gatewayAddress": "xx.xx.xx.xx",
+            "region": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/australia-southeast1",
+            "selfLink": "https://www.googleapis.com/compute/v1/projects/<project-id>/regions/australia-southeast1/subnetworks/australia-southeast-subnet1",
+            "privateIpGoogleAccess": true,
+            "secondaryIpRanges": [
+                {
+                    "rangeName": "range-2",
+                    "ipCidrRange": "xx.xx.xx.xx/28"
+                }
+            ],
+            "fingerprint": "xxxxxxxxxx",
+            "enableFlowLogs": false,
+            "privateIpv6GoogleAccess": "DISABLE_GOOGLE_ACCESS",
+            "purpose": "PRIVATE",
+            "logConfig": {
+                "enable": false,
+                "aggregationInterval": "INTERVAL_5_SEC",
+                "flowSampling": 0.5,
+                "metadata": "INCLUDE_ALL_METADATA"
+            },
+            "stackType": "IPV4_ONLY"
+        }
     ],
     "peerings": [
         {
