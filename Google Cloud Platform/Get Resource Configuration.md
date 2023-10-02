@@ -44,7 +44,7 @@ Below are the Google APIs used to generate this configuration.
     "autoCreateSubnetworks": false,
     # Subnetworks: https://cloud.google.com/compute/docs/reference/rest/v1/networks/get
     "subnetworks": [
-{
+    {
             "kind": "compute#subnetwork",
             "id": "<subnetwork-id>",
             "creationTimestamp": "2021-11-29T07:11:15.160-08:00",
