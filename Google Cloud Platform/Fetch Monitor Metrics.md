@@ -1050,7 +1050,6 @@ METRICS = [
     {
         'FILTER_METRIC_TYPE_PREFIX': 'compute.googleapis.com/',
         'FILTER_METRIC_TYPE': 'quota/instances_per_peering_group/limit'
-
     }
 ]
 """
