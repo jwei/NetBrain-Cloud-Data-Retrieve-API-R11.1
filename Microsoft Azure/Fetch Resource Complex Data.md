@@ -70,15 +70,15 @@ End Declare
 '''
   
 def BuildParameters(context, device_name, params):
-    node_props = GetDeviceProperties(
+    response = GetDeviceProperties(
         context,
         device_name,
         {'techName': 'Microsoft Azure', 'paramType': 'SDN', 'params' : ['*'] }
     )
-    return node_props
+    return response
       
-def RetrieveData(param):   
-    nb_node = param['params']
+def RetrieveData(params):   
+    nb_node = params['params']
     data = NBAzureAPILibrary.GetResourceData(
         api_server_id=param['apiServerId'],
         nb_resource_data=nb_node,
