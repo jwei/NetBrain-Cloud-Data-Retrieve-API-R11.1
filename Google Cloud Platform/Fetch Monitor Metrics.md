@@ -15,7 +15,7 @@
     - [Sample 6: Get Resource Metrics of Google Partner Interconnect Network Attachment Capacity](#sample6)
     - [Sample 7: Get Resource Metrics of Google Private Service Connect Endpoint](#sample7)
     - [Sample 8: Get Resource Metrics of Google Firewall Subnet Firewall Hit Count](#sample8)
-    - [Sample 9: Get Get Resource Multiple Metrics of Google VPC Network Instances Per Peering Group Usage and Limit](#sample9)
+    - [Sample 9: Get Multiple Resource Metrics of Google VPC Network Instances Per Peering Group Usage and Limit](#sample9)
 
 
 # Introduction <a id="introduction"></a>
@@ -1009,7 +1009,7 @@ def RetrieveData(params):
 ```
 
 
-## Sample 9: Get Get Resource Multiple Metrics of Google VPC Network Instances Per Peering Group Usage and Limit<a id="sample9"></a>
+## Sample 9: Get Multiple Resource Metrics of Google VPC Network Instances Per Peering Group Usage and Limit<a id="sample9"></a>
 ```python
 '''
 Begin Declare Input Parameters
