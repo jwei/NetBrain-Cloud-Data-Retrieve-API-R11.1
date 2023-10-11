@@ -658,7 +658,7 @@ Configuration feature is not supported for Google Virtual Machine yet. Please se
 
 ## Google Internet Gateway
 ### Introduction
-Google Cloud does not provide an independent resource for an Google Internet Gateway. Instead, the Google Internet gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the Internet.
+Google Cloud does not provide an independent resource for an Google Internet Gateway. Instead, the Google Internet Gateway is created for each Virtual Private Cloud (VPC) to illustrate the path of network traffic to the Internet.
 
 ### Sample
 <details><summary>Configuration File</summary>
