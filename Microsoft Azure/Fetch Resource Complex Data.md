@@ -1,5 +1,4 @@
 # Table of Contents
-- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [API Definition](#api-definition)
   - [Input Parameters](#input-parameters)
@@ -8,28 +7,13 @@
 - [Available Data Types](#available-data-types)
   - [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
     - [Type "connection"](#type-connection)
-      - [Introduction](#introduction-1)
-      - [Content](#content)
-      - [Sample](#sample-1)
   - [Azure Virtual Machine](#azure-virtual-machine)
     - [Type "configuration"](#type-configuration)
-      - [Introduction](#introduction-2)
-      - [Content](#content-1)
-      - [Sample](#sample-2)
     - [Type "run\_time\_state"](#type-run_time_state)
-      - [Introduction](#introduction-3)
-      - [Content](#content-2)
-      - [Sample](#sample-3)
   - [Azure MSEE](#azure-msee)
     - [Type "route\_table"](#type-route_table)
-      - [Introduction](#introduction-4)
-      - [Content](#content-3)
-      - [Sample](#sample-4)
   - [Azure Firewall](#azure-firewall)
     - [Type "firewall\_rule"](#type-firewall_rule)
-      - [Introduction](#introduction-5)
-      - [Content](#content-4)
-      - [Sample](#sample-5)
   
 # Introduction
 The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It is used to retrieve various types of data of Azure resources.<br />
@@ -87,41 +71,21 @@ def RetrieveData(params):
 <br />
 
 # Available Data Types
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [API Definition](#api-definition)
-  - [Input Parameters](#input-parameters)
-  - [Output](#output)
-  - [Sample](#sample)
-- [Available Data Types](#available-data-types)
-  - [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
-    - [Type "connection"](#type-connection)
-      - [Introduction](#introduction-1)
-      - [Content](#content)
-      - [Sample](#sample-1)
-  - [Azure Virtual Machine](#azure-virtual-machine)
-    - [Type "configuration"](#type-configuration)
-      - [Introduction](#introduction-2)
-      - [Content](#content-1)
-      - [Sample](#sample-2)
-    - [Type "run\_time\_state"](#type-run_time_state)
-      - [Introduction](#introduction-3)
-      - [Content](#content-2)
-      - [Sample](#sample-3)
-  - [Azure MSEE](#azure-msee)
-    - [Type "route\_table"](#type-route_table)
-      - [Introduction](#introduction-4)
-      - [Content](#content-3)
-      - [Sample](#sample-4)
-  - [Azure Firewall](#azure-firewall)
-    - [Type "firewall\_rule"](#type-firewall_rule)
-      - [Introduction](#introduction-5)
-      - [Content](#content-4)
-      - [Sample](#sample-5)
+- [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
+  - [Type "connection"](#type-connection)
+- [Azure Virtual Machine](#azure-virtual-machine)
+  - [Type "configuration"](#type-configuration)
+  - [Type "run\_time\_state"](#type-run_time_state)
+- [Azure MSEE](#azure-msee)
+  - [Type "route\_table"](#type-route_table)
+- [Azure Firewall](#azure-firewall)
+  - [Type "firewall\_rule"](#type-firewall_rule)
 
 ## Azure Virtual Network Gateway
-* [connection](#type-connection)
-
+- [Type "connection"](#type-connection)
+  - [Introduction](#introduction-1)
+  - [Content](#content)
+  - [Sample](#sample-1)
 ### Type "connection"
 #### Introduction
 Passing-in the keyword "**connection**" for the param "data_type", the API returns the Azure's original API response of "Virtual Network Gateway - Connections", with the details of some associated resources, e.g. Local Network Gateway.
@@ -219,9 +183,14 @@ Below are the Azure APIs used to generate this configuration.
 
 
 ## Azure Virtual Machine
-* [configuration](#type-configuration)
-* [run_time_state](#type-run_time_state)
-
+- [Type "configuration"](#type-configuration)
+  - [Introduction](#introduction-2)
+  - [Content](#content-1)
+  - [Sample](#sample-2)
+- [Type "run_time_state"](#type-run_time_state)
+  - [Introduction](#introduction-3)
+  - [Content](#content-2)
+  - [Sample](#sample-3)
 ### Type "configuration"
 #### Introduction
 Passing-in the keyword "**configuration**" for the param "data_type", the API returns the Azure's original API response of Virtual Machine, with the details of some associated resources, including Network Interfaces, Network Security Groups.
@@ -538,8 +507,11 @@ Below are the Azure APIs used to generate this configuration.
 
 ## Azure MSEE
 In NetBrain, we generate two MSEE (Microsoft Enterprise Edge) devices (Primary and Secondary) for each Azure ExpressRoute Circuit.
-* [route_table](#type-route_table)
-
+- [Type "route_table"](#type-route_table)
+  - [Introduction](#introduction-4)
+  - [Content](#content-3)
+  - [Sample](#sample-4)
+  
 ### Type "route_table"
 #### Introduction
 Passing-in the keyword "**route_table**" for the param "data_type", the API returns the the route tables of each circuit peering, which describes the currently advertised routes table associated with the express route circuit.
@@ -591,7 +563,10 @@ Below are the Azure APIs used to generate this configuration.
 <br />
 
 ## Azure Firewall
-* [firewall_rule](#type-firewall_rule)
+- [Type "firewall_rule"](#type-firewall_rule)
+  - [Introduction](#introduction-5)
+  - [Content](#content-4)
+  - [Sample](#sample-5)
 
 ### Type "firewall_rule"
 #### Introduction
