@@ -53,7 +53,7 @@ class NBAzureAPILibrary:
  - `data_type` (str) - The specific data type of the current Azure resource. For the available data types of each Azure resource, please check [Available Data Types](#available-data-types).
 
 ## Output
-> The JSON response body of the HTTP request to the Azure RESTful API. This is a dictionary with string keys and values.
+> The JSON response body of the requested API. For the response data structure of each data type, please check [Available Data Types](#available-data-types).
 
 ## Sample
 
