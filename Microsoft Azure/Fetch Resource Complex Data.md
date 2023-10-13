@@ -88,7 +88,7 @@ def RetrieveData(params):
   - [Sample](#sample-1)
 ### Type "connection"
 #### Introduction
-Passing-in the keyword "**connection**" for the param "data_type", the API returns the Azure's original API response of "Virtual Network Gateway - Connections", with the details of some associated resources, e.g. Local Network Gateway.
+Passing-in the keyword "**connection**" for the param `data_type`, the API returns the Azure's original API response of "Virtual Network Gateway - Connections", with the details of some associated resources, e.g. Local Network Gateway.
 
 
 #### Content
@@ -193,7 +193,7 @@ Below are the Azure APIs used to generate this configuration.
   - [Sample](#sample-3)
 ### Type "configuration"
 #### Introduction
-Passing-in the keyword "**configuration**" for the param "data_type", the API returns the Azure's original API response of Virtual Machine, with the details of some associated resources, including Network Interfaces, Network Security Groups.
+Passing-in the keyword "**configuration**" for the param `data_type`, the API returns the Azure's original API response of Virtual Machine, with the details of some associated resources, including Network Interfaces, Network Security Groups.
 
 
 #### Content
@@ -440,7 +440,7 @@ Below are the Azure APIs used to generate this configuration.
 
 ### Type "run_time_state"
 #### Introduction
-Passing-in the keyword "**run_time_state**" for the param "data_type", the API returns the Azure's API response of "Virtual Machine - Instance View", which describes the run-time state of a virtual machine. The data structure of "statuses" field is modified from original response for easier usage.
+Passing-in the keyword "**run_time_state**" for the param `data_type`, the API returns the Azure's API response of "Virtual Machine - Instance View", which describes the run-time state of a virtual machine. The data structure of "statuses" field is modified from original response for easier usage.
 
 
 #### Content
@@ -514,7 +514,7 @@ In NetBrain, we generate two MSEE (Microsoft Enterprise Edge) devices (Primary a
   
 ### Type "route_table"
 #### Introduction
-Passing-in the keyword "**route_table**" for the param "data_type", the API returns the the route tables of each circuit peering, which describes the currently advertised routes table associated with the express route circuit.
+Passing-in the keyword "**route_table**" for the param `data_type`, the API returns the the route tables of each circuit peering, which describes the currently advertised routes table associated with the express route circuit.
 
 
 #### Content
@@ -570,7 +570,7 @@ Below are the Azure APIs used to generate this configuration.
 
 ### Type "firewall_rule"
 #### Introduction
-Passing-in the keyword "**firewall_rule**" for the param "data_type", the API returns the NAT rules, network rules, and applications rules of the Azure Firewall. <br />
+Passing-in the keyword "**firewall_rule**" for the param `data_type`, the API returns the NAT rules, network rules, and applications rules of the Azure Firewall. <br />
 There are two types of firewall rules -- classic rules and firewall policy (ref: https://learn.microsoft.com/en-us/azure/firewall/rule-processing).<br />
 The classic firewall rules can be found directly in the firewall's Azure API data. The other type of firewall rule can be fetched via firewall policy and its base policy's Azure API data.
 
