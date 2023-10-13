@@ -1222,4 +1222,3 @@ Below are the AWS SDK used to generate this configuration.
 </details>
 <br />
   
-
