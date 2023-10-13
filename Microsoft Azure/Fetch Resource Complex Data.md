@@ -4,20 +4,16 @@
   - [Input Parameters](#input-parameters)
   - [Output](#output)
   - [Sample](#sample)
-- [Available Data Types](#available-data-types)
-  - [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
-    - [Type "connection"](#type-connection)
-  - [Azure Virtual Machine](#azure-virtual-machine)
-    - [Type "configuration"](#type-configuration)
-    - [Type "run\_time\_state"](#type-run_time_state)
-  - [Azure MSEE](#azure-msee)
-    - [Type "route\_table"](#type-route_table)
-  - [Azure Firewall](#azure-firewall)
-    - [Type "firewall\_rule"](#type-firewall_rule)
+- [Supported Devices](#supported-devices)
+  - [Azure Virtual Network Gateway](#azure-virtual-network-gateway)    
+  - [Azure Virtual Machine](#azure-virtual-machine)    
+  - [Azure MSEE](#azure-msee)    
+  - [Azure Firewall](#azure-firewall)    
+  - [More Coming Soon...](#more-coming-soon)
   
 # Introduction
 The `GetResourceData` function is a static method defined in the `NBAzureAPILibrary` class. It is used to retrieve various types of data of Azure resources.<br />
-For the available data types of each Azure resource, please check [Available Data Types](#available-data-types).
+For the available data types of each Azure resource, please check [Supported Devices](#supported-devices).
 
 # API Definition
 ```python
@@ -34,10 +30,10 @@ class NBAzureAPILibrary:
 ## Input Parameters
  - `api_server_id` (str) The external API Server ID of this technology instance. User should be able to get it in API Script context. For details please check [Sample](#sample).
  - `nb_resource_data` (object) The entire resource data model in NetBrain. It is retrieved by calling the `GetDeviceProperties` API method, passing in the device name and ['*'] for the parameter. For details please check [Sample](#sample).
- - `data_type` (str) - The specific data type of the current Azure resource. For the available data types of each Azure resource, please check [Available Data Types](#available-data-types).
+ - `data_type` (str) - The specific data type of the current Azure resource. For the available data types of each Azure resource, please check [Supported Devices](#supported-devices).
 
 ## Output
-> The JSON response body of the requested API. For the response data structure of each data type, please check [Available Data Types](#available-data-types).
+> The JSON response body of the requested API. For the response data structure of each data type, please check [Supported Devices](#supported-devices).
 
 ## Sample
 
@@ -70,16 +66,12 @@ def RetrieveData(params):
 
 <br />
 
-# Available Data Types
-- [Azure Virtual Network Gateway](#azure-virtual-network-gateway)
-  - [Type "connection"](#type-connection)
-- [Azure Virtual Machine](#azure-virtual-machine)
-  - [Type "configuration"](#type-configuration)
-  - [Type "run\_time\_state"](#type-run_time_state)
-- [Azure MSEE](#azure-msee)
-  - [Type "route\_table"](#type-route_table)
-- [Azure Firewall](#azure-firewall)
-  - [Type "firewall\_rule"](#type-firewall_rule)
+# Supported Devices
+- [Azure Virtual Network Gateway](#azure-virtual-network-gateway)  
+- [Azure Virtual Machine](#azure-virtual-machine)  
+- [Azure MSEE](#azure-msee)  
+- [Azure Firewall](#azure-firewall)  
+- [More Coming Soon...](#more-coming-soon)
 
 ## Azure Virtual Network Gateway
 - [Type "connection"](#type-connection)
@@ -846,3 +838,6 @@ Below are the Azure APIs used to generate this configuration.
 ```
 </details>
 <br />
+
+
+## More Coming Soon
