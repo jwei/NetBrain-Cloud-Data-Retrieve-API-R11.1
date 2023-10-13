@@ -360,7 +360,7 @@ Below are the Azure APIs used to generate this configuration.
 ## Azure Virtual Machine
 
 ### Introduction
-System configuration is not supported for Azure Virtual Machine. To get configuration data, please use Azure Complex Data Fetch API with type "configuration".
+System configuration is not supported for Azure Virtual Machine. To get configuration data, please use Azure Complex Data Fetch API with data type "configuration"： https://github.com/jwei/NetBrain-Cloud-Data-Retrieve-API-R11.1/blob/main/Microsoft%20Azure/Fetch%20Resource%20Complex%20Data.md#azure-virtual-machine.
 
 
 ## Azure VPN Gateway
