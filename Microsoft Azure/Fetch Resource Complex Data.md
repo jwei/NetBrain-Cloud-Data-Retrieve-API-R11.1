@@ -76,7 +76,7 @@ def BuildParameters(context, device_name, params):
 def RetrieveData(params):   
     nb_node = params['params']
     data = NBAzureAPILibrary.GetResourceData(
-        api_server_id=param['apiServerId'],
+        api_server_id=params['apiServerId'],
         nb_resource_data=nb_node,
         data_type='connection'
     )
