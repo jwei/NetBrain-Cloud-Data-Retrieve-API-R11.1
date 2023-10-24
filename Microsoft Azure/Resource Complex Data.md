@@ -453,11 +453,6 @@ Below are the Azure APIs used to generate this configuration.
     "vmId": "d8d7134c-3b51-4abc-8d19-dc46d8653fc3",
     "type": "Microsoft.Compute/virtualMachines",
     "location": "eastus",
-    "identity": {
-        "type": "SystemAssigned",
-        "principalId": "f0f7d050-f434-416f-bff4-2e344e67fb6c",
-        "tenantId": "2876592c-07dd-4907-839c-d70e8752d064"
-    },
     "hardwareProfile": {
         "vmSize": "Standard_B1ls"
     },
