@@ -436,7 +436,8 @@ Passing-in the keyword "**run_time_state**" for the param `data_type`, the API r
 
 
 #### Content
-Below are the Azure APIs used to generate this configuration.
+Below are the Azure APIs used to generate this configuration.<br />
+We also added some basic properties from NetBrain data model, including "name", "id", "vmId", "type", "location", and "hardwareProfile".
 |**Resource/Action**|**Relationship**|**Azure API Version**|**Azure API document**|
 |------|------|------|------|
 | Virtual Machines - Instance View | self | 2022-11-01 | https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/instance-view?tabs=HTTP | 
